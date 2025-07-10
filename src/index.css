@@ -12,83 +12,85 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 30% 3%;
-    --foreground: 210 40% 98%;
+    --background: 200 20% 5%;
+    --foreground: 185 15% 95%;
 
-    --card: 220 25% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 200 25% 8%;
+    --card-foreground: 185 15% 95%;
 
-    --popover: 220 25% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 200 25% 8%;
+    --popover-foreground: 185 15% 95%;
 
-    --primary: 142 76% 36%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 189 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 189 85% 55%;
 
-    --secondary: 220 25% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 200 25% 12%;
+    --secondary-foreground: 185 15% 95%;
 
-    --muted: 220 25% 12%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 200 25% 12%;
+    --muted-foreground: 185 15% 65%;
 
-    --accent: 220 25% 12%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 189 60% 20%;
+    --accent-foreground: 185 15% 95%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 185 15% 95%;
 
-    --border: 220 25% 15%;
-    --input: 220 25% 12%;
-    --ring: 142 76% 36%;
+    --border: 200 25% 15%;
+    --input: 200 25% 12%;
+    --ring: 189 85% 45%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 200 20% 8%;
+    --sidebar-foreground: 185 15% 95%;
+    --sidebar-primary: 189 85% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 200 25% 15%;
+    --sidebar-accent-foreground: 185 15% 95%;
+    --sidebar-border: 200 25% 15%;
+    --sidebar-ring: 189 85% 45%;
   }
 
   .dark {
-    --background: 220 30% 3%;
-    --foreground: 210 40% 98%;
+    --background: 200 20% 5%;
+    --foreground: 185 15% 95%;
 
-    --card: 220 25% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 200 25% 8%;
+    --card-foreground: 185 15% 95%;
 
-    --popover: 220 25% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 200 25% 8%;
+    --popover-foreground: 185 15% 95%;
 
-    --primary: 142 76% 36%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 189 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 189 85% 55%;
 
-    --secondary: 220 25% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 200 25% 12%;
+    --secondary-foreground: 185 15% 95%;
 
-    --muted: 220 25% 12%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 200 25% 12%;
+    --muted-foreground: 185 15% 65%;
 
-    --accent: 220 25% 12%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 189 60% 20%;
+    --accent-foreground: 185 15% 95%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 185 15% 95%;
 
-    --border: 220 25% 15%;
-    --input: 220 25% 12%;
-    --ring: 142 76% 36%;
+    --border: 200 25% 15%;
+    --input: 200 25% 12%;
+    --ring: 189 85% 45%;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 200 20% 8%;
+    --sidebar-foreground: 185 15% 95%;
+    --sidebar-primary: 189 85% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 200 25% 15%;
+    --sidebar-accent-foreground: 185 15% 95%;
+    --sidebar-border: 200 25% 15%;
+    --sidebar-ring: 189 85% 45%;
   }
 }
 
@@ -101,7 +103,7 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-    background: linear-gradient(135deg, hsl(220, 30%, 2%) 0%, hsl(220, 25%, 4%) 50%, hsl(220, 30%, 3%) 100%);
+    background: linear-gradient(135deg, hsl(200, 20%, 4%) 0%, hsl(200, 25%, 6%) 50%, hsl(200, 20%, 5%) 100%);
     background-attachment: fixed;
   }
 
@@ -128,35 +130,38 @@ All colors MUST be HSL.
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-cyan-400 via-teal-400 to-blue-400 bg-clip-text text-transparent;
   }
 
-  .text-gradient-purple {
-    @apply bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent;
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .bg-gradient-card {
     background: linear-gradient(135deg, 
-      hsl(220, 25%, 8%) 0%, 
-      hsl(220, 25%, 10%) 50%, 
-      hsl(220, 25%, 8%) 100%);
-    border: 1px solid hsl(220, 25%, 15%);
+      hsl(200, 25%, 8%) 0%, 
+      hsl(200, 25%, 10%) 50%, 
+      hsl(200, 25%, 8%) 100%);
+    border: 1px solid hsl(200, 25%, 15%);
   }
 
   .bg-gradient-hero {
     background: radial-gradient(ellipse at top, 
-      hsl(142, 76%, 36%, 0.1) 0%, 
-      transparent 50%),
+      hsl(189, 85%, 45%, 0.15) 0%, 
+      transparent 60%),
     radial-gradient(ellipse at bottom right, 
-      hsl(220, 100%, 50%, 0.05) 0%, 
+      hsl(189, 85%, 55%, 0.08) 0%, 
       transparent 50%);
   }
 
   .bg-mesh {
     background-image: 
-      radial-gradient(circle at 25% 25%, hsl(142, 76%, 36%, 0.1) 0%, transparent 25%),
-      radial-gradient(circle at 75% 75%, hsl(220, 100%, 50%, 0.05) 0%, transparent 25%),
-      radial-gradient(circle at 50% 50%, hsl(280, 100%, 50%, 0.03) 0%, transparent 25%);
+      radial-gradient(circle at 25% 25%, hsl(189, 85%, 45%, 0.12) 0%, transparent 30%),
+      radial-gradient(circle at 75% 75%, hsl(189, 85%, 55%, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 50% 50%, hsl(189, 60%, 50%, 0.06) 0%, transparent 25%);
   }
 
   .hover-glow {
@@ -165,8 +170,8 @@ All colors MUST be HSL.
 
   .hover-glow:hover {
     box-shadow: 
-      0 0 30px hsl(142, 76%, 36%, 0.3),
-      0 0 60px hsl(142, 76%, 36%, 0.1);
+      0 0 30px hsl(189, 85%, 45%, 0.4),
+      0 0 60px hsl(189, 85%, 45%, 0.15);
     transform: translateY(-2px);
   }
 
@@ -184,16 +189,16 @@ All colors MUST be HSL.
   .glass-effect {
     backdrop-filter: blur(20px);
     background: linear-gradient(135deg, 
-      hsl(220, 25%, 8%, 0.8) 0%, 
-      hsl(220, 25%, 10%, 0.6) 100%);
-    border: 1px solid hsl(220, 25%, 20%, 0.3);
+      hsl(200, 25%, 8%, 0.8) 0%, 
+      hsl(200, 25%, 10%, 0.6) 100%);
+    border: 1px solid hsl(189, 85%, 45%, 0.2);
   }
 
   .animated-border {
     position: relative;
     background: linear-gradient(135deg, 
-      hsl(220, 25%, 8%) 0%, 
-      hsl(220, 25%, 10%) 100%);
+      hsl(200, 25%, 8%) 0%, 
+      hsl(200, 25%, 10%) 100%);
   }
 
   .animated-border::before {
@@ -202,9 +207,9 @@ All colors MUST be HSL.
     inset: 0;
     padding: 1px;
     background: linear-gradient(135deg, 
-      hsl(142, 76%, 36%) 0%, 
-      hsl(220, 100%, 50%) 50%, 
-      hsl(280, 100%, 50%) 100%);
+      hsl(189, 85%, 45%) 0%, 
+      hsl(189, 85%, 55%) 50%, 
+      hsl(189, 60%, 50%) 100%);
     border-radius: inherit;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: xor;
@@ -260,14 +265,14 @@ All colors MUST be HSL.
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(220, 25%, 8%);
+  background: hsl(200, 25%, 8%);
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to bottom,
-    hsl(142, 76%, 36%),
-    hsl(142, 76%, 30%)
+    hsl(189, 85%, 45%),
+    hsl(189, 85%, 40%)
   );
   border-radius: 4px;
 }
@@ -275,14 +280,14 @@ All colors MUST be HSL.
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(
     to bottom,
-    hsl(142, 76%, 40%),
-    hsl(142, 76%, 34%)
+    hsl(189, 85%, 50%),
+    hsl(189, 85%, 45%)
   );
 }
 
 /* Focus styles */
 .focus-visible:focus {
-  outline: 2px solid hsl(142, 76%, 36%);
+  outline: 2px solid hsl(189, 85%, 45%);
   outline-offset: 2px;
 }
 
