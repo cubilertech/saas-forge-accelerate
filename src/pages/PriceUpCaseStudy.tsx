@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
   ArrowLeft, 
   ExternalLink, 
@@ -17,9 +18,11 @@ import {
   Clock
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const PriceUpCaseStudy = () => {
   const navigate = useNavigate();
+  const [selectedFeature, setSelectedFeature] = useState(0);
 
   const techStack = [
     "Next.js",
@@ -36,32 +39,80 @@ const PriceUpCaseStudy = () => {
     {
       icon: <DollarSign className="h-6 w-6 text-primary" />,
       title: "Dynamic Pricing Engine",
-      description: "Intelligent pricing algorithms that adapt to market conditions and project complexity"
+      description: "Intelligent pricing algorithms that adapt to market conditions and project complexity",
+      detailedDescription: "Our advanced pricing engine uses machine learning algorithms to analyze market trends, project complexity, and historical data to suggest optimal pricing strategies. It automatically adjusts rates based on demand, seasonality, and competition, ensuring maximum profitability while remaining competitive.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      benefits: [
+        "Increase profit margins by up to 40%",
+        "Reduce pricing errors and inconsistencies",
+        "Real-time market analysis integration",
+        "Customizable pricing rules and parameters"
+      ]
     },
     {
       icon: <BarChart3 className="h-6 w-6 text-primary" />,
       title: "Advanced Analytics",
-      description: "Comprehensive dashboards with profit margin analysis and performance tracking"
+      description: "Comprehensive dashboards with profit margin analysis and performance tracking",
+      detailedDescription: "Get deep insights into your business performance with our comprehensive analytics suite. Track profit margins, project success rates, client satisfaction scores, and team productivity metrics through intuitive dashboards and detailed reports.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      benefits: [
+        "Real-time performance monitoring",
+        "Profit margin optimization insights",
+        "Client behavior analysis",
+        "Predictive business forecasting"
+      ]
     },
     {
       icon: <Calendar className="h-6 w-6 text-primary" />,
       title: "Project Management",
-      description: "End-to-end project tracking from estimation to completion and billing"
+      description: "End-to-end project tracking from estimation to completion and billing",
+      detailedDescription: "Streamline your entire project lifecycle with our integrated project management tools. From initial estimation and client approval to task assignment, progress tracking, and final billing - everything is connected and automated.",
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
+      benefits: [
+        "Automated project milestone tracking",
+        "Resource allocation optimization",
+        "Client communication hub",
+        "Integrated time tracking and billing"
+      ]
     },
     {
       icon: <Shield className="h-6 w-6 text-primary" />,
       title: "Secure Payments",
-      description: "Integrated Stripe payments with automated invoicing and payment tracking"
+      description: "Integrated Stripe payments with automated invoicing and payment tracking",
+      detailedDescription: "Accept payments securely with our Stripe integration. Generate professional invoices automatically, track payment status in real-time, and handle recurring billing effortlessly. Support for multiple payment methods and currencies.",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
+      benefits: [
+        "PCI compliant payment processing",
+        "Automated invoice generation",
+        "Multi-currency support",
+        "Recurring billing automation"
+      ]
     },
     {
       icon: <Users className="h-6 w-6 text-primary" />,
       title: "Team Collaboration",
-      description: "Multi-user workspaces with role-based permissions and real-time updates"
+      description: "Multi-user workspaces with role-based permissions and real-time updates",
+      detailedDescription: "Enable seamless collaboration across your entire team with role-based access controls, real-time notifications, and shared workspaces. Keep everyone aligned with project updates, client communications, and task assignments.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+      benefits: [
+        "Role-based access control",
+        "Real-time collaboration tools",
+        "Team performance tracking",
+        "Integrated communication channels"
+      ]
     },
     {
       icon: <Zap className="h-6 w-6 text-primary" />,
       title: "Automation",
-      description: "Automated quote generation, follow-ups, and client communication workflows"
+      description: "Automated quote generation, follow-ups, and client communication workflows",
+      detailedDescription: "Reduce manual work with intelligent automation. Automatically generate quotes based on project parameters, send follow-up emails to prospects, and trigger client communications based on project milestones and deadlines.",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
+      benefits: [
+        "Automated quote generation",
+        "Smart follow-up sequences",
+        "Workflow automation rules",
+        "Client communication templates"
+      ]
     }
   ];
 
@@ -101,6 +152,15 @@ const PriceUpCaseStudy = () => {
     "Created comprehensive API for third-party integrations",
     "Designed microservices architecture for optimal scalability"
   ];
+
+  // Auto-scroll effect for features
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelectedFeature((prev) => (prev + 1) % keyFeatures.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [keyFeatures.length]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -249,7 +309,7 @@ const PriceUpCaseStudy = () => {
         </div>
       </section>
 
-      {/* Key Features */}
+      {/* Interactive Key Features */}
       <section className="px-6 py-20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -261,22 +321,83 @@ const PriceUpCaseStudy = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {keyFeatures.map((feature, index) => (
-              <Card key={index} className="bg-gradient-card hover-glow group">
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                      {feature.icon}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Feature List - Left Side */}
+            <div className="space-y-4">
+              <ScrollArea className="h-[600px] pr-4">
+                {keyFeatures.map((feature, index) => (
+                  <Card 
+                    key={index} 
+                    className={`mb-4 cursor-pointer transition-all duration-300 ${
+                      selectedFeature === index 
+                        ? 'bg-primary/10 border-primary/50 shadow-lg' 
+                        : 'bg-gradient-card hover:bg-muted/30'
+                    }`}
+                    onClick={() => setSelectedFeature(index)}
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${
+                          selectedFeature === index 
+                            ? 'bg-primary/30 scale-110' 
+                            : 'bg-primary/20'
+                        }`}>
+                          {feature.icon}
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                          <p className="text-muted-foreground leading-relaxed text-sm">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </ScrollArea>
+            </div>
+
+            {/* Feature Details - Right Side */}
+            <div className="sticky top-24">
+              <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-3xl">
+                <div className="aspect-[16/10] relative overflow-hidden">
+                  <img 
+                    src={keyFeatures[selectedFeature].image}
+                    alt={keyFeatures[selectedFeature].title}
+                    className="w-full h-full object-cover transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className="w-10 h-10 bg-primary/30 rounded-lg flex items-center justify-center">
+                        {keyFeatures[selectedFeature].icon}
+                      </div>
+                      <h3 className="text-2xl font-bold text-white">
+                        {keyFeatures[selectedFeature].title}
+                      </h3>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+                
+                <CardContent className="p-8 space-y-6">
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    {keyFeatures[selectedFeature].detailedDescription}
+                  </p>
+                  
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-lg">Key Benefits:</h4>
+                    <div className="grid gap-2">
+                      {keyFeatures[selectedFeature].benefits.map((benefit, index) => (
+                        <div key={index} className="flex items-center space-x-3">
+                          <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                          <span className="text-muted-foreground">{benefit}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </CardContent>
               </Card>
-            ))}
+            </div>
           </div>
         </div>
       </section>
