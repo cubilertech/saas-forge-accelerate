@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,7 +15,8 @@ import {
   ArrowRight,
   Quote,
   Menu,
-  X
+  X,
+  Play
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -200,53 +200,64 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <Card className="bg-gradient-card card-blur hover-glow group">
+          <div className="grid lg:grid-cols-3 gap-8 items-start">
+            {/* Testimonial Card - Takes 2 columns */}
+            <Card className="lg:col-span-2 bg-gradient-card card-blur hover-glow group">
               <CardContent className="p-8">
                 <Quote className="h-8 w-8 text-green-400 mb-6" />
                 <p className="text-lg text-gray-300 mb-6 leading-relaxed">
                   "Working with this team was a game-changer. They didn't just write code; they understood our business goals and built a platform that was scalable from day one. I finally have a technical partner I can trust."
                 </p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4">
-                    JD
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4">
+                      JD
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white">John Doe</p>
+                      <p className="text-green-400 text-sm">Founder of AfterHire</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold text-white">John Doe</p>
-                    <p className="text-green-400 text-sm">Founder of AfterHire</p>
-                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="glass-effect border-green-500/30 text-green-400 hover:bg-green-500/10 rounded-lg px-4 py-2 text-sm group"
+                  >
+                    <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
+                    Watch Video
+                  </Button>
                 </div>
               </CardContent>
             </Card>
 
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4 group">
-                <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Rocket className="h-6 w-6 text-green-400" />
+            {/* Proven Results - Takes 1 column */}
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3 group">
+                <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Rocket className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">30+ SaaS & Web Apps Launched</h3>
-                  <p className="text-gray-400">We have a proven playbook for taking products to market.</p>
+                  <h3 className="text-base font-bold mb-1">30+ SaaS & Web Apps Launched</h3>
+                  <p className="text-gray-400 text-sm">We have a proven playbook for taking products to market.</p>
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4 group">
-                <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <TrendingUp className="h-6 w-6 text-green-400" />
+              <div className="flex items-start space-x-3 group">
+                <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <TrendingUp className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">8+ Years of Experience</h3>
-                  <p className="text-gray-400">Senior-level expertise in building complex, reliable systems.</p>
+                  <h3 className="text-base font-bold mb-1">8+ Years of Experience</h3>
+                  <p className="text-gray-400 text-sm">Senior-level expertise in building complex, reliable systems.</p>
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4 group">
-                <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <CheckCircle className="h-6 w-6 text-green-400" />
+              <div className="flex items-start space-x-3 group">
+                <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">100% Client Success Rate</h3>
-                  <p className="text-gray-400">We operate as a long-term partner, not a one-time vendor.</p>
+                  <h3 className="text-base font-bold mb-1">100% Client Success Rate</h3>
+                  <p className="text-gray-400 text-sm">We operate as a long-term partner, not a one-time vendor.</p>
                 </div>
               </div>
             </div>
