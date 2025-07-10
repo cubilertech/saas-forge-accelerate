@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -172,51 +173,104 @@ const PriceUpCaseStudy = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="px-6 py-16 bg-gradient-hero bg-mesh">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 text-sm font-medium">
-                  Business Services Platform
-                </Badge>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  PriceUp
-                </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  An intelligent estimation and invoicing platform that revolutionizes how service businesses create quotes, manage projects, and get paid.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-xl font-semibold group"
-                  onClick={() => window.open('https://priceup.glass', '_blank')}
-                >
-                  View Live Project
-                  <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 text-lg rounded-xl font-semibold"
-                >
-                  View Code Architecture
-                </Button>
-              </div>
+      <section className="px-6 py-20 bg-gradient-to-br from-primary/5 via-background to-primary/10 relative overflow-hidden">
+        {/* Grid Background */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10"></div>
+        
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center space-y-8">
+            {/* Badge */}
+            <div className="flex justify-center">
+              <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 text-sm font-medium">
+                Business Services Platform
+              </Badge>
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-primary/10 rounded-3xl blur-2xl"></div>
-              <Card className="relative bg-gradient-card border border-border/10 overflow-hidden rounded-3xl">
-                <div className="aspect-[16/10] relative overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop" 
-                    alt="PriceUp Dashboard"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            {/* Title and Subtitle */}
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gradient-primary">
+                PriceUp
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+                An intelligent estimation and invoicing platform that revolutionizes how service businesses create quotes, manage projects, and get paid.
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-xl font-semibold group"
+                onClick={() => window.open('https://priceup.glass', '_blank')}
+              >
+                View Live Project
+                <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                variant="outline" 
+                className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 text-lg rounded-xl font-semibold"
+              >
+                View Code Architecture
+              </Button>
+            </div>
+
+            {/* Feature Images Stack */}
+            <div className="relative pt-16">
+              <div className="relative max-w-4xl mx-auto">
+                {/* Main Center Image */}
+                <div className="relative z-30 transform">
+                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-2xl shadow-2xl">
+                    <img 
+                      src="/lovable-uploads/c03d61d6-5ad2-48a8-8de5-bc9f6aa2e9af.png"
+                      alt="PriceUp Quoting Engine"
+                      className="w-full h-auto object-cover"
+                    />
+                  </Card>
                 </div>
-              </Card>
+
+                {/* Left Side Image */}
+                <div className="absolute left-0 top-8 w-1/3 z-20 transform -rotate-6 translate-x-4">
+                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-2xl shadow-xl opacity-80">
+                    <img 
+                      src="/lovable-uploads/3b894766-edb1-46bb-b0e0-0eab09a061bd.png"
+                      alt="PriceUp Scheduling"
+                      className="w-full h-auto object-cover"
+                    />
+                  </Card>
+                </div>
+
+                {/* Right Side Image */}
+                <div className="absolute right-0 top-8 w-1/3 z-20 transform rotate-6 -translate-x-4">
+                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-2xl shadow-xl opacity-80">
+                    <img 
+                      src="/lovable-uploads/30348186-6e10-4232-8149-8b41d1f1c770.png"
+                      alt="PriceUp Invoicing"
+                      className="w-full h-auto object-cover"
+                    />
+                  </Card>
+                </div>
+
+                {/* Background Images */}
+                <div className="absolute left-1/4 -top-4 w-1/4 z-10 transform rotate-12 opacity-40">
+                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-2xl shadow-lg">
+                    <img 
+                      src="/lovable-uploads/1f9ff678-592f-4384-8d9b-610344a58f8a.png"
+                      alt="PriceUp Layout Management"
+                      className="w-full h-auto object-cover"
+                    />
+                  </Card>
+                </div>
+
+                <div className="absolute right-1/4 -top-4 w-1/4 z-10 transform -rotate-12 opacity-40">
+                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-2xl shadow-lg">
+                    <img 
+                      src="/lovable-uploads/0cbabedb-5681-40a5-ba5e-ae2ca21539d0.png"
+                      alt="PriceUp Multi-Location"
+                      className="w-full h-auto object-cover"
+                    />
+                  </Card>
+                </div>
+              </div>
             </div>
           </div>
         </div>
