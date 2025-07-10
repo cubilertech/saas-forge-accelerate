@@ -25,7 +25,7 @@ import { useState, useEffect } from "react";
 
 const PriceUpCaseStudy = () => {
   const navigate = useNavigate();
-  const [selectedFeature, setSelectedFeature] = useState(0);
+  const [visibleFeature, setVisibleFeature] = useState(0);
 
   const techStack = [
     "Next.js",
@@ -40,7 +40,7 @@ const PriceUpCaseStudy = () => {
 
   const keyFeatures = [
     {
-      icon: <Shield className="h-6 w-6 text-primary" />,
+      icon: <Shield className="h-8 w-8 text-primary" />,
       title: "Bulletproof Quoting Engine",
       subtitle: "Create complex, 100% accurate quotes in minutes, not hours.",
       detailedDescription: "The core of PriceUp's revenue leakage was their manual, spreadsheet-based quoting process. It was slow, inconsistent, and prone to costly errors. We developed a dynamic, step-by-step engine that acts as a foolproof checklist. Users select glass types, hardware, and labor rates from a pre-defined library, ensuring every single cost is captured, every single time.",
@@ -52,7 +52,7 @@ const PriceUpCaseStudy = () => {
       ]
     },
     {
-      icon: <FileText className="h-6 w-6 text-primary" />,
+      icon: <FileText className="h-8 w-8 text-primary" />,
       title: "Professional PDF & Invoicing",
       subtitle: "Generate branded quotes and invoices with a single click.",
       detailedDescription: "PriceUp needed their client-facing documents to look as professional as their work. We integrated a one-click feature that converts any quote into a beautifully branded PDF proposal. Once a job is complete, the exact same data is used to generate a final invoice, which can be sent to the client instantly, eliminating manual re-entry and delays.",
@@ -64,7 +64,7 @@ const PriceUpCaseStudy = () => {
       ]
     },
     {
-      icon: <Calendar className="h-6 w-6 text-primary" />,
+      icon: <Calendar className="h-8 w-8 text-primary" />,
       title: "Scheduling & Task Management",
       subtitle: "Visualize all jobs and manage crew assignments from one dashboard.",
       detailedDescription: "The old whiteboard system for scheduling crews was a recipe for chaos and confusion. We built a visual, drag-and-drop scheduler that provides a single source of truth for all active jobs and crew availability. Project managers can assign specific tasks to installers, who can see their daily schedule on any device.",
@@ -76,7 +76,7 @@ const PriceUpCaseStudy = () => {
       ]
     },
     {
-      icon: <Wrench className="h-6 w-6 text-primary" />,
+      icon: <Wrench className="h-8 w-8 text-primary" />,
       title: "Layout & Hardware Management",
       subtitle: "A central library for all your glass layouts and hardware parts.",
       detailedDescription: "A single glass job can involve thousands of specific parts, from custom layouts to unique hardware SKUs. We created a central database where PriceUp can store, manage, and price every single component they use. This library feeds directly into the quoting engine, guaranteeing perfect accuracy on even the most complex projects.",
@@ -88,7 +88,7 @@ const PriceUpCaseStudy = () => {
       ]
     },
     {
-      icon: <Building className="h-6 w-6 text-primary" />,
+      icon: <Building className="h-8 w-8 text-primary" />,
       title: "Multi-Location Management",
       subtitle: "Manage jobs, crews, and reporting across different branches.",
       detailedDescription: "As PriceUp's business grew, they needed the ability to manage operations across multiple branches. We built the platform on a multi-tenant architecture from the ground up. This allows them to segment data, crews, customers, and reporting by location, while giving the executive team a unified, top-level view of the entire business's performance.",
@@ -138,14 +138,31 @@ const PriceUpCaseStudy = () => {
     "Designed microservices architecture for optimal scalability"
   ];
 
-  // Auto-scroll effect for features
+  // Auto-scroll effect for features with intersection observer
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSelectedFeature((prev) => (prev + 1) % keyFeatures.length);
-    }, 5000); // Change every 5 seconds
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -20% 0px',
+      threshold: 0.5
+    };
 
-    return () => clearInterval(interval);
-  }, [keyFeatures.length]);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const featureIndex = parseInt(entry.target.getAttribute('data-feature-index') || '0');
+          setVisibleFeature(featureIndex);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all feature sections
+    const featureSections = document.querySelectorAll('[data-feature-index]');
+    featureSections.forEach((section) => observer.observe(section));
+
+    return () => {
+      featureSections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -180,6 +197,23 @@ const PriceUpCaseStudy = () => {
         
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center space-y-8">
+            {/* Client Testimonial */}
+            <div className="max-w-4xl mx-auto">
+              <Card className="bg-gradient-card border border-primary/20 p-8">
+                <CardContent className="space-y-4">
+                  <blockquote className="text-xl md:text-2xl italic text-muted-foreground leading-relaxed">
+                    "Working with UBiLER Technologies transformed our entire business. We went from chaotic spreadsheets to a streamlined system that eliminated 95% of our quoting errors. Our profitability has increased dramatically."
+                  </blockquote>
+                  <div className="flex items-center justify-center space-x-3">
+                    <div className="text-right">
+                      <p className="font-semibold text-lg">Sarah Johnson</p>
+                      <p className="text-muted-foreground">Managing Partner, PriceUp</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
             {/* Badge */}
             <div className="flex justify-center">
               <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 text-sm font-medium">
@@ -188,12 +222,16 @@ const PriceUpCaseStudy = () => {
             </div>
 
             {/* Title and Subtitle */}
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gradient-primary">
-                PriceUp
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                How We Built a Custom Quoting & Invoicing Platform that{" "}
+                <span className="text-gradient-primary">Reduced Quoting Errors by 95%</span>{" "}
+                for a Glass Installation Business
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-                An intelligent estimation and invoicing platform that revolutionizes how service businesses create quotes, manage projects, and get paid.
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-5xl mx-auto">
+                PriceUp was running their multi-million dollar business on a chaotic system of spreadsheets and paper forms. 
+                We partnered with them to build a custom, end-to-end software platform from scratch, transforming their 
+                operations and boosting their profitability.
               </p>
             </div>
 
@@ -347,100 +385,105 @@ const PriceUpCaseStudy = () => {
         </div>
       </section>
 
-      {/* Interactive Key Features */}
-      <section className="px-6 py-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Powerful Features That Drive Results
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Every feature was designed with the end-user in mind, focusing on simplicity and efficiency
-            </p>
-          </div>
+      {/* Feature Sections - Full Width Sequential */}
+      <section className="py-20">
+        <div className="text-center mb-20 px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Powerful Features That Drive Results
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Every feature was designed with the end-user in mind, focusing on simplicity and efficiency
+          </p>
+        </div>
 
-          <div className="grid lg:grid-cols-5 gap-12 items-start">
-            {/* Feature List - Left Side (2 columns) */}
-            <div className="lg:col-span-2 space-y-3">
-              {keyFeatures.map((feature, index) => (
-                <Card 
-                  key={index} 
-                  className={`cursor-pointer transition-all duration-300 ${
-                    selectedFeature === index 
-                      ? 'bg-primary/10 border-primary/50 shadow-lg scale-[1.02]' 
-                      : 'bg-gradient-card hover:bg-muted/30 hover:scale-[1.01]'
-                  }`}
-                  onClick={() => setSelectedFeature(index)}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all flex-shrink-0 ${
-                        selectedFeature === index 
-                          ? 'bg-primary/30 scale-110' 
-                          : 'bg-primary/20'
-                      }`}>
-                        {feature.icon}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-bold mb-2 leading-tight">{feature.title}</h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          {feature.subtitle}
-                        </p>
-                      </div>
+        {keyFeatures.map((feature, index) => (
+          <div 
+            key={index}
+            data-feature-index={index}
+            className={`py-20 ${index % 2 === 1 ? 'bg-muted/20' : ''}`}
+          >
+            <div className="max-w-7xl mx-auto px-6">
+              <div className={`grid lg:grid-cols-2 gap-16 items-center ${
+                index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+              }`}>
+                {/* Content Side */}
+                <div className={`space-y-8 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center">
+                      {feature.icon}
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Feature Details - Right Side (3 columns) */}
-            <div className="lg:col-span-3">
-              <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-3xl h-full">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={keyFeatures[selectedFeature].image}
-                    alt={keyFeatures[selectedFeature].title}
-                    className="w-full h-auto object-contain transition-all duration-500 bg-white/5"
-                  />
-                  <div className="absolute top-6 left-6 right-6">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-primary/80 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                        <Zap className="h-5 w-5 text-white" />
-                      </div>
-                      <span className="text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">Automation</span>
+                    <div className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                      Feature {index + 1}
                     </div>
                   </div>
-                </div>
-                
-                <CardContent className="p-8 space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-4 flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
-                        {keyFeatures[selectedFeature].icon}
-                      </div>
-                      <span>{keyFeatures[selectedFeature].title}</span>
+
+                  <div className="space-y-4">
+                    <h3 className="text-3xl md:text-4xl font-bold leading-tight">
+                      {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-base">
-                      {keyFeatures[selectedFeature].detailedDescription}
+                    <p className="text-xl text-primary font-medium">
+                      {feature.subtitle}
+                    </p>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      {feature.detailedDescription}
                     </p>
                   </div>
-                  
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">Key Benefits:</h4>
-                    <div className="grid gap-3">
-                      {keyFeatures[selectedFeature].benefits.map((benefit, index) => (
-                        <div key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-muted-foreground leading-relaxed">{benefit}</span>
+
+                  <div className="space-y-6">
+                    <h4 className="text-xl font-semibold">Key Benefits:</h4>
+                    <div className="grid gap-4">
+                      {feature.benefits.map((benefit, benefitIndex) => (
+                        <div key={benefitIndex} className="flex items-start space-x-4">
+                          <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                            <CheckCircle className="h-5 w-5 text-primary" />
+                          </div>
+                          <span className="text-muted-foreground text-lg leading-relaxed">{benefit}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+
+                  <div className="pt-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-primary/30 rounded-lg flex items-center justify-center">
+                        <Zap className="h-5 w-5 text-primary" />
+                      </div>
+                      <span className="text-primary font-medium">Automated & Intelligent</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Image Side */}
+                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-3xl shadow-2xl hover-glow">
+                    <div className="relative">
+                      <img 
+                        src={feature.image}
+                        alt={feature.title}
+                        className="w-full h-auto object-contain bg-white/5"
+                      />
+                      <div className="absolute top-6 left-6 right-6">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-3">
+                            <div className="w-10 h-10 bg-primary/80 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                              <Zap className="h-5 w-5 text-white" />
+                            </div>
+                            <span className="text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
+                              Live Demo
+                            </span>
+                          </div>
+                          <Badge className="bg-primary/20 text-primary border-primary/30 backdrop-blur-sm">
+                            Feature {index + 1}
+                          </Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </section>
 
       {/* Tech Stack */}
