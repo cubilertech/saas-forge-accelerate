@@ -43,7 +43,7 @@ const PriceUpCaseStudy = () => {
       title: "Bulletproof Quoting Engine",
       subtitle: "Create complex, 100% accurate quotes in minutes, not hours.",
       detailedDescription: "The core of PriceUp's revenue leakage was their manual, spreadsheet-based quoting process. It was slow, inconsistent, and prone to costly errors. We developed a dynamic, step-by-step engine that acts as a foolproof checklist. Users select glass types, hardware, and labor rates from a pre-defined library, ensuring every single cost is captured, every single time.",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
+      image: "/lovable-uploads/c03d61d6-5ad2-48a8-8de5-bc9f6aa2e9af.png",
       benefits: [
         "Error-free calculations that protect profit margins",
         "Standardized pricing across the entire sales team",
@@ -55,7 +55,7 @@ const PriceUpCaseStudy = () => {
       title: "Professional PDF & Invoicing",
       subtitle: "Generate branded quotes and invoices with a single click.",
       detailedDescription: "PriceUp needed their client-facing documents to look as professional as their work. We integrated a one-click feature that converts any quote into a beautifully branded PDF proposal. Once a job is complete, the exact same data is used to generate a final invoice, which can be sent to the client instantly, eliminating manual re-entry and delays.",
-      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=400&fit=crop",
+      image: "/lovable-uploads/30348186-6e10-4232-8149-8b41d1f1c770.png",
       benefits: [
         "Enhanced brand professionalism that wins larger contracts",
         "Faster payment cycles due to immediate invoicing",
@@ -67,7 +67,7 @@ const PriceUpCaseStudy = () => {
       title: "Scheduling & Task Management",
       subtitle: "Visualize all jobs and manage crew assignments from one dashboard.",
       detailedDescription: "The old whiteboard system for scheduling crews was a recipe for chaos and confusion. We built a visual, drag-and-drop scheduler that provides a single source of truth for all active jobs and crew availability. Project managers can assign specific tasks to installers, who can see their daily schedule on any device.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+      image: "/lovable-uploads/3b894766-edb1-46bb-b0e0-0eab09a061bd.png",
       benefits: [
         "Optimized crew scheduling and resource allocation",
         "Clear visibility of the entire company's workload",
@@ -79,7 +79,7 @@ const PriceUpCaseStudy = () => {
       title: "Layout & Hardware Management",
       subtitle: "A central library for all your glass layouts and hardware parts.",
       detailedDescription: "A single glass job can involve thousands of specific parts, from custom layouts to unique hardware SKUs. We created a central database where PriceUp can store, manage, and price every single component they use. This library feeds directly into the quoting engine, guaranteeing perfect accuracy on even the most complex projects.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
+      image: "/lovable-uploads/1f9ff678-592f-4384-8d9b-610344a58f8a.png",
       benefits: [
         "A centralized parts and layouts database",
         "Guaranteed quote accuracy by pulling real-time data",
@@ -91,7 +91,7 @@ const PriceUpCaseStudy = () => {
       title: "Multi-Location Management",
       subtitle: "Manage jobs, crews, and reporting across different branches.",
       detailedDescription: "As PriceUp's business grew, they needed the ability to manage operations across multiple branches. We built the platform on a multi-tenant architecture from the ground up. This allows them to segment data, crews, customers, and reporting by location, while giving the executive team a unified, top-level view of the entire business's performance.",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
+      image: "/lovable-uploads/0cbabedb-5681-40a5-ba5e-ae2ca21539d0.png",
       benefits: [
         "A scalable foundation ready for future growth",
         "Segmented reporting and analytics for each branch",
