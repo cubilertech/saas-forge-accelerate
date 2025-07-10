@@ -499,6 +499,7 @@ const Index = () => {
                   <div className="flex flex-col sm:flex-row gap-4 pt-6">
                     <Button 
                       className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-xl font-semibold group"
+                      onClick={() => window.open(item.liveUrl, '_blank')}
                     >
                       View Live Project
                       <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -506,6 +507,11 @@ const Index = () => {
                     <Button 
                       variant="outline" 
                       className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 text-lg rounded-xl font-semibold"
+                      onClick={() => {
+                        if (item.name === 'PriceUp') {
+                          window.location.href = '/case-study/priceup';
+                        }
+                      }}
                     >
                       View Case Study
                     </Button>
