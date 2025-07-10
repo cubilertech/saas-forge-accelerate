@@ -342,19 +342,18 @@ const PriceUpCaseStudy = () => {
             {/* Feature Details - Right Side (3 columns) */}
             <div className="lg:col-span-3">
               <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-3xl h-full">
-                <div className="aspect-[16/10] relative overflow-hidden">
+                <div className="relative overflow-hidden">
                   <img 
                     src={keyFeatures[selectedFeature].image}
                     alt={keyFeatures[selectedFeature].title}
-                    className="w-full h-full object-cover transition-all duration-500"
+                    className="w-full h-auto object-contain transition-all duration-500 bg-white/5"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="w-10 h-10 bg-primary/30 rounded-lg flex items-center justify-center">
-                        <Zap className="h-5 w-5 text-primary" />
+                  <div className="absolute top-6 left-6 right-6">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-primary/80 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                        <Zap className="h-5 w-5 text-white" />
                       </div>
-                      <span className="text-white/80 text-sm font-medium">Automation</span>
+                      <span className="text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">Automation</span>
                     </div>
                   </div>
                 </div>
