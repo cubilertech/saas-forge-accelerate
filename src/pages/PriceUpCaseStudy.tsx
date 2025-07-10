@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +14,10 @@ import {
   BarChart3,
   Zap,
   Shield,
-  Clock
+  Clock,
+  FileText,
+  Wrench,
+  Building
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -37,81 +39,63 @@ const PriceUpCaseStudy = () => {
 
   const keyFeatures = [
     {
-      icon: <DollarSign className="h-6 w-6 text-primary" />,
-      title: "Dynamic Pricing Engine",
-      description: "Intelligent pricing algorithms that adapt to market conditions and project complexity",
-      detailedDescription: "Our advanced pricing engine uses machine learning algorithms to analyze market trends, project complexity, and historical data to suggest optimal pricing strategies. It automatically adjusts rates based on demand, seasonality, and competition, ensuring maximum profitability while remaining competitive.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      icon: <Shield className="h-6 w-6 text-primary" />,
+      title: "Bulletproof Quoting Engine",
+      subtitle: "Create complex, 100% accurate quotes in minutes, not hours.",
+      detailedDescription: "The core of PriceUp's revenue leakage was their manual, spreadsheet-based quoting process. It was slow, inconsistent, and prone to costly errors. We developed a dynamic, step-by-step engine that acts as a foolproof checklist. Users select glass types, hardware, and labor rates from a pre-defined library, ensuring every single cost is captured, every single time.",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
       benefits: [
-        "Increase profit margins by up to 40%",
-        "Reduce pricing errors and inconsistencies",
-        "Real-time market analysis integration",
-        "Customizable pricing rules and parameters"
+        "Error-free calculations that protect profit margins",
+        "Standardized pricing across the entire sales team",
+        "Drastic reduction in quoting time from hours to minutes"
       ]
     },
     {
-      icon: <BarChart3 className="h-6 w-6 text-primary" />,
-      title: "Advanced Analytics",
-      description: "Comprehensive dashboards with profit margin analysis and performance tracking",
-      detailedDescription: "Get deep insights into your business performance with our comprehensive analytics suite. Track profit margins, project success rates, client satisfaction scores, and team productivity metrics through intuitive dashboards and detailed reports.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      icon: <FileText className="h-6 w-6 text-primary" />,
+      title: "Professional PDF & Invoicing",
+      subtitle: "Generate branded quotes and invoices with a single click.",
+      detailedDescription: "PriceUp needed their client-facing documents to look as professional as their work. We integrated a one-click feature that converts any quote into a beautifully branded PDF proposal. Once a job is complete, the exact same data is used to generate a final invoice, which can be sent to the client instantly, eliminating manual re-entry and delays.",
+      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=400&fit=crop",
       benefits: [
-        "Real-time performance monitoring",
-        "Profit margin optimization insights",
-        "Client behavior analysis",
-        "Predictive business forecasting"
+        "Enhanced brand professionalism that wins larger contracts",
+        "Faster payment cycles due to immediate invoicing",
+        "Elimination of manual data entry and associated errors"
       ]
     },
     {
       icon: <Calendar className="h-6 w-6 text-primary" />,
-      title: "Project Management",
-      description: "End-to-end project tracking from estimation to completion and billing",
-      detailedDescription: "Streamline your entire project lifecycle with our integrated project management tools. From initial estimation and client approval to task assignment, progress tracking, and final billing - everything is connected and automated.",
+      title: "Scheduling & Task Management",
+      subtitle: "Visualize all jobs and manage crew assignments from one dashboard.",
+      detailedDescription: "The old whiteboard system for scheduling crews was a recipe for chaos and confusion. We built a visual, drag-and-drop scheduler that provides a single source of truth for all active jobs and crew availability. Project managers can assign specific tasks to installers, who can see their daily schedule on any device.",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+      benefits: [
+        "Optimized crew scheduling and resource allocation",
+        "Clear visibility of the entire company's workload",
+        "Reduced communication errors and missed appointments"
+      ]
+    },
+    {
+      icon: <Wrench className="h-6 w-6 text-primary" />,
+      title: "Layout & Hardware Management",
+      subtitle: "A central library for all your glass layouts and hardware parts.",
+      detailedDescription: "A single glass job can involve thousands of specific parts, from custom layouts to unique hardware SKUs. We created a central database where PriceUp can store, manage, and price every single component they use. This library feeds directly into the quoting engine, guaranteeing perfect accuracy on even the most complex projects.",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
+      benefits: [
+        "A centralized parts and layouts database",
+        "Guaranteed quote accuracy by pulling real-time data",
+        "Simplified inventory and cost management"
+      ]
+    },
+    {
+      icon: <Building className="h-6 w-6 text-primary" />,
+      title: "Multi-Location Management",
+      subtitle: "Manage jobs, crews, and reporting across different branches.",
+      detailedDescription: "As PriceUp's business grew, they needed the ability to manage operations across multiple branches. We built the platform on a multi-tenant architecture from the ground up. This allows them to segment data, crews, customers, and reporting by location, while giving the executive team a unified, top-level view of the entire business's performance.",
       image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
       benefits: [
-        "Automated project milestone tracking",
-        "Resource allocation optimization",
-        "Client communication hub",
-        "Integrated time tracking and billing"
-      ]
-    },
-    {
-      icon: <Shield className="h-6 w-6 text-primary" />,
-      title: "Secure Payments",
-      description: "Integrated Stripe payments with automated invoicing and payment tracking",
-      detailedDescription: "Accept payments securely with our Stripe integration. Generate professional invoices automatically, track payment status in real-time, and handle recurring billing effortlessly. Support for multiple payment methods and currencies.",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
-      benefits: [
-        "PCI compliant payment processing",
-        "Automated invoice generation",
-        "Multi-currency support",
-        "Recurring billing automation"
-      ]
-    },
-    {
-      icon: <Users className="h-6 w-6 text-primary" />,
-      title: "Team Collaboration",
-      description: "Multi-user workspaces with role-based permissions and real-time updates",
-      detailedDescription: "Enable seamless collaboration across your entire team with role-based access controls, real-time notifications, and shared workspaces. Keep everyone aligned with project updates, client communications, and task assignments.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-      benefits: [
-        "Role-based access control",
-        "Real-time collaboration tools",
-        "Team performance tracking",
-        "Integrated communication channels"
-      ]
-    },
-    {
-      icon: <Zap className="h-6 w-6 text-primary" />,
-      title: "Automation",
-      description: "Automated quote generation, follow-ups, and client communication workflows",
-      detailedDescription: "Reduce manual work with intelligent automation. Automatically generate quotes based on project parameters, send follow-up emails to prospects, and trigger client communications based on project milestones and deadlines.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
-      benefits: [
-        "Automated quote generation",
-        "Smart follow-up sequences",
-        "Workflow automation rules",
-        "Client communication templates"
+        "A scalable foundation ready for future growth",
+        "Segmented reporting and analytics for each branch",
+        "Unified operational control from a single login"
       ]
     }
   ];
@@ -321,45 +305,43 @@ const PriceUpCaseStudy = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Feature List - Left Side */}
-            <div className="space-y-4">
-              <ScrollArea className="h-[600px] pr-4">
-                {keyFeatures.map((feature, index) => (
-                  <Card 
-                    key={index} 
-                    className={`mb-4 cursor-pointer transition-all duration-300 ${
-                      selectedFeature === index 
-                        ? 'bg-primary/10 border-primary/50 shadow-lg' 
-                        : 'bg-gradient-card hover:bg-muted/30'
-                    }`}
-                    onClick={() => setSelectedFeature(index)}
-                  >
-                    <CardContent className="p-6">
-                      <div className="flex items-start space-x-4">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${
-                          selectedFeature === index 
-                            ? 'bg-primary/30 scale-110' 
-                            : 'bg-primary/20'
-                        }`}>
-                          {feature.icon}
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                          <p className="text-muted-foreground leading-relaxed text-sm">
-                            {feature.description}
-                          </p>
-                        </div>
+          <div className="grid lg:grid-cols-5 gap-12 items-start">
+            {/* Feature List - Left Side (2 columns) */}
+            <div className="lg:col-span-2 space-y-3">
+              {keyFeatures.map((feature, index) => (
+                <Card 
+                  key={index} 
+                  className={`cursor-pointer transition-all duration-300 ${
+                    selectedFeature === index 
+                      ? 'bg-primary/10 border-primary/50 shadow-lg scale-[1.02]' 
+                      : 'bg-gradient-card hover:bg-muted/30 hover:scale-[1.01]'
+                  }`}
+                  onClick={() => setSelectedFeature(index)}
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all flex-shrink-0 ${
+                        selectedFeature === index 
+                          ? 'bg-primary/30 scale-110' 
+                          : 'bg-primary/20'
+                      }`}>
+                        {feature.icon}
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </ScrollArea>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg font-bold mb-2 leading-tight">{feature.title}</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {feature.subtitle}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
 
-            {/* Feature Details - Right Side */}
-            <div className="sticky top-24">
-              <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-3xl">
+            {/* Feature Details - Right Side (3 columns) */}
+            <div className="lg:col-span-3">
+              <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-3xl h-full">
                 <div className="aspect-[16/10] relative overflow-hidden">
                   <img 
                     src={keyFeatures[selectedFeature].image}
@@ -370,27 +352,33 @@ const PriceUpCaseStudy = () => {
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="flex items-center space-x-3 mb-3">
                       <div className="w-10 h-10 bg-primary/30 rounded-lg flex items-center justify-center">
-                        {keyFeatures[selectedFeature].icon}
+                        <Zap className="h-5 w-5 text-primary" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white">
-                        {keyFeatures[selectedFeature].title}
-                      </h3>
+                      <span className="text-white/80 text-sm font-medium">Automation</span>
                     </div>
                   </div>
                 </div>
                 
                 <CardContent className="p-8 space-y-6">
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    {keyFeatures[selectedFeature].detailedDescription}
-                  </p>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-4 flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                        {keyFeatures[selectedFeature].icon}
+                      </div>
+                      <span>{keyFeatures[selectedFeature].title}</span>
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-base">
+                      {keyFeatures[selectedFeature].detailedDescription}
+                    </p>
+                  </div>
                   
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <h4 className="font-semibold text-lg">Key Benefits:</h4>
-                    <div className="grid gap-2">
+                    <div className="grid gap-3">
                       {keyFeatures[selectedFeature].benefits.map((benefit, index) => (
-                        <div key={index} className="flex items-center space-x-3">
-                          <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                          <span className="text-muted-foreground">{benefit}</span>
+                        <div key={index} className="flex items-start space-x-3">
+                          <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                          <span className="text-muted-foreground leading-relaxed">{benefit}</span>
                         </div>
                       ))}
                     </div>
