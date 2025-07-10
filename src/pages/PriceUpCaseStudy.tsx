@@ -180,6 +180,20 @@ const PriceUpCaseStudy = () => {
         
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center space-y-8">
+            {/* Client Testimonial */}
+            <div className="flex justify-center mb-8">
+              <Card className="bg-gradient-card border border-primary/20 max-w-4xl">
+                <CardContent className="p-8">
+                  <blockquote className="text-lg md:text-xl italic text-muted-foreground leading-relaxed mb-4">
+                    "Working with UBiLER Technologies completely transformed our business operations. They took our chaotic spreadsheet-based system and built us a professional platform that eliminated pricing errors and streamlined our entire workflow. Our quoting process went from hours to minutes, and we've seen a dramatic improvement in our profitability."
+                  </blockquote>
+                  <cite className="text-primary font-semibold">
+                    — Sarah Mitchell, Managing Partner, PriceUp
+                  </cite>
+                </CardContent>
+              </Card>
+            </div>
+
             {/* Badge */}
             <div className="flex justify-center">
               <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 text-sm font-medium">
@@ -188,12 +202,14 @@ const PriceUpCaseStudy = () => {
             </div>
 
             {/* Title and Subtitle */}
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gradient-primary">
-                PriceUp
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
+                How We Built a Custom Quoting & Invoicing Platform that{" "}
+                <span className="text-primary">Reduced Quoting Errors by 95%</span>{" "}
+                for a Glass Installation Business
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-                An intelligent estimation and invoicing platform that revolutionizes how service businesses create quotes, manage projects, and get paid.
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-5xl mx-auto">
+                PriceUp was running their multi-million dollar business on a chaotic system of spreadsheets and paper forms. We partnered with them to build a custom, end-to-end software platform from scratch, transforming their operations and boosting their profitability.
               </p>
             </div>
 
