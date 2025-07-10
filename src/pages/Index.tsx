@@ -1,6 +1,9 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { 
   Rocket, 
   Building2, 
@@ -47,6 +50,33 @@ const Index = () => {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const testimonials = [
+    {
+      id: 1,
+      quote: "Working with this team was a game-changer. They didn't just write code; they understood our business goals and built a platform that was scalable from day one. I finally have a technical partner I can trust.",
+      name: "John Doe",
+      company: "Founder of AfterHire",
+      initials: "JD",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+      id: 2,
+      quote: "The development process was smooth and transparent. They delivered exactly what we needed on time and within budget. Our SaaS platform now handles thousands of users without any issues.",
+      name: "Sarah Chen",
+      company: "CEO of TechFlow",
+      initials: "SC",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+      id: 3,
+      quote: "I was impressed by their technical expertise and business understanding. They helped us pivot our MVP into a product that actually resonates with our target market.",
+      name: "Michael Rodriguez",
+      company: "Founder of DataSync",
+      initials: "MR",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -200,64 +230,89 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 items-start">
-            {/* Testimonial Card - Takes 2 columns */}
-            <Card className="lg:col-span-2 bg-gradient-card card-blur hover-glow group">
-              <CardContent className="p-8">
-                <Quote className="h-8 w-8 text-green-400 mb-6" />
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                  "Working with this team was a game-changer. They didn't just write code; they understood our business goals and built a platform that was scalable from day one. I finally have a technical partner I can trust."
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4">
-                      JD
-                    </div>
-                    <div>
-                      <p className="font-semibold text-white">John Doe</p>
-                      <p className="text-green-400 text-sm">Founder of AfterHire</p>
-                    </div>
-                  </div>
-                  <Button 
-                    variant="outline" 
-                    className="glass-effect border-green-500/30 text-green-400 hover:bg-green-500/10 rounded-lg px-4 py-2 text-sm group"
-                  >
-                    <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
-                    Watch Video
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="grid lg:grid-cols-4 gap-8 items-start">
+            {/* Testimonial Carousel - Takes 3 columns */}
+            <div className="lg:col-span-3">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {testimonials.map((testimonial) => (
+                    <CarouselItem key={testimonial.id}>
+                      <Card className="bg-gradient-card card-blur hover-glow group">
+                        <CardContent className="p-8">
+                          <Quote className="h-8 w-8 text-green-400 mb-6" />
+                          <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                            "{testimonial.quote}"
+                          </p>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center">
+                              <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4">
+                                {testimonial.initials}
+                              </div>
+                              <div>
+                                <p className="font-semibold text-white">{testimonial.name}</p>
+                                <p className="text-green-400 text-sm">{testimonial.company}</p>
+                              </div>
+                            </div>
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <Button 
+                                  variant="outline" 
+                                  className="glass-effect border-green-500/30 text-green-400 hover:bg-green-500/10 rounded-lg px-4 py-2 text-sm group"
+                                >
+                                  <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
+                                  Watch Video
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-4xl w-full bg-gray-900 border-gray-800">
+                                <div className="aspect-video w-full bg-gray-800 rounded-lg flex items-center justify-center">
+                                  <div className="text-center">
+                                    <Play className="h-16 w-16 text-green-400 mx-auto mb-4" />
+                                    <p className="text-white text-lg mb-2">Video Testimonial</p>
+                                    <p className="text-gray-400 text-sm">{testimonial.name} - {testimonial.company}</p>
+                                  </div>
+                                </div>
+                              </DialogContent>
+                            </Dialog>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="glass-effect border-green-500/30 text-green-400 hover:bg-green-500/10" />
+                <CarouselNext className="glass-effect border-green-500/30 text-green-400 hover:bg-green-500/10" />
+              </Carousel>
+            </div>
 
             {/* Proven Results - Takes 1 column */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-start space-x-3 group">
-                <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Rocket className="h-5 w-5 text-green-400" />
+                <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Rocket className="h-4 w-4 text-green-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold mb-1">30+ SaaS & Web Apps Launched</h3>
-                  <p className="text-gray-400 text-sm">We have a proven playbook for taking products to market.</p>
+                  <h3 className="text-sm font-bold mb-1">30+ SaaS & Web Apps Launched</h3>
+                  <p className="text-gray-400 text-xs">We have a proven playbook for taking products to market.</p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-3 group">
-                <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <TrendingUp className="h-5 w-5 text-green-400" />
+                <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <TrendingUp className="h-4 w-4 text-green-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold mb-1">8+ Years of Experience</h3>
-                  <p className="text-gray-400 text-sm">Senior-level expertise in building complex, reliable systems.</p>
+                  <h3 className="text-sm font-bold mb-1">8+ Years of Experience</h3>
+                  <p className="text-gray-400 text-xs">Senior-level expertise in building complex, reliable systems.</p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-3 group">
-                <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <CheckCircle className="h-5 w-5 text-green-400" />
+                <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold mb-1">100% Client Success Rate</h3>
-                  <p className="text-gray-400 text-sm">We operate as a long-term partner, not a one-time vendor.</p>
+                  <h3 className="text-sm font-bold mb-1">100% Client Success Rate</h3>
+                  <p className="text-gray-400 text-xs">We operate as a long-term partner, not a one-time vendor.</p>
                 </div>
               </div>
             </div>
@@ -510,7 +565,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="px-6 py-12 border-t border-white/5">
         <div className="max-w-6xl mx-auto text-center">
           <div className="text-2xl font-bold text-white mb-3">
