@@ -1,8 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { 
   Rocket, 
@@ -19,7 +18,8 @@ import {
   Quote,
   Menu,
   X,
-  Play
+  Play,
+  ExternalLink
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -75,6 +75,39 @@ const Index = () => {
       company: "Founder of DataSync",
       initials: "MR",
       videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  ];
+
+  const portfolioItems = [
+    {
+      id: 1,
+      name: "AfterHire",
+      description: "A comprehensive HR onboarding platform that automates employee workflows, document management, and integration processes. Built to handle multi-tenant architecture with role-based permissions.",
+      industry: "Human Resources",
+      techStack: ["React", "Node.js", "PostgreSQL", "AWS", "Stripe"],
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
+      results: ["50% faster onboarding", "200+ companies", "99.9% uptime"],
+      liveUrl: "https://afterhire.com"
+    },
+    {
+      id: 2,
+      name: "PriceUp",
+      description: "An intelligent estimation and invoicing platform for service industries. Features dynamic pricing models, project tracking, and automated billing workflows with advanced analytics.",
+      industry: "Business Services",
+      techStack: ["Next.js", "TypeScript", "MongoDB", "Vercel", "Stripe"],
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop",
+      results: ["40% more accurate quotes", "150+ businesses", "95% client satisfaction"],
+      liveUrl: "https://priceup.com"
+    },
+    {
+      id: 3,
+      name: "Pipa",
+      description: "A specialized CRM and task management system for agriculture industry. Manages farm operations, employee coordination, and project tracking with real-time updates and mobile accessibility.",
+      industry: "Agriculture Technology",
+      techStack: ["React Native", "Express.js", "MySQL", "Firebase", "Google Maps API"],
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
+      results: ["60% improved efficiency", "500+ farms", "25% cost reduction"],
+      liveUrl: "https://pipa.com"
     }
   ];
 
@@ -392,74 +425,119 @@ const Index = () => {
         data-animate 
         className={`px-6 py-20 transition-all duration-1000 ${isVisible('case-studies') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our Work: From Complex Problems to{" "}
               <span className="text-green-400">Elegant Solutions</span>
             </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              Real projects, real results. See how we've helped founders transform their ideas into successful products.
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="bg-gradient-card card-blur hover-glow group overflow-hidden border border-white/10">
-              <div className="h-48 bg-gradient-to-br from-green-500/10 to-green-500/5 flex items-center justify-center relative overflow-hidden">
-                <Users className="h-16 w-16 text-green-400 relative z-10 group-hover:scale-110 transition-transform" />
-              </div>
-              <CardContent className="p-6">
-                <div className="mb-3">
-                  <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-2 py-1 text-xs">
-                    AfterHire
-                  </Badge>
-                </div>
-                <h3 className="text-xl font-bold mb-3">Building a Multi-Tenant HR Onboarding SaaS Platform</h3>
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                  AfterHire needed a robust platform to help companies automate their employee onboarding workflows. We architected and built the entire system from the ground up.
-                </p>
-                <Button variant="outline" className="w-full glass-effect border-green-500/30 text-green-400 hover:bg-green-500/10 rounded-lg py-2 text-sm">
-                  View Full Case Study
-                </Button>
-              </CardContent>
-            </Card>
+          <div className="space-y-16">
+            {portfolioItems.map((item, index) => (
+              <div 
+                key={item.id} 
+                className={`flex flex-col lg:flex-row gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+              >
+                {/* Portfolio Information */}
+                <div className="flex-1 space-y-6">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-2xl font-bold text-white">{item.name}</h3>
+                      <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-3 py-1">
+                        {item.industry}
+                      </Badge>
+                    </div>
+                    
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
 
-            <Card className="bg-gradient-card card-blur hover-glow group overflow-hidden border border-white/10">
-              <div className="h-48 bg-gradient-to-br from-green-500/10 to-green-500/5 flex items-center justify-center relative overflow-hidden">
-                <Target className="h-16 w-16 text-green-400 relative z-10 group-hover:scale-110 transition-transform" />
-              </div>
-              <CardContent className="p-6">
-                <div className="mb-3">
-                  <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-2 py-1 text-xs">
-                    PriceUp
-                  </Badge>
-                </div>
-                <h3 className="text-xl font-bold mb-3">Developing an End-to-End Estimation & Invoicing Platform</h3>
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                  We built a full-fledged system for the service industry to manage complex quotes, project tracking, and invoicing, turning chaos into streamlined operations.
-                </p>
-                <Button variant="outline" className="w-full glass-effect border-green-500/30 text-green-400 hover:bg-green-500/10 rounded-lg py-2 text-sm">
-                  View Full Case Study
-                </Button>
-              </CardContent>
-            </Card>
+                  {/* Tech Stack */}
+                  <div className="space-y-3">
+                    <h4 className="text-sm font-semibold text-green-400 uppercase tracking-wider">
+                      Tech Stack
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {item.techStack.map((tech) => (
+                        <Badge 
+                          key={tech}
+                          className="bg-gray-800 text-gray-300 border-gray-700 px-3 py-1 text-sm"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
 
-            <Card className="bg-gradient-card card-blur hover-glow group overflow-hidden border border-white/10">
-              <div className="h-48 bg-gradient-to-br from-green-500/10 to-green-500/5 flex items-center justify-center relative overflow-hidden">
-                <MapPin className="h-16 w-16 text-green-400 relative z-10 group-hover:scale-110 transition-transform" />
-              </div>
-              <CardContent className="p-6">
-                <div className="mb-3">
-                  <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-2 py-1 text-xs">
-                    Pipa
-                  </Badge>
+                  {/* Results */}
+                  <div className="space-y-3">
+                    <h4 className="text-sm font-semibold text-green-400 uppercase tracking-wider">
+                      Key Results
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                      {item.results.map((result, idx) => (
+                        <div key={idx} className="flex items-center space-x-2">
+                          <CheckCircle className="h-4 w-4 text-green-400" />
+                          <span className="text-gray-300 text-sm">{result}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                    <Button 
+                      className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium group"
+                    >
+                      View Live Project
+                      <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="glass-effect border-green-500/30 text-green-400 hover:bg-green-500/10 px-6 py-3 rounded-lg font-medium"
+                    >
+                      View Case Study
+                    </Button>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Creating a Custom CRM & Task Management System</h3>
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                  We developed a specialized CRM for the agriculture industry to manage farm employees, coordinate tasks, and track project progress in one platform.
-                </p>
-                <Button variant="outline" className="w-full glass-effect border-green-500/30 text-green-400 hover:bg-green-500/10 rounded-lg py-2 text-sm">
-                  View Full Case Study
-                </Button>
-              </CardContent>
-            </Card>
+
+                {/* Portfolio Image */}
+                <div className="flex-1 max-w-lg">
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                    <Card className="relative bg-gradient-card border border-white/10 overflow-hidden rounded-2xl hover-glow">
+                      <div className="aspect-[4/3] relative overflow-hidden">
+                        <img 
+                          src={item.image} 
+                          alt={`${item.name} project preview`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <h4 className="text-white font-semibold">{item.name}</h4>
+                              <p className="text-green-400 text-sm">{item.industry}</p>
+                            </div>
+                            <Button 
+                              size="sm"
+                              className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm border-white/20"
+                            >
+                              <Play className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
