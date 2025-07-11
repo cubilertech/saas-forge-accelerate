@@ -22,6 +22,7 @@ import {
   ExternalLink
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import ProjectsMarquee from "@/components/ProjectsMarquee";
 
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -252,6 +253,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Projects Marquee Section */}
+      <ProjectsMarquee />
 
       {/* Social Proof Section */}
       <section 
