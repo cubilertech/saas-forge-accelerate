@@ -19,7 +19,8 @@ import {
   Menu,
   X,
   Play,
-  ExternalLink
+  ExternalLink,
+  Bot
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import ProjectsMarquee from "@/components/ProjectsMarquee";
@@ -27,6 +28,7 @@ import ProjectsMarquee from "@/components/ProjectsMarquee";
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,6 +46,15 @@ const Index = () => {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
+  }, []);
+
+  // Auto-advance testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const isVisible = (id: string) => visibleSections.has(id);
@@ -257,7 +268,7 @@ const Index = () => {
       {/* Projects Marquee Section */}
       <ProjectsMarquee />
 
-      {/* Social Proof Section */}
+      {/* Social Proof Section - Updated Layout */}
       <section 
         id="social-proof" 
         data-animate 
@@ -266,94 +277,131 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Trusted by Founders, Backed by{" "}
-              <span className="text-primary">Proven Results</span>
+              Trusted by Founders
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-4 gap-8 items-start">
-            {/* Testimonial Carousel - Takes 3 columns */}
+          <div className="grid lg:grid-cols-5 gap-8 items-start">
+            {/* Testimonial Section - Reduced to 3 columns */}
             <div className="lg:col-span-3">
-              <Carousel className="w-full">
-                <CarouselContent>
-                  {testimonials.map((testimonial) => (
-                    <CarouselItem key={testimonial.id}>
-                      <Card className="bg-gradient-card card-blur hover-glow group">
-                        <CardContent className="p-8">
-                          <Quote className="h-8 w-8 text-primary mb-6" />
-                          <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                            "{testimonial.quote}"
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-primary-foreground font-bold text-lg mr-4">
-                                {testimonial.initials}
-                              </div>
-                              <div>
-                                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                                <p className="text-primary text-sm">{testimonial.company}</p>
-                              </div>
-                            </div>
-                            <Dialog>
-                              <DialogTrigger asChild>
-                                <Button 
-                                  variant="outline" 
-                                  className="glass-effect border-primary/30 text-primary hover:bg-primary/10 rounded-lg px-4 py-2 text-sm group"
-                                >
-                                  <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
-                                  Watch Video
-                                </Button>
-                              </DialogTrigger>
-                              <DialogContent className="max-w-4xl w-full bg-card border-border">
-                                <div className="aspect-video w-full bg-muted rounded-lg flex items-center justify-center">
-                                  <div className="text-center">
-                                    <Play className="h-16 w-16 text-primary mx-auto mb-4" />
-                                    <p className="text-foreground text-lg mb-2">Video Testimonial</p>
-                                    <p className="text-muted-foreground text-sm">{testimonial.name} - {testimonial.company}</p>
-                                  </div>
+              <div className="relative">
+                {/* Testimonial Cards */}
+                <div className="overflow-hidden">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                  >
+                    {testimonials.map((testimonial) => (
+                      <div key={testimonial.id} className="w-full flex-shrink-0">
+                        <Card className="bg-gradient-card card-blur hover-glow group">
+                          <CardContent className="p-8">
+                            <Quote className="h-8 w-8 text-primary mb-6" />
+                            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                              "{testimonial.quote}"
+                            </p>
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center">
+                                <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-primary-foreground font-bold text-lg mr-4">
+                                  {testimonial.initials}
                                 </div>
-                              </DialogContent>
-                            </Dialog>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CarouselItem>
+                                <div>
+                                  <p className="font-semibold text-foreground">{testimonial.name}</p>
+                                  <p className="text-primary text-sm">{testimonial.company}</p>
+                                </div>
+                              </div>
+                              <Dialog>
+                                <DialogTrigger asChild>
+                                  <Button 
+                                    variant="outline" 
+                                    className="glass-effect border-primary/30 text-primary hover:bg-primary/10 rounded-lg px-4 py-2 text-sm group"
+                                  >
+                                    <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
+                                    Watch Video
+                                  </Button>
+                                </DialogTrigger>
+                                <DialogContent className="max-w-4xl w-full bg-card border-border">
+                                  <div className="aspect-video w-full bg-muted rounded-lg flex items-center justify-center">
+                                    <div className="text-center">
+                                      <Play className="h-16 w-16 text-primary mx-auto mb-4" />
+                                      <p className="text-foreground text-lg mb-2">Video Testimonial</p>
+                                      <p className="text-muted-foreground text-sm">{testimonial.name} - {testimonial.company}</p>
+                                    </div>
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Dotted Progress Indicators */}
+                <div className="flex justify-center space-x-2 mt-6">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentTestimonial(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentTestimonial 
+                          ? 'bg-primary scale-110' 
+                          : 'bg-muted hover:bg-primary/50'
+                      }`}
+                    />
                   ))}
-                </CarouselContent>
-                <CarouselPrevious className="glass-effect border-primary/30 text-primary hover:bg-primary/10" />
-                <CarouselNext className="glass-effect border-primary/30 text-primary hover:bg-primary/10" />
-              </Carousel>
+                </div>
+              </div>
             </div>
 
-            {/* Proven Results - Takes 1 column */}
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3 group">
-                <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Rocket className="h-4 w-4 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold mb-1">30+ SaaS & Web Apps Launched</h3>
-                  <p className="text-muted-foreground text-xs">We have a proven playbook for taking products to market.</p>
-                </div>
+            {/* Proven Results - Expanded to 2 columns */}
+            <div className="lg:col-span-2">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold mb-2">
+                  <span className="text-primary">Proven Results</span>
+                </h3>
+                <p className="text-muted-foreground text-sm">Backed by real metrics and client success</p>
               </div>
               
-              <div className="flex items-start space-x-3 group">
-                <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <TrendingUp className="h-4 w-4 text-primary" />
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Rocket className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">30+ SaaS & Web Apps Launched</h4>
+                    <p className="text-muted-foreground text-xs">We have a proven playbook for taking products to market.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold mb-1">8+ Years of Experience</h3>
-                  <p className="text-muted-foreground text-xs">Senior-level expertise in building complex, reliable systems.</p>
+                
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <TrendingUp className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">8+ Years of Experience</h4>
+                    <p className="text-muted-foreground text-xs">Senior-level expertise in building complex, reliable systems.</p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex items-start space-x-3 group">
-                <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <CheckCircle className="h-4 w-4 text-primary" />
+                
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Bot className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">AI-First Development</h4>
+                    <p className="text-muted-foreground text-xs">We implement AI as a core feature in products, not just an add-on.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold mb-1">100% Client Success Rate</h3>
-                  <p className="text-muted-foreground text-xs">We operate as a long-term partner, not a one-time vendor.</p>
+                
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <CheckCircle className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">100% Client Success Rate</h4>
+                    <p className="text-muted-foreground text-xs">We operate as a long-term partner, not a one-time vendor.</p>
+                  </div>
                 </div>
               </div>
             </div>
