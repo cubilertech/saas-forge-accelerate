@@ -409,7 +409,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - Updated with Clean Design */}
       <section 
         id="services" 
         data-animate 
@@ -428,47 +428,56 @@ const Index = () => {
 
           <div className="grid lg:grid-cols-3 gap-8">
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Rocket className="h-8 w-8 text-primary-foreground" />
+              <CardContent className="p-8 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex justify-center mb-6">
+                    <Rocket className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-center">MVP Development</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-center">
+                    Have a brilliant idea? We'll take it from a concept to a launch-ready, high-quality Minimum Viable Product in a fixed timeframe. Our focus is on building the core features that deliver immediate value.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-primary">MVP Development</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Have a brilliant idea? We'll take it from a concept to a launch-ready, high-quality Minimum Viable Product in a fixed timeframe. Our focus is on building the core features that deliver immediate value.
-                </p>
-                <Badge className="bg-primary/20 text-primary border-primary/30 px-3 py-1 text-sm">
-                  Best for: Founders at the idea or pre-seed stage
-                </Badge>
+                <div className="mt-auto pt-6 border-t border-primary/30">
+                  <p className="text-primary text-sm font-medium">Best for:</p>
+                  <p className="text-muted-foreground text-sm">Founders at the idea or pre-seed stage</p>
+                </div>
               </CardContent>
             </Card>
 
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Building2 className="h-8 w-8 text-primary-foreground" />
+              <CardContent className="p-8 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex justify-center mb-6">
+                    <Building2 className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-center">Feature Expansion & Scaling</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-center">
+                    Your product has traction, but your roadmap is long and your current team is stretched thin. We integrate seamlessly with your existing developers to accelerate your feature velocity.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-primary">Feature Expansion & Scaling</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Your product has traction, but your roadmap is long and your current team is stretched thin. We integrate seamlessly with your existing developers to accelerate your feature velocity.
-                </p>
-                <Badge className="bg-primary/20 text-primary border-primary/30 px-3 py-1 text-sm">
-                  Best for: Funded startups needing to build faster
-                </Badge>
+                <div className="mt-auto pt-6 border-t border-primary/30">
+                  <p className="text-primary text-sm font-medium">Best for:</p>
+                  <p className="text-muted-foreground text-sm">Funded startups needing to build faster</p>
+                </div>
               </CardContent>
             </Card>
 
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Plus className="h-8 w-8 text-primary-foreground" />
+              <CardContent className="p-8 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex justify-center mb-6">
+                    <Plus className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-center">Dedicated Team Partner</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-center">
+                    Need dedicated senior talent without the headache of hiring? We provide experienced Next.js and Node.js developers who act as a true extension of your team.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-primary">Dedicated Team Partner</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Need dedicated senior talent without the headache of hiring? We provide experienced Next.js and Node.js developers who act as a true extension of your team.
-                </p>
-                <Badge className="bg-primary/20 text-primary border-primary/30 px-3 py-1 text-sm">
-                  Best for: Teams needing to add senior capacity quickly
-                </Badge>
+                <div className="mt-auto pt-6 border-t border-primary/30">
+                  <p className="text-primary text-sm font-medium">Best for:</p>
+                  <p className="text-muted-foreground text-sm">Teams needing to add senior capacity quickly</p>
+                </div>
               </CardContent>
             </Card>
           </div>
