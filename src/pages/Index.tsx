@@ -218,7 +218,7 @@ const Index = () => {
         <div className="relative max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
             <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-8">
-              <span className="text-sm font-medium text-primary">✨ Trusted by 30+ SaaS Founders</span>
+              <span className="text-sm font-medium text-primary">✨ Your SaaS Tech partner</span>
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
