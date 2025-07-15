@@ -279,23 +279,23 @@ const PriceUpCaseStudy = () => {
       {/* Results & Testimonials Section */}
       <section className="px-6 py-16">
         <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              Measurable Impact on Business Growth
+            </h2>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+              PriceUp has transformed how service businesses handle their estimation and billing processes
+            </p>
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Left Side - Testimonials */}
+            {/* Left Side - Single Testimonial */}
             <div>
               <TestimonialsSection />
             </div>
 
             {/* Right Side - Measurable Impact */}
             <div>
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold mb-3">
-                  Measurable Impact on Business Growth
-                </h2>
-                <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-                  PriceUp has transformed how service businesses handle their estimation and billing processes
-                </p>
-              </div>
-
               <div className="space-y-6">
                 {results.map((result, index) => (
                   <div key={index} className="flex items-center space-x-6 p-6 bg-gradient-card hover-glow rounded-xl border border-border/10">
