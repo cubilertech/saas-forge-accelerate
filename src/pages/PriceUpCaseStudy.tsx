@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import CaseStudyTestimonials from "@/components/CaseStudyTestimonials";
 
 const PriceUpCaseStudy = () => {
   const navigate = useNavigate();
@@ -301,6 +302,9 @@ const PriceUpCaseStudy = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <CaseStudyTestimonials />
 
       {/* Challenge & Solution */}
       <section className="px-6 py-16 bg-muted/20">
