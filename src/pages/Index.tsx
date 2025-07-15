@@ -98,6 +98,7 @@ const Index = () => {
       industry: "Human Resources",
       techStack: ["React", "Node.js", "PostgreSQL", "AWS"],
       image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
+      results: ["50% faster onboarding", "200+ companies"],
       liveUrl: "https://afterhire.com"
     },
     {
@@ -107,6 +108,7 @@ const Index = () => {
       industry: "Business Services",
       techStack: ["Next.js", "TypeScript", "MongoDB", "Vercel"],
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop",
+      results: ["40% more accurate quotes", "150+ businesses"],
       liveUrl: "https://priceup.com"
     },
     {
@@ -116,6 +118,7 @@ const Index = () => {
       industry: "Agriculture Technology",
       techStack: ["React Native", "Express.js", "MySQL", "Firebase"],
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
+      results: ["60% improved efficiency", "500+ farms"],
       liveUrl: "https://pipa.com"
     }
   ];
@@ -481,7 +484,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Case Studies Section - Updated Portfolio */}
+      {/* Case Studies Section - Improved Portfolio */}
       <section 
         id="case-studies" 
         data-animate 
@@ -498,7 +501,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolioItems.map((item) => (
               <Card 
                 key={item.id} 
@@ -512,51 +515,75 @@ const Index = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div className="absolute top-4 right-4">
-                      <Badge className="bg-primary/20 text-primary border-primary/30 text-sm">
+                    <div className="absolute top-3 right-3">
+                      <Badge className="bg-primary/20 text-primary border-primary/30 text-xs">
                         {item.industry}
                       </Badge>
                     </div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-white font-bold text-xl mb-1">{item.name}</h3>
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <h3 className="text-white font-bold text-lg mb-1">{item.name}</h3>
                     </div>
                   </div>
                 </div>
 
-                <CardContent className="p-6 space-y-6">
-                  <p className="text-muted-foreground leading-relaxed">
+                <CardContent className="p-4 space-y-4">
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
                     {item.description}
                   </p>
 
                   {/* Tech Stack */}
-                  <div className="space-y-3">
-                    <p className="text-sm font-semibold text-primary uppercase tracking-wider">
+                  <div className="space-y-2">
+                    <p className="text-xs font-semibold text-primary uppercase tracking-wider">
                       Tech Stack
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {item.techStack.slice(0, 4).map((tech) => (
+                    <div className="flex flex-wrap gap-1">
+                      {item.techStack.slice(0, 3).map((tech) => (
                         <Badge 
                           key={tech}
-                          className="bg-muted text-muted-foreground border-border px-3 py-1"
+                          className="bg-muted text-muted-foreground border-border px-2 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
+                      ))}
+                      {item.techStack.length > 3 && (
+                        <Badge className="bg-muted text-muted-foreground border-border px-2 py-1 text-xs">
+                          +{item.techStack.length - 3}
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Results */}
+                  <div className="space-y-2">
+                    <p className="text-xs font-semibold text-primary uppercase tracking-wider">
+                      Key Results
+                    </p>
+                    <div className="space-y-1">
+                      {item.results.map((result, idx) => (
+                        <div key={idx} className="flex items-center space-x-2">
+                          <div className="w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                            <CheckCircle className="h-2.5 w-2.5 text-primary" />
+                          </div>
+                          <span className="text-muted-foreground text-xs">{result}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3 pt-4">
+                  <div className="flex gap-2 pt-2">
                     <Button 
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg font-medium flex-1 group"
+                      size="sm"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-2 text-xs rounded-lg font-medium flex-1 group"
                       onClick={() => window.open(item.liveUrl, '_blank')}
                     >
                       View Live
-                      <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                      <ExternalLink className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                     </Button>
                     <Button 
                       variant="outline" 
-                      className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-4 py-2 rounded-lg font-medium flex-1"
+                      size="sm"
+                      className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-3 py-2 text-xs rounded-lg font-medium flex-1"
                       onClick={() => {
                         if (item.name === 'PriceUp') {
                           window.location.href = '/case-study/priceup';
@@ -572,7 +599,7 @@ const Index = () => {
           </div>
 
           {/* View All Projects Button */}
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <Button 
               variant="outline"
               className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-6 py-3 rounded-xl font-medium group"
