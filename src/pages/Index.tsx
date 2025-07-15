@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -630,6 +629,17 @@ const Index = () => {
       >
         {/* Background overlay */}
         <div className="absolute inset-0 bg-background/95"></div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)
+            `,
+            backgroundSize: '20px 20px'
+          }}></div>
+        </div>
         
         <div className="relative max-w-4xl mx-auto">
           <div className="text-center mb-16">
