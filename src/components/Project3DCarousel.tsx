@@ -75,7 +75,7 @@ const Project3DCarousel = () => {
     if (diff < -totalSlides / 2) position = diff + totalSlides;
 
     if (position === 0) {
-      // Active slide - bigger and popped forward
+      // Active slide - bigger and centered
       return {
         transform: 'translateX(0%) scale(1) translateZ(0px)',
         zIndex: 30,
@@ -85,17 +85,17 @@ const Project3DCarousel = () => {
     } else if (position === 1) {
       // Next slide - smaller and to the right with shadow
       return {
-        transform: 'translateX(70%) scale(0.7) translateZ(-100px) rotateY(-20deg)',
+        transform: 'translateX(60%) scale(0.8) translateZ(-100px) rotateY(-15deg)',
         zIndex: 20,
-        opacity: 0.6,
+        opacity: 0.7,
         filter: 'blur(1px)'
       };
     } else if (position === -1) {
       // Previous slide - smaller and to the left with shadow
       return {
-        transform: 'translateX(-70%) scale(0.7) translateZ(-100px) rotateY(20deg)',
+        transform: 'translateX(-60%) scale(0.8) translateZ(-100px) rotateY(15deg)',
         zIndex: 20,
-        opacity: 0.6,
+        opacity: 0.7,
         filter: 'blur(1px)'
       };
     } else {
@@ -113,7 +113,7 @@ const Project3DCarousel = () => {
     <div className="relative w-full max-w-7xl mx-auto px-4">
       {/* Carousel Container */}
       <div 
-        className="relative h-[600px] overflow-hidden"
+        className="relative h-[700px] overflow-hidden"
         style={{ perspective: '1200px' }}
         onMouseEnter={() => setIsAutoPlaying(false)}
         onMouseLeave={() => setIsAutoPlaying(true)}
@@ -121,11 +121,11 @@ const Project3DCarousel = () => {
         {portfolioItems.map((item, index) => (
           <div
             key={item.id}
-            className="absolute top-1/2 left-1/2 w-[900px] -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out cursor-pointer"
+            className="absolute top-1/2 left-1/2 w-[1000px] -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out cursor-pointer"
             style={getSlideStyle(index)}
             onClick={() => index !== currentSlide && goToSlide(index)}
           >
-            <Card className={`bg-gradient-to-br ${item.bgColor} border-0 shadow-2xl hover:shadow-3xl transition-all duration-300 backdrop-blur-sm h-[500px]`}>
+            <Card className={`bg-gradient-to-br ${item.bgColor} border-0 shadow-2xl hover:shadow-3xl transition-all duration-300 backdrop-blur-sm h-[550px]`}>
               <CardContent className="p-0 overflow-hidden h-full">
                 <div className="grid grid-cols-2 h-full">
                   {/* Left Side - Project Details */}
