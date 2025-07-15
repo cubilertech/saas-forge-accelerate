@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import ProjectsMarquee from "@/components/ProjectsMarquee";
+import Project3DCarousel from "@/components/Project3DCarousel";
 
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -484,14 +485,14 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Case Studies Section */}
+      {/* Case Studies Section - Updated with 3D Carousel */}
       <section 
         id="case-studies" 
         data-animate 
         className={`px-6 py-32 transition-all duration-1000 ${isVisible('case-studies') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Our Work: From Complex Problems to{" "}
               <span className="text-primary">Elegant Solutions</span>
@@ -501,117 +502,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="space-y-24">
-            {portfolioItems.map((item, index) => (
-              <div 
-                key={item.id} 
-                className={`flex flex-col lg:flex-row gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
-              >
-                {/* Portfolio Information */}
-                <div className="flex-1 space-y-8 max-w-2xl">
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <h3 className="text-3xl font-bold text-foreground">{item.name}</h3>
-                      <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 text-sm font-medium">
-                        {item.industry}
-                      </Badge>
-                    </div>
-                    
-                    <p className="text-muted-foreground text-xl leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  {/* Tech Stack */}
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-bold text-primary uppercase tracking-wider">
-                      Tech Stack
-                    </h4>
-                    <div className="flex flex-wrap gap-3">
-                      {item.techStack.map((tech) => (
-                        <Badge 
-                          key={tech}
-                          className="bg-muted text-muted-foreground border-border px-4 py-2 text-sm font-medium"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Results */}
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-bold text-primary uppercase tracking-wider">
-                      Key Results
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
-                      {item.results.map((result, idx) => (
-                        <div key={idx} className="flex items-center space-x-3">
-                          <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                            <CheckCircle className="h-4 w-4 text-primary" />
-                          </div>
-                          <span className="text-muted-foreground text-lg">{result}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                    <Button 
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-xl font-semibold group"
-                      onClick={() => window.open(item.liveUrl, '_blank')}
-                    >
-                      View Live Project
-                      <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 text-lg rounded-xl font-semibold"
-                      onClick={() => {
-                        if (item.name === 'PriceUp') {
-                          window.location.href = '/case-study/priceup';
-                        }
-                      }}
-                    >
-                      View Case Study
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Portfolio Image - Now Larger */}
-                <div className="flex-1 max-w-2xl w-full">
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-primary/10 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-                    <Card className="relative bg-gradient-card border border-border/10 overflow-hidden rounded-3xl hover-glow">
-                      <div className="aspect-[16/10] relative overflow-hidden">
-                        <img 
-                          src={item.image} 
-                          alt={`${item.name} project preview`}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                        <div className="absolute bottom-6 left-6 right-6">
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <h4 className="text-white font-bold text-xl mb-1">{item.name}</h4>
-                              <p className="text-primary text-base font-medium">{item.industry}</p>
-                            </div>
-                            <Button 
-                              size="lg"
-                              className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm border-white/30 rounded-xl px-4 py-3"
-                            >
-                              <Play className="h-5 w-5" />
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                    </Card>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <Project3DCarousel />
         </div>
       </section>
 
