@@ -65,119 +65,70 @@ const Project3DCarousel = () => {
     setCurrentSlide(index);
   };
 
-  const getSlideStyle = (index: number) => {
-    const diff = index - currentSlide;
-    const totalSlides = portfolioItems.length;
-    
-    // Handle wrap-around for smooth infinite scroll
-    let position = diff;
-    if (diff > totalSlides / 2) position = diff - totalSlides;
-    if (diff < -totalSlides / 2) position = diff + totalSlides;
-
-    if (position === 0) {
-      // Active slide - bigger and centered
-      return {
-        transform: 'translateX(0%) scale(1) translateZ(0px)',
-        zIndex: 30,
-        opacity: 1,
-        filter: 'blur(0px)'
-      };
-    } else if (position === 1) {
-      // Next slide - smaller and to the right with shadow
-      return {
-        transform: 'translateX(60%) scale(0.8) translateZ(-100px) rotateY(-15deg)',
-        zIndex: 20,
-        opacity: 0.7,
-        filter: 'blur(1px)'
-      };
-    } else if (position === -1) {
-      // Previous slide - smaller and to the left with shadow
-      return {
-        transform: 'translateX(-60%) scale(0.8) translateZ(-100px) rotateY(15deg)',
-        zIndex: 20,
-        opacity: 0.7,
-        filter: 'blur(1px)'
-      };
-    } else {
-      // Hidden slides
-      return {
-        transform: `translateX(${position > 0 ? '150%' : '-150%'}) scale(0.5) translateZ(-200px)`,
-        zIndex: 10,
-        opacity: 0,
-        filter: 'blur(3px)'
-      };
-    }
-  };
+  const currentItem = portfolioItems[currentSlide];
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-4">
+    <div className="relative w-full max-w-6xl mx-auto px-4">
       {/* Carousel Container */}
       <div 
-        className="relative h-[700px] overflow-hidden"
-        style={{ perspective: '1200px' }}
+        className="relative overflow-hidden"
         onMouseEnter={() => setIsAutoPlaying(false)}
         onMouseLeave={() => setIsAutoPlaying(true)}
       >
-        {portfolioItems.map((item, index) => (
-          <div
-            key={item.id}
-            className="absolute top-1/2 left-1/2 w-[1000px] -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out cursor-pointer"
-            style={getSlideStyle(index)}
-            onClick={() => index !== currentSlide && goToSlide(index)}
-          >
-            <Card className={`bg-gradient-to-br ${item.bgColor} border-0 shadow-2xl hover:shadow-3xl transition-all duration-300 backdrop-blur-sm h-[550px]`}>
-              <CardContent className="p-0 overflow-hidden h-full">
-                <div className="grid grid-cols-2 h-full">
-                  {/* Left Side - Project Details */}
-                  <div className="p-8 flex flex-col justify-center space-y-6">
-                    <div>
-                      <h3 className="text-3xl font-bold text-foreground mb-3">{item.name}</h3>
-                      <p className="text-base text-muted-foreground leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    {/* Tech Stack */}
-                    <div>
-                      <h4 className="text-sm font-semibold text-foreground/80 mb-3">Tech Stack</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {item.techStack.map((tech) => (
-                          <Badge 
-                            key={tech}
-                            variant="secondary"
-                            className="text-xs px-3 py-1 bg-background/50 text-foreground/80 border-0"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* CTA Button */}
-                    <Button 
-                      variant="outline"
-                      size="lg"
-                      className="w-fit glass-effect border-primary/30 text-primary hover:bg-primary/10 group"
-                    >
-                      View Case Study
-                      <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+        {/* Single Slide Display */}
+        <div className="w-full">
+          <Card className={`bg-gradient-to-br ${currentItem.bgColor} border-0 shadow-2xl transition-all duration-500 backdrop-blur-sm`}>
+            <CardContent className="p-0 overflow-hidden">
+              <div className="grid lg:grid-cols-2 min-h-[500px]">
+                {/* Left Side - Project Details */}
+                <div className="p-8 lg:p-12 flex flex-col justify-center space-y-8">
+                  <div>
+                    <h3 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">{currentItem.name}</h3>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      {currentItem.description}
+                    </p>
                   </div>
 
-                  {/* Right Side - Project Image */}
-                  <div className="relative overflow-hidden">
-                    <img 
-                      src={item.image} 
-                      alt={item.name}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/20" />
+                  {/* Tech Stack */}
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground/80 mb-4">Tech Stack</h4>
+                    <div className="flex flex-wrap gap-3">
+                      {currentItem.techStack.map((tech) => (
+                        <Badge 
+                          key={tech}
+                          variant="secondary"
+                          className="text-sm px-4 py-2 bg-background/50 text-foreground/80 border-0"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
+
+                  {/* CTA Button */}
+                  <Button 
+                    variant="outline"
+                    size="lg"
+                    className="w-fit glass-effect border-primary/30 text-primary hover:bg-primary/10 group"
+                  >
+                    View Case Study
+                    <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        ))}
+
+                {/* Right Side - Project Image */}
+                <div className="relative overflow-hidden min-h-[300px] lg:min-h-[500px]">
+                  <img 
+                    src={currentItem.image} 
+                    alt={currentItem.name}
+                    className="w-full h-full object-cover transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/20" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
 
       {/* Bottom Navigation */}
@@ -192,7 +143,7 @@ const Project3DCarousel = () => {
           <ChevronLeft className="h-5 w-5" />
         </Button>
 
-        {/* Progress Indicators */}
+        {/* Dot Indicators */}
         <div className="flex gap-3">
           {portfolioItems.map((_, index) => (
             <button
