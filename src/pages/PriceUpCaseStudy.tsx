@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -190,45 +189,27 @@ const PriceUpCaseStudy = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="px-6 py-20 bg-gradient-to-br from-primary/5 via-background to-primary/10 relative overflow-hidden">
+      <section className="px-6 py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10 relative overflow-hidden">
         {/* Grid Background */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10"></div>
         
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center space-y-8">
-            {/* Client Testimonial */}
-            <div className="max-w-4xl mx-auto">
-              <Card className="bg-gradient-card border border-primary/20 p-8">
-                <CardContent className="space-y-4">
-                  <blockquote className="text-xl md:text-2xl italic text-muted-foreground leading-relaxed">
-                    "Working with UBiLER Technologies transformed our entire business. We went from chaotic spreadsheets to a streamlined system that eliminated 95% of our quoting errors. Our profitability has increased dramatically."
-                  </blockquote>
-                  <div className="flex items-center justify-center space-x-3">
-                    <div className="text-right">
-                      <p className="font-semibold text-lg">Sarah Johnson</p>
-                      <p className="text-muted-foreground">Managing Partner, PriceUp</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
+          <div className="text-center space-y-6">
             {/* Badge */}
             <div className="flex justify-center">
-              <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 text-sm font-medium">
+              <Badge className="bg-primary/20 text-primary border-primary/30 px-3 py-1 text-sm font-medium">
                 Business Services Platform
               </Badge>
             </div>
 
             {/* Title and Subtitle */}
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <div className="space-y-4">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 How We Built a Custom Quoting & Invoicing Platform that{" "}
                 <span className="text-gradient-primary">Reduced Quoting Errors by 95%</span>{" "}
                 for a Glass Installation Business
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-5xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
                 PriceUp was running their multi-million dollar business on a chaotic system of spreadsheets and paper forms. 
                 We partnered with them to build a custom, end-to-end software platform from scratch, transforming their 
                 operations and boosting their profitability.
@@ -238,26 +219,26 @@ const PriceUpCaseStudy = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-xl font-semibold group"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 text-base rounded-xl font-semibold group"
                 onClick={() => window.open('https://priceup.glass', '_blank')}
               >
                 View Live Project
-                <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 variant="outline" 
-                className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 text-lg rounded-xl font-semibold"
+                className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-6 py-3 text-base rounded-xl font-semibold"
               >
                 View Code Architecture
               </Button>
             </div>
 
-            {/* Feature Images Stack */}
-            <div className="relative pt-16">
-              <div className="relative max-w-4xl mx-auto">
-                {/* Main Center Image */}
-                <div className="relative z-30 transform">
-                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-2xl shadow-2xl">
+            {/* Three Stack Images */}
+            <div className="relative pt-12">
+              <div className="relative max-w-3xl mx-auto">
+                {/* Center Image - Popped Up */}
+                <div className="relative z-30 transform -translate-y-4">
+                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-xl shadow-2xl">
                     <img 
                       src="/lovable-uploads/c03d61d6-5ad2-48a8-8de5-bc9f6aa2e9af.png"
                       alt="PriceUp Quoting Engine"
@@ -266,9 +247,9 @@ const PriceUpCaseStudy = () => {
                   </Card>
                 </div>
 
-                {/* Left Side Image */}
-                <div className="absolute left-0 top-8 w-1/3 z-20 transform -rotate-6 translate-x-4">
-                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-2xl shadow-xl opacity-80">
+                {/* Left Image - Slightly Behind */}
+                <div className="absolute left-0 top-0 w-3/4 z-20 transform -rotate-3 -translate-x-8">
+                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-xl shadow-xl opacity-80">
                     <img 
                       src="/lovable-uploads/3b894766-edb1-46bb-b0e0-0eab09a061bd.png"
                       alt="PriceUp Scheduling"
@@ -277,33 +258,12 @@ const PriceUpCaseStudy = () => {
                   </Card>
                 </div>
 
-                {/* Right Side Image */}
-                <div className="absolute right-0 top-8 w-1/3 z-20 transform rotate-6 -translate-x-4">
-                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-2xl shadow-xl opacity-80">
+                {/* Right Image - Slightly Behind */}
+                <div className="absolute right-0 top-0 w-3/4 z-20 transform rotate-3 translate-x-8">
+                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-xl shadow-xl opacity-80">
                     <img 
                       src="/lovable-uploads/30348186-6e10-4232-8149-8b41d1f1c770.png"
                       alt="PriceUp Invoicing"
-                      className="w-full h-auto object-cover"
-                    />
-                  </Card>
-                </div>
-
-                {/* Background Images */}
-                <div className="absolute left-1/4 -top-4 w-1/4 z-10 transform rotate-12 opacity-40">
-                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-2xl shadow-lg">
-                    <img 
-                      src="/lovable-uploads/1f9ff678-592f-4384-8d9b-610344a58f8a.png"
-                      alt="PriceUp Layout Management"
-                      className="w-full h-auto object-cover"
-                    />
-                  </Card>
-                </div>
-
-                <div className="absolute right-1/4 -top-4 w-1/4 z-10 transform -rotate-12 opacity-40">
-                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-2xl shadow-lg">
-                    <img 
-                      src="/lovable-uploads/0cbabedb-5681-40a5-ba5e-ae2ca21539d0.png"
-                      alt="PriceUp Multi-Location"
                       className="w-full h-auto object-cover"
                     />
                   </Card>
@@ -315,26 +275,26 @@ const PriceUpCaseStudy = () => {
       </section>
 
       {/* Results Section */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-16">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
               Measurable Impact on Business Growth
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
               PriceUp has transformed how service businesses handle their estimation and billing processes
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {results.map((result, index) => (
-              <Card key={index} className="bg-gradient-card hover-glow text-center p-8">
-                <CardContent className="space-y-4">
+              <Card key={index} className="bg-gradient-card hover-glow text-center p-6">
+                <CardContent className="space-y-3">
                   <div className="flex justify-center">
                     {result.icon}
                   </div>
-                  <div className="text-4xl font-bold text-primary">{result.metric}</div>
-                  <p className="text-muted-foreground">{result.description}</p>
+                  <div className="text-3xl font-bold text-primary">{result.metric}</div>
+                  <p className="text-sm text-muted-foreground">{result.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -343,7 +303,7 @@ const PriceUpCaseStudy = () => {
       </section>
 
       {/* Challenge & Solution */}
-      <section className="px-6 py-20 bg-muted/20">
+      <section className="px-6 py-16 bg-muted/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
@@ -386,7 +346,7 @@ const PriceUpCaseStudy = () => {
       </section>
 
       {/* Feature Sections - Full Width Sequential */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="text-center mb-20 px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Powerful Features That Drive Results
@@ -487,7 +447,7 @@ const PriceUpCaseStudy = () => {
       </section>
 
       {/* Tech Stack */}
-      <section className="px-6 py-20 bg-muted/20">
+      <section className="px-6 py-16 bg-muted/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -512,7 +472,7 @@ const PriceUpCaseStudy = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-16">
         <div className="max-w-4xl mx-auto text-center">
           <Card className="bg-gradient-card p-12 border border-border/10 rounded-3xl">
             <CardContent className="space-y-8">
