@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -120,6 +121,33 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
       results: ["60% improved efficiency", "500+ farms"],
       liveUrl: "https://pipa.com"
+    }
+  ];
+
+  const processSteps = [
+    {
+      number: 1,
+      title: "Kickstart & Align",
+      description: "Get strategic clarity on user, problem, and scope.",
+      details: "We start by becoming experts in your business. We dive deep into your goals, your users, and your metrics for success."
+    },
+    {
+      number: 2,
+      title: "UX & Wireframe Sprint",
+      description: "Fast prototyping to visualize and align.",
+      details: "We design a scalable and secure technical architecture, then map out a clear feature roadmap broken into two-week sprints."
+    },
+    {
+      number: 3,
+      title: "Code & Integrate Smartly",
+      description: "Build with senior-led teams using the right AI boosts.",
+      details: "You get constant visibility with regular check-ins and direct access to a project manager. Working software every two weeks."
+    },
+    {
+      number: 4,
+      title: "Launch & Learn",
+      description: "Deliver, measure, iterate with feedback loop built in.",
+      details: "Rigorous testing ensures your platform is reliable, bug-free, and ready for your first users. We handle the deployment."
     }
   ];
 
@@ -553,23 +581,6 @@ const Index = () => {
                     </div>
                   </div>
 
-                  {/* Results */}
-                  <div className="space-y-2">
-                    <p className="text-xs font-semibold text-primary uppercase tracking-wider">
-                      Key Results
-                    </p>
-                    <div className="space-y-1">
-                      {item.results.map((result, idx) => (
-                        <div key={idx} className="flex items-center space-x-2">
-                          <div className="w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                            <CheckCircle className="h-2.5 w-2.5 text-primary" />
-                          </div>
-                          <span className="text-muted-foreground text-xs">{result}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
                   {/* Action Buttons */}
                   <div className="flex gap-2 pt-2">
                     <Button 
@@ -611,75 +622,54 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section - New List Design */}
       <section 
         id="process" 
         data-animate 
-        className={`px-6 py-20 transition-all duration-1000 ${isVisible('process') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`relative px-6 py-20 bg-grid-pattern transition-all duration-1000 ${isVisible('process') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
-        <div className="max-w-6xl mx-auto">
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-background/95"></div>
+        
+        <div className="relative max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              No Chaos. No Surprises.{" "}
-              <span className="text-primary">Just a Professional Process.</span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Launch-Ready Process{" "}
+              <span className="text-primary">Powered by AI</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We believe that building great software requires a great system. This is our four-step promise to you.
+              We streamline every step with AI, taking you from concept to live product fast
+              and ready for your first users in 4 weeks.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <Search className="h-8 w-8 text-primary" />
-              </div>
-              <div className="bg-primary text-primary-foreground text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
-                Step 1
-              </div>
-              <h3 className="text-lg font-bold mb-3">Deep Discovery & Strategy</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                We start by becoming experts in your business. We dive deep into your goals, your users, and your metrics for success.
-              </p>
-            </div>
+          <div className="space-y-8">
+            {processSteps.map((step, index) => (
+              <div key={step.number} className="flex items-start gap-6 group">
+                {/* Number Circle */}
+                <div className="flex-shrink-0 w-16 h-16 bg-primary/10 border-2 border-primary/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl font-bold text-primary">{step.number}</span>
+                </div>
 
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <MapPin className="h-8 w-8 text-primary" />
-              </div>
-              <div className="bg-primary text-primary-foreground text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
-                Step 2
-              </div>
-              <h3 className="text-lg font-bold mb-3">Architecture & Roadmapping</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                We design a scalable and secure technical architecture, then map out a clear feature roadmap broken into two-week sprints.
-              </p>
-            </div>
+                {/* Content */}
+                <div className="flex-1 pt-2">
+                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-lg text-muted-foreground mb-3 leading-relaxed">
+                    {step.description}
+                  </p>
+                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                    {step.details}
+                  </p>
+                </div>
 
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <Zap className="h-8 w-8 text-primary" />
+                {/* Connecting Line */}
+                {index < processSteps.length - 1 && (
+                  <div className="absolute left-8 mt-20 w-0.5 h-12 bg-gradient-to-b from-primary/30 to-transparent"></div>
+                )}
               </div>
-              <div className="bg-primary text-primary-foreground text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
-                Step 3
-              </div>
-              <h3 className="text-lg font-bold mb-3">Agile Development</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                You get constant visibility with regular check-ins and direct access to a project manager. Working software every two weeks.
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <CheckCircle className="h-8 w-8 text-primary" />
-              </div>
-              <div className="bg-primary text-primary-foreground text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
-                Step 4
-              </div>
-              <h3 className="text-lg font-bold mb-3">Quality Assurance & Launch</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Rigorous testing ensures your platform is reliable, bug-free, and ready for your first users. We handle the deployment.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
