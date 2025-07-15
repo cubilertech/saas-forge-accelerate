@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -22,7 +21,6 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import TestimonialsSection from "@/components/TestimonialsSection";
 
 const PriceUpCaseStudy = () => {
   const navigate = useNavigate();
@@ -191,12 +189,12 @@ const PriceUpCaseStudy = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="px-6 py-12 bg-gradient-to-br from-primary/5 via-background to-primary/10 relative overflow-hidden">
+      <section className="px-6 py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10 relative overflow-hidden">
         {/* Grid Background */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center space-y-5">
+          <div className="text-center space-y-6">
             {/* Badge */}
             <div className="flex justify-center">
               <Badge className="bg-primary/20 text-primary border-primary/30 px-3 py-1 text-sm font-medium">
@@ -205,13 +203,13 @@ const PriceUpCaseStudy = () => {
             </div>
 
             {/* Title and Subtitle */}
-            <div className="space-y-3">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+            <div className="space-y-4">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 How We Built a Custom Quoting & Invoicing Platform that{" "}
                 <span className="text-gradient-primary">Reduced Quoting Errors by 95%</span>{" "}
                 for a Glass Installation Business
               </h1>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
                 PriceUp was running their multi-million dollar business on a chaotic system of spreadsheets and paper forms. 
                 We partnered with them to build a custom, end-to-end software platform from scratch, transforming their 
                 operations and boosting their profitability.
@@ -219,9 +217,9 @@ const PriceUpCaseStudy = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 text-sm rounded-xl font-semibold group"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 text-base rounded-xl font-semibold group"
                 onClick={() => window.open('https://priceup.glass', '_blank')}
               >
                 View Live Project
@@ -229,14 +227,14 @@ const PriceUpCaseStudy = () => {
               </Button>
               <Button 
                 variant="outline" 
-                className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-5 py-2.5 text-sm rounded-xl font-semibold"
+                className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-6 py-3 text-base rounded-xl font-semibold"
               >
                 View Code Architecture
               </Button>
             </div>
 
             {/* Three Stack Images */}
-            <div className="relative pt-8">
+            <div className="relative pt-12">
               <div className="relative max-w-3xl mx-auto">
                 {/* Center Image - Popped Up */}
                 <div className="relative z-30 transform -translate-y-4">
@@ -276,7 +274,7 @@ const PriceUpCaseStudy = () => {
         </div>
       </section>
 
-      {/* Results & Testimonials Section */}
+      {/* Results Section */}
       <section className="px-6 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -288,31 +286,18 @@ const PriceUpCaseStudy = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Left Side - Single Testimonial */}
-            <div>
-              <TestimonialsSection />
-            </div>
-
-            {/* Right Side - Measurable Impact */}
-            <div>
-              <div className="space-y-6">
-                {results.map((result, index) => (
-                  <div key={index} className="flex items-center space-x-6 p-6 bg-gradient-card hover-glow rounded-xl border border-border/10">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center">
-                        {result.icon}
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-3xl font-bold text-primary mb-1">{result.metric}</div>
-                      <p className="text-muted-foreground">{result.description}</p>
-                    </div>
-                    <div className="w-1 h-16 bg-primary/20 rounded-full"></div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {results.map((result, index) => (
+              <Card key={index} className="bg-gradient-card hover-glow text-center p-6">
+                <CardContent className="space-y-3">
+                  <div className="flex justify-center">
+                    {result.icon}
                   </div>
-                ))}
-              </div>
-            </div>
+                  <div className="text-3xl font-bold text-primary">{result.metric}</div>
+                  <p className="text-sm text-muted-foreground">{result.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
