@@ -23,7 +23,7 @@ import {
   Bot
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import ProjectsMarquee from "@/components/ProjectsMarquee";
+// import ProjectsMarquee from "@/components/ProjectsMarquee";
 
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -252,8 +252,8 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative px-6 py-32 lg:py-40 overflow-hidden bg-gradient-hero bg-mesh">
+      {/* Hero Section - Full Screen */}
+      <section className="relative min-h-screen px-6 flex items-center justify-center overflow-hidden bg-gradient-hero bg-mesh">
         <div className="relative max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
             <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-8">
@@ -292,8 +292,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Marquee Section */}
-      <ProjectsMarquee />
+      {/* Projects Marquee Section - Hidden */}
+      {/* <ProjectsMarquee /> */}
 
       {/* Social Proof Section - Updated Layout */}
       <section 
