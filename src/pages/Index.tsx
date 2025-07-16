@@ -19,13 +19,16 @@ import {
   Menu,
   X,
   Play,
-  ExternalLink
+  ExternalLink,
+  Bot
 } from "lucide-react";
 import { useEffect, useState } from "react";
+// import ProjectsMarquee from "@/components/ProjectsMarquee";
 
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,6 +46,15 @@ const Index = () => {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
+  }, []);
+
+  // Auto-advance testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const isVisible = (id: string) => visibleSections.has(id);
@@ -82,32 +94,59 @@ const Index = () => {
     {
       id: 1,
       name: "AfterHire",
-      description: "A comprehensive HR onboarding platform that automates employee workflows, document management, and integration processes. Built to handle multi-tenant architecture with role-based permissions.",
+      description: "A comprehensive HR onboarding platform that automates employee workflows, document management, and integration processes.",
       industry: "Human Resources",
-      techStack: ["React", "Node.js", "PostgreSQL", "AWS", "Stripe"],
+      techStack: ["React", "Node.js", "PostgreSQL", "AWS"],
       image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
-      results: ["50% faster onboarding", "200+ companies", "99.9% uptime"],
+      results: ["50% faster onboarding", "200+ companies"],
       liveUrl: "https://afterhire.com"
     },
     {
       id: 2,
       name: "PriceUp",
-      description: "An intelligent estimation and invoicing platform for service industries. Features dynamic pricing models, project tracking, and automated billing workflows with advanced analytics.",
+      description: "An intelligent estimation and invoicing platform for service industries with dynamic pricing models and automated billing.",
       industry: "Business Services",
-      techStack: ["Next.js", "TypeScript", "MongoDB", "Vercel", "Stripe"],
+      techStack: ["Next.js", "TypeScript", "MongoDB", "Vercel"],
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop",
-      results: ["40% more accurate quotes", "150+ businesses", "95% client satisfaction"],
+      results: ["40% more accurate quotes", "150+ businesses"],
       liveUrl: "https://priceup.com"
     },
     {
       id: 3,
       name: "Pipa",
-      description: "A specialized CRM and task management system for agriculture industry. Manages farm operations, employee coordination, and project tracking with real-time updates and mobile accessibility.",
+      description: "A specialized CRM and task management system for agriculture industry with real-time updates and mobile accessibility.",
       industry: "Agriculture Technology",
-      techStack: ["React Native", "Express.js", "MySQL", "Firebase", "Google Maps API"],
+      techStack: ["React Native", "Express.js", "MySQL", "Firebase"],
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
-      results: ["60% improved efficiency", "500+ farms", "25% cost reduction"],
+      results: ["60% improved efficiency", "500+ farms"],
       liveUrl: "https://pipa.com"
+    }
+  ];
+
+  const processSteps = [
+    {
+      number: 1,
+      title: "Kickstart & Align",
+      description: "Get strategic clarity on user, problem, and scope.",
+      details: "We start by becoming experts in your business. We dive deep into your goals, your users, and your metrics for success."
+    },
+    {
+      number: 2,
+      title: "UX & Wireframe Sprint",
+      description: "Fast prototyping to visualize and align.",
+      details: "We design a scalable and secure technical architecture, then map out a clear feature roadmap broken into two-week sprints."
+    },
+    {
+      number: 3,
+      title: "Code & Integrate Smartly",
+      description: "Build with senior-led teams using the right AI boosts.",
+      details: "You get constant visibility with regular check-ins and direct access to a project manager. Working software every two weeks."
+    },
+    {
+      number: 4,
+      title: "Launch & Learn",
+      description: "Deliver, measure, iterate with feedback loop built in.",
+      details: "Rigorous testing ensures your platform is reliable, bug-free, and ready for your first users. We handle the deployment."
     }
   ];
 
@@ -213,12 +252,12 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative px-6 py-32 lg:py-40 overflow-hidden bg-gradient-hero bg-mesh">
+      {/* Hero Section - Full Screen */}
+      <section className="relative min-h-screen px-6 flex items-center justify-center overflow-hidden bg-gradient-hero bg-mesh">
         <div className="relative max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
             <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-8">
-              <span className="text-sm font-medium text-primary">✨ Trusted by 30+ SaaS Founders</span>
+              <span className="text-sm font-medium text-primary">✨ Your SaaS Tech partner</span>
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -253,7 +292,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof Section */}
+      {/* Projects Marquee Section - Hidden */}
+      {/* <ProjectsMarquee /> */}
+
+      {/* Social Proof Section - Updated Layout */}
       <section 
         id="social-proof" 
         data-animate 
@@ -262,94 +304,125 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Trusted by Founders, Backed by{" "}
-              <span className="text-primary">Proven Results</span>
+              Trusted by Founders, <span className="text-primary">Proven Results</span>
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-4 gap-8 items-start">
-            {/* Testimonial Carousel - Takes 3 columns */}
+          <div className="grid lg:grid-cols-5 gap-8 items-start">
+            {/* Testimonial Section - Reduced to 3 columns */}
             <div className="lg:col-span-3">
-              <Carousel className="w-full">
-                <CarouselContent>
-                  {testimonials.map((testimonial) => (
-                    <CarouselItem key={testimonial.id}>
-                      <Card className="bg-gradient-card card-blur hover-glow group">
-                        <CardContent className="p-8">
-                          <Quote className="h-8 w-8 text-primary mb-6" />
-                          <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                            "{testimonial.quote}"
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-primary-foreground font-bold text-lg mr-4">
-                                {testimonial.initials}
-                              </div>
-                              <div>
-                                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                                <p className="text-primary text-sm">{testimonial.company}</p>
-                              </div>
-                            </div>
-                            <Dialog>
-                              <DialogTrigger asChild>
-                                <Button 
-                                  variant="outline" 
-                                  className="glass-effect border-primary/30 text-primary hover:bg-primary/10 rounded-lg px-4 py-2 text-sm group"
-                                >
-                                  <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
-                                  Watch Video
-                                </Button>
-                              </DialogTrigger>
-                              <DialogContent className="max-w-4xl w-full bg-card border-border">
-                                <div className="aspect-video w-full bg-muted rounded-lg flex items-center justify-center">
-                                  <div className="text-center">
-                                    <Play className="h-16 w-16 text-primary mx-auto mb-4" />
-                                    <p className="text-foreground text-lg mb-2">Video Testimonial</p>
-                                    <p className="text-muted-foreground text-sm">{testimonial.name} - {testimonial.company}</p>
-                                  </div>
+              <div className="relative">
+                {/* Testimonial Cards */}
+                <div className="overflow-hidden">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                  >
+                    {testimonials.map((testimonial) => (
+                      <div key={testimonial.id} className="w-full flex-shrink-0">
+                        <Card className="bg-gradient-card card-blur hover-glow group">
+                          <CardContent className="p-8">
+                            <Quote className="h-8 w-8 text-primary mb-6" />
+                            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                              "{testimonial.quote}"
+                            </p>
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center">
+                                <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-primary-foreground font-bold text-lg mr-4">
+                                  {testimonial.initials}
                                 </div>
-                              </DialogContent>
-                            </Dialog>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CarouselItem>
+                                <div>
+                                  <p className="font-semibold text-foreground">{testimonial.name}</p>
+                                  <p className="text-primary text-sm">{testimonial.company}</p>
+                                </div>
+                              </div>
+                              <Dialog>
+                                <DialogTrigger asChild>
+                                  <Button 
+                                    variant="outline" 
+                                    className="glass-effect border-primary/30 text-primary hover:bg-primary/10 rounded-lg px-4 py-2 text-sm group"
+                                  >
+                                    <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
+                                    Watch Video
+                                  </Button>
+                                </DialogTrigger>
+                                <DialogContent className="max-w-4xl w-full bg-card border-border">
+                                  <div className="aspect-video w-full bg-muted rounded-lg flex items-center justify-center">
+                                    <div className="text-center">
+                                      <Play className="h-16 w-16 text-primary mx-auto mb-4" />
+                                      <p className="text-foreground text-lg mb-2">Video Testimonial</p>
+                                      <p className="text-muted-foreground text-sm">{testimonial.name} - {testimonial.company}</p>
+                                    </div>
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Dotted Progress Indicators */}
+                <div className="flex justify-center space-x-2 mt-6">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentTestimonial(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentTestimonial 
+                          ? 'bg-primary scale-110' 
+                          : 'bg-muted hover:bg-primary/50'
+                      }`}
+                    />
                   ))}
-                </CarouselContent>
-                <CarouselPrevious className="glass-effect border-primary/30 text-primary hover:bg-primary/10" />
-                <CarouselNext className="glass-effect border-primary/30 text-primary hover:bg-primary/10" />
-              </Carousel>
+                </div>
+              </div>
             </div>
 
-            {/* Proven Results - Takes 1 column */}
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3 group">
-                <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Rocket className="h-4 w-4 text-primary" />
+            {/* Proven Results - Expanded to 2 columns */}
+            <div className="lg:col-span-2">
+       
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Rocket className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">30+ SaaS & Web Apps Launched</h4>
+                    <p className="text-muted-foreground text-xs">We have a proven playbook for taking products to market.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold mb-1">30+ SaaS & Web Apps Launched</h3>
-                  <p className="text-muted-foreground text-xs">We have a proven playbook for taking products to market.</p>
+                
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <TrendingUp className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">8+ Years of Experience</h4>
+                    <p className="text-muted-foreground text-xs">Senior-level expertise in building complex, reliable systems.</p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex items-start space-x-3 group">
-                <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <TrendingUp className="h-4 w-4 text-primary" />
+                
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Bot className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">AI-First Development</h4>
+                    <p className="text-muted-foreground text-xs">We implement AI as a core feature in products, not just an add-on.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold mb-1">8+ Years of Experience</h3>
-                  <p className="text-muted-foreground text-xs">Senior-level expertise in building complex, reliable systems.</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3 group">
-                <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <CheckCircle className="h-4 w-4 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold mb-1">100% Client Success Rate</h3>
-                  <p className="text-muted-foreground text-xs">We operate as a long-term partner, not a one-time vendor.</p>
+                
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <CheckCircle className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">100% Client Success Rate</h4>
+                    <p className="text-muted-foreground text-xs">We operate as a long-term partner, not a one-time vendor.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -357,7 +430,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - Updated with Clean Design */}
       <section 
         id="services" 
         data-animate 
@@ -376,253 +449,231 @@ const Index = () => {
 
           <div className="grid lg:grid-cols-3 gap-8">
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Rocket className="h-8 w-8 text-primary-foreground" />
+              <CardContent className="p-8 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex justify-center mb-6">
+                    <Rocket className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-center">MVP Development</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-center">
+                    Have a brilliant idea? We'll take it from a concept to a launch-ready, high-quality Minimum Viable Product in a fixed timeframe. Our focus is on building the core features that deliver immediate value.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-primary">MVP Development</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Have a brilliant idea? We'll take it from a concept to a launch-ready, high-quality Minimum Viable Product in a fixed timeframe. Our focus is on building the core features that deliver immediate value.
-                </p>
-                <Badge className="bg-primary/20 text-primary border-primary/30 px-3 py-1 text-sm">
-                  Best for: Founders at the idea or pre-seed stage
-                </Badge>
+                <div className="mt-auto pt-6 border-t border-primary/30">
+                  <p className="text-primary text-sm font-medium">Best for:</p>
+                  <p className="text-muted-foreground text-sm">Founders at the idea or pre-seed stage</p>
+                </div>
               </CardContent>
             </Card>
 
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Building2 className="h-8 w-8 text-primary-foreground" />
+              <CardContent className="p-8 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex justify-center mb-6">
+                    <Building2 className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-center">Feature Expansion & Scaling</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-center">
+                    Your product has traction, but your roadmap is long and your current team is stretched thin. We integrate seamlessly with your existing developers to accelerate your feature velocity.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-primary">Feature Expansion & Scaling</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Your product has traction, but your roadmap is long and your current team is stretched thin. We integrate seamlessly with your existing developers to accelerate your feature velocity.
-                </p>
-                <Badge className="bg-primary/20 text-primary border-primary/30 px-3 py-1 text-sm">
-                  Best for: Funded startups needing to build faster
-                </Badge>
+                <div className="mt-auto pt-6 border-t border-primary/30">
+                  <p className="text-primary text-sm font-medium">Best for:</p>
+                  <p className="text-muted-foreground text-sm">Funded startups needing to build faster</p>
+                </div>
               </CardContent>
             </Card>
 
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Plus className="h-8 w-8 text-primary-foreground" />
+              <CardContent className="p-8 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex justify-center mb-6">
+                    <Plus className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-center">Dedicated Team Partner</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-center">
+                    Need dedicated senior talent without the headache of hiring? We provide experienced Next.js and Node.js developers who act as a true extension of your team.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-primary">Dedicated Team Partner</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Need dedicated senior talent without the headache of hiring? We provide experienced Next.js and Node.js developers who act as a true extension of your team.
-                </p>
-                <Badge className="bg-primary/20 text-primary border-primary/30 px-3 py-1 text-sm">
-                  Best for: Teams needing to add senior capacity quickly
-                </Badge>
+                <div className="mt-auto pt-6 border-t border-primary/30">
+                  <p className="text-primary text-sm font-medium">Best for:</p>
+                  <p className="text-muted-foreground text-sm">Teams needing to add senior capacity quickly</p>
+                </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Case Studies Section */}
+      {/* Case Studies Section - Improved Portfolio */}
       <section 
         id="case-studies" 
         data-animate 
-        className={`px-6 py-32 transition-all duration-1000 ${isVisible('case-studies') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`px-6 py-16 transition-all duration-1000 ${isVisible('case-studies') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our Work: From Complex Problems to{" "}
               <span className="text-primary">Elegant Solutions</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Real projects, real results. See how we've helped founders transform their ideas into successful products.
             </p>
           </div>
 
-          <div className="space-y-24">
-            {portfolioItems.map((item, index) => (
-              <div 
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {portfolioItems.map((item) => (
+              <Card 
                 key={item.id} 
-                className={`flex flex-col lg:flex-row gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+                className="bg-gradient-card card-blur hover-glow group cursor-pointer border border-border/20 overflow-hidden h-full"
               >
-                {/* Portfolio Information */}
-                <div className="flex-1 space-y-8 max-w-2xl">
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <h3 className="text-3xl font-bold text-foreground">{item.name}</h3>
-                      <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 text-sm font-medium">
+                <div className="relative">
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={`${item.name} project preview`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div className="absolute top-3 right-3">
+                      <Badge className="bg-primary/20 text-primary border-primary/30 text-xs">
                         {item.industry}
                       </Badge>
                     </div>
-                    
-                    <p className="text-muted-foreground text-xl leading-relaxed">
-                      {item.description}
-                    </p>
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <h3 className="text-white font-bold text-lg mb-1">{item.name}</h3>
+                    </div>
                   </div>
+                </div>
+
+                <CardContent className="p-4 space-y-4">
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                    {item.description}
+                  </p>
 
                   {/* Tech Stack */}
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-bold text-primary uppercase tracking-wider">
+                  <div className="space-y-2">
+                    <p className="text-xs font-semibold text-primary uppercase tracking-wider">
                       Tech Stack
-                    </h4>
-                    <div className="flex flex-wrap gap-3">
-                      {item.techStack.map((tech) => (
+                    </p>
+                    <div className="flex flex-wrap gap-1">
+                      {item.techStack.slice(0, 3).map((tech) => (
                         <Badge 
                           key={tech}
-                          className="bg-muted text-muted-foreground border-border px-4 py-2 text-sm font-medium"
+                          className="bg-muted text-muted-foreground border-border px-2 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
                       ))}
-                    </div>
-                  </div>
-
-                  {/* Results */}
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-bold text-primary uppercase tracking-wider">
-                      Key Results
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
-                      {item.results.map((result, idx) => (
-                        <div key={idx} className="flex items-center space-x-3">
-                          <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                            <CheckCircle className="h-4 w-4 text-primary" />
-                          </div>
-                          <span className="text-muted-foreground text-lg">{result}</span>
-                        </div>
-                      ))}
+                      {item.techStack.length > 3 && (
+                        <Badge className="bg-muted text-muted-foreground border-border px-2 py-1 text-xs">
+                          +{item.techStack.length - 3}
+                        </Badge>
+                      )}
                     </div>
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                  <div className="flex gap-2 pt-2">
                     <Button 
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-xl font-semibold group"
+                      size="sm"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-2 text-xs rounded-lg font-medium flex-1 group"
                       onClick={() => window.open(item.liveUrl, '_blank')}
                     >
-                      View Live Project
-                      <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      View Live
+                      <ExternalLink className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                     </Button>
                     <Button 
                       variant="outline" 
-                      className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 text-lg rounded-xl font-semibold"
+                      size="sm"
+                      className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-3 py-2 text-xs rounded-lg font-medium flex-1"
                       onClick={() => {
                         if (item.name === 'PriceUp') {
                           window.location.href = '/case-study/priceup';
                         }
                       }}
                     >
-                      View Case Study
+                      Case Study
                     </Button>
                   </div>
-                </div>
-
-                {/* Portfolio Image - Now Larger */}
-                <div className="flex-1 max-w-2xl w-full">
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-primary/10 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-                    <Card className="relative bg-gradient-card border border-border/10 overflow-hidden rounded-3xl hover-glow">
-                      <div className="aspect-[16/10] relative overflow-hidden">
-                        <img 
-                          src={item.image} 
-                          alt={`${item.name} project preview`}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                        <div className="absolute bottom-6 left-6 right-6">
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <h4 className="text-white font-bold text-xl mb-1">{item.name}</h4>
-                              <p className="text-primary text-base font-medium">{item.industry}</p>
-                            </div>
-                            <Button 
-                              size="lg"
-                              className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm border-white/30 rounded-xl px-4 py-3"
-                            >
-                              <Play className="h-5 w-5" />
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                    </Card>
-                  </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
+          </div>
+
+          {/* View All Projects Button */}
+          <div className="text-center mt-8">
+            <Button 
+              variant="outline"
+              className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-6 py-3 rounded-xl font-medium group"
+            >
+              View All Projects
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section - New List Design */}
       <section 
         id="process" 
         data-animate 
-        className={`px-6 py-20 transition-all duration-1000 ${isVisible('process') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`relative px-6 py-20 bg-grid-pattern transition-all duration-1000 ${isVisible('process') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
-        <div className="max-w-6xl mx-auto">
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-background/95"></div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)
+            `,
+            backgroundSize: '20px 20px'
+          }}></div>
+        </div>
+        
+        <div className="relative max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              No Chaos. No Surprises.{" "}
-              <span className="text-primary">Just a Professional Process.</span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Launch-Ready Process{" "}
+              <span className="text-primary">Powered by AI</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We believe that building great software requires a great system. This is our four-step promise to you.
+              We streamline every step with AI, taking you from concept to live product fast
+              and ready for your first users in 4 weeks.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <Search className="h-8 w-8 text-primary" />
-              </div>
-              <div className="bg-primary text-primary-foreground text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
-                Step 1
-              </div>
-              <h3 className="text-lg font-bold mb-3">Deep Discovery & Strategy</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                We start by becoming experts in your business. We dive deep into your goals, your users, and your metrics for success.
-              </p>
-            </div>
+          <div className="space-y-8">
+            {processSteps.map((step, index) => (
+              <div key={step.number} className="flex items-start gap-6 group">
+                {/* Number Circle */}
+                <div className="flex-shrink-0 w-16 h-16 bg-primary/10 border-2 border-primary/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl font-bold text-primary">{step.number}</span>
+                </div>
 
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <MapPin className="h-8 w-8 text-primary" />
-              </div>
-              <div className="bg-primary text-primary-foreground text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
-                Step 2
-              </div>
-              <h3 className="text-lg font-bold mb-3">Architecture & Roadmapping</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                We design a scalable and secure technical architecture, then map out a clear feature roadmap broken into two-week sprints.
-              </p>
-            </div>
+                {/* Content */}
+                <div className="flex-1 pt-2">
+                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-lg text-muted-foreground mb-3 leading-relaxed">
+                    {step.description}
+                  </p>
+                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                    {step.details}
+                  </p>
+                </div>
 
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <Zap className="h-8 w-8 text-primary" />
+                {/* Connecting Line */}
+                {index < processSteps.length - 1 && (
+                  <div className="absolute left-8 mt-20 w-0.5 h-12 bg-gradient-to-b from-primary/30 to-transparent"></div>
+                )}
               </div>
-              <div className="bg-primary text-primary-foreground text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
-                Step 3
-              </div>
-              <h3 className="text-lg font-bold mb-3">Agile Development</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                You get constant visibility with regular check-ins and direct access to a project manager. Working software every two weeks.
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <CheckCircle className="h-8 w-8 text-primary" />
-              </div>
-              <div className="bg-primary text-primary-foreground text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
-                Step 4
-              </div>
-              <h3 className="text-lg font-bold mb-3">Quality Assurance & Launch</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Rigorous testing ensures your platform is reliable, bug-free, and ready for your first users. We handle the deployment.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
