@@ -304,7 +304,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Trusted by Founders
+              Trusted by Founders, <span className="text-primary">Proven Results</span>
             </h2>
           </div>
 
@@ -383,13 +383,7 @@ const Index = () => {
 
             {/* Proven Results - Expanded to 2 columns */}
             <div className="lg:col-span-2">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">
-                  <span className="text-primary">Proven Results</span>
-                </h3>
-                <p className="text-muted-foreground text-sm">Backed by real metrics and client success</p>
-              </div>
-              
+       
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 group">
                   <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
