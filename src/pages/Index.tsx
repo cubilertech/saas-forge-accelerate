@@ -257,18 +257,18 @@ const Index = () => {
         <div className="relative max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
             <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-8">
-              <span className="text-sm font-medium text-primary">✨ Your SaaS Tech partner</span>
+              <span className="text-sm font-medium text-primary">✨ Your AI-Powered SaaS Partner</span>
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Go From <span className="text-primary">MVP</span> to{" "}
+              From Idea to <span className="text-primary">Intelligent SaaS</span>,{" "}
               <br className="hidden md:block" />
-              <span className="text-foreground">Scalable SaaS</span>, Faster.
+              <span className="text-foreground">Faster.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-              You have a powerful vision for a SaaS product. You need more than just freelancers—you need a reliable technical partner to build a robust platform that wins customers and attracts investors. 
-              <span className="text-primary font-medium"> We are that partner.</span>
+              You have a vision for a smart, AI-powered product. You need more than freelancers—you need a technical partner who can turn that vision into intelligent software that attracts customers and investors. 
+              <span className="text-primary font-medium"> That's what we do.</span>
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
