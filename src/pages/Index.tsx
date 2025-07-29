@@ -547,11 +547,6 @@ const Index = () => {
 
                 {/* Content */}
                 <div className="flex-1 pt-2">
-                  <div className="mb-2">
-                    <span className="text-sm font-semibold text-primary uppercase tracking-wider">
-                      Step {step.number}
-                    </span>
-                  </div>
                   <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {step.title}
                   </h3>
