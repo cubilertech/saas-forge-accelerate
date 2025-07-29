@@ -295,135 +295,151 @@ const Index = () => {
       {/* Projects Marquee Section - Hidden */}
       {/* <ProjectsMarquee /> */}
 
-      {/* Social Proof Section - Updated Layout */}
+      {/* Testimonials Section - Sleek Full-Width Design */}
       <section 
-        id="social-proof" 
+        id="testimonials" 
         data-animate 
-        className={`px-6 py-20 transition-all duration-1000 ${isVisible('social-proof') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`px-6 py-24 bg-gradient-to-r from-muted/20 via-background to-muted/20 transition-all duration-1000 ${isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Trusted by Founders, <span className="text-primary">Proven Results</span>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-6">
+              <span className="text-sm font-medium text-primary">✨ Client Success Stories</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Trusted by <span className="text-primary">Visionary Founders</span>
             </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Hear from founders who transformed their ideas into successful, investment-ready SaaS platforms with our partnership.
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-8 items-start">
-            {/* Testimonial Section - Reduced to 3 columns */}
-            <div className="lg:col-span-3">
-              <div className="relative">
-                {/* Testimonial Cards */}
-                <div className="overflow-hidden">
-                  <div 
-                    className="flex transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
-                  >
-                    {testimonials.map((testimonial) => (
-                      <div key={testimonial.id} className="w-full flex-shrink-0">
-                        <Card className="bg-gradient-card card-blur hover-glow group">
-                          <CardContent className="p-8">
-                            <Quote className="h-8 w-8 text-primary mb-6" />
-                            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                              "{testimonial.quote}"
-                            </p>
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center">
-                                <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-primary-foreground font-bold text-lg mr-4">
-                                  {testimonial.initials}
-                                </div>
-                                <div>
-                                  <p className="font-semibold text-foreground">{testimonial.name}</p>
-                                  <p className="text-primary text-sm">{testimonial.company}</p>
+          {/* Main Testimonial Display */}
+          <div className="relative max-w-5xl mx-auto">
+            <div className="overflow-hidden rounded-2xl">
+              <div 
+                className="flex transition-transform duration-700 ease-in-out"
+                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+              >
+                {testimonials.map((testimonial) => (
+                  <div key={testimonial.id} className="w-full flex-shrink-0">
+                    <Card className="bg-gradient-card card-blur hover-glow border-0 shadow-2xl">
+                      <CardContent className="p-12 md:p-16 text-center">
+                        {/* Large Quote Icon */}
+                        <div className="mb-8">
+                          <Quote className="h-16 w-16 text-primary mx-auto opacity-20" />
+                        </div>
+                        
+                        {/* Testimonial Content */}
+                        <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground mb-12 leading-relaxed italic">
+                          "{testimonial.quote}"
+                        </blockquote>
+                        
+                        {/* Author Section */}
+                        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+                          {/* Avatar */}
+                          <div className="relative">
+                            <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-primary-foreground font-bold text-2xl shadow-lg">
+                              {testimonial.initials}
+                            </div>
+                            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                              <CheckCircle className="h-4 w-4 text-primary-foreground" />
+                            </div>
+                          </div>
+                          
+                          {/* Author Info */}
+                          <div className="text-center md:text-left">
+                            <h4 className="text-xl font-bold text-foreground mb-1">{testimonial.name}</h4>
+                            <p className="text-primary font-semibold text-lg">{testimonial.company}</p>
+                          </div>
+                          
+                          {/* Video Button */}
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <Button 
+                                variant="outline" 
+                                size="lg"
+                                className="glass-effect border-primary/30 text-primary hover:bg-primary/10 rounded-xl px-6 py-3 group shadow-lg hover:shadow-xl transition-all duration-300"
+                              >
+                                <Play className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+                                Watch Story
+                              </Button>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-5xl w-full bg-card border-border rounded-2xl">
+                              <DialogTitle className="text-2xl font-bold text-center mb-4">
+                                {testimonial.name}'s Success Story
+                              </DialogTitle>
+                              <DialogDescription className="text-center text-muted-foreground mb-6">
+                                {testimonial.company}
+                              </DialogDescription>
+                              <div className="aspect-video w-full bg-gradient-to-br from-muted to-muted/50 rounded-xl flex items-center justify-center">
+                                <div className="text-center">
+                                  <Play className="h-20 w-20 text-primary mx-auto mb-6 opacity-80" />
+                                  <p className="text-foreground text-xl mb-2">Video Coming Soon</p>
+                                  <p className="text-muted-foreground">In-depth case study and founder interview</p>
                                 </div>
                               </div>
-                              <Dialog>
-                                <DialogTrigger asChild>
-                                  <Button 
-                                    variant="outline" 
-                                    className="glass-effect border-primary/30 text-primary hover:bg-primary/10 rounded-lg px-4 py-2 text-sm group"
-                                  >
-                                    <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
-                                    Watch Video
-                                  </Button>
-                                </DialogTrigger>
-                                <DialogContent className="max-w-4xl w-full bg-card border-border">
-                                  <div className="aspect-video w-full bg-muted rounded-lg flex items-center justify-center">
-                                    <div className="text-center">
-                                      <Play className="h-16 w-16 text-primary mx-auto mb-4" />
-                                      <p className="text-foreground text-lg mb-2">Video Testimonial</p>
-                                      <p className="text-muted-foreground text-sm">{testimonial.name} - {testimonial.company}</p>
-                                    </div>
-                                  </div>
-                                </DialogContent>
-                              </Dialog>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    ))}
+                            </DialogContent>
+                          </Dialog>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
-                </div>
-
-                {/* Dotted Progress Indicators */}
-                <div className="flex justify-center space-x-2 mt-6">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === currentTestimonial 
-                          ? 'bg-primary scale-110' 
-                          : 'bg-muted hover:bg-primary/50'
-                      }`}
-                    />
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* Proven Results - Expanded to 2 columns */}
-            <div className="lg:col-span-2">
-       
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3 group">
-                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Rocket className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold mb-1">30+ SaaS & Web Apps Launched</h4>
-                    <p className="text-muted-foreground text-xs">We have a proven playbook for taking products to market.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3 group">
-                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <TrendingUp className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold mb-1">8+ Years of Experience</h4>
-                    <p className="text-muted-foreground text-xs">Senior-level expertise in building complex, reliable systems.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3 group">
-                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Bot className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold mb-1">AI-First Development</h4>
-                    <p className="text-muted-foreground text-xs">We implement AI as a core feature in products, not just an add-on.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3 group">
-                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <CheckCircle className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold mb-1">100% Client Success Rate</h4>
-                    <p className="text-muted-foreground text-xs">We operate as a long-term partner, not a one-time vendor.</p>
-                  </div>
-                </div>
+            {/* Enhanced Navigation */}
+            <div className="flex justify-center items-center space-x-6 mt-12">
+              {/* Previous Button */}
+              <button
+                onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                className="w-12 h-12 rounded-full glass-effect border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-all duration-300 group"
+              >
+                <ArrowRight className="h-5 w-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
+              </button>
+              
+              {/* Progress Dots */}
+              <div className="flex space-x-3">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`transition-all duration-500 ${
+                      index === currentTestimonial 
+                        ? 'w-12 h-4 bg-primary rounded-full' 
+                        : 'w-4 h-4 bg-muted hover:bg-primary/50 rounded-full hover:scale-110'
+                    }`}
+                  />
+                ))}
+              </div>
+              
+              {/* Next Button */}
+              <button
+                onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
+                className="w-12 h-12 rounded-full glass-effect border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-all duration-300 group"
+              >
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-8 mt-16 opacity-60">
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5 text-primary" />
+                <span className="text-sm font-medium">Verified Client</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <TrendingUp className="h-5 w-5 text-primary" />
+                <span className="text-sm font-medium">Revenue Growth</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Users className="h-5 w-5 text-primary" />
+                <span className="text-sm font-medium">User Acquisition</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Target className="h-5 w-5 text-primary" />
+                <span className="text-sm font-medium">Market Fit</span>
               </div>
             </div>
           </div>
