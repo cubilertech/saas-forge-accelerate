@@ -510,59 +510,156 @@ const Index = () => {
       <section 
         id="process" 
         data-animate 
-        className={`relative px-6 py-20 bg-grid-pattern transition-all duration-1000 ${isVisible('process') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`px-6 py-20 bg-gradient-to-b from-background to-muted/20 transition-all duration-1000 ${isVisible('process') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
-        {/* Background overlay */}
-        <div className="absolute inset-0 bg-background/95"></div>
-        
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(hsl(var(--border)) 1px, transparent 1px),
-              linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)
-            `,
-            backgroundSize: '20px 20px'
-          }}></div>
-        </div>
-        
-        <div className="relative max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+        <div className="relative max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <p className="text-sm text-primary uppercase tracking-wider mb-4">Our process</p>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">
               We Turn Your Vision Into a{" "}
               <span className="text-primary">Market-Defining Product.</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Building a world-class SaaS product is hard. It requires more than just great code—it demands a brilliant strategy and flawless execution. We provide both.
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-24">
             {processSteps.map((step, index) => (
-              <div key={step.number} className="flex items-start gap-6 group">
-                {/* Number Circle */}
-                <div className="flex-shrink-0 w-16 h-16 bg-primary/10 border-2 border-primary/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-2xl font-bold text-primary">{step.number}</span>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 pt-2">
-                  <div className="mb-2">
-                    <span className="text-sm font-semibold text-primary uppercase tracking-wider">
-                      Step {step.number}
-                    </span>
+              <div key={step.number} className="relative">
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-primary-foreground rounded-full font-bold text-xl mb-4">
+                    {step.number}
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <p className="text-sm text-primary uppercase tracking-wider mb-4">
+                    Step {step.number}
+                  </p>
+                  <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
                     {step.details}
                   </p>
                 </div>
 
-                {/* Connecting Line */}
+                {/* Visual representation for each step */}
+                <div className="relative max-w-4xl mx-auto">
+                  {step.number === 1 && (
+                    <div className="bg-card border rounded-2xl p-8 shadow-lg">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="bg-background border rounded-lg p-4">
+                          <div className="flex items-center gap-2 mb-3">
+                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span className="text-sm font-medium">Backlog</span>
+                          </div>
+                          <div className="space-y-2">
+                            <div className="bg-muted rounded p-2 text-sm">User Authentication</div>
+                            <div className="bg-muted rounded p-2 text-sm">AI Integration</div>
+                          </div>
+                        </div>
+                        <div className="bg-background border rounded-lg p-4">
+                          <div className="flex items-center gap-2 mb-3">
+                            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <span className="text-sm font-medium">In Progress</span>
+                          </div>
+                          <div className="space-y-2">
+                            <div className="bg-muted rounded p-2 text-sm">Core Dashboard</div>
+                            <div className="bg-muted rounded p-2 text-sm">API Design</div>
+                          </div>
+                        </div>
+                        <div className="bg-background border rounded-lg p-4">
+                          <div className="flex items-center gap-2 mb-3">
+                            <div className="w-3 h-3 bg-primary rounded-full"></div>
+                            <span className="text-sm font-medium">Done</span>
+                          </div>
+                          <div className="space-y-2">
+                            <div className="bg-muted rounded p-2 text-sm">Architecture</div>
+                            <div className="bg-muted rounded p-2 text-sm">Tech Stack</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {step.number === 2 && (
+                    <div className="bg-card border rounded-2xl p-8 shadow-lg">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        <div className="bg-primary/10 rounded-lg p-4 text-center">
+                          <div className="text-2xl font-bold text-primary">2</div>
+                          <div className="text-sm text-muted-foreground">Weeks</div>
+                        </div>
+                        <div className="bg-primary/10 rounded-lg p-4 text-center">
+                          <div className="text-2xl font-bold text-primary">100%</div>
+                          <div className="text-sm text-muted-foreground">Transparency</div>
+                        </div>
+                        <div className="bg-primary/10 rounded-lg p-4 text-center">
+                          <div className="text-2xl font-bold text-primary">24/7</div>
+                          <div className="text-sm text-muted-foreground">Updates</div>
+                        </div>
+                        <div className="bg-primary/10 rounded-lg p-4 text-center">
+                          <div className="text-2xl font-bold text-primary">AI</div>
+                          <div className="text-sm text-muted-foreground">Ready</div>
+                        </div>
+                      </div>
+                      <div className="bg-background/50 backdrop-blur rounded-lg p-6 border-2 border-dashed border-muted-foreground/20">
+                        <div className="text-center text-muted-foreground">
+                          <div className="text-lg font-medium mb-2">Your MVP Taking Shape</div>
+                          <div className="text-sm">High-quality product with core AI features</div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {step.number === 3 && (
+                    <div className="bg-card border rounded-2xl p-8 shadow-lg">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-background border rounded-lg p-6">
+                          <h4 className="font-semibold mb-4 text-primary">Launch Metrics</h4>
+                          <div className="space-y-3">
+                            <div className="flex justify-between items-center">
+                              <span className="text-sm">User Engagement</span>
+                              <div className="w-20 h-2 bg-muted rounded-full overflow-hidden">
+                                <div className="w-4/5 h-full bg-primary rounded-full"></div>
+                              </div>
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-sm">Performance</span>
+                              <div className="w-20 h-2 bg-muted rounded-full overflow-hidden">
+                                <div className="w-full h-full bg-primary rounded-full"></div>
+                              </div>
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-sm">User Satisfaction</span>
+                              <div className="w-20 h-2 bg-muted rounded-full overflow-hidden">
+                                <div className="w-5/6 h-full bg-primary rounded-full"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-background border rounded-lg p-6">
+                          <h4 className="font-semibold mb-4 text-primary">Scale & Growth</h4>
+                          <div className="space-y-3">
+                            <div className="bg-muted/50 rounded p-3 text-sm">
+                              📊 Data-driven iterations
+                            </div>
+                            <div className="bg-muted/50 rounded p-3 text-sm">
+                              🚀 Scalable architecture
+                            </div>
+                            <div className="bg-muted/50 rounded p-3 text-sm">
+                              🎯 Market leadership
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Connecting arrow (except for last item) */}
                 {index < processSteps.length - 1 && (
-                  <div className="absolute left-8 mt-20 w-0.5 h-12 bg-gradient-to-b from-primary/30 to-transparent"></div>
+                  <div className="flex justify-center mt-12">
+                    <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent"></div>
+                  </div>
                 )}
               </div>
             ))}
