@@ -637,6 +637,34 @@ const Index = () => {
                               <p className="text-muted-foreground text-lg">{testimonial.company}</p>
                             </div>
                             
+                            {/* Video Play Button */}
+                            {testimonial.videoUrl && (
+                              <Dialog>
+                                <DialogTrigger asChild>
+                                  <Button 
+                                    variant="outline"
+                                    className="glass-effect border-primary/30 text-primary hover:bg-primary/10 w-fit group"
+                                  >
+                                    <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
+                                    Watch Video Testimonial
+                                  </Button>
+                                </DialogTrigger>
+                                <DialogContent className="max-w-4xl w-full">
+                                  <DialogTitle className="sr-only">Video testimonial from {testimonial.name}</DialogTitle>
+                                  <DialogDescription className="sr-only">
+                                    Watch the video testimonial from {testimonial.name} at {testimonial.company}
+                                  </DialogDescription>
+                                  <div className="aspect-video w-full">
+                                    <iframe
+                                      src={testimonial.videoUrl.replace('watch?v=', 'embed/')}
+                                      className="w-full h-full rounded-lg"
+                                      allowFullScreen
+                                      title={`Video testimonial from ${testimonial.name}`}
+                                    />
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
+                            )}
                           </div>
                         </div>
                       </CardContent>
