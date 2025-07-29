@@ -181,7 +181,7 @@ const PriceUpCaseStudy = () => {
             <div className="flex items-center space-x-3">
               <img 
                 src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
-                alt="UBiLER Technologies" 
+                alt="CUBILER Technologies" 
                 className="h-8 w-auto"
               />
             </div>
