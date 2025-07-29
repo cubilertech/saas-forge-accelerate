@@ -168,7 +168,7 @@ const Index = () => {
       details: "You get constant visibility with regular check-ins and direct access to a project manager. Working software every two weeks."
     },
     {
-      number: 4,
+      number: 3,
       title: "Launch & Learn",
       description: "Deliver, measure, iterate with feedback loop built in.",
       details: "Rigorous testing ensures your platform is reliable, bug-free, and ready for your first users. We handle the deployment."
