@@ -29,6 +29,8 @@ const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -48,14 +50,42 @@ const Index = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-advance testimonials
+  // Optimized auto-advance testimonials with user interaction pause
   useEffect(() => {
+    if (isPaused || isUserInteracting) return;
+
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused, isUserInteracting]);
+
+  // Reset user interaction after delay
+  useEffect(() => {
+    if (isUserInteracting) {
+      const timeout = setTimeout(() => {
+        setIsUserInteracting(false);
+      }, 8000);
+      return () => clearTimeout(timeout);
+    }
+  }, [isUserInteracting]);
+
+  // Handle navigation clicks with pause
+  const handleTestimonialNavigation = (index: number) => {
+    setCurrentTestimonial(index);
+    setIsUserInteracting(true);
+  };
+
+  const handlePrevious = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setIsUserInteracting(true);
+  };
+
+  const handleNext = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    setIsUserInteracting(true);
+  };
 
   const isVisible = (id: string) => visibleSections.has(id);
 
@@ -295,7 +325,7 @@ const Index = () => {
       {/* Projects Marquee Section - Hidden */}
       {/* <ProjectsMarquee /> */}
 
-      {/* Testimonials Section - Sleek Full-Width Design */}
+      {/* Testimonials Section - Optimized Performance */}
       <section 
         id="testimonials" 
         data-animate 
@@ -314,15 +344,26 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Main Testimonial Display */}
+          {/* Optimized Testimonial Display */}
           <div className="relative max-w-5xl mx-auto">
             <div className="overflow-hidden rounded-2xl">
               <div 
-                className="flex transition-transform duration-700 ease-in-out"
-                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                className="flex will-change-transform"
+                style={{ 
+                  transform: `translate3d(-${currentTestimonial * 100}%, 0, 0)`,
+                  transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                }}
               >
-                {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className="w-full flex-shrink-0">
+                {testimonials.map((testimonial, index) => (
+                  <div 
+                    key={testimonial.id} 
+                    className="w-full flex-shrink-0"
+                    style={{
+                      contain: 'layout style paint',
+                      opacity: Math.abs(index - currentTestimonial) <= 1 ? 1 : 0.3,
+                      transition: 'opacity 0.3s ease-out'
+                    }}
+                  >
                     <Card className="bg-gradient-card card-blur hover-glow border-0 shadow-2xl">
                       <CardContent className="p-12 md:p-16 text-center">
                         {/* Large Quote Icon */}
@@ -393,31 +434,42 @@ const Index = () => {
             <div className="flex justify-center items-center space-x-6 mt-12">
               {/* Previous Button */}
               <button
-                onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                onClick={handlePrevious}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
                 className="w-12 h-12 rounded-full glass-effect border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-all duration-300 group"
+                aria-label="Previous testimonial"
               >
                 <ArrowRight className="h-5 w-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
               </button>
               
               {/* Progress Dots */}
-              <div className="flex space-x-3">
+              <div 
+                className="flex space-x-3"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+              >
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`transition-all duration-500 ${
+                    onClick={() => handleTestimonialNavigation(index)}
+                    className={`transition-all duration-300 ${
                       index === currentTestimonial 
                         ? 'w-12 h-4 bg-primary rounded-full' 
                         : 'w-4 h-4 bg-muted hover:bg-primary/50 rounded-full hover:scale-110'
                     }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
                   />
                 ))}
               </div>
               
               {/* Next Button */}
               <button
-                onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
+                onClick={handleNext}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
                 className="w-12 h-12 rounded-full glass-effect border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-all duration-300 group"
+                aria-label="Next testimonial"
               >
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
