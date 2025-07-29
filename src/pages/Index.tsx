@@ -326,129 +326,7 @@ const Index = () => {
       {/* <ProjectsMarquee /> */}
 
       {/* Testimonials Section - Optimized Performance */}
-      <section 
-        id="testimonials" 
-        data-animate 
-        className={`px-6 py-24 bg-gradient-to-r from-muted/20 via-background to-muted/20 transition-all duration-1000 ${isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Trusted by <span className="text-primary">Visionary Founders</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Hear from founders who transformed their ideas into successful,
-            </p>
-          </div>
-
-          {/* Optimized Testimonial Display */}
-          <div className="relative max-w-5xl mx-auto">
-            <div className="overflow-hidden rounded-2xl">
-              <div 
-                className="flex will-change-transform"
-                style={{ 
-                  transform: `translate3d(-${currentTestimonial * 100}%, 0, 0)`,
-                  transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <div 
-                    key={testimonial.id} 
-                    className="w-full flex-shrink-0"
-                    style={{
-                      contain: 'layout style paint',
-                      opacity: Math.abs(index - currentTestimonial) <= 1 ? 1 : 0.3,
-                      transition: 'opacity 0.3s ease-out'
-                    }}
-                  >
-                    <Card className="bg-gradient-card card-blur hover-glow border-0 shadow-2xl overflow-hidden">
-                      <CardContent className="p-0">
-                        <div className="grid md:grid-cols-5 gap-0 items-center min-h-[400px]">
-                          {/* Left side - Image */}
-                          <div className="md:col-span-2 relative h-full">
-                            <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center p-8 md:p-12">
-                              <div className="w-48 h-48 md:w-64 md:h-64 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-6xl shadow-2xl">
-                                {testimonial.initials}
-                              </div>
-                            </div>
-                          </div>
-                          
-                          {/* Right side - Content */}
-                          <div className="md:col-span-3 p-8 md:p-12 lg:p-16 flex flex-col justify-center h-full">
-                            {/* Quote Icon */}
-                            <div className="mb-6">
-                              <Quote className="h-12 w-12 text-primary opacity-30" />
-                            </div>
-                            
-                            {/* Testimonial Quote */}
-                            <blockquote className="text-l md:text-xl lg:text-xl font-light text-foreground mb-8 leading-relaxed">
-                              "{testimonial.quote}"
-                            </blockquote>
-                            
-                            {/* Author Info */}
-                            <div className="mb-6">
-                              <h4 className="text-2xl font-bold text-foreground mb-2">{testimonial.name}</h4>
-                              <p className="text-muted-foreground text-lg">{testimonial.company}</p>
-                            </div>
-                            
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Enhanced Navigation */}
-            <div className="flex justify-center items-center space-x-6 mt-12">
-              {/* Previous Button */}
-              <button
-                onClick={handlePrevious}
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-                className="w-12 h-12 rounded-full glass-effect border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-all duration-300 group"
-                aria-label="Previous testimonial"
-              >
-                <ArrowRight className="h-5 w-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
-              </button>
-              
-              {/* Progress Dots */}
-              <div 
-                className="flex space-x-3"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-              >
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleTestimonialNavigation(index)}
-                    className={`transition-all duration-300 ${
-                      index === currentTestimonial 
-                        ? 'w-12 h-4 bg-primary rounded-full' 
-                        : 'w-4 h-4 bg-muted hover:bg-primary/50 rounded-full hover:scale-110'
-                    }`}
-                    aria-label={`Go to testimonial ${index + 1}`}
-                  />
-                ))}
-              </div>
-              
-              {/* Next Button */}
-              <button
-                onClick={handleNext}
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-                className="w-12 h-12 rounded-full glass-effect border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-all duration-300 group"
-                aria-label="Next testimonial"
-              >
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
+    
       {/* Services Section - Updated with Clean Design */}
       <section 
         id="services" 
@@ -696,6 +574,130 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+        <section 
+        id="testimonials" 
+        data-animate 
+        className={`px-6 py-24 bg-gradient-to-r from-muted/20 via-background to-muted/20 transition-all duration-1000 ${isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Trusted by <span className="text-primary">Visionary Founders</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Hear from founders who transformed their ideas into successful,
+            </p>
+          </div>
+
+          {/* Optimized Testimonial Display */}
+          <div className="relative max-w-5xl mx-auto">
+            <div className="overflow-hidden rounded-2xl">
+              <div 
+                className="flex will-change-transform"
+                style={{ 
+                  transform: `translate3d(-${currentTestimonial * 100}%, 0, 0)`,
+                  transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                }}
+              >
+                {testimonials.map((testimonial, index) => (
+                  <div 
+                    key={testimonial.id} 
+                    className="w-full flex-shrink-0"
+                    style={{
+                      contain: 'layout style paint',
+                      opacity: Math.abs(index - currentTestimonial) <= 1 ? 1 : 0.3,
+                      transition: 'opacity 0.3s ease-out'
+                    }}
+                  >
+                    <Card className="bg-gradient-card card-blur hover-glow border-0 shadow-2xl overflow-hidden">
+                      <CardContent className="p-0">
+                        <div className="grid md:grid-cols-5 gap-0 items-center min-h-[400px]">
+                          {/* Left side - Image */}
+                          <div className="md:col-span-2 relative h-full">
+                            <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center p-8 md:p-12">
+                              <div className="w-48 h-48 md:w-64 md:h-64 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-6xl shadow-2xl">
+                                {testimonial.initials}
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Right side - Content */}
+                          <div className="md:col-span-3 p-8 md:p-12 lg:p-16 flex flex-col justify-center h-full">
+                            {/* Quote Icon */}
+                            <div className="mb-6">
+                              <Quote className="h-12 w-12 text-primary opacity-30" />
+                            </div>
+                            
+                            {/* Testimonial Quote */}
+                            <blockquote className="text-l md:text-xl lg:text-xl font-light text-foreground mb-8 leading-relaxed">
+                              "{testimonial.quote}"
+                            </blockquote>
+                            
+                            {/* Author Info */}
+                            <div className="mb-6">
+                              <h4 className="text-2xl font-bold text-foreground mb-2">{testimonial.name}</h4>
+                              <p className="text-muted-foreground text-lg">{testimonial.company}</p>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Enhanced Navigation */}
+            <div className="flex justify-center items-center space-x-6 mt-12">
+              {/* Previous Button */}
+              <button
+                onClick={handlePrevious}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                className="w-12 h-12 rounded-full glass-effect border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-all duration-300 group"
+                aria-label="Previous testimonial"
+              >
+                <ArrowRight className="h-5 w-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
+              </button>
+              
+              {/* Progress Dots */}
+              <div 
+                className="flex space-x-3"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+              >
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleTestimonialNavigation(index)}
+                    className={`transition-all duration-300 ${
+                      index === currentTestimonial 
+                        ? 'w-12 h-4 bg-primary rounded-full' 
+                        : 'w-4 h-4 bg-muted hover:bg-primary/50 rounded-full hover:scale-110'
+                    }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              {/* Next Button */}
+              <button
+                onClick={handleNext}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                className="w-12 h-12 rounded-full glass-effect border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-all duration-300 group"
+                aria-label="Next testimonial"
+              >
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
 
       {/* Final CTA Section */}
       <section 
