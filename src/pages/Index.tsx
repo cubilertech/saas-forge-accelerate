@@ -261,14 +261,14 @@ const Index = () => {
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              From Idea to <span className="text-primary">Intelligent SaaS</span>,{" "}
+              Go from MVP <span className="text-primary">Intelligent SaaS</span>,
               <br className="hidden md:block" />
               <span className="text-foreground">Faster.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-              You have a vision for a smart, AI-powered product. You need more than freelancers—you need a technical partner who can turn that vision into intelligent software that attracts customers and investors. 
-              <span className="text-primary font-medium"> That's what we do.</span>
+             You have a powerful vision for a SaaS product. You need more than just freelancers—you need a reliable technical partner to build a robust, AI-native platform that wins customers and attracts investors.
+              <span className="text-primary font-medium">We are that partner.</span>
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -276,7 +276,7 @@ const Index = () => {
                 onClick={() => scrollToSection('contact')}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group"
               >
-                Book a Free Strategy Session
+                Free Strategy Session
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
