@@ -470,8 +470,8 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Work: From Complex Problems to
-              <span className="text-primary">Elegant Solutions</span>
+              Our Success 
+              <span className="text-primary">Stories</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Real projects, real results. See how we've helped founders transform their ideas into successful products.
@@ -637,34 +637,6 @@ const Index = () => {
                               <p className="text-muted-foreground text-lg">{testimonial.company}</p>
                             </div>
                             
-                            {/* Video Play Button */}
-                            {testimonial.videoUrl && (
-                              <Dialog>
-                                <DialogTrigger asChild>
-                                  <Button 
-                                    variant="outline"
-                                    className="glass-effect border-primary/30 text-primary hover:bg-primary/10 w-fit group"
-                                  >
-                                    <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
-                                    Watch Video Testimonial
-                                  </Button>
-                                </DialogTrigger>
-                                <DialogContent className="max-w-4xl w-full">
-                                  <DialogTitle className="sr-only">Video testimonial from {testimonial.name}</DialogTitle>
-                                  <DialogDescription className="sr-only">
-                                    Watch the video testimonial from {testimonial.name} at {testimonial.company}
-                                  </DialogDescription>
-                                  <div className="aspect-video w-full">
-                                    <iframe
-                                      src={testimonial.videoUrl.replace('watch?v=', 'embed/')}
-                                      className="w-full h-full rounded-lg"
-                                      allowFullScreen
-                                      title={`Video testimonial from ${testimonial.name}`}
-                                    />
-                                  </div>
-                                </DialogContent>
-                              </Dialog>
-                            )}
                           </div>
                         </div>
                       </CardContent>
