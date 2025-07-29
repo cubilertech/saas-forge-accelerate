@@ -156,27 +156,21 @@ const Index = () => {
   const processSteps = [
     {
       number: 1,
-      title: "Kickstart & Align",
-      description: "Get strategic clarity on user, problem, and scope.",
-      details: "We start by becoming experts in your business. We dive deep into your goals, your users, and your metrics for success."
+      title: "We Define the Architectural Blueprint.",
+      description: "The Blueprint",
+      details: "A successful product is built on a solid foundation. We start by diving deep into your business goals, your target users, and your market position. From there, we architect a scalable, AI-ready technical blueprint. This ensures we're not just building for today, but for the scale and intelligence you'll need tomorrow."
     },
     {
       number: 2,
-      title: "UX & Wireframe Sprint",
-      description: "Fast prototyping to visualize and align.",
-      details: "We design a scalable and secure technical architecture, then map out a clear feature roadmap broken into two-week sprints."
+      title: "We Build Your Intelligent MVP.",
+      description: "The Build Sprint",
+      details: "This is where the vision becomes reality. We work in focused, agile sprints to transform the blueprint into a tangible, high-quality product with its core AI features intact. You get a dedicated Slack channel and constant updates, providing radical transparency and ensuring you see meaningful progress every step of the way."
     },
     {
       number: 3,
-      title: "Code & Integrate Smartly",
-      description: "Build with senior-led teams using the right AI boosts.",
-      details: "You get constant visibility with regular check-ins and direct access to a project manager. Working software every two weeks."
-    },
-    {
-      number: 4,
-      title: "Launch & Learn",
-      description: "Deliver, measure, iterate with feedback loop built in.",
-      details: "Rigorous testing ensures your platform is reliable, bug-free, and ready for your first users. We handle the deployment."
+      title: "We Launch, Learn, and Scale Together.",
+      description: "The Launch & Scale",
+      details: "Our definition of \"done\" includes rigorous testing to ensure a flawless user experience. After a successful launch, we partner with you to gather user data, iterate on features, and scale your platform. This is how we turn your intelligent MVP into a true market leader."
     }
   ];
 
@@ -535,12 +529,11 @@ const Index = () => {
         <div className="relative max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Launch-Ready Process{" "}
-              <span className="text-primary">Powered by AI</span>
+              We Turn Your Vision Into a{" "}
+              <span className="text-primary">Market-Defining Product.</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We streamline every step with AI, taking you from concept to live product fast
-              and ready for your first users in 4 weeks.
+              Building a world-class SaaS product is hard. It requires more than just great code—it demands a brilliant strategy and flawless execution. We provide both.
             </p>
           </div>
 
@@ -554,12 +547,14 @@ const Index = () => {
 
                 {/* Content */}
                 <div className="flex-1 pt-2">
+                  <div className="mb-2">
+                    <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+                      Step {step.number}
+                    </span>
+                  </div>
                   <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-lg text-muted-foreground mb-3 leading-relaxed">
-                    {step.description}
-                  </p>
                   <p className="text-sm text-muted-foreground/80 leading-relaxed">
                     {step.details}
                   </p>
