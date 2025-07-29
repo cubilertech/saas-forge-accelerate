@@ -156,19 +156,14 @@ const Index = () => {
   const processSteps = [
     {
       number: 1,
-      title: "Kickstart & Align",
+      title: "Define the Blueprint",
       description: "Get strategic clarity on user, problem, and scope.",
       details: "We start by becoming experts in your business. We dive deep into your goals, your users, and your metrics for success."
     },
+ 
     {
       number: 2,
-      title: "UX & Wireframe Sprint",
-      description: "Fast prototyping to visualize and align.",
-      details: "We design a scalable and secure technical architecture, then map out a clear feature roadmap broken into two-week sprints."
-    },
-    {
-      number: 3,
-      title: "Code & Integrate Smartly",
+      title: "The Build Sprint",
       description: "Build with senior-led teams using the right AI boosts.",
       details: "You get constant visibility with regular check-ins and direct access to a project manager. Working software every two weeks."
     },
