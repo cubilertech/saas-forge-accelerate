@@ -364,64 +364,70 @@ const Index = () => {
                       transition: 'opacity 0.3s ease-out'
                     }}
                   >
-                    <Card className="bg-gradient-card card-blur hover-glow border-0 shadow-2xl">
-                      <CardContent className="p-12 md:p-16 text-center">
-                        {/* Large Quote Icon */}
-                        <div className="mb-8">
-                          <Quote className="h-16 w-16 text-primary mx-auto opacity-20" />
-                        </div>
-                        
-                        {/* Testimonial Content */}
-                        <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground mb-12 leading-relaxed italic">
-                          "{testimonial.quote}"
-                        </blockquote>
-                        
-                        {/* Author Section */}
-                        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-                          {/* Avatar */}
-                          <div className="relative">
-                            <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-primary-foreground font-bold text-2xl shadow-lg">
-                              {testimonial.initials}
-                            </div>
-                            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                              <CheckCircle className="h-4 w-4 text-primary-foreground" />
-                            </div>
-                          </div>
-                          
-                          {/* Author Info */}
-                          <div className="text-center md:text-left">
-                            <h4 className="text-xl font-bold text-foreground mb-1">{testimonial.name}</h4>
-                            <p className="text-primary font-semibold text-lg">{testimonial.company}</p>
-                          </div>
-                          
-                          {/* Video Button */}
-                          <Dialog>
-                            <DialogTrigger asChild>
-                              <Button 
-                                variant="outline" 
-                                size="lg"
-                                className="glass-effect border-primary/30 text-primary hover:bg-primary/10 rounded-xl px-6 py-3 group shadow-lg hover:shadow-xl transition-all duration-300"
-                              >
-                                <Play className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
-                                Watch Story
-                              </Button>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-5xl w-full bg-card border-border rounded-2xl">
-                              <DialogTitle className="text-2xl font-bold text-center mb-4">
-                                {testimonial.name}'s Success Story
-                              </DialogTitle>
-                              <DialogDescription className="text-center text-muted-foreground mb-6">
-                                {testimonial.company}
-                              </DialogDescription>
-                              <div className="aspect-video w-full bg-gradient-to-br from-muted to-muted/50 rounded-xl flex items-center justify-center">
-                                <div className="text-center">
-                                  <Play className="h-20 w-20 text-primary mx-auto mb-6 opacity-80" />
-                                  <p className="text-foreground text-xl mb-2">Video Coming Soon</p>
-                                  <p className="text-muted-foreground">In-depth case study and founder interview</p>
-                                </div>
+                    <Card className="bg-gradient-card card-blur hover-glow border-0 shadow-2xl overflow-hidden">
+                      <CardContent className="p-0">
+                        <div className="grid md:grid-cols-5 gap-0 items-center min-h-[400px]">
+                          {/* Left side - Image */}
+                          <div className="md:col-span-2 relative h-full">
+                            <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center p-8 md:p-12">
+                              <div className="w-48 h-48 md:w-64 md:h-64 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-6xl shadow-2xl">
+                                {testimonial.initials}
                               </div>
-                            </DialogContent>
-                          </Dialog>
+                            </div>
+                          </div>
+                          
+                          {/* Right side - Content */}
+                          <div className="md:col-span-3 p-8 md:p-12 lg:p-16 flex flex-col justify-center h-full">
+                            {/* Quote Icon */}
+                            <div className="mb-6">
+                              <Quote className="h-12 w-12 text-primary opacity-30" />
+                            </div>
+                            
+                            {/* Testimonial Quote */}
+                            <blockquote className="text-xl md:text-2xl lg:text-3xl font-light text-foreground mb-8 leading-relaxed">
+                              "{testimonial.quote}"
+                            </blockquote>
+                            
+                            {/* Author Info */}
+                            <div className="mb-6">
+                              <h4 className="text-2xl font-bold text-foreground mb-2">{testimonial.name}</h4>
+                              <p className="text-muted-foreground text-lg">{testimonial.company}</p>
+                            </div>
+                            
+                            {/* Rating Badges */}
+                            <div className="flex flex-wrap gap-4 items-center">
+                              <div className="flex items-center space-x-2 bg-background/50 rounded-lg px-4 py-2">
+                                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div className="flex items-center space-x-1">
+                                  <span className="text-primary font-bold text-lg">★</span>
+                                  <span className="font-semibold">4.9</span>
+                                </div>
+                                <span className="text-muted-foreground text-sm">On Clutch</span>
+                              </div>
+                              
+                              <div className="flex items-center space-x-2 bg-background/50 rounded-lg px-4 py-2">
+                                <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+                                  <span className="text-white text-xs font-bold">F</span>
+                                </div>
+                                <div className="flex items-center space-x-1">
+                                  <span className="text-primary font-bold text-lg">★</span>
+                                  <span className="font-semibold">5.0</span>
+                                </div>
+                                <span className="text-muted-foreground text-sm">on GoodFirms</span>
+                              </div>
+                              
+                              <div className="flex items-center space-x-2 bg-background/50 rounded-lg px-4 py-2">
+                                <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
+                                  <span className="text-white text-xs font-bold">up</span>
+                                </div>
+                                <div className="flex items-center space-x-1">
+                                  <span className="text-primary font-bold text-lg">★</span>
+                                  <span className="font-semibold">Top Rated plus</span>
+                                </div>
+                                <span className="text-muted-foreground text-sm">on Upwork</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </CardContent>
                     </Card>
