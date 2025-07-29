@@ -470,8 +470,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Work: From Complex Problems to{" "}
-              <span className="text-primary">Elegant Solutions</span>
+              Our Work
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Real projects, real results. See how we've helped founders transform their ideas into successful products.
