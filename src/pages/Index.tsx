@@ -156,21 +156,27 @@ const Index = () => {
   const processSteps = [
     {
       number: 1,
-      title: "We Define the Architectural Blueprint.",
-      description: "The Blueprint",
-      details: "A successful product is built on a solid foundation. We start by diving deep into your business goals, your target users, and your market position. From there, we architect a scalable, AI-ready technical blueprint. This ensures we're not just building for today, but for the scale and intelligence you'll need tomorrow."
+      title: "Kickstart & Align",
+      description: "Get strategic clarity on user, problem, and scope.",
+      details: "We start by becoming experts in your business. We dive deep into your goals, your users, and your metrics for success."
     },
     {
       number: 2,
-      title: "We Build Your Intelligent MVP.",
-      description: "The Build Sprint",
-      details: "This is where the vision becomes reality. We work in focused, agile sprints to transform the blueprint into a tangible, high-quality product with its core AI features intact. You get a dedicated Slack channel and constant updates, providing radical transparency and ensuring you see meaningful progress every step of the way."
+      title: "UX & Wireframe Sprint",
+      description: "Fast prototyping to visualize and align.",
+      details: "We design a scalable and secure technical architecture, then map out a clear feature roadmap broken into two-week sprints."
     },
     {
       number: 3,
-      title: "We Launch, Learn, and Scale Together.",
-      description: "The Launch & Scale",
-      details: "Our definition of \"done\" includes rigorous testing to ensure a flawless user experience. After a successful launch, we partner with you to gather user data, iterate on features, and scale your platform. This is how we turn your intelligent MVP into a true market leader."
+      title: "Code & Integrate Smartly",
+      description: "Build with senior-led teams using the right AI boosts.",
+      details: "You get constant visibility with regular check-ins and direct access to a project manager. Working software every two weeks."
+    },
+    {
+      number: 4,
+      title: "Launch & Learn",
+      description: "Deliver, measure, iterate with feedback loop built in.",
+      details: "Rigorous testing ensures your platform is reliable, bug-free, and ready for your first users. We handle the deployment."
     }
   ];
 
@@ -396,66 +402,6 @@ const Index = () => {
         </div>
       </section>
 
-       {/* Process Section - New List Design */}
-      <section 
-        id="process" 
-        data-animate 
-        className={`relative px-6 py-20 bg-grid-pattern transition-all duration-1000 ${isVisible('process') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-      >
-        {/* Background overlay */}
-        <div className="absolute inset-0 bg-background/95"></div>
-        
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(hsl(var(--border)) 1px, transparent 1px),
-              linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)
-            `,
-            backgroundSize: '20px 20px'
-          }}></div>
-        </div>
-        
-        <div className="relative max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              We Turn Your Vision Into a{" "}
-              <span className="text-primary">Market-Defining Product.</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Building a world-class SaaS product is hard. It requires more than just great code—it demands a brilliant strategy and flawless execution. We provide both.
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {processSteps.map((step, index) => (
-              <div key={step.number} className="flex items-start gap-6 group">
-                {/* Number Circle */}
-                <div className="flex-shrink-0 w-16 h-16 bg-primary/10 border-2 border-primary/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-2xl font-bold text-primary">{step.number}</span>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 pt-2">
-                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
-                    {step.details}
-                  </p>
-                </div>
-
-                {/* Connecting Line */}
-                {index < processSteps.length - 1 && (
-                  <div className="absolute left-8 mt-20 w-0.5 h-12 bg-gradient-to-b from-primary/30 to-transparent"></div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
       {/* Case Studies Section - Improved Portfolio */}
       <section 
         id="case-studies" 
@@ -566,7 +512,69 @@ const Index = () => {
         </div>
       </section>
 
-     
+      {/* Process Section - New List Design */}
+      <section 
+        id="process" 
+        data-animate 
+        className={`relative px-6 py-20 bg-grid-pattern transition-all duration-1000 ${isVisible('process') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      >
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-background/95"></div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)
+            `,
+            backgroundSize: '20px 20px'
+          }}></div>
+        </div>
+        
+        <div className="relative max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Launch-Ready Process{" "}
+              <span className="text-primary">Powered by AI</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              We streamline every step with AI, taking you from concept to live product fast
+              and ready for your first users in 4 weeks.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {processSteps.map((step, index) => (
+              <div key={step.number} className="flex items-start gap-6 group">
+                {/* Number Circle */}
+                <div className="flex-shrink-0 w-16 h-16 bg-primary/10 border-2 border-primary/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl font-bold text-primary">{step.number}</span>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 pt-2">
+                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-lg text-muted-foreground mb-3 leading-relaxed">
+                    {step.description}
+                  </p>
+                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                    {step.details}
+                  </p>
+                </div>
+
+                {/* Connecting Line */}
+                {index < processSteps.length - 1 && (
+                  <div className="absolute left-8 mt-20 w-0.5 h-12 bg-gradient-to-b from-primary/30 to-transparent"></div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
         <section 
         id="testimonials" 
         data-animate 
