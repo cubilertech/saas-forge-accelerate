@@ -336,11 +336,11 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Stop Worrying About Technology.{" "}
-              <span className="text-primary">Focus on Your Business.</span>
+              Your Technical Partner at{" "}
+              <span className="text-primary">Every Stage of Growth</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We offer clear, packaged solutions designed to meet you where you are—from a fresh idea to a growing platform.
+              We meet you exactly where you are on your journey, with clear, packaged solutions designed to solve your most pressing challenge right now.
             </p>
           </div>
 
@@ -351,14 +351,14 @@ const Index = () => {
                   <div className="flex justify-center mb-6">
                     <Rocket className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-center">MVP Development</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-center">You Have the Vision.</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed text-center">
-                    Have a brilliant idea? We'll take it from a concept to a launch-ready, high-quality Minimum Viable Product in a fixed timeframe. Our focus is on building the core features that deliver immediate value.
+                    We help you bring it to life. Our MVP Sprint is designed to transform your concept into a high-quality, intelligent product ready for its first users. We build the solid foundation you need to validate your idea, win customers, and secure your next round of funding.
                   </p>
                 </div>
                 <div className="mt-auto pt-6 border-t border-primary/30">
-                  <p className="text-primary text-sm font-medium">Best for:</p>
-                  <p className="text-muted-foreground text-sm">Founders at the idea or pre-seed stage</p>
+                  <p className="text-primary text-sm font-medium">Ideal for:</p>
+                  <p className="text-muted-foreground text-sm italic">Pre-seed and seed-stage founders.</p>
                 </div>
               </CardContent>
             </Card>
@@ -367,16 +367,16 @@ const Index = () => {
               <CardContent className="p-8 flex flex-col justify-between h-full">
                 <div>
                   <div className="flex justify-center mb-6">
-                    <Building2 className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+                    <TrendingUp className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-center">Feature Expansion & Scaling</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-center">You Have Traction.</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed text-center">
-                    Your product has traction, but your roadmap is long and your current team is stretched thin. We integrate seamlessly with your existing developers to accelerate your feature velocity.
+                    We help you build a competitive moat. When your platform needs to get smarter to stay ahead of the competition, we integrate sophisticated AI features. From natural language search to data analysis co-pilots, we build the intelligent tools that increase user value and make your product indispensable.
                   </p>
                 </div>
                 <div className="mt-auto pt-6 border-t border-primary/30">
-                  <p className="text-primary text-sm font-medium">Best for:</p>
-                  <p className="text-muted-foreground text-sm">Funded startups needing to build faster</p>
+                  <p className="text-primary text-sm font-medium">Ideal for:</p>
+                  <p className="text-muted-foreground text-sm italic">Startups with an existing product looking to innovate.</p>
                 </div>
               </CardContent>
             </Card>
@@ -385,16 +385,16 @@ const Index = () => {
               <CardContent className="p-8 flex flex-col justify-between h-full">
                 <div>
                   <div className="flex justify-center mb-6">
-                    <Plus className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+                    <Zap className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-center">Dedicated Team Partner</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-center">You're Ready to Scale.</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed text-center">
-                    Need dedicated senior talent without the headache of hiring? We provide experienced Next.js and Node.js developers who act as a true extension of your team.
+                    We provide the dedicated horsepower. When you need to accelerate your roadmap without the immense cost and time of traditional hiring, our Dedicated Product Team is the answer. You get a full "pod" of senior engineers and AI specialists who function as a seamless, long-term extension of your own team.
                   </p>
                 </div>
                 <div className="mt-auto pt-6 border-t border-primary/30">
-                  <p className="text-primary text-sm font-medium">Best for:</p>
-                  <p className="text-muted-foreground text-sm">Teams needing to add senior capacity quickly</p>
+                  <p className="text-primary text-sm font-medium">Ideal for:</p>
+                  <p className="text-muted-foreground text-sm italic">Growing businesses that need to expand their development capacity.</p>
                 </div>
               </CardContent>
             </Card>
