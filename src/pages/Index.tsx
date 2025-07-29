@@ -333,14 +333,11 @@ const Index = () => {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-6">
-              <span className="text-sm font-medium text-primary">✨ Client Success Stories</span>
-            </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Trusted by <span className="text-primary">Visionary Founders</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Hear from founders who transformed their ideas into successful, investment-ready SaaS platforms with our partnership.
+              Hear from founders who transformed their ideas into successful,
             </p>
           </div>
 
@@ -384,7 +381,7 @@ const Index = () => {
                             </div>
                             
                             {/* Testimonial Quote */}
-                            <blockquote className="text-xl md:text-2xl lg:text-3xl font-light text-foreground mb-8 leading-relaxed">
+                            <blockquote className="text-l md:text-xl lg:text-xl font-light text-foreground mb-8 leading-relaxed">
                               "{testimonial.quote}"
                             </blockquote>
                             
@@ -448,25 +445,6 @@ const Index = () => {
               </button>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-8 mt-16 opacity-60">
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="text-sm font-medium">Verified Client</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <TrendingUp className="h-5 w-5 text-primary" />
-                <span className="text-sm font-medium">Revenue Growth</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Users className="h-5 w-5 text-primary" />
-                <span className="text-sm font-medium">User Acquisition</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Target className="h-5 w-5 text-primary" />
-                <span className="text-sm font-medium">Market Fit</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
