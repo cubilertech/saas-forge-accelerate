@@ -394,39 +394,6 @@ const Index = () => {
                               <p className="text-muted-foreground text-lg">{testimonial.company}</p>
                             </div>
                             
-                            {/* Rating Badges */}
-                            <div className="flex flex-wrap gap-4 items-center">
-                              <div className="flex items-center space-x-2 bg-background/50 rounded-lg px-4 py-2">
-                                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                                <div className="flex items-center space-x-1">
-                                  <span className="text-primary font-bold text-lg">★</span>
-                                  <span className="font-semibold">4.9</span>
-                                </div>
-                                <span className="text-muted-foreground text-sm">On Clutch</span>
-                              </div>
-                              
-                              <div className="flex items-center space-x-2 bg-background/50 rounded-lg px-4 py-2">
-                                <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
-                                  <span className="text-white text-xs font-bold">F</span>
-                                </div>
-                                <div className="flex items-center space-x-1">
-                                  <span className="text-primary font-bold text-lg">★</span>
-                                  <span className="font-semibold">5.0</span>
-                                </div>
-                                <span className="text-muted-foreground text-sm">on GoodFirms</span>
-                              </div>
-                              
-                              <div className="flex items-center space-x-2 bg-background/50 rounded-lg px-4 py-2">
-                                <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
-                                  <span className="text-white text-xs font-bold">up</span>
-                                </div>
-                                <div className="flex items-center space-x-1">
-                                  <span className="text-primary font-bold text-lg">★</span>
-                                  <span className="font-semibold">Top Rated plus</span>
-                                </div>
-                                <span className="text-muted-foreground text-sm">on Upwork</span>
-                              </div>
-                            </div>
                           </div>
                         </div>
                       </CardContent>
