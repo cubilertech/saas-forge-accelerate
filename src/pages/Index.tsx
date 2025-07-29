@@ -261,7 +261,7 @@ const Index = () => {
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Go from MVP <span className="text-primary">Intelligent SaaS</span>,
+              Go from MVP to <span className="text-primary">Intelligent SaaS</span>,
               <br className="hidden md:block" />
               <span className="text-foreground">Faster.</span>
             </h1>
