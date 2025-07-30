@@ -250,41 +250,16 @@ const PriceUpCaseStudy = () => {
               </Button>
             </div> */}
 
-            {/* Three Stack Images */}
+            {/* Hero Image */}
             <div className="relative pt-12">
-              <div className="relative max-w-3xl mx-auto">
-                {/* Center Image - Popped Up */}
-                <div className="relative z-30 transform -translate-y-4">
-                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-xl shadow-2xl">
-                    <img 
-                      src="/lovable-uploads/c03d61d6-5ad2-48a8-8de5-bc9f6aa2e9af.png"
-                      alt="PriceUp Quoting Engine"
-                      className="w-full h-auto object-cover"
-                    />
-                  </Card>
-                </div>
-
-                {/* Left Image - Slightly Behind */}
-                <div className="absolute left-0 top-0 w-3/4 z-20 transform -rotate-3 -translate-x-8">
-                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-xl shadow-xl opacity-80">
-                    <img 
-                      src="/lovable-uploads/3b894766-edb1-46bb-b0e0-0eab09a061bd.png"
-                      alt="PriceUp Scheduling"
-                      className="w-full h-auto object-cover"
-                    />
-                  </Card>
-                </div>
-
-                {/* Right Image - Slightly Behind */}
-                <div className="absolute right-0 top-0 w-3/4 z-20 transform rotate-3 translate-x-8">
-                  <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-xl shadow-xl opacity-80">
-                    <img 
-                      src="/lovable-uploads/30348186-6e10-4232-8149-8b41d1f1c770.png"
-                      alt="PriceUp Invoicing"
-                      className="w-full h-auto object-cover"
-                    />
-                  </Card>
-                </div>
+              <div className="relative max-w-4xl mx-auto">
+                <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-xl shadow-2xl">
+                  <img 
+                    src="/lovable-uploads/396a3955-9eef-4d6b-b1f1-38b7f5a926c5.png"
+                    alt="PriceUp Dashboard"
+                    className="w-full h-auto object-cover"
+                  />
+                </Card>
               </div>
             </div>
           </div>
