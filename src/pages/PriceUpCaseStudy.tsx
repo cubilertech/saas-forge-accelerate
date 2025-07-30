@@ -316,13 +316,13 @@ const PriceUpCaseStudy = () => {
               This chaotic system was creating costly errors, frustrated customers, and significant revenue leakage that threatened their growth.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {challenges.map((challenge, index) => (
-              <div key={index} className="flex items-start space-x-4 p-6 bg-background/60 rounded-xl border border-destructive/20">
-                <div className="w-8 h-8 bg-destructive/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <div className="w-3 h-3 bg-destructive rounded-full"></div>
+              <div key={index} className="flex flex-col items-center text-center space-y-3 p-4 bg-background/60 rounded-lg border border-destructive/20">
+                <div className="w-6 h-6 bg-destructive/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 bg-destructive rounded-full"></div>
                 </div>
-                <span className="text-muted-foreground text-lg leading-relaxed">{challenge}</span>
+                <span className="text-muted-foreground text-sm leading-relaxed">{challenge}</span>
               </div>
             ))}
           </div>
