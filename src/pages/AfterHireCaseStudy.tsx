@@ -44,25 +44,25 @@ const AfterHireCaseStudy = () => {
       title: "Dynamic Onboarding Workflows",
       subtitle: "Create custom, automated onboarding journeys for any role.",
       detailedDescription: "The core of the platform is a powerful workflow builder. This allows HR admins to ditch static checklists and create dynamic, step-by-step journeys for new hires. They can assign tasks, schedule check-ins, and deliver content automatically, ensuring every employee gets a consistent, world-class experience.",
-      image: "/lovable-uploads/f948e02f-81d4-42c5-843f-29fba630f83b.png"
+      image: "/lovable-uploads/workflow-builder.png"
     },
     {
       title: "Automated Task Management & Analytics",
       subtitle: "Assign tasks, track progress, and measure engagement automatically.",
       detailedDescription: "We replaced manual email follow-ups with an automated task management board and a powerful analytics dashboard. This gives HR managers a real-time, top-level view of their entire onboarding pipeline. They can see exactly where each new hire is in their journey and proactively identify who might need extra support.",
-      image: "/lovable-uploads/730f9a9b-9f1a-45f4-8fa6-9c78262be023.png"
+      image: "/lovable-uploads/task-automation.png"
     },
     {
       title: "Centralized Content & Form Management",
       subtitle: "Manage all documents, videos, and forms in one single source of truth.",
       detailedDescription: "AfterHire needed a way to consolidate all their training materials, policy documents, and information-gathering forms. We built a centralized content management system that allows them to create, manage, and version all their assets, ensuring that new hires always receive the most up-to-date information.",
-      image: "/lovable-uploads/b96795e0-27a1-4201-b34d-6976610e44da.png"
+      image: "/lovable-uploads/Centralized-content.png"
     },
     {
       title: "Scalable Multi-Tenant Architecture",
       subtitle: "Securely manage hundreds of client companies from a single, unified platform.",
       detailedDescription: "A foundational requirement was the ability to serve multiple B2B clients. We architected the platform with a secure, robust multi-tenant structure from day one. This allows AfterHire to segment data, branding, and workflows for each client, while managing everything from one central admin panel.",
-      image: "/lovable-uploads/247d9edc-21bc-4393-a0a1-de4fa5709f05.png"
+      image: "/lovable-uploads/Multi-tenant.png"
     }
   ];
 

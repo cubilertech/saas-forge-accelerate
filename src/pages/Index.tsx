@@ -127,7 +127,7 @@ const Index = () => {
       description: "A comprehensive HR onboarding platform that automates employee workflows, document management, and integration processes.",
       industry: "Human Resources",
       techStack: ["React", "Node.js", "PostgreSQL", "AWS"],
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
+      image: "/lovable-uploads/dashboard-afterHire.png",
       results: ["50% faster onboarding", "200+ companies"],
       liveUrl: "https://afterhire.com"
     },
