@@ -21,8 +21,8 @@ const CaseStudyTestimonials = () => {
   // Single testimonial for the case study
   const testimonial: Testimonial = {
     id: "1",
-    name: "Michael Thompson",
-    role: "Operations Manager",
+    name: "Ahmad Zaheer",
+    role: "Project Manager",
     company: "PriceUp Glass Solutions",
     content: "This platform completely transformed how we handle quotes and scheduling. We've eliminated errors and our team is so much more efficient now. The ROI was immediate and continues to grow every month.",
     type: "text"
@@ -37,7 +37,7 @@ const CaseStudyTestimonials = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            What Our Clients Say
+            What Our Client Say
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Hear directly from the PriceUp team about how the platform has transformed their business operations
