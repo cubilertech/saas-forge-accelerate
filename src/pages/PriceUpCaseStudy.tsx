@@ -391,11 +391,11 @@ const PriceUpCaseStudy = () => {
                     </p>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     <h4 className="text-xl font-semibold">Key Benefits:</h4>
                     <div className="grid gap-4">
                       {feature.benefits.map((benefit, benefitIndex) => (
-                        <div key={benefitIndex} className="flex items-start space-x-2">
+                        <div key={benefitIndex} className="flex items-start space-x-4">
                           <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                             <CheckCircle className="h-5 w-5 text-primary" />
                           </div>
@@ -405,6 +405,15 @@ const PriceUpCaseStudy = () => {
                     </div>
                   </div>
 
+                  <div className="pt-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-primary/30 rounded-lg flex items-center justify-center">
+                        <Zap className="h-5 w-5 text-primary" />
+                      </div>
+                      <span className="text-primary font-medium">Automated & Intelligent</span>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Image Side */}
                 <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
