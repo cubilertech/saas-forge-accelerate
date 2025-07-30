@@ -346,14 +346,14 @@ const Index = () => {
                   <div className="flex justify-center mb-6">
                     <Rocket className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-center">You Have the Vision.</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-center">You have a great idea.</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed text-center">
-                    We help you bring it to life. Our MVP Sprint is designed to transform your concept into a high-quality, intelligent product ready for its first users. We build the solid foundation you need to validate your idea, win customers, and secure your next round of funding.
+                  <span className="text-primary">We'll build your first version.</span> Our MVP Sprint turns your concept into a high-quality product for your first users. We build the solid foundation you need to prove your idea, win customers, and raise funding
                   </p>
                 </div>
                 <div className="mt-auto pt-6 border-t border-primary/30">
                   <p className="text-primary text-sm font-medium">Ideal for:</p>
-                  <p className="text-muted-foreground text-sm italic">Pre-seed and seed-stage founders.</p>
+                  <p className="text-muted-foreground text-sm italic"> Founders starting from scratch.</p>
                 </div>
               </CardContent>
             </Card>
@@ -366,8 +366,9 @@ const Index = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-center">You Have Traction.</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed text-center">
-                    We help you build a competitive moat. When your platform needs to get smarter to stay ahead of the competition, we integrate sophisticated AI features. From natural language search to data analysis co-pilots, we build the intelligent tools that increase user value and make your product indispensable.
-                  </p>
+                   <span className="text-primary">  We'll help you refine, enhance, and innovate. </span> Our team acts as your long-term technical partner, handling everything from critical bug fixes to building game-changing AI features that keep you ahead of the competition.
+              
+                   </p>
                 </div>
                 <div className="mt-auto pt-6 border-t border-primary/30">
                   <p className="text-primary text-sm font-medium">Ideal for:</p>
@@ -384,8 +385,8 @@ const Index = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-center">You're Ready to Scale.</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed text-center">
-                    We provide the dedicated horsepower. When you need to accelerate your roadmap without the immense cost and time of traditional hiring, our Dedicated Product Team is the answer. You get a full "pod" of senior engineers and AI specialists who function as a seamless, long-term extension of your own team.
-                  </p>
+                <span className="text-primary">We provide a dedicated product team. </span> When you need to build more without the cost of hiring, we provide a full "pod" of senior developers and AI specialists. They act as a seamless extension of your team to accelerate your roadmap.
+                      </p>
                 </div>
                 <div className="mt-auto pt-6 border-t border-primary/30">
                   <p className="text-primary text-sm font-medium">Ideal for:</p>
