@@ -60,7 +60,7 @@ const PriceUpCaseStudy = () => {
       title: "Professional PDF & Invoicing",
       subtitle: "Generate branded quotes and invoices with a single click.",
       detailedDescription: "PriceUp needed their client-facing documents to look as professional as their work. We integrated a one-click feature that converts any quote into a beautifully branded PDF proposal. Once a job is complete, the exact same data is used to generate a final invoice, which can be sent to the client instantly, eliminating manual re-entry and delays.",
-      image: "/lovable-uploads/30348186-6e10-4232-8149-8b41d1f1c770.png",
+      image: "/lovable-uploads/pdf.png",
       benefits: [
         "Enhanced brand professionalism that wins larger contracts",
         "Faster payment cycles due to immediate invoicing",
