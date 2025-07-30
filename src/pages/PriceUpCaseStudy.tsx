@@ -255,7 +255,7 @@ const PriceUpCaseStudy = () => {
               <div className="relative max-w-4xl mx-auto">
                 <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-xl shadow-2xl">
                   <img 
-                    src="/lovable-uploads/396a3955-9eef-4d6b-b1f1-38b7f5a926c5.png"
+                    src="/lovable-uploads/stack.png"
                     alt="PriceUp Dashboard"
                     className="w-full h-auto object-cover"
                   />
