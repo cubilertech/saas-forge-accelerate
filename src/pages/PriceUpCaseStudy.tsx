@@ -205,12 +205,12 @@ const PriceUpCaseStudy = () => {
 
             {/* Title and Subtitle */}
             <div className="space-y-4">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
                 How We Built a Custom Quoting & Invoicing Platform that{" "}
                 <span className="text-gradient-primary">Reduced Quoting Errors by 95%</span>{" "}
                 for a Glass Installation Business
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+              <p className="hidden md:block text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
                 PriceUp was running their multi-million dollar business on a chaotic system of spreadsheets and paper forms. 
                 We partnered with them to build a custom, end-to-end software platform from scratch, transforming their 
                 operations and boosting their profitability.
