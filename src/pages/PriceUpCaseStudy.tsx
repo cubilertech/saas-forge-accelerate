@@ -276,7 +276,7 @@ const PriceUpCaseStudy = () => {
       </section>
 
       {/* Results Section */}
-      <section className="px-6 py-16">
+      {/* <section className="px-6 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
@@ -301,10 +301,10 @@ const PriceUpCaseStudy = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section */}
-      <CaseStudyTestimonials />
+    
 
       {/* Challenge & Solution */}
       <section className="px-6 py-16 bg-muted/20">
@@ -474,6 +474,8 @@ const PriceUpCaseStudy = () => {
           </div>
         </div>
       </section>
+
+      <CaseStudyTestimonials />
 
       {/* CTA Section */}
       <section className="px-6 py-16">
