@@ -17,7 +17,11 @@ import {
   Clock,
   FileText,
   Wrench,
-  Building
+  Building,
+  Calculator,
+  MessageSquare,
+  GitBranch,
+  Server
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -125,10 +129,22 @@ const PriceUpCaseStudy = () => {
   ];
 
   const challenges = [
-    "Complex pricing models across different service industries",
-    "Real-time collaboration between team members and clients",
-    "Seamless integration with existing business workflows",
-    "Scalable architecture to handle growing user base"
+    {
+      icon: <Calculator className="h-6 w-6 text-destructive" />,
+      text: "Complex pricing models across different service industries"
+    },
+    {
+      icon: <MessageSquare className="h-6 w-6 text-destructive" />,
+      text: "Real-time collaboration between team members and clients"
+    },
+    {
+      icon: <GitBranch className="h-6 w-6 text-destructive" />,
+      text: "Seamless integration with existing business workflows"
+    },
+    {
+      icon: <Server className="h-6 w-6 text-destructive" />,
+      text: "Scalable architecture to handle growing user base"
+    }
   ];
 
   const solutions = [
@@ -316,14 +332,18 @@ const PriceUpCaseStudy = () => {
               This chaotic system was creating costly errors, frustrated customers, and significant revenue leakage that threatened their growth.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {challenges.map((challenge, index) => (
-              <div key={index} className="flex flex-col items-center text-center space-y-3 p-4 bg-background/60 rounded-lg border border-destructive/20">
-                <div className="w-6 h-6 bg-destructive/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 bg-destructive rounded-full"></div>
-                </div>
-                <span className="text-muted-foreground text-sm leading-relaxed">{challenge}</span>
-              </div>
+              <Card key={index} className="bg-gradient-card hover-glow text-center p-6 border border-destructive/20">
+                <CardContent className="space-y-4">
+                  <div className="flex justify-center">
+                    <div className="w-12 h-12 bg-destructive/20 rounded-xl flex items-center justify-center">
+                      {challenge.icon}
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{challenge.text}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
