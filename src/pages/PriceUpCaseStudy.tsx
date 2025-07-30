@@ -306,45 +306,25 @@ const PriceUpCaseStudy = () => {
       {/* Testimonials Section */}
     
 
-      {/* Challenge & Solution */}
+      {/* The Problem */}
       <section className="px-6 py-16 bg-muted/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-primary">The Challenge</h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Service businesses were struggling with inconsistent pricing, time-consuming manual estimates, 
-                and fragmented project management workflows that led to revenue leakage and client dissatisfaction.
-              </p>
-              <div className="space-y-4">
-                {challenges.map((challenge, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-destructive/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <div className="w-2 h-2 bg-destructive rounded-full"></div>
-                    </div>
-                    <span className="text-muted-foreground">{challenge}</span>
-                  </div>
-                ))}
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary">The Problem</h2>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              PriceUp was running a multi-million dollar glass installation business on spreadsheets, paper forms, and manual processes. 
+              This chaotic system was creating costly errors, frustrated customers, and significant revenue leakage that threatened their growth.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {challenges.map((challenge, index) => (
+              <div key={index} className="flex items-start space-x-4 p-6 bg-background/60 rounded-xl border border-destructive/20">
+                <div className="w-8 h-8 bg-destructive/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-3 h-3 bg-destructive rounded-full"></div>
+                </div>
+                <span className="text-muted-foreground text-lg leading-relaxed">{challenge}</span>
               </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-primary">Our Solution</h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                We developed a comprehensive platform that unifies estimation, project management, and billing 
-                into one seamless workflow, powered by intelligent automation and real-time collaboration.
-              </p>
-              <div className="space-y-4">
-                {solutions.map((solution, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <CheckCircle className="h-4 w-4 text-primary" />
-                    </div>
-                    <span className="text-muted-foreground">{solution}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -353,10 +333,10 @@ const PriceUpCaseStudy = () => {
       <section className="py-16">
         <div className="text-center mb-20 px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Powerful Features That Drive Results
+            Our Solution
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Every feature was designed with the end-user in mind, focusing on simplicity and efficiency
+            We built a comprehensive platform from scratch that transformed their chaotic processes into a streamlined, profitable operation
           </p>
         </div>
 
