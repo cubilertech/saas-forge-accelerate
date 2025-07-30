@@ -137,7 +137,7 @@ const Index = () => {
       description: "An intelligent estimation and invoicing platform for service industries with dynamic pricing models and automated billing.",
       industry: "Business Services",
       techStack: ["Next.js", "TypeScript", "MongoDB", "Vercel"],
-      image: "/lovable-uploads/priceup-thumbnail.png",
+      image: "/lovable-uploads/cde0d446-bc0e-4104-a6a4-fdd973f8ef18.png",
       results: ["40% more accurate quotes", "150+ businesses"],
       liveUrl: "https://priceup.com"
     },
