@@ -48,7 +48,7 @@ const PriceUpCaseStudy = () => {
       title: "Bulletproof Quoting Engine",
       subtitle: "Create complex, 100% accurate quotes in minutes, not hours.",
       detailedDescription: "The core of PriceUp's revenue leakage was their manual, spreadsheet-based quoting process. It was slow, inconsistent, and prone to costly errors. We developed a dynamic, step-by-step engine that acts as a foolproof checklist. Users select glass types, hardware, and labor rates from a pre-defined library, ensuring every single cost is captured, every single time.",
-      image: "/lovable-uploads/c03d61d6-5ad2-48a8-8de5-bc9f6aa2e9af.png",
+      image: "/lovable-uploads/priceup-thumbnail.png,
       benefits: [
         "Error-free calculations that protect profit margins",
         "Standardized pricing across the entire sales team",
