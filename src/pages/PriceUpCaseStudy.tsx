@@ -48,7 +48,7 @@ const PriceUpCaseStudy = () => {
       title: "Bulletproof Quoting Engine",
       subtitle: "Create complex, 100% accurate quotes in minutes, not hours.",
       detailedDescription: "The core of PriceUp's revenue leakage was their manual, spreadsheet-based quoting process. It was slow, inconsistent, and prone to costly errors. We developed a dynamic, step-by-step engine that acts as a foolproof checklist. Users select glass types, hardware, and labor rates from a pre-defined library, ensuring every single cost is captured, every single time.",
-      image: "/lovable-uploads/cde0d446-bc0e-4104-a6a4-fdd973f8ef18.png",
+      image: "/lovable-uploads/qoute.png",
       benefits: [
         "Error-free calculations that protect profit margins",
         "Standardized pricing across the entire sales team",
@@ -72,7 +72,7 @@ const PriceUpCaseStudy = () => {
       title: "Scheduling & Task Management",
       subtitle: "Visualize all jobs and manage crew assignments from one dashboard.",
       detailedDescription: "The old whiteboard system for scheduling crews was a recipe for chaos and confusion. We built a visual, drag-and-drop scheduler that provides a single source of truth for all active jobs and crew availability. Project managers can assign specific tasks to installers, who can see their daily schedule on any device.",
-      image: "/lovable-uploads/3b894766-edb1-46bb-b0e0-0eab09a061bd.png",
+      image: "/lovable-uploads/Scheduling.png",
       benefits: [
         "Optimized crew scheduling and resource allocation",
         "Clear visibility of the entire company's workload",
@@ -84,7 +84,7 @@ const PriceUpCaseStudy = () => {
       title: "Layout & Hardware Management",
       subtitle: "A central library for all your glass layouts and hardware parts.",
       detailedDescription: "A single glass job can involve thousands of specific parts, from custom layouts to unique hardware SKUs. We created a central database where PriceUp can store, manage, and price every single component they use. This library feeds directly into the quoting engine, guaranteeing perfect accuracy on even the most complex projects.",
-      image: "/lovable-uploads/1f9ff678-592f-4384-8d9b-610344a58f8a.png",
+      image: "/lovable-uploads/layout.png",
       benefits: [
         "A centralized parts and layouts database",
         "Guaranteed quote accuracy by pulling real-time data",
@@ -96,7 +96,7 @@ const PriceUpCaseStudy = () => {
       title: "Multi-Location Management",
       subtitle: "Manage jobs, crews, and reporting across different branches.",
       detailedDescription: "As PriceUp's business grew, they needed the ability to manage operations across multiple branches. We built the platform on a multi-tenant architecture from the ground up. This allows them to segment data, crews, customers, and reporting by location, while giving the executive team a unified, top-level view of the entire business's performance.",
-      image: "/lovable-uploads/0cbabedb-5681-40a5-ba5e-ae2ca21539d0.png",
+      image: "/lovable-uploads/multi-location.png",
       benefits: [
         "A scalable foundation ready for future growth",
         "Segmented reporting and analytics for each branch",
