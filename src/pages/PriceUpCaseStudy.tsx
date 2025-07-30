@@ -205,7 +205,7 @@ const PriceUpCaseStudy = () => {
 
             {/* Title and Subtitle */}
             <div className="space-y-4">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 How We Built a Custom Quoting & Invoicing Platform that{" "}
                 <span className="text-gradient-primary">Reduced Quoting Errors by 95%</span>{" "}
                 for a Glass Installation Business
@@ -218,7 +218,7 @@ const PriceUpCaseStudy = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 text-base rounded-xl font-semibold group"
                 onClick={() => window.open('https://priceup.glass', '_blank')}
@@ -232,7 +232,7 @@ const PriceUpCaseStudy = () => {
               >
                 View Code Architecture
               </Button>
-            </div>
+            </div> */}
 
             {/* Three Stack Images */}
             <div className="relative pt-12">
