@@ -215,7 +215,7 @@ const PriceUpCaseStudy = () => {
             {/* Badge */}
             <div className="flex justify-center">
               <Badge className="bg-primary/20 text-primary border-primary/30 px-3 py-1 text-sm font-medium">
-                Business Services Platform
+               Price Up
               </Badge>
             </div>
 
@@ -334,7 +334,7 @@ const PriceUpCaseStudy = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {challenges.map((challenge, index) => (
-              <Card key={index} className="bg-gradient-card hover-glow text-center p-6 border border-destructive/20">
+              <Card key={index} className="bg-gradient-card hover-glow text-center p-4 border border-destructive/20">
                 <CardContent className="space-y-4">
                   <div className="flex justify-center">
                     <div className="w-12 h-12 bg-destructive/20 rounded-xl flex items-center justify-center">
@@ -352,8 +352,13 @@ const PriceUpCaseStudy = () => {
       {/* Feature Sections - Full Width Sequential */}
       <section className="py-16">
         <div className="text-center mb-20 px-6">
+              <div className="flex justify-center">
+              <Badge className="bg-primary/20 text-primary border-primary/30 px-3 py-1 text-sm font-medium">
+                Our Solution
+              </Badge>
+            </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Our Solution
+            Powerful Features That Drive Results
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             We built a comprehensive platform from scratch that transformed their chaotic processes into a streamlined, profitable operation
@@ -372,14 +377,7 @@ const PriceUpCaseStudy = () => {
               }`}>
                 {/* Content Side */}
                 <div className={`space-y-8 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center">
-                      {feature.icon}
-                    </div>
-                    <div className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-                      Feature {index + 1}
-                    </div>
-                  </div>
+    
 
                   <div className="space-y-4">
                     <h3 className="text-3xl md:text-4xl font-bold leading-tight">
@@ -393,11 +391,11 @@ const PriceUpCaseStudy = () => {
                     </p>
                   </div>
 
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     <h4 className="text-xl font-semibold">Key Benefits:</h4>
                     <div className="grid gap-4">
                       {feature.benefits.map((benefit, benefitIndex) => (
-                        <div key={benefitIndex} className="flex items-start space-x-4">
+                        <div key={benefitIndex} className="flex items-start space-x-2">
                           <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                             <CheckCircle className="h-5 w-5 text-primary" />
                           </div>
