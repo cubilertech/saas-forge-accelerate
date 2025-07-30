@@ -60,7 +60,7 @@ const PriceUpCaseStudy = () => {
       title: "Professional PDF & Invoicing",
       subtitle: "Generate branded quotes and invoices with a single click.",
       detailedDescription: "PriceUp needed their client-facing documents to look as professional as their work. We integrated a one-click feature that converts any quote into a beautifully branded PDF proposal. Once a job is complete, the exact same data is used to generate a final invoice, which can be sent to the client instantly, eliminating manual re-entry and delays.",
-      image: "/lovable-uploads/pdf.png",
+      image: "/lovable-uploads/pdf-invoicing.png",
       benefits: [
         "Enhanced brand professionalism that wins larger contracts",
         "Faster payment cycles due to immediate invoicing",
@@ -377,21 +377,7 @@ const PriceUpCaseStudy = () => {
                         alt={feature.title}
                         className="w-full h-auto object-contain bg-white/5"
                       />
-                      <div className="absolute top-6 left-6 right-6">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-primary/80 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                              <Zap className="h-5 w-5 text-white" />
-                            </div>
-                            <span className="text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
-                              Live Demo
-                            </span>
-                          </div>
-                          <Badge className="bg-primary/20 text-primary border-primary/30 backdrop-blur-sm">
-                            Feature {index + 1}
-                          </Badge>
-                        </div>
-                      </div>
+                      
                     </div>
                   </Card>
                 </div>
