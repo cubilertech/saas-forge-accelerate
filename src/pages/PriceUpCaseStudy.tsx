@@ -485,6 +485,21 @@ const PriceUpCaseStudy = () => {
           </Card>
         </div>
       </section>
+
+      <footer className="px-6 py-12 border-t border-border/20">
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="flex items-center justify-center space-x-3 mb-3">
+            <img 
+              src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
+              alt="UBiLER Technologies" 
+              className="h-8 w-auto"
+            />
+          </div>
+          <p className="text-muted-foreground text-sm">
+            © 2024 UBiLER Technologies. Ready to build something amazing together.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
