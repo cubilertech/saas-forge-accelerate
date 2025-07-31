@@ -133,7 +133,7 @@ const AfterHireCaseStudy = () => {
               <div className="relative max-w-4xl mx-auto">
                 <Card className="bg-gradient-card border border-border/10 overflow-hidden rounded-xl shadow-2xl">
                   <img 
-                    src="/lovable-uploads/730f9a9b-9f1a-45f4-8fa6-9c78262be023.png"
+                    src="/lovable-uploads/dashboard-afterHire.png"
                     alt="AfterHire Dashboard"
                     className="w-full h-auto object-cover"
                   />
