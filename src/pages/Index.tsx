@@ -653,23 +653,22 @@ const Index = () => {
                                "{testimonial.quote}"
                              </blockquote>
                              
-                             {/* Author Info with Video Play Button */}
+                             {/* Author Info */}
                              <div className="mb-6">
-                               <div className="flex items-center gap-3 mb-2">
-                                 {testimonial.hasVideo && testimonial.videoUrl && (
-                                   <Button
-                                     onClick={() => handleVideoPlay(testimonial.videoUrl)}
-                                     variant="ghost"
-                                     size="sm"
-                                     className="p-2 h-auto hover:bg-primary/10 rounded-full"
-                                     aria-label="Play video testimonial"
-                                   >
-                                     <Play className="h-5 w-5 text-primary" />
-                                   </Button>
-                                 )}
-                                 <h4 className="text-2xl font-bold text-foreground">{testimonial.name}</h4>
-                               </div>
-                               <p className="text-muted-foreground text-lg">{testimonial.company}</p>
+                               <h4 className="text-2xl font-bold text-foreground mb-2">{testimonial.name}</h4>
+                               <p className="text-muted-foreground text-lg mb-4">{testimonial.company}</p>
+                               
+                               {/* Watch Testimonial Button */}
+                               {testimonial.hasVideo && testimonial.videoUrl && (
+                                 <Button
+                                   onClick={() => handleVideoPlay(testimonial.videoUrl)}
+                                   variant="outline"
+                                   className="bg-transparent border-primary/30 text-primary hover:bg-primary/10 px-4 py-2 rounded-lg font-medium group"
+                                 >
+                                   <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
+                                   Watch Testimonial
+                                 </Button>
+                               )}
                              </div>
                            </div>
                         </div>
