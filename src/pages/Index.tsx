@@ -741,7 +741,7 @@ const Index = () => {
               Ready to Turn Your Vision into a{" "}
               <span className="text-primary">High-Growth SaaS Business?</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="hidden md:block text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
               Let's have a conversation. We offer a free, no-obligation 30-minute strategy session where we can dive into your project, offer some initial technical insights, and see if we're the right partner to help you succeed.
             </p>
             <Button 
@@ -750,7 +750,7 @@ const Index = () => {
               Free Strategy Session
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <p className="text-sm text-muted-foreground">
+            <p className="mt-2 md:mt-4 text-sm text-muted-foreground">
               No high-pressure sales tactics. Just a genuine conversation about building great software.
             </p>
           </div>
