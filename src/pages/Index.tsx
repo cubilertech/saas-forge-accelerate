@@ -31,6 +31,7 @@ const Index = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -99,25 +100,10 @@ const Index = () => {
       quote: "Before, our business ran on a chaotic mix of spreadsheets and paper. It was slow, and costly errors were a constant problem. The custom platform Cubiler Technologies built for us completely transformed our operations. Our quoting is now fast and accurate, and I have a clear view of my entire business. They are a true partner I can trust.",
       name: "Ahmad Zaheer",
       company: "Price UP",
-      initials: "AZ",
-      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      image: "/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      hasVideo: true
     }
-    // {
-    //   id: 2,
-    //   quote: "The development process was smooth and transparent. They delivered exactly what we needed on time and within budget. Our SaaS platform now handles thousands of users without any issues.",
-    //   name: "Sarah Chen",
-    //   company: "CEO of TechFlow",
-    //   initials: "SC",
-    //   videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    // },
-    // {
-    //   id: 3,
-    //   quote: "I was impressed by their technical expertise and business understanding. They helped us pivot our MVP into a product that actually resonates with our target market.",
-    //   name: "Michael Rodriguez",
-    //   company: "Founder of DataSync",
-    //   initials: "MR",
-    //   videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    // }
   ];
 
   const portfolioItems = [
@@ -611,14 +597,48 @@ const Index = () => {
                     <Card className="bg-gradient-card card-blur hover-glow border-0 shadow-2xl overflow-hidden">
                       <CardContent className="p-0">
                         <div className="grid md:grid-cols-5 gap-0 items-center min-h-[400px]">
-                          {/* Left side - Image */}
-                          <div className="md:col-span-2 relative h-full">
-                            <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center p-8 md:p-12">
-                              <div className="w-48 h-48 md:w-64 md:h-64 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-6xl shadow-2xl">
-                                {testimonial.initials}
-                              </div>
-                            </div>
-                          </div>
+                           {/* Left side - Image/Video */}
+                           <div className="md:col-span-2 relative h-full">
+                             <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center p-8 md:p-12">
+                               {testimonial.hasVideo && testimonial.videoUrl ? (
+                                 <div className="relative w-52 h-52 md:w-72 md:h-72">
+                                   {playingVideo === testimonial.id ? (
+                                     <video
+                                       className="w-full h-full object-cover rounded-2xl shadow-2xl"
+                                       controls
+                                       autoPlay
+                                       onEnded={() => setPlayingVideo(null)}
+                                     >
+                                       <source src={testimonial.videoUrl} type="video/mp4" />
+                                       Your browser does not support video.
+                                     </video>
+                                   ) : (
+                                     <div className="relative w-full h-full">
+                                       <img 
+                                         src={testimonial.image} 
+                                         alt={testimonial.name}
+                                         className="w-full h-full object-cover rounded-2xl shadow-2xl"
+                                       />
+                                       <div className="absolute inset-0 bg-black/20 rounded-2xl flex items-center justify-center">
+                                         <Button
+                                           onClick={() => setPlayingVideo(testimonial.id)}
+                                           className="bg-white/90 hover:bg-white text-primary border-0 w-20 h-20 rounded-full"
+                                         >
+                                           <Play className="h-8 w-8 ml-1" />
+                                         </Button>
+                                       </div>
+                                     </div>
+                                   )}
+                                 </div>
+                               ) : (
+                                 <img 
+                                   src={testimonial.image} 
+                                   alt={testimonial.name}
+                                   className="w-52 h-52 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl"
+                                 />
+                               )}
+                             </div>
+                           </div>
                           
                           {/* Right side - Content */}
                           <div className="md:col-span-3 p-8 md:p-12 lg:p-16 flex flex-col justify-center h-full">
