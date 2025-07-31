@@ -654,11 +654,14 @@ const Index = () => {
                              </blockquote>
                              
                              {/* Author Info */}
+                             
                              <div className="mb-6">
+                               <div className="flex justify-around">
                                <h4 className="text-2xl font-bold text-foreground mb-2">{testimonial.name}</h4>
                                <p className="text-muted-foreground text-lg mb-4">{testimonial.company}</p>
-                               
+                               </div>
                                {/* Watch Testimonial Button */}
+                               <div>
                                {testimonial.hasVideo && testimonial.videoUrl && (
                                  <Button
                                    onClick={() => handleVideoPlay(testimonial.videoUrl)}
@@ -669,6 +672,7 @@ const Index = () => {
                                    Watch Testimonial
                                  </Button>
                                )}
+                                 </div>
                              </div>
                            </div>
                         </div>
