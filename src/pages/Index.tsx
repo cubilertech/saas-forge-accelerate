@@ -94,6 +94,8 @@ const Index = () => {
 
   const isVisible = (id: string) => visibleSections.has(id);
 
+  const strategyCallUrl = 'https://cal.com/mbilal/cubiler-tech';
+
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -236,7 +238,7 @@ const Index = () => {
                 Process
               </button>
               <Button 
-                onClick={() => scrollToSection('contact')}
+                onClick={() => window.open(strategyCallUrl, '_blank')}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium transition-all duration-300"
               >
                 Get Started
@@ -284,7 +286,7 @@ const Index = () => {
               </button>
               <Button 
                 onClick={() => {
-                  scrollToSection('contact');
+                  window.open(strategyCallUrl, '_blank');
                   setIsMenuOpen(false);
                 }}
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium"
@@ -317,7 +319,7 @@ const Index = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
-                onClick={() => scrollToSection('contact')}
+                onClick={() => window.open(strategyCallUrl, '_blank')}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group"
               >
                 Free Strategy Session
@@ -745,8 +747,9 @@ const Index = () => {
               Let's have a conversation. We offer a free, no-obligation 30-minute strategy session where we can dive into your project, offer some initial technical insights, and see if we're the right partner to help you succeed.
             </p>
             <Button 
-                     className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group"
-               >
+              onClick={() => window.open(strategyCallUrl, '_blank')}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group"
+            >
               Free Strategy Session
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
