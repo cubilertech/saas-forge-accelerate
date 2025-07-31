@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { 
   Rocket, 
@@ -20,7 +20,8 @@ import {
   X,
   Play,
   ExternalLink,
-  Bot
+  Bot,
+  AlertCircle
 } from "lucide-react";
 import { useEffect, useState } from "react";
 // import ProjectsMarquee from "@/components/ProjectsMarquee";
@@ -31,7 +32,10 @@ const Index = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [currentVideoUrl, setCurrentVideoUrl] = useState<string>('');
+  const [videoError, setVideoError] = useState<string>('');
+  const [isVideoLoading, setIsVideoLoading] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -105,6 +109,35 @@ const Index = () => {
       hasVideo: true
     }
   ];
+
+  // Handle video modal
+  const handleVideoPlay = (videoUrl: string) => {
+    if (!videoUrl) {
+      setVideoError('Video URL is not available');
+      return;
+    }
+    
+    setIsVideoLoading(true);
+    setVideoError('');
+    setCurrentVideoUrl(videoUrl);
+    setIsVideoModalOpen(true);
+  };
+
+  const handleVideoModalClose = () => {
+    setIsVideoModalOpen(false);
+    setCurrentVideoUrl('');
+    setVideoError('');
+    setIsVideoLoading(false);
+  };
+
+  const handleVideoLoad = () => {
+    setIsVideoLoading(false);
+  };
+
+  const handleVideoError = () => {
+    setVideoError('Failed to load video. Please try again later.');
+    setIsVideoLoading(false);
+  };
 
   const portfolioItems = [
     {
@@ -597,68 +630,48 @@ const Index = () => {
                     <Card className="bg-gradient-card card-blur hover-glow border-0 shadow-2xl overflow-hidden">
                       <CardContent className="p-0">
                         <div className="grid md:grid-cols-5 gap-0 items-center min-h-[400px]">
-                           {/* Left side - Image/Video */}
+                           {/* Left side - Image */}
                            <div className="md:col-span-2 relative h-full">
                              <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center p-8 md:p-12">
-                               {testimonial.hasVideo && testimonial.videoUrl ? (
-                                 <div className="relative w-52 h-52 md:w-72 md:h-72">
-                                   {playingVideo === testimonial.id ? (
-                                     <video
-                                       className="w-full h-full object-cover rounded-2xl shadow-2xl"
-                                       controls
-                                       autoPlay
-                                       onEnded={() => setPlayingVideo(null)}
-                                     >
-                                       <source src={testimonial.videoUrl} type="video/mp4" />
-                                       Your browser does not support video.
-                                     </video>
-                                   ) : (
-                                     <div className="relative w-full h-full">
-                                       <img 
-                                         src={testimonial.image} 
-                                         alt={testimonial.name}
-                                         className="w-full h-full object-cover rounded-2xl shadow-2xl"
-                                       />
-                                       <div className="absolute inset-0 bg-black/20 rounded-2xl flex items-center justify-center">
-                                         <Button
-                                           onClick={() => setPlayingVideo(testimonial.id)}
-                                           className="bg-white/90 hover:bg-white text-primary border-0 w-20 h-20 rounded-full"
-                                         >
-                                           <Play className="h-8 w-8 ml-1" />
-                                         </Button>
-                                       </div>
-                                     </div>
-                                   )}
-                                 </div>
-                               ) : (
-                                 <img 
-                                   src={testimonial.image} 
-                                   alt={testimonial.name}
-                                   className="w-52 h-52 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl"
-                                 />
-                               )}
+                               <img 
+                                 src={testimonial.image} 
+                                 alt={testimonial.name}
+                                 className="w-52 h-52 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl"
+                               />
                              </div>
                            </div>
-                          
-                          {/* Right side - Content */}
-                          <div className="md:col-span-3 p-8 md:p-12 lg:p-16 flex flex-col justify-center h-full">
-                            {/* Quote Icon */}
-                            <div className="mb-6">
-                              <Quote className="h-12 w-12 text-primary opacity-30" />
-                            </div>
-                            
-                            {/* Testimonial Quote */}
-                            <blockquote className="text-l md:text-xl lg:text-xl font-light text-foreground mb-8 leading-relaxed">
-                              "{testimonial.quote}"
-                            </blockquote>
-                            
-                            {/* Author Info */}
-                            <div className="mb-6">
-                              <h4 className="text-2xl font-bold text-foreground mb-2">{testimonial.name}</h4>
-                              <p className="text-muted-foreground text-lg">{testimonial.company}</p>
-                            </div>
-                            
-                          </div>
+                           
+                           {/* Right side - Content */}
+                           <div className="md:col-span-3 p-8 md:p-12 lg:p-16 flex flex-col justify-center h-full">
+                             {/* Quote Icon */}
+                             <div className="mb-6">
+                               <Quote className="h-12 w-12 text-primary opacity-30" />
+                             </div>
+                             
+                             {/* Testimonial Quote */}
+                             <blockquote className="text-l md:text-xl lg:text-xl font-light text-foreground mb-8 leading-relaxed">
+                               "{testimonial.quote}"
+                             </blockquote>
+                             
+                             {/* Author Info with Video Play Button */}
+                             <div className="mb-6">
+                               <div className="flex items-center gap-3 mb-2">
+                                 {testimonial.hasVideo && testimonial.videoUrl && (
+                                   <Button
+                                     onClick={() => handleVideoPlay(testimonial.videoUrl)}
+                                     variant="ghost"
+                                     size="sm"
+                                     className="p-2 h-auto hover:bg-primary/10 rounded-full"
+                                     aria-label="Play video testimonial"
+                                   >
+                                     <Play className="h-5 w-5 text-primary" />
+                                   </Button>
+                                 )}
+                                 <h4 className="text-2xl font-bold text-foreground">{testimonial.name}</h4>
+                               </div>
+                               <p className="text-muted-foreground text-lg">{testimonial.company}</p>
+                             </div>
+                           </div>
                         </div>
                       </CardContent>
                     </Card>
@@ -759,6 +772,56 @@ const Index = () => {
           </p>
         </div>
       </footer>
+
+      {/* Video Modal */}
+      <Dialog open={isVideoModalOpen} onOpenChange={handleVideoModalClose}>
+        <DialogContent className="max-w-4xl w-full p-0">
+          <DialogTitle className="sr-only">Video Testimonial</DialogTitle>
+          <div className="relative bg-black rounded-lg overflow-hidden">
+            {isVideoLoading && (
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-10">
+                <div className="text-white text-center">
+                  <div className="animate-spin h-8 w-8 border-2 border-white border-t-transparent rounded-full mx-auto mb-2"></div>
+                  <p>Loading video...</p>
+                </div>
+              </div>
+            )}
+            
+            {videoError ? (
+              <div className="aspect-video flex items-center justify-center bg-black text-white p-8">
+                <div className="text-center">
+                  <AlertCircle className="h-12 w-12 mx-auto mb-4 text-red-500" />
+                  <p className="text-lg mb-4">{videoError}</p>
+                  <Button 
+                    onClick={() => {
+                      setVideoError('');
+                      setIsVideoLoading(true);
+                    }}
+                    variant="outline"
+                    className="text-white border-white hover:bg-white hover:text-black"
+                  >
+                    Try Again
+                  </Button>
+                </div>
+              </div>
+            ) : currentVideoUrl ? (
+              <video
+                className="w-full aspect-video"
+                controls
+                autoPlay
+                onLoadStart={handleVideoLoad}
+                onError={handleVideoError}
+                onCanPlay={() => setIsVideoLoading(false)}
+              >
+                <source src={currentVideoUrl} type="video/mp4" />
+                <source src={currentVideoUrl} type="video/webm" />
+                <source src={currentVideoUrl} type="video/ogg" />
+                Your browser does not support the video tag.
+              </video>
+            ) : null}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
