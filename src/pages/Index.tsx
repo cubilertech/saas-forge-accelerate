@@ -168,7 +168,7 @@ const Index = () => {
       description: "A specialized CRM and task management system for agriculture industry with real-time updates and mobile accessibility.",
       industry: "Agriculture Technology",
       techStack: ["React Native", "Express.js", "MySQL", "Firebase"],
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
+      image: "/lovable-uploads/aa7e3655-ae93-4d12-9d84-a267b0cb2e02.png",
       results: ["60% improved efficiency", "500+ farms"],
       liveUrl: "https://pipa.com"
     }
