@@ -212,7 +212,7 @@ const Index = () => {
             <div className="flex items-center space-x-3">
               <img 
                 src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
-                alt="UBiLER Technologies" 
+                alt="Cubiler Technologies" 
                 className="h-10 w-auto"
               />
             </div>
@@ -307,7 +307,7 @@ const Index = () => {
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Go from MVP to <span className="text-primary">Intelligent SaaS</span>,
+              <span className="text-foreground">Cubiler Technologies:</span> Go from MVP to <span className="text-primary">Intelligent SaaS</span>,
               <br className="hidden md:block" />
               <span className="text-foreground">Faster.</span>
             </h1>
@@ -765,12 +765,12 @@ const Index = () => {
           <div className="flex items-center justify-center space-x-3 mb-3">
             <img 
               src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
-              alt="UBiLER Technologies" 
+              alt="Cubiler Technologies" 
               className="h-8 w-auto"
             />
           </div>
           <p className="text-muted-foreground text-sm">
-            © 2024 UBiLER Technologies. Ready to build something amazing together.
+            © 2024 Cubiler Technologies. Ready to build something amazing together.
           </p>
         </div>
       </footer>

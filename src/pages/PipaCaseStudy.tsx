@@ -199,7 +199,7 @@ const PipaCaseStudy = () => {
             <div className="flex items-center space-x-3">
               <img 
                 src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
-                alt="CUBILER Technologies" 
+                alt="Cubiler Technologies" 
                 className="h-8 w-auto"
               />
             </div>
@@ -425,12 +425,12 @@ const PipaCaseStudy = () => {
             <div className="flex items-center space-x-3">
               <img 
                 src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
-                alt="CUBILER Technologies" 
+                alt="Cubiler Technologies" 
                 className="h-8 w-auto"
               />
             </div>
             <p className="text-sm text-muted-foreground">
-              &copy; 2024 CUBILER Technologies. All rights reserved.
+              &copy; 2024 Cubiler Technologies. All rights reserved.
             </p>
           </div>
         </div>

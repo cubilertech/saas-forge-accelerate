@@ -90,13 +90,13 @@ const AfterHireCaseStudy = () => {
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Portfolio
             </Button>
-            <div className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
-                alt="CUBILER Technologies" 
-                className="h-8 w-auto"
-              />
-            </div>
+        <div className="flex items-center space-x-3">
+          <img 
+            src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
+            alt="Cubiler Technologies" 
+            className="h-8 w-auto"
+          />
+        </div>
           </div>
         </div>
       </header>
@@ -298,12 +298,12 @@ const AfterHireCaseStudy = () => {
             <div className="flex items-center space-x-3">
               <img 
                 src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
-                alt="CUBILER Technologies" 
+                alt="Cubiler Technologies" 
                 className="h-8 w-auto"
               />
             </div>
             <p className="text-sm text-muted-foreground">
-              © 2024 CUBILER Technologies. All rights reserved.
+              © 2024 Cubiler Technologies. All rights reserved.
             </p>
           </div>
         </div>

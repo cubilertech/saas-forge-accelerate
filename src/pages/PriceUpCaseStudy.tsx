@@ -197,7 +197,7 @@ const PriceUpCaseStudy = () => {
             <div className="flex items-center space-x-3">
               <img 
                 src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
-                alt="CUBILER Technologies" 
+                alt="Cubiler Technologies" 
                 className="h-8 w-auto"
               />
             </div>
@@ -452,12 +452,12 @@ const PriceUpCaseStudy = () => {
           <div className="flex items-center justify-center space-x-3 mb-3">
             <img 
               src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png" 
-              alt="UBiLER Technologies" 
+              alt="Cubiler Technologies" 
               className="h-8 w-auto"
             />
           </div>
           <p className="text-muted-foreground text-sm">
-            © 2024 UBiLER Technologies. Ready to build something amazing together.
+            © 2024 Cubiler Technologies. Ready to build something amazing together.
           </p>
         </div>
       </footer>
