@@ -741,13 +741,13 @@ const Index = () => {
               Ready to Turn Your Vision into a{" "}
               <span className="text-primary">High-Growth SaaS Business?</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="hidden md:block text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
               Let's have a conversation. We offer a free, no-obligation 30-minute strategy session where we can dive into your project, offer some initial technical insights, and see if we're the right partner to help you succeed.
             </p>
             <Button 
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group mb-4 w-auto max-w-fit mx-auto"
             >
-              Free Strategy Session
+              Book Your Free Strategy Session
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <p className="text-sm text-muted-foreground">
