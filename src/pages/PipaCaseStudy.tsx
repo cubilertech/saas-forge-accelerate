@@ -25,7 +25,7 @@ const PipaCaseStudy = () => {
       title: "Task & Job Management", 
       subtitle: "Clear Visual Operations",
       description: "The old system of phone calls and text messages was a recipe for confusion. We built a clear, visual task management system that allows managers to assign jobs to specific employees, paddocks, or teams. Everyone knows exactly what they need to do and when, providing a single source of truth for the entire farm's operations and eliminating endless phone tag.",
-      image: "/lovable-uploads/task.png", // User should upload this image
+      image: "/lovable-uploads/601f79ac-c0c7-4a7d-8b76-4f27b8481f42.png",
       benefits: [
         "Clear task assignment and tracking",
         "Elimination of phone tag communication",
@@ -38,7 +38,7 @@ const PipaCaseStudy = () => {
       title: "Automated Timesheets & Reporting",
       subtitle: "Simplified Payroll Process", 
       description: "Manual paper timesheets were inefficient and prone to errors, making payroll a nightmare. We implemented a simple, in-app time tracking feature that allows employees to log their hours against specific jobs. This data feeds into automated reports, giving managers crystal-clear visibility into labor costs and dramatically simplifying the entire payroll process.",
-      image: "/lovable-uploads/timesheet.png", // User should upload this image
+      image: "/lovable-uploads/e8e6d3da-864c-4954-9677-42fff838a4e0.png",
       benefits: [
         "Automated time tracking",
         "Error-free payroll processing",
@@ -51,7 +51,7 @@ const PipaCaseStudy = () => {
       title: "Centralized Team Communication",
       subtitle: "Real-time Coordination",
       description: "Communication is the lifeblood of a farm, but relying on personal text messages leads to missed information and a lack of clear records. We implemented a secure, real-time chat feature directly within the Pipa platform. This gives teams a centralized place for all job-related communication, ensuring everyone is working from the same information, at the same time.",
-      image: "/lovable-uploads/chat.png", // User should upload this image
+      image: "/lovable-uploads/98f7553d-37a5-4b43-bc7e-4cfd07404a8a.png",
       benefits: [
         "Centralized communication hub",
         "Real-time messaging",
@@ -64,7 +64,7 @@ const PipaCaseStudy = () => {
       title: "Safety & Compliance Management", 
       subtitle: "Comprehensive Safety Culture",
       description: "Safety is paramount on a farm. We built a dedicated safety module to manage and track safety briefings, pre-start checklists, and incident reports. This creates a clear, auditable trail, reduces administrative burden, and helps farm managers foster a powerful safety culture.",
-      image: "/lovable-uploads/safty.png", // User should upload this image
+      image: "/lovable-uploads/6862c2e1-772c-499a-97a5-4407dd166dcf.png",
       benefits: [
         "Digital safety briefings",
         "Automated compliance tracking",
@@ -182,7 +182,7 @@ const PipaCaseStudy = () => {
           
           <div className="relative">
             <img 
-              src="/lovable-uploads/thumbnail.png" 
+              src="/lovable-uploads/6bf601b4-a24e-442c-9f60-25a4a6ec00db.png" 
               alt="Pipa Farm Management Platform Dashboard"
               className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
               onError={(e) => {
