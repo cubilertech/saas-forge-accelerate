@@ -96,28 +96,28 @@ const Index = () => {
   const testimonials = [
     {
       id: 1,
-      quote: "Working with this team was a game-changer. They didn't just write code; they understood our business goals and built a platform that was scalable from day one. I finally have a technical partner I can trust.",
-      name: "John Doe",
-      company: "Founder of AfterHire",
-      initials: "JD",
-      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    },
-    {
-      id: 2,
-      quote: "The development process was smooth and transparent. They delivered exactly what we needed on time and within budget. Our SaaS platform now handles thousands of users without any issues.",
-      name: "Sarah Chen",
-      company: "CEO of TechFlow",
-      initials: "SC",
-      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    },
-    {
-      id: 3,
-      quote: "I was impressed by their technical expertise and business understanding. They helped us pivot our MVP into a product that actually resonates with our target market.",
-      name: "Michael Rodriguez",
-      company: "Founder of DataSync",
-      initials: "MR",
+      quote: "Before, our business ran on a chaotic mix of spreadsheets and paper. It was slow, and costly errors were a constant problem. The custom platform Cubiler Technologies built for us completely transformed our operations. Our quoting is now fast and accurate, and I have a clear view of my entire business. They are a true partner I can trust.",
+      name: "Ahmad Zaheer",
+      company: "Price UP",
+      initials: "AZ",
       videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
+    // {
+    //   id: 2,
+    //   quote: "The development process was smooth and transparent. They delivered exactly what we needed on time and within budget. Our SaaS platform now handles thousands of users without any issues.",
+    //   name: "Sarah Chen",
+    //   company: "CEO of TechFlow",
+    //   initials: "SC",
+    //   videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    // },
+    // {
+    //   id: 3,
+    //   quote: "I was impressed by their technical expertise and business understanding. They helped us pivot our MVP into a product that actually resonates with our target market.",
+    //   name: "Michael Rodriguez",
+    //   company: "Founder of DataSync",
+    //   initials: "MR",
+    //   videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    // }
   ];
 
   const portfolioItems = [
