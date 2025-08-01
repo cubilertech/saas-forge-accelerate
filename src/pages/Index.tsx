@@ -552,27 +552,22 @@ const Index = () => {
                     </div>
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="flex gap-2 pt-2">
+                  {/* Case Study Button */}
+                  <div className="pt-2">
                     <Button 
                       size="sm"
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-2 text-xs rounded-lg font-medium flex-1 group"
-                      onClick={() => window.open(item.liveUrl, '_blank')}
-                    >
-                      View Live
-                      <ExternalLink className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-3 py-2 text-xs rounded-lg font-medium flex-1"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-2 text-xs rounded-lg font-medium w-full"
                       onClick={() => {
-                        if (item.name === 'PriceUp') {
+                        if (item.name === 'AfterHire') {
+                          window.location.href = '/case-study/afterhire';
+                        } else if (item.name === 'PriceUp') {
                           window.location.href = '/case-study/priceup';
+                        } else if (item.name === 'Pipa') {
+                          window.location.href = '/case-study/pipa';
                         }
                       }}
                     >
-                      Case Study
+                      View Case Study
                     </Button>
                   </div>
                 </CardContent>
