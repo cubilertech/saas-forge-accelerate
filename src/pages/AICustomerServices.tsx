@@ -153,7 +153,7 @@ const AICustomerServices = () => {
             
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-4xl mx-auto leading-relaxed">
               Your customers are trying to reach you everywhere—phone calls, website chat, WhatsApp, and social media. 
-              We build a single, intelligent AI system that manages all these conversations for you, 24/7. 
+              We partner with you to build an  intelligent AI system that works exactly the way you do, manages all these conversations for you, 24/7. 
               It qualifies leads, books appointments, and updates your CRM, ensuring no customer ever falls through the cracks.
             </p>
             
