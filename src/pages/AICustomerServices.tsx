@@ -45,64 +45,76 @@ const AICustomerServices = () => {
 
   const problems = [
     {
-      icon: <div className="flex items-center space-x-2"><Phone className="h-8 w-8" /><MessageCircle className="h-8 w-8" /></div>,
-      title: "Missed Calls & Delayed Replies",
-      description: "Your phone rings, your WhatsApp buzzes, and a website chat pops up—often while you're busy. Every missed or delayed response is a potential lost job."
+      icon: <div className="relative"><Phone className="h-8 w-8" /><div className="absolute -top-1 -right-1 text-red-500 text-2xl">✕</div></div>,
+      title: "Missed Opportunities",
+      description: "Every missed call and delayed WhatsApp reply is a lead given directly to your competitor. Your busiest hours are costing you the most money."
     },
     {
-      icon: <Clock className="h-8 w-8" />,
-      title: "Wasted Time on Repetitive Questions",
-      description: "Your team spends hours typing and saying the same things all day: \"What are your hours?\", \"Can I book a time?\", \"Do you service my area?\"."
+      icon: <div className="relative"><Clock className="h-8 w-8" /><ArrowRightLeft className="h-4 w-4 absolute -top-1 -right-1" /></div>,
+      title: "Wasted Team Effort",
+      description: "Your skilled team is wasting hours on repetitive, low-value work—answering basic questions and playing phone tag instead of closing deals and serving customers."
     },
     {
       icon: <ArrowRightLeft className="h-8 w-8" />,
-      title: "Chaotic, Disconnected Systems",
-      description: "A lead's info comes in via Telegram, their appointment is in Google Calendar, and their customer history is in your CRM. Nothing is connected, leading to manual data entry and costly mistakes."
+      title: "Manual Data Chaos",
+      description: "Critical customer information is lost when your team has to manually copy-paste details between your chat, calendar, and CRM. This leads to costly errors and a poor customer experience."
     }
   ];
 
   const features = [
     {
       icon: <Bot className="h-12 w-12" />,
-      title: "Be Everywhere for Your Customers, 24/7",
-      subtitle: "Multi-Channel AI Agent",
-      description: "We deploy your custom AI agent across all the channels your customers use: Voice Calls, Website Chat, WhatsApp, Telegram, Facebook Messenger, and more. No matter how they contact you, they get an instant, intelligent, and professional response."
+      title: "Capture Every Conversation, 24/7",
+      subtitle: "Conversational AI Agents",
+      description: "We build and train a custom AI agent on your business data. It answers customer inquiries instantly and professionally across any channel you use—Voice, Website Chat, WhatsApp, and more."
     },
     {
       icon: <Target className="h-12 w-12" />,
-      title: "Stop Wasting Time on Unqualified Leads",
-      subtitle: "Automated Lead Qualification",
-      description: "The AI agent acts as your perfect front desk, asking the right questions to qualify leads based on your specific criteria (like service area, budget, or job type). It then automatically creates and tags these qualified leads in your CRM for your sales team to prioritize."
-    },
-    {
-      icon: <Calendar className="h-12 w-12" />,
-      title: "Book Appointments & Update Records, Instantly",
-      subtitle: "Seamless CRM & Calendar Integration",
-      description: "Once a lead is qualified, the AI can book them directly into your calendar and simultaneously update their record in your CRM with the conversation transcript and appointment details. This eliminates all manual data entry and ensures your customer data is always perfectly in sync."
+      title: "Connect Your Tools, End the Chaos",
+      subtitle: "Deep Software Integration", 
+      description: "We integrate your AI agent directly with your CRM, calendar, and other core software. It automatically books appointments and updates customer records, eliminating manual data entry for good."
     },
     {
       icon: <Zap className="h-12 w-12" />,
-      title: "Automate Your Client Journey, from First Contact to Final Invoice",
-      subtitle: "Intelligent Follow-ups & Reminders",
-      description: "Our system can trigger intelligent follow-ups across any channel. We can send appointment reminders via SMS, follow up with a quote on WhatsApp, and even re-engage past clients with a new offer via email, all automatically."
+      title: "Automate Your Growth",
+      subtitle: "Proactive Follow-Up Engine",
+      description: "We build proactive sequences to turn your agent into a growth engine. It can send appointment reminders to reduce no-shows, follow up on quotes, and re-engage past clients to win more business."
+    }
+  ];
+
+  const customFeatures = [
+    {
+      icon: <Target className="h-8 w-8" />,
+      title: "Perfectly Aligned with Your Business",
+      description: "A pre-built bot uses generic scripts. We train your custom agent on *your* business—it learns your services, pricing, and unique brand voice for a seamless customer experience."
+    },
+    {
+      icon: <div className="flex items-center"><Target className="h-6 w-6" /><Target className="h-6 w-6 -ml-2" /></div>,
+      title: "Deep, Flexible Integrations",
+      description: "Generic solutions have basic integrations. We build deep, custom connections to your specific CRM and software, triggering workflows *exactly* the way you need them to."
+    },
+    {
+      icon: <div className="text-green-500"><Target className="h-8 w-8" /></div>,
+      title: "A Scalable, Future-Proof Asset",
+      description: "An off-the-shelf tool is a monthly cost. Your custom-built agent is a business asset that grows with you. As your business evolves, we can adapt and expand its capabilities."
     }
   ];
 
   const steps = [
     {
       number: 1,
-      title: "The Conversation Deep Dive",
-      description: "In our 30-minute discovery call, we map out your ideal customer conversation. We learn your most common questions, your qualification process, and the channels you want to automate."
+      title: "Discovery & Strategy",
+      description: "We map your current workflow to find your biggest automation opportunities and define the ideal solution for the highest immediate impact."
     },
     {
       number: 2,
-      title: "We Build & Integrate Your AI System",
-      description: "Our team builds your custom AI agent and connects it securely to your communication channels (phone, WhatsApp, etc.) and your core business software (CRM, Calendar)."
+      title: "Custom Build & Integration",
+      description: "Our expert team builds your tailored AI agent and connects it seamlessly to your existing business tools, with your feedback at every step."
     },
     {
       number: 3,
-      title: "Go Live & Unify Your Communication",
-      description: "Your system goes live. You now have a single, unified engine handling your client intake across all channels, freeing up your team to focus on high-value work."
+      title: "Launch & Support",
+      description: "We deploy the system, train your team, and provide ongoing support to ensure your automation runs flawlessly and continues to deliver value as you grow."
     }
   ];
 
@@ -146,15 +158,13 @@ const AICustomerServices = () => {
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Never Miss a Lead Again.{" "}
-              <span className="text-primary">Automate Your Customer Conversations</span>{" "}
-              on Any Channel.
+              <span className="text-primary">Automate Every Customer Conversation.</span>{" "}
+              Never Miss a Lead Again.
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-4xl mx-auto leading-relaxed">
-              Your customers are trying to reach you everywhere—phone calls, website chat, WhatsApp, and social media. 
-              We partner with you to build an  intelligent AI system that works exactly the way you do, manages all these conversations for you, 24/7. 
-              It qualifies leads, books appointments, and updates your CRM, ensuring no customer ever falls through the cracks.
+              We don't sell pre-built bots. We build custom AI agents that are tailored to your exact business workflow, 
+              integrated with your tools, and ready to capture every lead across all your communication channels.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -180,7 +190,7 @@ const AICustomerServices = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Are You <span className="text-primary">Drowning in Customer Inquiries?</span>
+              Your Growth is <span className="text-primary">Leaking Through the Cracks.</span>
             </h2>
           </div>
 
@@ -209,12 +219,11 @@ const AICustomerServices = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              One Intelligent System to Manage{" "}
-              <span className="text-primary">All Your Customer Conversations</span>
+              A Tailored Solution for{" "}
+              <span className="text-primary">Every Business Need</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              We deploy a powerful Conversational AI that acts as your central hub for client intake, 
-              integrating seamlessly with all your communication channels and business software.
+              We don't do one-size-fits-all. We build the exact modules you need to solve your biggest operational headaches, starting with what matters most to you.
             </p>
           </div>
 
@@ -247,6 +256,45 @@ const AICustomerServices = () => {
                 </div>
               </div>
             ))}
+            
+            {/* Callout Box */}
+            <div className="mt-16 p-8 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20">
+              <p className="text-lg text-center font-medium">
+                <span className="text-primary font-semibold">Start with what you need today. Scale when you're ready.</span> We can build a simple Voice AI booking agent or a full, multi-channel automation system. The solution is tailored to you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Custom Section */}
+      <section 
+        id="why-custom" 
+        data-animate 
+        className={`px-6 py-20 transition-all duration-1000 ${isVisible('why-custom') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Why a <span className="text-primary">Custom-Built Agent</span> is a Smarter Investment
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Off-the-shelf chatbots are a cheap expense. A tailored automation system is a high-ROI business asset.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {customFeatures.map((feature, index) => (
+              <Card key={index} className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
+                <CardContent className="p-8 text-center">
+                  <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -260,7 +308,7 @@ const AICustomerServices = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-primary">Live in a Few Weeks</span>, Automated Forever
+              <span className="text-primary">Simple Process</span>, Powerful Results
             </h2>
           </div>
 
@@ -297,12 +345,11 @@ const AICustomerServices = () => {
           <Card className="bg-gradient-card hover-glow overflow-hidden border border-border/10">
             <CardContent className="p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to See Your Business{" "}
-                <span className="text-primary">Run on Autopilot?</span>
+                Ready to Build Your{" "}
+                <span className="text-primary">Custom Automation Plan?</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                Book a free, 15-minute live demo. We'll show you exactly how a single AI system can manage 
-                your phone calls, website chat, and WhatsApp messages to save you time and grow your business.
+                Book a free 15-minute demo. We'll show you how a tailored AI solution can solve your specific operational challenges and grow your business.
               </p>
               
               <Button 
