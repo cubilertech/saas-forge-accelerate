@@ -218,32 +218,32 @@ const AICustomerServices = () => {
             </p>
           </div>
 
-          <div className="space-y-16">
+          <div className="relative max-w-4xl mx-auto">
             {features.map((feature, index) => (
-              <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}>
-                <div className="flex-1">
-                  <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10 h-full">
-                    <CardContent className="p-8">
-                      <div className="flex items-center mb-6">
-                        <div className="text-primary group-hover:scale-110 transition-transform mr-4">
-                          {feature.icon}
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-semibold text-primary mb-1">{feature.subtitle}</h4>
-                          <h3 className="text-2xl font-bold">{feature.title}</h3>
-                        </div>
-                      </div>
-                      <p className="text-muted-foreground leading-relaxed text-lg">{feature.description}</p>
-                    </CardContent>
-                  </Card>
+              <div key={index} className="relative flex items-start gap-8 mb-16 last:mb-0">
+                {/* Step Number Circle */}
+                <div className="relative flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-2xl font-bold text-primary-foreground shadow-lg">
+                    {index + 1}
+                  </div>
+                  {/* Connecting Line */}
+                  {index < features.length - 1 && (
+                    <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-0.5 h-16 bg-gradient-to-b from-primary/60 to-primary/20"></div>
+                  )}
                 </div>
-                <div className="flex-1">
-                  <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-2xl p-8 h-64 flex items-center justify-center">
-                    <div className="text-primary opacity-20">
+
+                {/* Step Content */}
+                <div className="flex-1 pt-2">
+                  <div className="flex items-center mb-4">
+                    <div className="text-primary mr-4 opacity-80">
                       {feature.icon}
-                      <div className="text-6xl mt-4 font-bold">AI</div>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-semibold text-primary mb-1">{feature.subtitle}</h4>
+                      <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
                     </div>
                   </div>
+                  <p className="text-muted-foreground leading-relaxed text-lg">{feature.description}</p>
                 </div>
               </div>
             ))}
