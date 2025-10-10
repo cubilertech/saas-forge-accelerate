@@ -1,0 +1,37 @@
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0; /* hidden at the very start */
+  }
+  10% {
+    opacity: 1; /* fade in quickly once animation starts */
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+
+.animate-horizontal {
+  animation: moveHorizontal 2s linear infinite backwards;
+  z-index: 0;
+}
+
+.animate-vertical {
+  animation: moveVertical 2s linear infinite backwards;
+  z-index: 0;
+}
