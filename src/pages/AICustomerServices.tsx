@@ -37,6 +37,7 @@ import {
   Wifi,
   Car,
   Battery,
+  Star,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -815,39 +816,165 @@ const AICustomerServices = () => {
         data-animate
         className={`px-6 py-20 transition-all duration-1000 ${isVisible("cta") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto">
+          {/* Pre-headline urgency badge */}
+          <div className="text-center mb-4">
+            <Badge variant="outline" className="bg-orange-500/10 text-orange-500 border-orange-500/20">
+              🔥 Limited Availability: 8 demo slots left this week
+            </Badge>
+          </div>
+
           <Card className="bg-gradient-card hover-glow overflow-hidden border border-border/10">
-            <CardContent className="p-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="text-primary">Ready to Start?</span>
+            <CardContent className="p-12 md:p-16">
+              {/* Main Headline */}
+              <h2 className="text-4xl md:text-5xl font-bold mb-3 text-center">
+                Stop Losing Customers to <span className="text-primary">Voicemail</span>
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Free 15-min demo. See your solution.
+              
+              {/* Subheadline */}
+              <p className="text-xl text-muted-foreground mb-6 text-center">
+                Join 50+ businesses automating customer support in 2024
               </p>
 
-              {/* Trust badges */}
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">Free Demo</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20">
-                  <Shield className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">No Credit Card</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20">
-                  <Target className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">Custom Solution</span>
+              {/* Enhanced Description */}
+              <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto text-center">
+                Get a free 15-minute consultation where we'll show you exactly how AI 
+                can handle your customer calls, texts, and chats. No generic pitch—we'll 
+                review your business and create a custom automation plan.
+              </p>
+
+              {/* Social Proof */}
+              <div className="mb-8 flex justify-center">
+                <div className="flex items-center gap-3 px-6 py-3 rounded-full glass-effect border border-primary/20">
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 rounded-full border-2 border-background bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-xs font-bold">JD</div>
+                    <div className="w-8 h-8 rounded-full border-2 border-background bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white text-xs font-bold">SM</div>
+                    <div className="w-8 h-8 rounded-full border-2 border-background bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-xs font-bold">RK</div>
+                  </div>
+                  <div className="text-left">
+                    <div className="flex gap-0.5 mb-1">
+                      <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Trusted by 50+ businesses</span>
+                  </div>
                 </div>
               </div>
 
-              <Button
-                onClick={() => window.open(bookDemoUrl, "_blank")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group"
-              >
-                Automate my customer support
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              {/* Enhanced Trust Badges */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div className="flex flex-col items-center gap-2 p-4 rounded-lg glass-effect border border-primary/20">
+                  <CheckCircle className="h-6 w-6 text-green-500" />
+                  <span className="text-sm font-medium">15-Min Demo</span>
+                  <span className="text-xs text-muted-foreground text-center">Custom walkthrough</span>
+                </div>
+                <div className="flex flex-col items-center gap-2 p-4 rounded-lg glass-effect border border-primary/20">
+                  <Shield className="h-6 w-6 text-green-500" />
+                  <span className="text-sm font-medium">No Credit Card</span>
+                  <span className="text-xs text-muted-foreground text-center">Zero commitment</span>
+                </div>
+                <div className="flex flex-col items-center gap-2 p-4 rounded-lg glass-effect border border-primary/20">
+                  <Target className="h-6 w-6 text-green-500" />
+                  <span className="text-sm font-medium">Custom Built</span>
+                  <span className="text-xs text-muted-foreground text-center">For your business</span>
+                </div>
+                <div className="flex flex-col items-center gap-2 p-4 rounded-lg glass-effect border border-primary/20">
+                  <Zap className="h-6 w-6 text-green-500" />
+                  <span className="text-sm font-medium">Quick Setup</span>
+                  <span className="text-xs text-muted-foreground text-center">Live in 24-48hrs</span>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Button
+                  onClick={() => window.open(bookDemoUrl, "_blank")}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 group"
+                  size="lg"
+                >
+                  Book My Free Demo Now
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                
+                <Button
+                  onClick={() => {
+                    const demoSection = document.getElementById('demo');
+                    if (demoSection) {
+                      demoSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  variant="outline"
+                  className="px-10 py-6 text-lg font-semibold rounded-xl border-2 border-primary/30 hover:bg-primary/10 group"
+                  size="lg"
+                >
+                  <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                  Watch Demo Videos
+                </Button>
+              </div>
+
+              {/* What Happens Next Timeline */}
+              <div className="border-t border-border/20 pt-8">
+                <p className="text-sm text-muted-foreground mb-6 font-semibold text-center">What Happens Next:</p>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary font-bold shrink-0">1</div>
+                    <div className="text-left">
+                      <p className="text-sm font-medium">Book 15-min call</p>
+                      <p className="text-xs text-muted-foreground">Pick your time</p>
+                    </div>
+                  </div>
+                  
+                  <ArrowRight className="h-5 w-5 text-muted-foreground hidden md:block" />
+                  <div className="w-px h-8 bg-border md:hidden" />
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary font-bold shrink-0">2</div>
+                    <div className="text-left">
+                      <p className="text-sm font-medium">See custom demo</p>
+                      <p className="text-xs text-muted-foreground">Built for you</p>
+                    </div>
+                  </div>
+                  
+                  <ArrowRight className="h-5 w-5 text-muted-foreground hidden md:block" />
+                  <div className="w-px h-8 bg-border md:hidden" />
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary font-bold shrink-0">3</div>
+                    <div className="text-left">
+                      <p className="text-sm font-medium">Go live fast</p>
+                      <p className="text-xs text-muted-foreground">24-48 hours</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick FAQ */}
+              <div className="mt-8 pt-6 border-t border-border/20">
+                <Collapsible>
+                  <CollapsibleTrigger className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 mx-auto">
+                    <AlertCircle className="h-4 w-4" />
+                    Still have questions? See common concerns
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="mt-4 space-y-3 text-left max-w-2xl mx-auto">
+                    <div className="p-3 rounded-lg bg-muted/30">
+                      <p className="text-sm font-medium mb-1">What if I'm not tech-savvy?</p>
+                      <p className="text-xs text-muted-foreground">We handle everything. You just talk to us, we do the setup.</p>
+                    </div>
+                    <div className="p-3 rounded-lg bg-muted/30">
+                      <p className="text-sm font-medium mb-1">What's the real cost?</p>
+                      <p className="text-xs text-muted-foreground">Transparent pricing based on your needs. Get a custom quote in the demo.</p>
+                    </div>
+                    <div className="p-3 rounded-lg bg-muted/30">
+                      <p className="text-sm font-medium mb-1">Can I cancel anytime?</p>
+                      <p className="text-xs text-muted-foreground">Yes, no long-term contracts required.</p>
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+              </div>
+
             </CardContent>
           </Card>
         </div>
