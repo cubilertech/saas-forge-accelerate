@@ -12,7 +12,21 @@ import {
   Bot,
   Zap,
   ArrowRight,
-  Play
+  Play,
+  TrendingUp,
+  Link2,
+  Repeat,
+  BarChart3,
+  Shield,
+  Sparkles,
+  Rocket,
+  Search,
+  Settings,
+  DollarSign,
+  AlertCircle,
+  X,
+  Mail,
+  Globe
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -45,19 +59,47 @@ const AICustomerServices = () => {
 
   const problems = [
     {
-      icon: <div className="relative"><Phone className="h-8 w-8" /><div className="absolute -top-1 -right-1 text-red-500 text-2xl">✕</div></div>,
+      icon: <div className="relative animate-pulse"><Phone className="h-12 w-12" /><X className="h-6 w-6 absolute -top-2 -right-2 text-red-500 animate-bounce" /></div>,
       title: "Missed Opportunities",
-      description: "Every missed call and delayed WhatsApp reply is a lead given directly to your competitor. Your busiest hours are costing you the most money."
+      description: "Calls go to voicemail. Leads go to competitors.",
+      loss: "$3,500",
+      visual: (
+        <div className="mt-4 flex gap-2 items-center justify-center">
+          <Phone className="h-4 w-4 text-red-500 animate-pulse" />
+          <Phone className="h-4 w-4 text-red-500 animate-pulse" style={{ animationDelay: '0.2s' }} />
+          <Phone className="h-4 w-4 text-red-500 animate-pulse" style={{ animationDelay: '0.4s' }} />
+          <X className="h-5 w-5 text-red-500" />
+        </div>
+      )
     },
     {
-      icon: <div className="relative"><Clock className="h-8 w-8" /><ArrowRightLeft className="h-4 w-4 absolute -top-1 -right-1" /></div>,
+      icon: <div className="relative"><Clock className="h-12 w-12 animate-spin" style={{ animationDuration: '3s' }} /><Repeat className="h-5 w-5 absolute -top-1 -right-1 animate-pulse" /></div>,
       title: "Wasted Team Effort",
-      description: "Your skilled team is wasting hours on repetitive, low-value work—answering basic questions and playing phone tag instead of closing deals and serving customers."
+      description: "Hours lost on repetitive questions, not sales.",
+      loss: "20hrs/week",
+      visual: (
+        <div className="mt-4 flex gap-1 items-end justify-center h-12">
+          <div className="w-2 h-8 bg-red-500/50 rounded animate-pulse"></div>
+          <div className="w-2 h-10 bg-red-500/50 rounded animate-pulse" style={{ animationDelay: '0.1s' }}></div>
+          <div className="w-2 h-12 bg-red-500/50 rounded animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+          <div className="w-2 h-9 bg-red-500/50 rounded animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+        </div>
+      )
     },
     {
-      icon: <ArrowRightLeft className="h-8 w-8" />,
+      icon: <div className="relative"><Link2 className="h-12 w-8 rotate-45" /><X className="h-5 w-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-red-500" /></div>,
       title: "Manual Data Chaos",
-      description: "Critical customer information is lost when your team has to manually copy-paste details between your chat, calendar, and CRM. This leads to costly errors and a poor customer experience."
+      description: "Lost info. Costly errors. Poor experience.",
+      loss: "15% error rate",
+      visual: (
+        <div className="mt-4 flex gap-3 items-center justify-center">
+          <MessageCircle className="h-5 w-5 opacity-50" />
+          <ArrowRight className="h-4 w-4 text-red-500 opacity-30" />
+          <Calendar className="h-5 w-5 opacity-50" />
+          <ArrowRight className="h-4 w-4 text-red-500 opacity-30" />
+          <Users className="h-5 w-5 opacity-50" />
+        </div>
+      )
     }
   ];
 
@@ -66,37 +108,125 @@ const AICustomerServices = () => {
       icon: <Bot className="h-12 w-12" />,
       title: "Capture Every Conversation, 24/7",
       subtitle: "Conversational AI Agents",
-      description: "We build and train a custom AI agent on your business data. It answers customer inquiries instantly and professionally across any channel you use—Voice, Website Chat, WhatsApp, and more."
+      description: "Custom AI trained on your business. Instant professional responses.",
+      stat: "99.9% Uptime",
+      diagram: (
+        <div className="flex items-center justify-center gap-3 mt-6 p-4 bg-primary/5 rounded-lg">
+          <div className="flex flex-col items-center">
+            <Phone className="h-6 w-6 text-primary animate-pulse" />
+            <span className="text-xs mt-1">Voice</span>
+          </div>
+          <ArrowRight className="h-4 w-4 text-primary" />
+          <div className="flex flex-col items-center">
+            <Bot className="h-8 w-8 text-primary animate-pulse" style={{ animationDelay: '0.2s' }} />
+            <span className="text-xs mt-1 font-bold">AI</span>
+          </div>
+          <ArrowRight className="h-4 w-4 text-primary" />
+          <div className="flex flex-col items-center">
+            <CheckCircle className="h-6 w-6 text-green-500 animate-pulse" style={{ animationDelay: '0.4s' }} />
+            <span className="text-xs mt-1">Response</span>
+          </div>
+        </div>
+      )
     },
     {
       icon: <Target className="h-12 w-12" />,
       title: "Connect Your Tools, End the Chaos",
       subtitle: "Deep Software Integration", 
-      description: "We integrate your AI agent directly with your CRM, calendar, and other core software. It automatically books appointments and updates customer records, eliminating manual data entry for good."
+      description: "Direct CRM & calendar sync. Zero manual data entry.",
+      stat: "100% Auto-Sync",
+      diagram: (
+        <div className="flex items-center justify-center gap-3 mt-6 p-4 bg-primary/5 rounded-lg">
+          <div className="flex flex-col items-center">
+            <Users className="h-6 w-6 text-primary" />
+            <span className="text-xs mt-1">CRM</span>
+          </div>
+          <ArrowRightLeft className="h-5 w-5 text-primary animate-pulse" />
+          <div className="flex flex-col items-center">
+            <Bot className="h-8 w-8 text-primary" />
+            <span className="text-xs mt-1 font-bold">AI</span>
+          </div>
+          <ArrowRightLeft className="h-5 w-5 text-primary animate-pulse" />
+          <div className="flex flex-col items-center">
+            <Calendar className="h-6 w-6 text-primary" />
+            <span className="text-xs mt-1">Calendar</span>
+          </div>
+        </div>
+      )
     },
     {
       icon: <Zap className="h-12 w-12" />,
       title: "Automate Your Growth",
       subtitle: "Proactive Follow-Up Engine",
-      description: "We build proactive sequences to turn your agent into a growth engine. It can send appointment reminders to reduce no-shows, follow up on quotes, and re-engage past clients to win more business."
+      description: "Smart reminders, quote follow-ups, client re-engagement.",
+      stat: "3x More Bookings",
+      diagram: (
+        <div className="flex flex-col gap-2 mt-6 p-4 bg-primary/5 rounded-lg">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+            <span className="text-sm">Day 1: Appointment booked</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+            <span className="text-sm">Day 3: Reminder sent</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+            <span className="text-sm">Day 30: Re-engage</span>
+          </div>
+        </div>
+      )
     }
   ];
 
   const customFeatures = [
     {
       icon: <Target className="h-8 w-8" />,
-      title: "Perfectly Aligned with Your Business",
-      description: "A pre-built bot uses generic scripts. We train your custom agent on *your* business—it learns your services, pricing, and unique brand voice for a seamless customer experience."
+      title: "Perfectly Aligned",
+      description: "Trained on your business. Your voice, your pricing.",
+      comparison: (
+        <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
+          <div className="p-2 bg-red-500/10 rounded border border-red-500/20">
+            <div className="font-semibold text-red-500 mb-1">Generic</div>
+            <div className="opacity-70">❌ Scripts</div>
+          </div>
+          <div className="p-2 bg-green-500/10 rounded border border-green-500/20">
+            <div className="font-semibold text-green-500 mb-1">Custom</div>
+            <div className="opacity-70">✓ Your Data</div>
+          </div>
+        </div>
+      )
     },
     {
-      icon: <div className="flex items-center"><Target className="h-6 w-6" /><Target className="h-6 w-6 -ml-2" /></div>,
-      title: "Deep, Flexible Integrations",
-      description: "Generic solutions have basic integrations. We build deep, custom connections to your specific CRM and software, triggering workflows *exactly* the way you need them to."
+      icon: <Link2 className="h-8 w-8" />,
+      title: "Deep Integrations",
+      description: "Custom workflows. Exact triggers. Your systems.",
+      comparison: (
+        <div className="mt-4 flex justify-center gap-4">
+          <div className="text-center">
+            <div className="text-2xl mb-1">2</div>
+            <div className="text-xs opacity-70">Generic</div>
+          </div>
+          <div className="text-primary text-center">
+            <div className="text-3xl font-bold mb-1">15+</div>
+            <div className="text-xs">Custom</div>
+          </div>
+        </div>
+      )
     },
     {
-      icon: <div className="text-green-500"><Target className="h-8 w-8" /></div>,
-      title: "A Scalable, Future-Proof Asset",
-      description: "An off-the-shelf tool is a monthly cost. Your custom-built agent is a business asset that grows with you. As your business evolves, we can adapt and expand its capabilities."
+      icon: <TrendingUp className="h-8 w-8 text-green-500" />,
+      title: "Scalable Asset",
+      description: "Grows with you. Adapts. Future-proof investment.",
+      comparison: (
+        <div className="mt-4 h-16 flex items-end justify-center gap-1">
+          <div className="w-8 h-6 bg-red-500/30 rounded-t"></div>
+          <div className="w-8 h-6 bg-red-500/30 rounded-t"></div>
+          <div className="w-8 h-10 bg-green-500/50 rounded-t"></div>
+          <div className="w-8 h-14 bg-green-500/70 rounded-t"></div>
+          <div className="w-8 h-16 bg-green-500 rounded-t"></div>
+        </div>
+      )
     }
   ];
 
@@ -104,17 +234,23 @@ const AICustomerServices = () => {
     {
       number: 1,
       title: "Discovery & Strategy",
-      description: "We map your current workflow to find your biggest automation opportunities and define the ideal solution for the highest immediate impact."
+      description: "Map workflow. Find opportunities. Define solution.",
+      duration: "Week 1",
+      icon: <Search className="h-8 w-8" />
     },
     {
       number: 2,
       title: "Custom Build & Integration",
-      description: "Our expert team builds your tailored AI agent and connects it seamlessly to your existing business tools, with your feedback at every step."
+      description: "Build AI. Connect tools. Your feedback.",
+      duration: "Week 2-3",
+      icon: <Settings className="h-8 w-8 animate-spin" style={{ animationDuration: '4s' }} />
     },
     {
       number: 3,
       title: "Launch & Support",
-      description: "We deploy the system, train your team, and provide ongoing support to ensure your automation runs flawlessly and continues to deliver value as you grow."
+      description: "Deploy. Train team. Ongoing support.",
+      duration: "Week 4+",
+      icon: <Rocket className="h-8 w-8" />
     }
   ];
 
@@ -162,10 +298,45 @@ const AICustomerServices = () => {
               Never Miss a Lead Again.
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-4xl mx-auto leading-relaxed">
-              We don't sell pre-built bots. We build custom AI agents that are tailored to your exact business workflow, 
-              integrated with your tools, and ready to capture every lead across all your communication channels.
+            {/* Animated Channel Badges */}
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20 animate-fade-in">
+                <Phone className="h-4 w-4 text-primary animate-pulse" />
+                <span className="text-sm font-medium">Voice AI</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                <MessageCircle className="h-4 w-4 text-primary animate-pulse" style={{ animationDelay: '0.2s' }} />
+                <span className="text-sm font-medium">WhatsApp</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                <Globe className="h-4 w-4 text-primary animate-pulse" style={{ animationDelay: '0.4s' }} />
+                <span className="text-sm font-medium">Web Chat</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                <Mail className="h-4 w-4 text-primary animate-pulse" style={{ animationDelay: '0.6s' }} />
+                <span className="text-sm font-medium">Email</span>
+              </div>
+            </div>
+            
+            <p className="text-lg md:text-xl text-muted-foreground mb-6 max-w-3xl mx-auto leading-relaxed">
+              Custom AI agents. Your workflow. Your tools. Every channel.
             </p>
+            
+            {/* Stats Counter */}
+            <div className="flex flex-wrap justify-center gap-6 mb-10">
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary">24/7</div>
+                <div className="text-sm text-muted-foreground">Availability</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary">&lt;2s</div>
+                <div className="text-sm text-muted-foreground">Response Time</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary">0%</div>
+                <div className="text-sm text-muted-foreground">Missed Calls</div>
+              </div>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
@@ -189,12 +360,16 @@ const AICustomerServices = () => {
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20 mb-4">
+              <Sparkles className="h-4 w-4 text-primary animate-pulse" />
+              <span className="text-sm font-medium text-primary">Live Demo</span>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Experience Our AI in Action:{" "}
-              <span className="text-primary">The "Auto Repair Shop" Demo</span>
+              Experience Our AI:{" "}
+              <span className="text-primary">"Auto Repair Shop" Demo</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              We don't believe in generic sales pitches; we believe in showing you the real thing. We built a custom AI system for a busy auto repair shop that was losing calls and wasting time. The live demo below uses the exact same technology. Test it yourself to see how it can answer questions, qualify a customer, and book a service appointment.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Test the real technology. See results instantly.
             </p>
           </div>
 
@@ -205,10 +380,13 @@ const AICustomerServices = () => {
                 <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
                   <Phone className="h-12 w-12" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Try the Voice AI</h3>
-                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-                  When the shop's mechanics were busy, calls went to voicemail. Our Voice AI now answers 24/7. Call our demo number and ask it questions like "Do you do oil changes?" or "I'd like to book an appointment."
+                <h3 className="text-xl font-bold mb-3">Voice AI</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
+                  24/7 phone answering. Book appointments instantly.
                 </p>
+                <div className="mb-6 p-3 bg-primary/5 rounded-lg">
+                  <div className="text-sm font-mono text-primary">"Do you do oil changes?"</div>
+                </div>
                 <Button 
                   onClick={() => window.open('tel:+1XXXXXXXXXX', '_blank')}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
@@ -226,10 +404,13 @@ const AICustomerServices = () => {
                 <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
                   <MessageCircle className="h-12 w-12" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Test the WhatsApp Bot</h3>
-                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-                  Customers wanted to text for quotes and updates. Our WhatsApp agent handles it all. Start a chat and ask for a quote on a tire rotation or see what appointment times are available.
+                <h3 className="text-xl font-bold mb-3">WhatsApp AI</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
+                  Text for quotes. Get appointment times. Instant.
                 </p>
+                <div className="mb-6 p-3 bg-primary/5 rounded-lg">
+                  <div className="text-sm font-mono text-primary">"Quote for tire rotation?"</div>
+                </div>
                 <Button 
                   onClick={() => window.open('https://wa.me/1XXXXXXXXXX', '_blank')}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
@@ -247,10 +428,13 @@ const AICustomerServices = () => {
                 <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
                   <MessageCircle className="h-12 w-12" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Interact with the Web Chat</h3>
-                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-                  Their website was just a brochure. We turned it into a lead-capture machine. Launch our demo to see how the chatbot can qualify your needs and guide you to book a service, just like it does for their customers.
+                <h3 className="text-xl font-bold mb-3">Web Chat AI</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
+                  Qualify leads. Book services. Convert visitors.
                 </p>
+                <div className="mb-6 p-3 bg-primary/5 rounded-lg">
+                  <div className="text-sm font-mono text-primary">"Book a service appointment"</div>
+                </div>
                 <Button 
                   onClick={() => window.open(demoUrl, '_blank')}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
@@ -286,7 +470,13 @@ const AICustomerServices = () => {
                     {problem.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-4">{problem.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">{problem.description}</p>
+                  <div className="flex items-center justify-center gap-2 p-3 bg-red-500/10 rounded-lg border border-red-500/20">
+                    <DollarSign className="h-5 w-5 text-red-500" />
+                    <span className="font-bold text-red-500">{problem.loss}</span>
+                    <span className="text-sm text-muted-foreground">lost/month</span>
+                  </div>
+                  {problem.visual}
                 </CardContent>
               </Card>
             ))}
@@ -331,21 +521,27 @@ const AICustomerServices = () => {
                     <div className="text-primary mr-4 opacity-80">
                       {feature.icon}
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h4 className="text-sm font-semibold text-primary mb-1">{feature.subtitle}</h4>
-                      <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
+                      <h3 className="text-2xl font-bold mb-2">{feature.title}</h3>
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+                        <BarChart3 className="h-3 w-3 text-primary" />
+                        <span className="text-xs font-semibold text-primary">{feature.stat}</span>
+                      </div>
                     </div>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed text-lg">{feature.description}</p>
+                  <p className="text-muted-foreground leading-relaxed text-lg mb-4">{feature.description}</p>
+                  {feature.diagram}
                 </div>
               </div>
             ))}
             
             {/* Callout Box */}
-            <div className="mt-16 p-8 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20">
-              <p className="text-lg text-center font-medium">
-                <span className="text-primary font-semibold">Start with what you need today. Scale when you're ready.</span> We can build a simple Voice AI booking agent or a full, multi-channel automation system. The solution is tailored to you.
+            <div className="mt-16 p-6 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20 text-center">
+              <p className="text-lg font-medium">
+                <span className="text-primary font-bold">Start simple. Scale when ready.</span>
               </p>
+              <p className="text-sm text-muted-foreground mt-2">Voice AI → Multi-channel → Full automation</p>
             </div>
           </div>
         </div>
@@ -360,10 +556,11 @@ const AICustomerServices = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why a <span className="text-primary">Custom-Built Agent</span> is a Smarter Investment
+              Why Custom is{" "}
+              <span className="text-primary">Smarter</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Off-the-shelf chatbots are a cheap expense. A tailored automation system is a high-ROI business asset.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Generic = Expense. Custom = Asset.
             </p>
           </div>
 
@@ -374,8 +571,9 @@ const AICustomerServices = () => {
                   <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">{feature.description}</p>
+                  {feature.comparison}
                 </CardContent>
               </Card>
             ))}
@@ -392,28 +590,41 @@ const AICustomerServices = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-primary">Simple Process</span>, Powerful Results
+              <span className="text-primary">Simple Process</span>
             </h2>
+            <p className="text-lg text-muted-foreground">Launch in 4 weeks</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="relative">
-                <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10 h-full">
-                  <CardContent className="p-8">
-                    <div className="flex items-center justify-center w-12 h-12 bg-primary text-primary-foreground rounded-full font-bold text-lg mb-6 mx-auto group-hover:scale-110 transition-transform">
+              <Card key={index} className="bg-gradient-card hover-glow group overflow-hidden border border-border/10 relative">
+                <CardContent className="p-8 text-center">
+                  {/* Duration Badge */}
+                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary/20 border border-primary/30">
+                    <span className="text-xs font-bold text-primary">{step.duration}</span>
+                  </div>
+                  
+                  <div className="flex justify-center mb-6">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-2xl font-bold text-primary-foreground shadow-lg group-hover:scale-110 transition-transform">
                       {step.number}
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-center">{step.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed text-center">{step.description}</p>
-                  </CardContent>
-                </Card>
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <ArrowRight className="h-6 w-6 text-primary/50" />
                   </div>
-                )}
-              </div>
+                  
+                  <div className="flex justify-center mb-4 text-primary opacity-80">
+                    {step.icon}
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                  
+                  {/* Progress indicator */}
+                  {index < steps.length - 1 && (
+                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <div className="w-0.5 h-8 bg-gradient-to-b from-primary to-transparent"></div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -429,12 +640,27 @@ const AICustomerServices = () => {
           <Card className="bg-gradient-card hover-glow overflow-hidden border border-border/10">
             <CardContent className="p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Build Your{" "}
-                <span className="text-primary">Custom Automation Plan?</span>
+                <span className="text-primary">Ready to Start?</span>
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                Book a free 15-minute demo. We'll show you how a tailored AI solution can solve your specific operational challenges and grow your business.
+              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Free 15-min demo. See your solution.
               </p>
+              
+              {/* Trust badges */}
+              <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Free Demo</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20">
+                  <Shield className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">No Credit Card</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20">
+                  <Target className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Custom Solution</span>
+                </div>
+              </div>
               
               <Button 
                 onClick={() => window.open(bookDemoUrl, '_blank')}
