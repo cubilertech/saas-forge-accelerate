@@ -181,6 +181,90 @@ const AICustomerServices = () => {
         </div>
       </section>
 
+      {/* Interactive Demo Section */}
+      <section 
+        id="demo" 
+        data-animate 
+        className={`px-6 py-20 bg-gradient-to-b from-background to-primary/5 transition-all duration-1000 ${isVisible('demo') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Experience Our AI in Action:{" "}
+              <span className="text-primary">The "Auto Repair Shop" Demo</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              We don't believe in generic sales pitches; we believe in showing you the real thing. We built a custom AI system for a busy auto repair shop that was losing calls and wasting time. The live demo below uses the exact same technology. Test it yourself to see how it can answer questions, qualify a customer, and book a service appointment.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Voice AI Demo */}
+            <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
+              <CardContent className="p-8 text-center flex flex-col h-full">
+                <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                  <Phone className="h-12 w-12" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Try the Voice AI</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                  When the shop's mechanics were busy, calls went to voicemail. Our Voice AI now answers 24/7. Call our demo number and ask it questions like "Do you do oil changes?" or "I'd like to book an appointment."
+                </p>
+                <Button 
+                  onClick={() => window.open('tel:+1XXXXXXXXXX', '_blank')}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  Click to Call Demo
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* WhatsApp Demo */}
+            <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
+              <CardContent className="p-8 text-center flex flex-col h-full">
+                <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                  <MessageCircle className="h-12 w-12" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Test the WhatsApp Bot</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                  Customers wanted to text for quotes and updates. Our WhatsApp agent handles it all. Start a chat and ask for a quote on a tire rotation or see what appointment times are available.
+                </p>
+                <Button 
+                  onClick={() => window.open('https://wa.me/1XXXXXXXXXX', '_blank')}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
+                >
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  Chat on WhatsApp
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Web Chat Demo */}
+            <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
+              <CardContent className="p-8 text-center flex flex-col h-full">
+                <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                  <MessageCircle className="h-12 w-12" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Interact with the Web Chat</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                  Their website was just a brochure. We turned it into a lead-capture machine. Launch our demo to see how the chatbot can qualify your needs and guide you to book a service, just like it does for their customers.
+                </p>
+                <Button 
+                  onClick={() => window.open(demoUrl, '_blank')}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
+                >
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  Launch Chatbot Demo
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Problem Section */}
       <section 
         id="problems" 
