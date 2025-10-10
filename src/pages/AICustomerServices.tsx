@@ -374,7 +374,7 @@ const AICustomerServices = () => {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group"
               >
                 <Play className="mr-2 h-5 w-5" />
-                See a Live Demo
+                Live Demo
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
