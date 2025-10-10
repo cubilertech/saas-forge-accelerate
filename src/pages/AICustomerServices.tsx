@@ -384,7 +384,7 @@ const AICustomerServices = () => {
               <span className="text-sm font-medium text-primary">Live Demo</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Experience Our AI: <span className="text-primary">"Auto Repair Shop" Demo</span>
+              <span className="text-primary">"Auto Repair Shop" Demo</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Test the real technology. See results instantly.
