@@ -10,7 +10,8 @@ import { TestimonialSection } from "@/components/landingPage/TestimonialSection"
 import CaseStudySection from "@/components/landingPage/CaseStudySection";
 import GrowthSection from "@/components/landingPage/GrowthSection";
 import LaunchProcessSection from "@/components/landingPage/LaunchProcessSection";
-import ChatWidget from "@/components/ui-components//chatBorad";
+// import ChatWidget from "@/components/ui-components//chatBorad";
+import { Link } from "react-router-dom";
 // import ProjectsMarquee from "@/components/ProjectsMarquee";
 
 const Index = () => {
@@ -154,7 +155,7 @@ const Index = () => {
                 onClick={() => scrollToSection("services")}
                 className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
               >
-                Services
+                <Link to="/services/ai-customer-services">Services</Link>
               </button>
               <button
                 onClick={() => scrollToSection("case-studies")}
@@ -199,7 +200,7 @@ const Index = () => {
                 }}
                 className="block text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
               >
-                Services
+                <Link to="/services/ai-customer-services">Services</Link>
               </button>
               <button
                 onClick={() => {
@@ -258,7 +259,7 @@ const Index = () => {
 
       {/* <ChatWidget /> */}
 
-      <ChatWidget />
+      {/* <ChatWidget /> */}
 
       {/* Footer Section */}
       <Footer />

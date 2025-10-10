@@ -6,6 +6,8 @@ import TypingIndicator from "./TypingIndicator";
 import { Message } from "@/types";
 const STORAGE_KEY = "chat_messages";
 import { useChat } from "@/api/rest/useChat";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { closeChat, toggleChat } from "@/store/chatSlice";
 
 const getInitialMessages = (): Message[] => {
   try {
@@ -29,7 +31,9 @@ const getInitialMessages = (): Message[] => {
 };
 
 export default function ChatWidget() {
-  const [open, setOpen] = React.useState(false);
+  const dispatch = useAppDispatch();
+  const { isOpen: open, isHidden } = useAppSelector((state) => state.chat);
+
   const [messages, setMessages] = React.useState<Message[]>(
     getInitialMessages()
   );
@@ -276,13 +280,15 @@ export default function ChatWidget() {
   return (
     <>
       {/* Toggle Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div
+        className={`fixed bottom-6 right-6 z-50 ${isHidden ? "hidden" : ""}`}
+      >
         <button
           type="button"
           aria-label={open ? "Close support chat" : "Open support chat"}
           aria-expanded={open}
           aria-controls="support-chat-panel"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => dispatch(toggleChat())}
           className={cn(
             "relative inline-flex h-14 w-14 items-center justify-center rounded-full",
             "bg-primary text-primary-foreground shadow-xl",
@@ -353,7 +359,8 @@ export default function ChatWidget() {
           "transition-all duration-300 ease-out",
           open
             ? "translate-y-0 opacity-100 pointer-events-auto"
-            : "translate-y-4 opacity-0 pointer-events-none"
+            : "translate-y-4 opacity-0 pointer-events-none",
+          isHidden ? "hidden" : ""
         )}
       >
         <section
@@ -372,7 +379,7 @@ export default function ChatWidget() {
             </h2>
             <button
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={() => dispatch(closeChat())}
               className={cn(
                 "inline-flex h-8 w-8 items-center justify-center rounded-md text-foreground/70 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
               )}
