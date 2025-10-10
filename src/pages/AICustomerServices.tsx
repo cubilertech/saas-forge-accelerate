@@ -300,7 +300,7 @@ const AICustomerServices = () => {
               onClick={() => window.open(bookDemoUrl, "_blank")}
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium transition-all duration-300"
             >
-              Book Free Demo
+              Automate My Customer Support
             </Button>
           </div>
         </div>
