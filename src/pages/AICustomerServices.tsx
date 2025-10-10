@@ -396,12 +396,14 @@ const AICustomerServices = () => {
               <span className="text-sm font-medium text-primary">Live Demo</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-primary">"Prime AutoCare" Demo</span>
+              <span className="text-primary">"UK Auto Service Centre" Demo</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We built this AI for a busy auto service center handling inspections, full services, and repairs. 
-              It's trained on their complete service catalog and can book appointments in their actual calendar. 
-              <strong className="text-foreground"> Watch these real demo videos</strong> to see how our AI handles customer interactions across all channels.
+              We built this AI for a busy UK auto service centre handling MOT tests, full services, and repairs. It's
+              trained on their complete service catalog, DVSA-approved standards, and can book appointments in their
+              actual calendar.
+              <strong className="text-foreground"> Watch these real demo videos</strong> to see how our AI handles
+              customer interactions across all channels.
             </p>
           </div>
 
@@ -415,7 +417,8 @@ const AICustomerServices = () => {
                     <h4 className="font-bold text-foreground">The Scenario</h4>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Busy service center handling inspections, repairs, and detailing. Open Mon-Sat: 9 AM - 6 PM
+                    Busy UK service centre at 24 Hill Street, London. MOT tests, repairs, detailing. Mon-Sat: 9 AM - 6
+                    PM
                   </p>
                 </div>
                 <div className="text-center md:text-left">
@@ -424,7 +427,7 @@ const AICustomerServices = () => {
                     <h4 className="font-bold text-foreground">The Challenge</h4>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Peak hour call overflow, booking confusion, service package questions, missed walk-ins
+                    Peak hour call overflow, MOT booking confusion, service package questions, missed walk-ins
                   </p>
                 </div>
                 <div className="text-center md:text-left">
@@ -433,13 +436,155 @@ const AICustomerServices = () => {
                     <h4 className="font-bold text-foreground">The Solution</h4>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    AI trained on complete service catalog, pricing, and live calendar integration
+                    AI trained on DVSA standards, complete service catalog, pricing, and live calendar integration
                   </p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
+          {/* Knowledge Base Preview */}
+          <div className="mb-12">
+            <Collapsible>
+              <CollapsibleTrigger className="w-full">
+                <Card className="hover:border-primary/40 transition-all cursor-pointer bg-gradient-card border-primary/20">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <BookOpen className="h-6 w-6 text-primary" />
+                        <div className="text-left">
+                          <h3 className="font-bold text-lg">What Can You Ask The AI?</h3>
+                          <p className="text-sm text-muted-foreground">
+                            Click to explore the AI's complete training data
+                          </p>
+                        </div>
+                      </div>
+                      <ExternalLink className="h-5 w-5 text-primary" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <Card className="mt-4 border-primary/20">
+                  <CardContent className="p-8">
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div>
+                        <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
+                          <Wrench className="h-5 w-5 text-primary" />
+                          Services Offered
+                        </h4>
+                        <ul className="space-y-2 text-sm">
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span>
+                              <strong>MOT Test</strong> - Class 4 for cars & small vans
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span>
+                              <strong>Full Service</strong> - Oil, filters, brakes, fluids, inspection
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span>
+                              <strong>Car Repair</strong> - Engine, AC, electrical, body
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span>
+                              <strong>Car Wash & Detailing</strong> - Interior + exterior
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Battery className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>
+                              <strong>Battery Replacement</strong>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Car className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>
+                              <strong>Tyre Change & Wheel Alignment</strong>
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
+                          <Settings className="h-5 w-5 text-primary" />
+                          Operating Information
+                        </h4>
+                        <ul className="space-y-2 text-sm mb-6">
+                          <li className="flex items-start gap-2">
+                            <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>
+                              <strong>Location:</strong> 24 Hill Street, London (near Tesco Express)
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>
+                              <strong>Hours:</strong> Mon-Sat: 9 AM - 6 PM (Closed Sundays)
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Shield className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>DVSA-approved certified technicians</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Car className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>All makes & models (Ford, BMW, Audi, Mercedes, Toyota)</span>
+                          </li>
+                        </ul>
+
+                        <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
+                          <Sparkles className="h-5 w-5 text-primary" />
+                          Customer Features
+                        </h4>
+                        <ul className="space-y-2 text-sm">
+                          <li className="flex items-start gap-2">
+                            <Wifi className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>Comfortable waiting area with free Wi-Fi</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Car className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>Courtesy cars for longer jobs</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>Same-day service for most repairs</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Users className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>Walk-ins accepted (booking recommended)</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="mt-8 p-4 bg-primary/5 rounded-lg border border-primary/20">
+                      <h4 className="font-bold mb-3 flex items-center gap-2">
+                        <MessageCircle className="h-5 w-5 text-primary" />
+                        Common Questions AI Can Answer:
+                      </h4>
+                      <div className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                        <div>• MOT test details & duration</div>
+                        <div>• Service package differences</div>
+                        <div>• Repair quotes & diagnostics</div>
+                        <div>• Tyre pricing & alignment costs</div>
+                        <div>• Payment methods accepted</div>
+                        <div>• Appointment availability</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CollapsibleContent>
+            </Collapsible>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Voice AI Demo */}
@@ -457,7 +602,7 @@ const AICustomerServices = () => {
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   24/7 phone answering. Book MOT tests & services instantly.
                 </p>
-                
+
                 {/* Video Player Placeholder */}
                 <div className="relative aspect-video bg-black/5 rounded-lg overflow-hidden mb-4 border border-border/20 group/video">
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 to-primary/10">
@@ -465,11 +610,9 @@ const AICustomerServices = () => {
                     <p className="text-sm font-semibold text-muted-foreground">Voice AI Demo Video</p>
                     <p className="text-xs text-muted-foreground mt-1">Coming Soon</p>
                   </div>
-                  <Badge className="absolute top-2 right-2 bg-black/70 text-white border-0">
-                    ⏱️ 2:30
-                  </Badge>
+                  <Badge className="absolute top-2 right-2 bg-black/70 text-white border-0">⏱️ 2:30</Badge>
                 </div>
-                
+
                 <div className="space-y-2">
                   <p className="text-xs font-semibold text-muted-foreground uppercase">Example Questions:</p>
                   <div className="flex flex-wrap gap-2 justify-center">
@@ -502,7 +645,7 @@ const AICustomerServices = () => {
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Text for quotes. Check service details. Book instantly.
                 </p>
-                
+
                 {/* Video Player Placeholder */}
                 <div className="relative aspect-video bg-black/5 rounded-lg overflow-hidden mb-4 border border-border/20 group/video">
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 to-primary/10">
@@ -510,11 +653,9 @@ const AICustomerServices = () => {
                     <p className="text-sm font-semibold text-muted-foreground">WhatsApp AI Demo Video</p>
                     <p className="text-xs text-muted-foreground mt-1">Coming Soon</p>
                   </div>
-                  <Badge className="absolute top-2 right-2 bg-black/70 text-white border-0">
-                    ⏱️ 3:15
-                  </Badge>
+                  <Badge className="absolute top-2 right-2 bg-black/70 text-white border-0">⏱️ 3:15</Badge>
                 </div>
-                
+
                 <div className="space-y-2">
                   <p className="text-xs font-semibold text-muted-foreground uppercase">Example Questions:</p>
                   <div className="flex flex-wrap gap-2 justify-center">
@@ -547,7 +688,7 @@ const AICustomerServices = () => {
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Qualify leads. Answer questions. Book services 24/7.
                 </p>
-                
+
                 {/* Video Player Placeholder */}
                 <div className="relative aspect-video bg-black/5 rounded-lg overflow-hidden mb-4 border border-border/20 group/video">
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 to-primary/10">
@@ -555,11 +696,9 @@ const AICustomerServices = () => {
                     <p className="text-sm font-semibold text-muted-foreground">Web Chat AI Demo Video</p>
                     <p className="text-xs text-muted-foreground mt-1">Coming Soon</p>
                   </div>
-                  <Badge className="absolute top-2 right-2 bg-black/70 text-white border-0">
-                    ⏱️ 2:45
-                  </Badge>
+                  <Badge className="absolute top-2 right-2 bg-black/70 text-white border-0">⏱️ 2:45</Badge>
                 </div>
-                
+
                 <div className="space-y-2">
                   <p className="text-xs font-semibold text-muted-foreground uppercase">Example Questions:</p>
                   <div className="flex flex-wrap gap-2 justify-center">
@@ -577,27 +716,6 @@ const AICustomerServices = () => {
               </CardContent>
             </Card>
           </div>
-
-          {/* Want to Try It Live? CTA */}
-          <Card className="mt-12 border-primary/30 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent hover-glow group">
-            <CardContent className="p-8 text-center">
-              <div className="flex justify-center mb-4">
-                <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Phone className="h-8 w-8 text-primary" />
-                </div>
-              </div>
-              <h4 className="text-2xl font-bold mb-3">Want to Test It Yourself?</h4>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-                Book a personalized demo session where you can interact with a live AI system customized for your business.
-                See exactly how it handles your specific use cases in real-time.
-              </p>
-              <Button size="lg" className="group/cta">
-                <Phone className="mr-2 h-5 w-5" />
-                Book Live Demo Session
-                <ArrowRight className="ml-2 h-4 w-4 group-hover/cta:translate-x-1 transition-transform" />
-              </Button>
-            </CardContent>
-          </Card>
 
           {/* Behind the Scenes Diagram */}
           <div className="mt-12 p-6 bg-primary/5 rounded-lg border border-primary/10">
@@ -626,42 +744,6 @@ const AICustomerServices = () => {
                 <div className="text-xs text-muted-foreground">&lt;2s total</div>
               </div>
             </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Problem Section */}
-      <section
-        id="problems"
-        data-animate
-        className={`px-6 py-20 transition-all duration-1000 ${isVisible("problems") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Your Growth is <span className="text-primary">Leaking Through the Cracks.</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {problems.map((problem, index) => (
-              <Card key={index} className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-                <CardContent className="p-8 text-center">
-                  <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
-                    {problem.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-4">{problem.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">{problem.description}</p>
-                  <div className="flex items-center justify-center gap-2 p-3 bg-red-500/10 rounded-lg border border-red-500/20">
-                    <DollarSign className="h-5 w-5 text-red-500" />
-                    <span className="font-bold text-red-500">{problem.loss}</span>
-                    <span className="text-sm text-muted-foreground">lost/month</span>
-                  </div>
-                  {problem.visual}
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
@@ -723,87 +805,6 @@ const AICustomerServices = () => {
               </p>
               <p className="text-sm text-muted-foreground mt-2">Voice AI → Multi-channel → Full automation</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Custom Section */}
-      <section
-        id="why-custom"
-        data-animate
-        className={`px-6 py-20 transition-all duration-1000 ${isVisible("why-custom") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Custom is <span className="text-primary">Smarter</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Generic = Expense. Custom = Asset.</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {customFeatures.map((feature, index) => (
-              <Card key={index} className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-                <CardContent className="p-8 text-center">
-                  <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">{feature.description}</p>
-                  {feature.comparison}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section
-        id="process"
-        data-animate
-        className={`px-6 py-20 transition-all duration-1000 ${isVisible("process") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-primary">Simple Process</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">Launch in 4 weeks</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {steps.map((step, index) => (
-              <Card
-                key={index}
-                className="bg-gradient-card hover-glow group overflow-hidden border border-border/10 relative"
-              >
-                <CardContent className="p-8 text-center">
-                  {/* Duration Badge */}
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary/20 border border-primary/30">
-                    <span className="text-xs font-bold text-primary">{step.duration}</span>
-                  </div>
-
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-2xl font-bold text-primary-foreground shadow-lg group-hover:scale-110 transition-transform">
-                      {step.number}
-                    </div>
-                  </div>
-
-                  <div className="flex justify-center mb-4 text-primary opacity-80">{step.icon}</div>
-
-                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-
-                  {/* Progress indicator */}
-                  {index < steps.length - 1 && (
-                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-                      <div className="w-0.5 h-8 bg-gradient-to-b from-primary to-transparent"></div>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
