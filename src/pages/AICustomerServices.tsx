@@ -27,9 +27,21 @@ import {
   X,
   Mail,
   Globe,
+  BookOpen,
+  FileText,
+  ExternalLink,
+  Database,
+  Brain,
+  Wrench,
+  MapPin,
+  Wifi,
+  Car,
+  Battery,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Badge } from "@/components/ui/badge";
 
 const AICustomerServices = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -378,33 +390,213 @@ const AICustomerServices = () => {
         className={`px-6 py-20 bg-gradient-to-b from-background to-primary/5 transition-all duration-1000 ${isVisible("demo") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20 mb-4">
               <Sparkles className="h-4 w-4 text-primary animate-pulse" />
               <span className="text-sm font-medium text-primary">Live Demo</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-primary">"Auto Repair Shop" Demo</span>
+              <span className="text-primary">"UK Auto Service Centre" Demo</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Test the real technology. See results instantly.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              We built this AI for a busy UK auto service centre handling MOT tests, full services, and repairs. 
+              It's trained on their complete service catalog, DVSA-approved standards, and can book appointments in their actual calendar. 
+              <strong className="text-foreground"> Test it yourself</strong> - ask about MOT tests, service pricing, or book an appointment.
             </p>
+          </div>
+
+          {/* Contextual Banner */}
+          <Card className="mb-12 bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20">
+            <CardContent className="p-8">
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center md:text-left">
+                  <div className="flex items-center gap-2 mb-2 justify-center md:justify-start">
+                    <MapPin className="h-5 w-5 text-primary" />
+                    <h4 className="font-bold text-foreground">The Scenario</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Busy UK service centre at 24 Hill Street, London. MOT tests, repairs, detailing. Mon-Sat: 9 AM - 6 PM
+                  </p>
+                </div>
+                <div className="text-center md:text-left">
+                  <div className="flex items-center gap-2 mb-2 justify-center md:justify-start">
+                    <AlertCircle className="h-5 w-5 text-primary" />
+                    <h4 className="font-bold text-foreground">The Challenge</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Peak hour call overflow, MOT booking confusion, service package questions, missed walk-ins
+                  </p>
+                </div>
+                <div className="text-center md:text-left">
+                  <div className="flex items-center gap-2 mb-2 justify-center md:justify-start">
+                    <Bot className="h-5 w-5 text-primary" />
+                    <h4 className="font-bold text-foreground">The Solution</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    AI trained on DVSA standards, complete service catalog, pricing, and live calendar integration
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Knowledge Base Preview */}
+          <div className="mb-12">
+            <Collapsible>
+              <CollapsibleTrigger className="w-full">
+                <Card className="hover:border-primary/40 transition-all cursor-pointer bg-gradient-card border-primary/20">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <BookOpen className="h-6 w-6 text-primary" />
+                        <div className="text-left">
+                          <h3 className="font-bold text-lg">What Can You Ask The AI?</h3>
+                          <p className="text-sm text-muted-foreground">Click to explore the AI's complete training data</p>
+                        </div>
+                      </div>
+                      <ExternalLink className="h-5 w-5 text-primary" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <Card className="mt-4 border-primary/20">
+                  <CardContent className="p-8">
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div>
+                        <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
+                          <Wrench className="h-5 w-5 text-primary" />
+                          Services Offered
+                        </h4>
+                        <ul className="space-y-2 text-sm">
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span><strong>MOT Test</strong> - Class 4 for cars & small vans</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span><strong>Full Service</strong> - Oil, filters, brakes, fluids, inspection</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span><strong>Car Repair</strong> - Engine, AC, electrical, body</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span><strong>Car Wash & Detailing</strong> - Interior + exterior</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Battery className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span><strong>Battery Replacement</strong></span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Car className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span><strong>Tyre Change & Wheel Alignment</strong></span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
+                          <Settings className="h-5 w-5 text-primary" />
+                          Operating Information
+                        </h4>
+                        <ul className="space-y-2 text-sm mb-6">
+                          <li className="flex items-start gap-2">
+                            <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span><strong>Location:</strong> 24 Hill Street, London (near Tesco Express)</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span><strong>Hours:</strong> Mon-Sat: 9 AM - 6 PM (Closed Sundays)</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Shield className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>DVSA-approved certified technicians</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Car className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>All makes & models (Ford, BMW, Audi, Mercedes, Toyota)</span>
+                          </li>
+                        </ul>
+
+                        <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
+                          <Sparkles className="h-5 w-5 text-primary" />
+                          Customer Features
+                        </h4>
+                        <ul className="space-y-2 text-sm">
+                          <li className="flex items-start gap-2">
+                            <Wifi className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>Comfortable waiting area with free Wi-Fi</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Car className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>Courtesy cars for longer jobs</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>Same-day service for most repairs</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Users className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>Walk-ins accepted (booking recommended)</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="mt-8 p-4 bg-primary/5 rounded-lg border border-primary/20">
+                      <h4 className="font-bold mb-3 flex items-center gap-2">
+                        <MessageCircle className="h-5 w-5 text-primary" />
+                        Common Questions AI Can Answer:
+                      </h4>
+                      <div className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                        <div>• MOT test details & duration</div>
+                        <div>• Service package differences</div>
+                        <div>• Repair quotes & diagnostics</div>
+                        <div>• Tyre pricing & alignment costs</div>
+                        <div>• Payment methods accepted</div>
+                        <div>• Appointment availability</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CollapsibleContent>
+            </Collapsible>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Voice AI Demo */}
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
               <CardContent className="p-8 text-center flex flex-col h-full">
-                <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                <div className="flex justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
                   <Phone className="h-12 w-12" />
+                </div>
+                <div className="flex justify-center mb-3">
+                  <Badge variant="secondary" className="bg-green-500/10 text-green-500 border-green-500/20">
+                    🟢 Live Demo
+                  </Badge>
                 </div>
                 <h3 className="text-xl font-bold mb-3">Voice AI</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
-                  24/7 phone answering. Book appointments instantly.
+                  24/7 phone answering. Book MOT tests & services instantly.
                 </p>
-                <div className="mb-6 p-3 bg-primary/5 rounded-lg">
-                  <div className="text-sm font-mono text-primary">"Do you do oil changes?"</div>
+                
+                <div className="mb-4 space-y-2">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase">Try asking:</p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                      "Do you do MOT tests?"
+                    </Badge>
+                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                      "What are your opening hours?"
+                    </Badge>
+                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                      "Book a full service"
+                    </Badge>
+                  </div>
                 </div>
+
                 <Button
                   onClick={() => window.open("tel:+1XXXXXXXXXX", "_blank")}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
@@ -419,16 +611,34 @@ const AICustomerServices = () => {
             {/* WhatsApp Demo */}
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
               <CardContent className="p-8 text-center flex flex-col h-full">
-                <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                <div className="flex justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
                   <MessageCircle className="h-12 w-12" />
+                </div>
+                <div className="flex justify-center mb-3">
+                  <Badge variant="secondary" className="bg-green-500/10 text-green-500 border-green-500/20">
+                    🟢 Live Demo
+                  </Badge>
                 </div>
                 <h3 className="text-xl font-bold mb-3">WhatsApp AI</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
-                  Text for quotes. Get appointment times. Instant.
+                  Text for quotes. Check service details. Book instantly.
                 </p>
-                <div className="mb-6 p-3 bg-primary/5 rounded-lg">
-                  <div className="text-sm font-mono text-primary">"Quote for tire rotation?"</div>
+                
+                <div className="mb-4 space-y-2">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase">Try asking:</p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                      "Full service details?"
+                    </Badge>
+                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                      "Where are you located?"
+                    </Badge>
+                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                      "Quote for brakes?"
+                    </Badge>
+                  </div>
                 </div>
+
                 <Button
                   onClick={() => window.open("https://wa.me/1XXXXXXXXXX", "_blank")}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
@@ -443,27 +653,93 @@ const AICustomerServices = () => {
             {/* Web Chat Demo */}
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
               <CardContent className="p-8 text-center flex flex-col h-full">
-                <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
-                  <MessageCircle className="h-12 w-12" />
+                <div className="flex justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+                  <Globe className="h-12 w-12" />
+                </div>
+                <div className="flex justify-center mb-3">
+                  <Badge variant="secondary" className="bg-green-500/10 text-green-500 border-green-500/20">
+                    🟢 Live Demo
+                  </Badge>
                 </div>
                 <h3 className="text-xl font-bold mb-3">Web Chat AI</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
-                  Qualify leads. Book services. Convert visitors.
+                  Qualify leads. Answer questions. Book services 24/7.
                 </p>
-                <div className="mb-6 p-3 bg-primary/5 rounded-lg">
-                  <div className="text-sm font-mono text-primary">"Book a service appointment"</div>
+                
+                <div className="mb-4 space-y-2">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase">Try asking:</p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                      "Book an MOT test"
+                    </Badge>
+                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                      "Check engine light on"
+                    </Badge>
+                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                      "Do you accept walk-ins?"
+                    </Badge>
+                  </div>
                 </div>
+
                 <Button
                   onClick={() => window.open(demoUrl, "_blank")}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
                 >
-                  <MessageCircle className="mr-2 h-4 w-4" />
+                  <Globe className="mr-2 h-4 w-4" />
                   Launch Chatbot Demo
                   <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                 </Button>
               </CardContent>
             </Card>
           </div>
+
+          {/* Behind the Scenes Diagram */}
+          <div className="mt-12 p-6 bg-primary/5 rounded-lg border border-primary/10">
+            <h4 className="text-center font-semibold mb-6 text-lg">How It Works</h4>
+            <div className="flex items-center justify-center gap-3 flex-wrap">
+              <div className="text-center">
+                <MessageCircle className="h-8 w-8 mx-auto mb-2 text-primary" />
+                <div className="text-sm font-medium">Customer Question</div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-primary hidden sm:block" />
+              <div className="text-center">
+                <Brain className="h-8 w-8 mx-auto mb-2 text-primary animate-pulse" />
+                <div className="text-sm font-medium">AI Processing</div>
+                <div className="text-xs text-muted-foreground">&lt;0.5s</div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-primary hidden sm:block" />
+              <div className="text-center">
+                <Database className="h-8 w-8 mx-auto mb-2 text-primary" />
+                <div className="text-sm font-medium">Knowledge Lookup</div>
+                <div className="text-xs text-muted-foreground">50+ Q&As</div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-primary hidden sm:block" />
+              <div className="text-center">
+                <CheckCircle className="h-8 w-8 mx-auto mb-2 text-green-500" />
+                <div className="text-sm font-medium">Instant Response</div>
+                <div className="text-xs text-muted-foreground">&lt;2s total</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Knowledge Base Link */}
+          <Card className="mt-12 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-primary/30 hover-glow group">
+            <CardContent className="p-8 text-center">
+              <BookOpen className="h-12 w-12 mx-auto mb-4 text-primary group-hover:scale-110 transition-transform" />
+              <h3 className="text-2xl font-bold mb-3">
+                Explore the AI's Complete Training Data
+              </h3>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
+                See exactly what information powers the AI - MOT procedures, service packages, 
+                pricing, policies, and 50+ common customer questions with answers.
+              </p>
+              <Button size="lg" className="group/link" onClick={() => window.open("#", "_blank")}>
+                <FileText className="mr-2 h-5 w-5" />
+                View Knowledge Base Documentation
+                <ExternalLink className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
