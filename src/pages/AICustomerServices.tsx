@@ -396,11 +396,11 @@ const AICustomerServices = () => {
               <span className="text-sm font-medium text-primary">Live Demo</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-primary">"UK Auto Service Centre" Demo</span>
+              <span className="text-primary">"Prime AutoCare" Demo</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We built this AI for a busy UK auto service centre handling MOT tests, full services, and repairs. 
-              It's trained on their complete service catalog, DVSA-approved standards, and can book appointments in their actual calendar. 
+              We built this AI for a busy auto service center handling inspections, full services, and repairs. 
+              It's trained on their complete service catalog and can book appointments in their actual calendar. 
               <strong className="text-foreground"> Watch these real demo videos</strong> to see how our AI handles customer interactions across all channels.
             </p>
           </div>
@@ -415,7 +415,7 @@ const AICustomerServices = () => {
                     <h4 className="font-bold text-foreground">The Scenario</h4>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Busy UK service centre at 24 Hill Street, London. MOT tests, repairs, detailing. Mon-Sat: 9 AM - 6 PM
+                    Busy service center handling inspections, repairs, and detailing. Open Mon-Sat: 9 AM - 6 PM
                   </p>
                 </div>
                 <div className="text-center md:text-left">
@@ -424,7 +424,7 @@ const AICustomerServices = () => {
                     <h4 className="font-bold text-foreground">The Challenge</h4>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Peak hour call overflow, MOT booking confusion, service package questions, missed walk-ins
+                    Peak hour call overflow, booking confusion, service package questions, missed walk-ins
                   </p>
                 </div>
                 <div className="text-center md:text-left">
@@ -433,137 +433,13 @@ const AICustomerServices = () => {
                     <h4 className="font-bold text-foreground">The Solution</h4>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    AI trained on DVSA standards, complete service catalog, pricing, and live calendar integration
+                    AI trained on complete service catalog, pricing, and live calendar integration
                   </p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Knowledge Base Preview */}
-          <div className="mb-12">
-            <Collapsible>
-              <CollapsibleTrigger className="w-full">
-                <Card className="hover:border-primary/40 transition-all cursor-pointer bg-gradient-card border-primary/20">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <BookOpen className="h-6 w-6 text-primary" />
-                        <div className="text-left">
-                          <h3 className="font-bold text-lg">What Can You Ask The AI?</h3>
-                          <p className="text-sm text-muted-foreground">Click to explore the AI's complete training data</p>
-                        </div>
-                      </div>
-                      <ExternalLink className="h-5 w-5 text-primary" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </CollapsibleTrigger>
-              <CollapsibleContent>
-                <Card className="mt-4 border-primary/20">
-                  <CardContent className="p-8">
-                    <div className="grid md:grid-cols-2 gap-8">
-                      <div>
-                        <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
-                          <Wrench className="h-5 w-5 text-primary" />
-                          Services Offered
-                        </h4>
-                        <ul className="space-y-2 text-sm">
-                          <li className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span><strong>MOT Test</strong> - Class 4 for cars & small vans</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span><strong>Full Service</strong> - Oil, filters, brakes, fluids, inspection</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span><strong>Car Repair</strong> - Engine, AC, electrical, body</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span><strong>Car Wash & Detailing</strong> - Interior + exterior</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <Battery className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span><strong>Battery Replacement</strong></span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <Car className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span><strong>Tyre Change & Wheel Alignment</strong></span>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
-                          <Settings className="h-5 w-5 text-primary" />
-                          Operating Information
-                        </h4>
-                        <ul className="space-y-2 text-sm mb-6">
-                          <li className="flex items-start gap-2">
-                            <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span><strong>Location:</strong> 24 Hill Street, London (near Tesco Express)</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span><strong>Hours:</strong> Mon-Sat: 9 AM - 6 PM (Closed Sundays)</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <Shield className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span>DVSA-approved certified technicians</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <Car className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span>All makes & models (Ford, BMW, Audi, Mercedes, Toyota)</span>
-                          </li>
-                        </ul>
-
-                        <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
-                          <Sparkles className="h-5 w-5 text-primary" />
-                          Customer Features
-                        </h4>
-                        <ul className="space-y-2 text-sm">
-                          <li className="flex items-start gap-2">
-                            <Wifi className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span>Comfortable waiting area with free Wi-Fi</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <Car className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span>Courtesy cars for longer jobs</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span>Same-day service for most repairs</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <Users className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span>Walk-ins accepted (booking recommended)</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="mt-8 p-4 bg-primary/5 rounded-lg border border-primary/20">
-                      <h4 className="font-bold mb-3 flex items-center gap-2">
-                        <MessageCircle className="h-5 w-5 text-primary" />
-                        Common Questions AI Can Answer:
-                      </h4>
-                      <div className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
-                        <div>• MOT test details & duration</div>
-                        <div>• Service package differences</div>
-                        <div>• Repair quotes & diagnostics</div>
-                        <div>• Tyre pricing & alignment costs</div>
-                        <div>• Payment methods accepted</div>
-                        <div>• Appointment availability</div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </CollapsibleContent>
-            </Collapsible>
-          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Voice AI Demo */}
@@ -752,24 +628,6 @@ const AICustomerServices = () => {
             </div>
           </div>
 
-          {/* Knowledge Base Link */}
-          <Card className="mt-12 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-primary/30 hover-glow group">
-            <CardContent className="p-8 text-center">
-              <BookOpen className="h-12 w-12 mx-auto mb-4 text-primary group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-bold mb-3">
-                Explore the AI's Complete Training Data
-              </h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-                See exactly what information powers the AI - MOT procedures, service packages, 
-                pricing, policies, and 50+ common customer questions with answers.
-              </p>
-              <Button size="lg" className="group/link" onClick={() => window.open("#", "_blank")}>
-                <FileText className="mr-2 h-5 w-5" />
-                View Knowledge Base Documentation
-                <ExternalLink className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
-              </Button>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
