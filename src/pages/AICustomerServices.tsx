@@ -401,7 +401,7 @@ const AICustomerServices = () => {
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               We built this AI for a busy UK auto service centre handling MOT tests, full services, and repairs. 
               It's trained on their complete service catalog, DVSA-approved standards, and can book appointments in their actual calendar. 
-              <strong className="text-foreground"> Test it yourself</strong> - ask about MOT tests, service pricing, or book an appointment.
+              <strong className="text-foreground"> Watch these real demo videos</strong> to see how our AI handles customer interactions across all channels.
             </p>
           </div>
 
@@ -573,38 +573,41 @@ const AICustomerServices = () => {
                   <Phone className="h-12 w-12" />
                 </div>
                 <div className="flex justify-center mb-3">
-                  <Badge variant="secondary" className="bg-green-500/10 text-green-500 border-green-500/20">
-                    🟢 Live Demo
+                  <Badge variant="secondary" className="bg-purple-500/10 text-purple-500 border-purple-500/20">
+                    📹 Video Demo
                   </Badge>
                 </div>
                 <h3 className="text-xl font-bold mb-3">Voice AI</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
+                <p className="text-muted-foreground leading-relaxed mb-4">
                   24/7 phone answering. Book MOT tests & services instantly.
                 </p>
                 
-                <div className="mb-4 space-y-2">
-                  <p className="text-xs font-semibold text-muted-foreground uppercase">Try asking:</p>
+                {/* Video Player Placeholder */}
+                <div className="relative aspect-video bg-black/5 rounded-lg overflow-hidden mb-4 border border-border/20 group/video">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 to-primary/10">
+                    <div className="text-6xl mb-4 opacity-50">📹</div>
+                    <p className="text-sm font-semibold text-muted-foreground">Voice AI Demo Video</p>
+                    <p className="text-xs text-muted-foreground mt-1">Coming Soon</p>
+                  </div>
+                  <Badge className="absolute top-2 right-2 bg-black/70 text-white border-0">
+                    ⏱️ 2:30
+                  </Badge>
+                </div>
+                
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase">Example Questions:</p>
                   <div className="flex flex-wrap gap-2 justify-center">
-                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                    <Badge variant="outline" className="text-xs">
                       "Do you do MOT tests?"
                     </Badge>
-                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                    <Badge variant="outline" className="text-xs">
                       "What are your opening hours?"
                     </Badge>
-                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                    <Badge variant="outline" className="text-xs">
                       "Book a full service"
                     </Badge>
                   </div>
                 </div>
-
-                <Button
-                  onClick={() => window.open("tel:+1XXXXXXXXXX", "_blank")}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
-                >
-                  <Phone className="mr-2 h-4 w-4" />
-                  Click to Call Demo
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
               </CardContent>
             </Card>
 
@@ -615,38 +618,41 @@ const AICustomerServices = () => {
                   <MessageCircle className="h-12 w-12" />
                 </div>
                 <div className="flex justify-center mb-3">
-                  <Badge variant="secondary" className="bg-green-500/10 text-green-500 border-green-500/20">
-                    🟢 Live Demo
+                  <Badge variant="secondary" className="bg-purple-500/10 text-purple-500 border-purple-500/20">
+                    📹 Video Demo
                   </Badge>
                 </div>
                 <h3 className="text-xl font-bold mb-3">WhatsApp AI</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
+                <p className="text-muted-foreground leading-relaxed mb-4">
                   Text for quotes. Check service details. Book instantly.
                 </p>
                 
-                <div className="mb-4 space-y-2">
-                  <p className="text-xs font-semibold text-muted-foreground uppercase">Try asking:</p>
+                {/* Video Player Placeholder */}
+                <div className="relative aspect-video bg-black/5 rounded-lg overflow-hidden mb-4 border border-border/20 group/video">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 to-primary/10">
+                    <div className="text-6xl mb-4 opacity-50">📹</div>
+                    <p className="text-sm font-semibold text-muted-foreground">WhatsApp AI Demo Video</p>
+                    <p className="text-xs text-muted-foreground mt-1">Coming Soon</p>
+                  </div>
+                  <Badge className="absolute top-2 right-2 bg-black/70 text-white border-0">
+                    ⏱️ 3:15
+                  </Badge>
+                </div>
+                
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase">Example Questions:</p>
                   <div className="flex flex-wrap gap-2 justify-center">
-                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                    <Badge variant="outline" className="text-xs">
                       "Full service details?"
                     </Badge>
-                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                    <Badge variant="outline" className="text-xs">
                       "Where are you located?"
                     </Badge>
-                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                    <Badge variant="outline" className="text-xs">
                       "Quote for brakes?"
                     </Badge>
                   </div>
                 </div>
-
-                <Button
-                  onClick={() => window.open("https://wa.me/1XXXXXXXXXX", "_blank")}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
-                >
-                  <MessageCircle className="mr-2 h-4 w-4" />
-                  Chat on WhatsApp
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
               </CardContent>
             </Card>
 
@@ -657,41 +663,65 @@ const AICustomerServices = () => {
                   <Globe className="h-12 w-12" />
                 </div>
                 <div className="flex justify-center mb-3">
-                  <Badge variant="secondary" className="bg-green-500/10 text-green-500 border-green-500/20">
-                    🟢 Live Demo
+                  <Badge variant="secondary" className="bg-purple-500/10 text-purple-500 border-purple-500/20">
+                    📹 Video Demo
                   </Badge>
                 </div>
                 <h3 className="text-xl font-bold mb-3">Web Chat AI</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
+                <p className="text-muted-foreground leading-relaxed mb-4">
                   Qualify leads. Answer questions. Book services 24/7.
                 </p>
                 
-                <div className="mb-4 space-y-2">
-                  <p className="text-xs font-semibold text-muted-foreground uppercase">Try asking:</p>
+                {/* Video Player Placeholder */}
+                <div className="relative aspect-video bg-black/5 rounded-lg overflow-hidden mb-4 border border-border/20 group/video">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 to-primary/10">
+                    <div className="text-6xl mb-4 opacity-50">📹</div>
+                    <p className="text-sm font-semibold text-muted-foreground">Web Chat AI Demo Video</p>
+                    <p className="text-xs text-muted-foreground mt-1">Coming Soon</p>
+                  </div>
+                  <Badge className="absolute top-2 right-2 bg-black/70 text-white border-0">
+                    ⏱️ 2:45
+                  </Badge>
+                </div>
+                
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase">Example Questions:</p>
                   <div className="flex flex-wrap gap-2 justify-center">
-                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                    <Badge variant="outline" className="text-xs">
                       "Book an MOT test"
                     </Badge>
-                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                    <Badge variant="outline" className="text-xs">
                       "Check engine light on"
                     </Badge>
-                    <Badge variant="outline" className="text-xs cursor-pointer hover:bg-primary/10 transition-colors">
+                    <Badge variant="outline" className="text-xs">
                       "Do you accept walk-ins?"
                     </Badge>
                   </div>
                 </div>
-
-                <Button
-                  onClick={() => window.open(demoUrl, "_blank")}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 w-full group/btn"
-                >
-                  <Globe className="mr-2 h-4 w-4" />
-                  Launch Chatbot Demo
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
               </CardContent>
             </Card>
           </div>
+
+          {/* Want to Try It Live? CTA */}
+          <Card className="mt-12 border-primary/30 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent hover-glow group">
+            <CardContent className="p-8 text-center">
+              <div className="flex justify-center mb-4">
+                <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Phone className="h-8 w-8 text-primary" />
+                </div>
+              </div>
+              <h4 className="text-2xl font-bold mb-3">Want to Test It Yourself?</h4>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
+                Book a personalized demo session where you can interact with a live AI system customized for your business.
+                See exactly how it handles your specific use cases in real-time.
+              </p>
+              <Button size="lg" className="group/cta">
+                <Phone className="mr-2 h-5 w-5" />
+                Book Live Demo Session
+                <ArrowRight className="ml-2 h-4 w-4 group-hover/cta:translate-x-1 transition-transform" />
+              </Button>
+            </CardContent>
+          </Card>
 
           {/* Behind the Scenes Diagram */}
           <div className="mt-12 p-6 bg-primary/5 rounded-lg border border-primary/10">
