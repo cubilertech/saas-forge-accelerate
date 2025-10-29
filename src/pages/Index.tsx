@@ -321,9 +321,9 @@ const Index = () => {
             </h1>
 
             <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              We help founders <span className="text-primary font-medium">build, validate, and scale</span>
+              We help founders <span className="text-primary font-medium">build, validate, and scale </span>
               <br className="hidden sm: block" />
-              production-ready AI platforms, Faster Using AI-accelerated development workflows
+              production-grade AI Products & Automations, Faster
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
