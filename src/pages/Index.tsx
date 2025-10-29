@@ -22,6 +22,13 @@ import {
   ExternalLink,
   Bot,
   AlertCircle,
+  Sparkles,
+  Mic,
+  Scan,
+  Database,
+  Brain,
+  Mail,
+  Calendar,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import ProjectsMarquee from "@/components/ProjectsMarquee";
@@ -416,7 +423,7 @@ const Index = () => {
 
       {/* Testimonials Section - Optimized Performance */}
 
-      {/* Services Section - Updated with Clean Design */}
+      {/* Services Section - AI-Powered Solutions */}
       <section
         id="services"
         data-animate
@@ -424,77 +431,137 @@ const Index = () => {
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Your Technical Partner at <span className="text-primary">Every Stage of Growth</span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Engineered for <span className="text-primary">Impact.</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We meet you exactly where you are on your journey, with clear, packaged solutions designed to solve your
-              most pressing challenge right now.
+              We provide elite-level development for the critical pillars of modern, AI-powered business.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
+            {/* Service 1: AI Web & SaaS Platforms */}
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-              <CardContent className="p-8 flex flex-col justify-between h-full">
-                <div>
-                  <div className="flex justify-center mb-6">
-                    <Rocket className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/20 via-background to-background">
+                <div className="absolute inset-0 flex items-center justify-center p-6">
+                  <div className="w-full h-full rounded-lg border border-primary/20 bg-background/40 backdrop-blur-sm p-4 flex flex-col">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex gap-1.5">
+                        <div className="w-2 h-2 rounded-full bg-red-500/60"></div>
+                        <div className="w-2 h-2 rounded-full bg-yellow-500/60"></div>
+                        <div className="w-2 h-2 rounded-full bg-green-500/60"></div>
+                      </div>
+                      <Sparkles className="h-4 w-4 text-primary" />
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="h-2 bg-primary/20 rounded w-3/4"></div>
+                      <div className="h-2 bg-primary/10 rounded w-full"></div>
+                      <div className="h-2 bg-primary/10 rounded w-2/3"></div>
+                      <div className="mt-4 p-3 bg-primary/10 rounded border border-primary/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Bot className="h-3 w-3 text-primary" />
+                          <div className="h-1.5 bg-primary/30 rounded w-20"></div>
+                        </div>
+                        <div className="h-1.5 bg-primary/20 rounded w-full"></div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-center">You have a great idea.</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed text-center">
-                    <span className="text-primary">We'll build your first version.</span> Our MVP Sprint turns your
-                    concept into a high-quality product for your first users. We build the solid foundation you need to
-                    prove your idea, win customers, and raise funding
-                  </p>
                 </div>
-                <div className="mt-auto pt-6 border-t border-primary/30">
-                  <p className="text-primary text-sm font-medium">Ideal for:</p>
-                  <p className="text-muted-foreground text-sm italic"> Founders starting from scratch.</p>
-                </div>
+              </div>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-3">AI Web & SaaS Platforms</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  We architect and build intelligent, scalable SaaS products. From strategic pilots to enterprise-ready platforms, we embed Generative AI at the core to create defensible, market-leading web applications.
+                </p>
               </CardContent>
             </Card>
 
+            {/* Service 2: AI-Native Mobile Apps */}
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-              <CardContent className="p-8 flex flex-col justify-between h-full">
-                <div>
-                  <div className="flex justify-center mb-6">
-                    <TrendingUp className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/20 via-background to-background">
+                <div className="absolute inset-0 flex items-center justify-center gap-4 p-6">
+                  {/* iOS Device */}
+                  <div className="w-20 h-32 rounded-2xl border-2 border-primary/30 bg-background/60 backdrop-blur-sm p-1 transform -rotate-6 group-hover:rotate-0 transition-transform duration-500">
+                    <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 p-2 flex flex-col">
+                      <div className="w-8 h-1 bg-foreground/20 rounded-full mx-auto mb-2"></div>
+                      <div className="flex-1 space-y-1">
+                        <div className="h-1 bg-primary/30 rounded w-3/4"></div>
+                        <div className="h-1 bg-primary/20 rounded w-full"></div>
+                        <div className="mt-2 p-1.5 bg-primary/20 rounded flex items-center gap-1">
+                          <Mic className="h-2 w-2 text-primary" />
+                          <div className="h-0.5 bg-primary/40 rounded flex-1"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-center">You Have Traction.</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed text-center">
-                    <span className="text-primary"> We'll help you refine, enhance, and innovate. </span> Our team acts
-                    as your long-term technical partner, handling everything from critical bug fixes to building
-                    game-changing AI features that keep you ahead of the competition.
-                  </p>
+                  
+                  {/* Android Device */}
+                  <div className="w-20 h-32 rounded-2xl border-2 border-primary/30 bg-background/60 backdrop-blur-sm p-1 transform rotate-6 group-hover:rotate-0 transition-transform duration-500">
+                    <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 p-2 flex flex-col">
+                      <div className="flex gap-1 mb-2">
+                        <div className="w-1 h-1 bg-foreground/20 rounded-full"></div>
+                        <div className="w-1 h-1 bg-foreground/20 rounded-full"></div>
+                      </div>
+                      <div className="flex-1 space-y-1">
+                        <div className="h-1 bg-primary/30 rounded w-3/4"></div>
+                        <div className="h-1 bg-primary/20 rounded w-full"></div>
+                        <div className="mt-2 p-1.5 bg-primary/20 rounded flex items-center justify-center">
+                          <Scan className="h-3 w-3 text-primary animate-pulse" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="mt-auto pt-6 border-t border-primary/30">
-                  <p className="text-primary text-sm font-medium">Ideal for:</p>
-                  <p className="text-muted-foreground text-sm italic">
-                    Startups with an existing product looking to innovate.
-                  </p>
-                </div>
+              </div>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-3">AI-Native Mobile Apps</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  We build beautiful, high-performance mobile apps for iOS & Android using Flutter. We specialize in integrating on-device AI and cloud-based intelligence to create mobile experiences that feel like magic.
+                </p>
               </CardContent>
             </Card>
 
+            {/* Service 3: AI Business Automation */}
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
-              <CardContent className="p-8 flex flex-col justify-between h-full">
-                <div>
-                  <div className="flex justify-center mb-6">
-                    <Zap className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/20 via-background to-background">
+                <div className="absolute inset-0 flex items-center justify-center p-6">
+                  <div className="w-full h-full flex flex-col items-center justify-center gap-3">
+                    {/* Input Node */}
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
+                        <Database className="h-4 w-4 text-primary" />
+                      </div>
+                      <ArrowRight className="h-4 w-4 text-primary/60" />
+                    </div>
+                    
+                    {/* AI Brain */}
+                    <div className="relative">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 border-2 border-primary/40 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Brain className="h-7 w-7 text-primary animate-pulse" />
+                      </div>
+                      <div className="absolute -inset-2 border-2 border-primary/20 rounded-full animate-ping opacity-20"></div>
+                    </div>
+                    
+                    {/* Output Nodes */}
+                    <div className="flex items-center gap-2">
+                      <ArrowRight className="h-4 w-4 text-primary/60" />
+                      <div className="flex gap-2">
+                        <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
+                          <Mail className="h-4 w-4 text-primary" />
+                        </div>
+                        <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
+                          <Calendar className="h-4 w-4 text-primary" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-center">You're Ready to Scale.</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed text-center">
-                    <span className="text-primary">We provide a dedicated product team. </span> When you need to build
-                    more without the cost of hiring, we provide a full "pod" of senior developers and AI specialists.
-                    They act as a seamless extension of your team to accelerate your roadmap.
-                  </p>
                 </div>
-                <div className="mt-auto pt-6 border-t border-primary/30">
-                  <p className="text-primary text-sm font-medium">Ideal for:</p>
-                  <p className="text-muted-foreground text-sm italic">
-                    Growing businesses that need to expand their development capacity.
-                  </p>
-                </div>
+              </div>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-3">AI Business Automation</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  We build custom AI workforces to handle your most repetitive operations. By deeply integrating Voice & Chat agents with your existing software, we eliminate manual busywork and unlock massive operational efficiency.
+                </p>
               </CardContent>
             </Card>
           </div>
