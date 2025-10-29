@@ -313,15 +313,15 @@ const Index = () => {
         <div className="relative max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
             <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-6">
-              <span className="text-sm font-medium text-primary">✨ Your AI-Powered SaaS Partner</span>
+              <span className="text-sm font-medium text-primary">Your Tech Partner</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
               <span>AI product development Agency</span>
             </h1>
 
-            <p className=" md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              We help founders <span className="text-primary font-medium">build, validate, and scale</span>
+            <p className=" md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              We help founders Build, Validate, and Scale
               <br />
               Production-Grade AI Products and Automation, Faster
             </p>
