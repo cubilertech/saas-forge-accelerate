@@ -359,9 +359,9 @@ const Index = () => {
 
             {/* Enhanced Description */}
             <p className="text-lg md:text-2xl text-muted-foreground/90 mb-10 max-w-3xl mx-auto leading-relaxed font-medium">
-              We help founders <span className="text-primary font-semibold">Build, Validate, and Scale</span>
+              We help founders <span className="text-primary font-semibold">Build, Validate, and Scale</span> Production-Grade
               <br />
-              Production-Grade AI Products and Automation, Faster
+              AI Products and Automation, Faster
             </p>
 
             {/* Enhanced Buttons */}
