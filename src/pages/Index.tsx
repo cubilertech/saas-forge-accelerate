@@ -356,9 +356,9 @@ const Index = () => {
             {/* Gradient Headline with Text Shadow */}
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-black mb-6 leading-tight">
               <span className="block text-gradient-primary animate-gradient-shift drop-shadow-[0_0_30px_rgba(32,186,230,0.3)]">
-                AI product development
+                AI product & Automation
               </span>
-              <span className="block mt-2">Agency</span>
+              <span className="block mt-2">Developement Agency</span>
             </h1>
 
             {/* Enhanced Description */}
