@@ -320,9 +320,9 @@ const Index = () => {
               <span className="text-foreground">AI product development Agency</span>
             </h1>
 
-            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               We help founders <span className="text-primary font-medium">build, validate, and scale </span>
-              <br className="hidden sm: block" />
+              <br />
               production-grade AI Products & Automations, Faster
             </p>
 
