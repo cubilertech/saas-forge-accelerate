@@ -36,6 +36,7 @@ const Index = () => {
   const [currentVideoUrl, setCurrentVideoUrl] = useState<string>("");
   const [videoError, setVideoError] = useState<string>("");
   const [isVideoLoading, setIsVideoLoading] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -53,6 +54,16 @@ const Index = () => {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
+  }, []);
+
+  // Handle scroll for header state
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Optimized auto-advance testimonials with user interaction pause
@@ -236,25 +247,33 @@ const Index = () => {
                 onClick={() => scrollToSection("services")}
                 className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
               >
-                Services
+                Projects
               </button>
               <button
                 onClick={() => scrollToSection("case-studies")}
                 className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
               >
-                Work
+                Articles
               </button>
               <button
                 onClick={() => scrollToSection("process")}
                 className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
               >
-                Process
+                Contact
               </button>
               <Button
                 onClick={() => window.open(strategyCallUrl, "_blank")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium transition-all duration-300"
+                className={`bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-medium transition-all duration-300 ${
+                  isScrolled ? "w-10 h-10 p-0" : "px-6 py-2"
+                }`}
               >
-                Get Started
+                {isScrolled ? (
+                  <ArrowRight className="h-5 w-5 rotate-45" />
+                ) : (
+                  <span className="flex items-center gap-2">
+                    CONTACT <ArrowRight className="h-4 w-4 rotate-45" />
+                  </span>
+                )}
               </Button>
             </nav>
 
