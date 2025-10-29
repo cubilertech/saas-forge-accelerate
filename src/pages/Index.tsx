@@ -234,7 +234,7 @@ const Index = () => {
         isScrolled ? 'py-3' : 'py-6'
       }`}>
         <div className={`max-w-6xl mx-auto px-6 transition-all duration-300 ${
-          isScrolled ? 'bg-background/80 backdrop-blur-xl border border-border/50 rounded-full shadow-lg py-2' : ''
+          isScrolled ? 'bg-background/60 backdrop-blur-md border border-border/30 rounded-full py-2' : ''
         }`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
