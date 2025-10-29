@@ -317,15 +317,13 @@ const Index = () => {
             </div>
 
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-              <span className="text-foreground">From Pilot to Production-Grade, Faster</span>
-              <br />
-              <span className="text-primary">AI product development Agency</span>
+              <span>AI product development Agency</span>
             </h1>
 
-            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className=" md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               We help founders <span className="text-primary font-medium">build, validate, and scale</span>
               <br />
-              production-ready AI platforms, Faster
+              Production-Grade AI Products and Automation, Faster
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
