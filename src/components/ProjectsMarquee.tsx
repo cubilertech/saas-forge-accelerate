@@ -70,7 +70,7 @@ const ProjectsMarquee = () => {
           {duplicatedProjects.map((project, index) => (
             <Card 
               key={`${project.id}-${index}`} 
-              className="flex-shrink-0 w-80 h-48 mx-3 bg-gradient-card card-blur hover-glow group cursor-pointer border border-border/20 overflow-hidden transform hover:scale-105 transition-all duration-500"
+              className="flex-shrink-0 w-96 h-64 mx-3 bg-gradient-card card-blur hover-glow group cursor-pointer border border-border/20 overflow-hidden transform hover:scale-105 transition-all duration-500"
               style={{
                 transform: `rotate(${(index % 3 - 1) * 2}deg)`,
                 zIndex: index % 2 === 0 ? 2 : 1
@@ -101,12 +101,6 @@ const ProjectsMarquee = () => {
         </div>
       </div>
 
-      {/* Bottom section info */}
-      <div className="text-center mt-8 px-6">
-        <p className="text-muted-foreground text-sm">
-          <span className="text-primary font-medium">30+ Projects Delivered</span> • Trusted by Founders Worldwide
-        </p>
-      </div>
     </section>
   );
 };

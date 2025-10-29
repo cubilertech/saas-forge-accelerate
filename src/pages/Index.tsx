@@ -347,7 +347,7 @@ const Index = () => {
         </div>
 
         {/* Portfolio Slider at bottom of hero */}
-        <div className="mt-16">
+        <div className="mt-24">
           <ProjectsMarquee />
         </div>
       </section>
