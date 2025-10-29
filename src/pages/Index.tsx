@@ -8,6 +8,7 @@ import {
   Building2,
   Plus,
   CheckCircle,
+  CheckCircle2,
   TrendingUp,
   Users,
   Target,
@@ -170,6 +171,11 @@ const Index = () => {
       techStack: ["React", "Node.js", "PostgreSQL", "AWS"],
       image: "/lovable-uploads/dashboard-afterHire.png",
       results: ["50% faster onboarding", "200+ companies"],
+      keyFeatures: [
+        "Automated workflow builder",
+        "Document e-signatures",
+        "Real-time progress tracking",
+      ],
       liveUrl: "https://afterhire.com",
     },
     {
@@ -181,6 +187,11 @@ const Index = () => {
       techStack: ["Next.js", "TypeScript", "MongoDB", "Vercel"],
       image: "/lovable-uploads/cde0d446-bc0e-4104-a6a4-fdd973f8ef18.png",
       results: ["40% more accurate quotes", "150+ businesses"],
+      keyFeatures: [
+        "AI-powered pricing engine",
+        "Automated PDF invoicing",
+        "Multi-location support",
+      ],
       liveUrl: "https://priceup.com",
     },
     {
@@ -192,6 +203,11 @@ const Index = () => {
       techStack: ["React Native", "Express.js", "MySQL", "Firebase"],
       image: "/lovable-uploads/aa7e3655-ae93-4d12-9d84-a267b0cb2e02.png",
       results: ["60% improved efficiency", "500+ farms"],
+      keyFeatures: [
+        "Offline-first mobile app",
+        "Weather integration",
+        "Task automation system",
+      ],
       liveUrl: "https://pipa.com",
     },
   ];
@@ -624,70 +640,111 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Case Studies Section - Improved Portfolio */}
+      {/* Case Studies Section - Enhanced Portfolio */}
       <section
         id="case-studies"
         data-animate
-        className={`px-6 py-16 transition-all duration-1000 ${isVisible("case-studies") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        className={`px-6 py-20 transition-all duration-1000 ${isVisible("case-studies") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Success <span className="text-primary">Stories</span>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black mb-4">
+              Our Success <span className="text-gradient-primary">Stories</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Real projects, real results. See how we've helped founders transform their ideas into successful products.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portfolioItems.map((item) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {portfolioItems.map((item, index) => (
               <Card
                 key={item.id}
-                className="bg-gradient-card card-blur hover-glow group cursor-pointer border border-border/20 overflow-hidden h-full"
+                className="bg-gradient-card card-blur hover-glow group cursor-pointer border border-border/20 overflow-hidden h-full transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20"
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                }}
               >
                 <div className="relative">
                   <div className="aspect-[4/3] relative overflow-hidden">
                     <img
                       src={item.image}
                       alt={`${item.name} project preview`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div className="absolute top-3 right-3">
-                      <Badge className="bg-primary/20 text-primary border-primary/30 text-xs">{item.industry}</Badge>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all duration-300"></div>
+                    
+                    {/* Industry Badge */}
+                    <div className="absolute top-4 right-4">
+                      <Badge className="bg-primary/20 backdrop-blur-xl text-primary border-primary/30 text-xs font-semibold px-3 py-1">
+                        {item.industry}
+                      </Badge>
                     </div>
-                    <div className="absolute bottom-3 left-3 right-3">
-                      <h3 className="text-white font-bold text-lg mb-1">{item.name}</h3>
+                    
+                    {/* Results Metrics - Floating */}
+                    <div className="absolute top-4 left-4 space-y-2">
+                      {item.results.map((result, i) => (
+                        <div key={i} className="glass-effect backdrop-blur-xl border border-primary/20 rounded-lg px-3 py-1.5">
+                          <p className="text-white text-xs font-bold flex items-center gap-1.5">
+                            <TrendingUp className="w-3 h-3 text-primary" />
+                            {result}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* Project Name */}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-white font-black text-2xl mb-1 drop-shadow-lg">{item.name}</h3>
                     </div>
                   </div>
                 </div>
 
-                <CardContent className="p-4 space-y-4">
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">{item.description}</p>
+                <CardContent className="p-6 space-y-5">
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                    {item.description}
+                  </p>
+
+                  {/* Key Features */}
+                  <div className="space-y-3">
+                    <p className="text-xs font-bold text-primary uppercase tracking-wider flex items-center gap-1.5">
+                      <Zap className="w-3 h-3" />
+                      Key Features
+                    </p>
+                    <ul className="space-y-2">
+                      {item.keyFeatures.map((feature, i) => (
+                        <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
                   {/* Tech Stack */}
                   <div className="space-y-2">
-                    <p className="text-xs font-semibold text-primary uppercase tracking-wider">Tech Stack</p>
-                    <div className="flex flex-wrap gap-1">
-                      {item.techStack.slice(0, 3).map((tech) => (
-                        <Badge key={tech} className="bg-muted text-muted-foreground border-border px-2 py-1 text-xs">
+                    <p className="text-xs font-bold text-primary uppercase tracking-wider">Tech Stack</p>
+                    <div className="flex flex-wrap gap-2">
+                      {item.techStack.slice(0, 4).map((tech) => (
+                        <Badge 
+                          key={tech} 
+                          className="bg-muted/50 text-foreground border-border/50 px-2.5 py-1 text-xs font-medium hover:bg-primary/10 hover:border-primary/30 transition-colors"
+                        >
                           {tech}
                         </Badge>
                       ))}
-                      {item.techStack.length > 3 && (
-                        <Badge className="bg-muted text-muted-foreground border-border px-2 py-1 text-xs">
-                          +{item.techStack.length - 3}
+                      {item.techStack.length > 4 && (
+                        <Badge className="bg-muted/50 text-muted-foreground border-border/50 px-2.5 py-1 text-xs">
+                          +{item.techStack.length - 4}
                         </Badge>
                       )}
                     </div>
                   </div>
 
-                  {/* Case Study Button */}
-                  <div className="pt-2">
+                  {/* Case Study Button - Enhanced */}
+                  <div className="pt-3">
                     <Button
-                      size="sm"
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-2 text-xs rounded-lg font-medium w-full"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2.5 text-sm rounded-lg font-bold w-full group/btn shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02]"
                       onClick={() => {
                         if (item.name === "AfterHire") {
                           window.location.href = "/case-study/afterhire";
@@ -698,7 +755,10 @@ const Index = () => {
                         }
                       }}
                     >
-                      View Case Study
+                      <span className="flex items-center justify-center gap-2">
+                        View Case Study
+                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </span>
                     </Button>
                   </div>
                 </CardContent>
@@ -706,14 +766,14 @@ const Index = () => {
             ))}
           </div>
 
-          {/* View All Projects Button */}
-          <div className="text-center mt-8">
+          {/* View All Projects Button - Enhanced */}
+          <div className="text-center mt-12">
             <Button
               variant="outline"
-              className="glass-effect border-primary/30 text-primary hover:bg-primary/10 px-6 py-3 rounded-xl font-medium group"
+              className="glass-effect backdrop-blur-xl border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50 px-8 py-6 text-base rounded-xl font-bold group shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 hover:scale-105"
             >
               View All Projects
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
