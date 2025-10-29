@@ -329,37 +329,63 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative px-6 pt-24 pb-12 md:pb-4 overflow-hidden bg-gradient-hero bg-mesh">
+        {/* Floating Geometric Shapes */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-20 left-[10%] w-32 h-32 rounded-full border-2 border-primary/20 animate-float-slow"></div>
+          <div className="absolute top-40 right-[15%] w-24 h-24 rounded-full bg-primary/5 animate-float-slow" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-40 left-[20%] w-20 h-20 rounded-lg border border-primary/15 rotate-45 animate-float-slow" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-[60%] right-[25%] w-16 h-16 rounded-full bg-gradient-to-br from-primary/10 to-transparent animate-float-slow" style={{ animationDelay: '3s' }}></div>
+          
+          {/* Gradient Orbs */}
+          <div className="absolute top-32 right-[10%] w-64 h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
+          <div className="absolute bottom-20 left-[15%] w-80 h-80 bg-gradient-to-tr from-primary/15 via-transparent to-primary/5 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }}></div>
+        </div>
+
         <div className="relative max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
-            <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-6">
-              <span className="text-sm font-medium text-primary">Your Tech Partner</span>
+            {/* Enhanced Badge with Sparkle */}
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-effect border border-primary/30 mb-8 animate-float backdrop-blur-xl">
+              <Zap className="w-4 h-4 text-primary animate-sparkle" />
+              <span className="text-sm font-semibold text-primary tracking-wide">Your Tech Partner</span>
             </div>
 
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              <span>AI product development Agency</span>
+            {/* Gradient Headline with Text Shadow */}
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-black mb-6 leading-tight">
+              <span className="block text-gradient-primary animate-gradient-shift drop-shadow-[0_0_30px_rgba(32,186,230,0.3)]">
+                AI product development
+              </span>
+              <span className="block mt-2">Agency</span>
             </h1>
 
-            <p className=" md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              We help founders Build, Validate, and Scale
+            {/* Enhanced Description */}
+            <p className="text-lg md:text-2xl text-muted-foreground/90 mb-10 max-w-3xl mx-auto leading-relaxed font-medium">
+              We help founders <span className="text-primary font-semibold">Build, Validate, and Scale</span>
               <br />
               Production-Grade AI Products and Automation, Faster
             </p>
 
+            {/* Enhanced Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
                 onClick={() => window.open(strategyCallUrl, "_blank")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 group relative overflow-hidden"
               >
-                Free Strategy Session
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <span className="relative z-10 flex items-center">
+                  Free Strategy Session
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-glow to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Button>
 
               <Button
                 variant="outline"
                 onClick={() => scrollToSection("case-studies")}
-                className="glass-effect border-border/20 text-foreground px-6 py-4 text-lg font-medium rounded-xl hover:bg-accent/5 transition-all duration-300"
+                className="glass-effect border-primary/30 text-foreground px-8 py-6 text-lg font-semibold rounded-xl hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl group"
               >
-                View Our Work
+                <span className="flex items-center">
+                  View Our Work
+                  <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </span>
               </Button>
             </div>
           </div>
