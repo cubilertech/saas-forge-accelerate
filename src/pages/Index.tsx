@@ -230,8 +230,12 @@ const Index = () => {
       </div>
 
       {/* Transparent Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-border/20">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'py-3' : 'py-6'
+      }`}>
+        <div className={`max-w-6xl mx-auto px-6 transition-all duration-300 ${
+          isScrolled ? 'bg-background/80 backdrop-blur-xl border border-border/50 rounded-full shadow-lg py-2' : ''
+        }`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <img
