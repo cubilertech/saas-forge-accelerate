@@ -306,15 +306,16 @@ const Index = () => {
               <span className="text-sm font-medium text-primary">✨ Your AI-Powered SaaS Partner</span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Go from MVP to <span className="text-primary">Intelligent SaaS</span>,
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+              From Pilot to <span className="text-primary">Production-Grade</span>, Faster
               <br className="hidden md:block" />
-              <span className="text-foreground">Faster.</span>
+              <span className="text-foreground">AI product development Agency</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-             You have a powerful vision for a SaaS product. You need more than just freelancers—you need a reliable technical partner to build a robust, AI-native platform that wins customers and attracts investors.
-              <span className="text-primary font-medium">We are that partner.</span>
+            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              We help founders <span className="text-primary font-medium">build, validate, and scale</span>
+              <br className="hidden sm:block" />
+              production-ready AI platforms, Faster
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
