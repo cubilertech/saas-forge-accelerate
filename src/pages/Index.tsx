@@ -24,7 +24,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-// import ProjectsMarquee from "@/components/ProjectsMarquee";
+import ProjectsMarquee from "@/components/ProjectsMarquee";
 
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -308,22 +308,24 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section - Full Screen */}
-      <section className="relative min-h-screen px-6 flex items-center justify-center overflow-hidden bg-gradient-hero bg-mesh">
+      {/* Hero Section */}
+      <section className="relative px-6 pt-32 pb-12 overflow-hidden bg-gradient-hero bg-mesh">
         <div className="relative max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
-            <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-8">
+            <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-6">
               <span className="text-sm font-medium text-primary">✨ Your AI-Powered SaaS Partner</span>
             </div>
 
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-              <span className="text-foreground">AI product development Agency</span>
+              <span className="text-foreground">From Pilot to Production-Grade, Faster</span>
+              <br />
+              <span className="text-primary">AI product development Agency</span>
             </h1>
 
-            <p className="md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              We help founders <span className="text-primary font-medium">build, validate, and scale </span>
+            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              We help founders <span className="text-primary font-medium">build, validate, and scale</span>
               <br />
-              production-grade AI Products & Automations, Faster
+              production-ready AI platforms, Faster
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -345,10 +347,12 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Projects Marquee Section - Hidden */}
-      {/* <ProjectsMarquee /> */}
+        {/* Portfolio Slider at bottom of hero */}
+        <div className="mt-16">
+          <ProjectsMarquee />
+        </div>
+      </section>
 
       {/* Testimonials Section - Optimized Performance */}
 
