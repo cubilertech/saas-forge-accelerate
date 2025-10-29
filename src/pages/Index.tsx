@@ -414,11 +414,6 @@ const Index = () => {
             </div>
           </div>
         </div>
-
-        {/* Portfolio Slider at bottom of hero - Hidden on mobile */}
-        <div className="mt-32 hidden md:block">
-          <ProjectsMarquee />
-        </div>
       </section>
 
       {/* Testimonials Section - Optimized Performance */}
