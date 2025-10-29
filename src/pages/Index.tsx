@@ -230,12 +230,12 @@ const Index = () => {
       </div>
 
       {/* Transparent Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'py-3' : 'py-6'
-      }`}>
-        <div className={`max-w-6xl mx-auto px-6 transition-all duration-300 ${
-          isScrolled ? 'bg-background/60 backdrop-blur-md border border-border/30 rounded-full py-2' : ''
-        }`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "py-3" : "py-6"}`}>
+        <div
+          className={`max-w-6xl mx-auto px-6 transition-all duration-300 ${
+            isScrolled ? "bg-background/60 backdrop-blur-md border border-border/30 rounded-full py-2" : ""
+          }`}
+        >
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <img
@@ -336,13 +336,25 @@ const Index = () => {
         {/* Floating Geometric Shapes */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-20 left-[10%] w-32 h-32 rounded-full border-2 border-primary/20 animate-float-slow"></div>
-          <div className="absolute top-40 right-[15%] w-24 h-24 rounded-full bg-primary/5 animate-float-slow" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-40 left-[20%] w-20 h-20 rounded-lg border border-primary/15 rotate-45 animate-float-slow" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-[60%] right-[25%] w-16 h-16 rounded-full bg-gradient-to-br from-primary/10 to-transparent animate-float-slow" style={{ animationDelay: '3s' }}></div>
-          
+          <div
+            className="absolute top-40 right-[15%] w-24 h-24 rounded-full bg-primary/5 animate-float-slow"
+            style={{ animationDelay: "1s" }}
+          ></div>
+          <div
+            className="absolute bottom-40 left-[20%] w-20 h-20 rounded-lg border border-primary/15 rotate-45 animate-float-slow"
+            style={{ animationDelay: "2s" }}
+          ></div>
+          <div
+            className="absolute top-[60%] right-[25%] w-16 h-16 rounded-full bg-gradient-to-br from-primary/10 to-transparent animate-float-slow"
+            style={{ animationDelay: "3s" }}
+          ></div>
+
           {/* Gradient Orbs */}
           <div className="absolute top-32 right-[10%] w-64 h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
-          <div className="absolute bottom-20 left-[15%] w-80 h-80 bg-gradient-to-tr from-primary/15 via-transparent to-primary/5 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }}></div>
+          <div
+            className="absolute bottom-20 left-[15%] w-80 h-80 bg-gradient-to-tr from-primary/15 via-transparent to-primary/5 rounded-full blur-3xl animate-pulse-glow"
+            style={{ animationDelay: "1.5s" }}
+          ></div>
         </div>
 
         <div className="relative max-w-6xl mx-auto text-center">
@@ -358,12 +370,13 @@ const Index = () => {
               <span className="block text-gradient-primary animate-gradient-shift drop-shadow-[0_0_30px_rgba(32,186,230,0.3)]">
                 AI product & Automation
               </span>
-              <span className="block mt-2">Developement Agency</span>
+              <span className="block mt-2">Agency</span>
             </h1>
 
             {/* Enhanced Description */}
             <p className="text-lg md:text-2xl text-muted-foreground/90 mb-10 max-w-3xl mx-auto leading-relaxed font-medium">
-              We help founders <span className="text-primary font-semibold">Build, Validate, and Scale</span> Production-Grade
+              We help founders <span className="text-primary font-semibold">Build, Validate, and Scale</span>{" "}
+              Production-Grade
               <br />
               AI Products and Automation, Faster
             </p>
