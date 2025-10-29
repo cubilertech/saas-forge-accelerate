@@ -328,7 +328,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative px-6 pt-24 pb-4 overflow-hidden bg-gradient-hero bg-mesh">
+      <section className="relative px-6 pt-24 pb-12 md:pb-4 overflow-hidden bg-gradient-hero bg-mesh">
         <div className="relative max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
             <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-primary/20 mb-6">
@@ -365,8 +365,8 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Portfolio Slider at bottom of hero */}
-        <div className="mt-32">
+        {/* Portfolio Slider at bottom of hero - Hidden on mobile */}
+        <div className="mt-32 hidden md:block">
           <ProjectsMarquee />
         </div>
       </section>
