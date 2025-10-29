@@ -8,21 +8,21 @@ const ProjectsMarquee = () => {
       id: 1,
       name: "AfterHire",
       tagline: "HR Onboarding Platform",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
+      image: "/lovable-uploads/dashboard-afterHire.png",
       category: "SaaS Platform"
     },
     {
       id: 2,
       name: "PriceUp",
       tagline: "Smart Pricing Engine",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop",
+      image: "/lovable-uploads/stack.png",
       category: "Business Tool"
     },
     {
       id: 3,
       name: "Pipa",
       tagline: "AgriTech CRM Solution",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
+      image: "/lovable-uploads/6bf601b4-a24e-442c-9f60-25a4a6ec00db.png",
       category: "Industry Platform"
     },
     {
