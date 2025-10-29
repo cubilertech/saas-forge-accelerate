@@ -339,7 +339,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative px-6 pt-24 pb-12 md:pb-4 overflow-hidden bg-gradient-hero bg-mesh">
+      <section className="relative min-h-screen flex items-center px-6 pt-32 pb-16 md:pt-24 overflow-hidden bg-gradient-hero bg-mesh">
         {/* Floating Geometric Shapes */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-20 left-[10%] w-32 h-32 rounded-full border-2 border-primary/20 animate-float-slow"></div>
@@ -364,16 +364,16 @@ const Index = () => {
           ></div>
         </div>
 
-        <div className="relative max-w-6xl mx-auto text-center">
+        <div className="relative max-w-6xl mx-auto text-center w-full">
           <div className="animate-fade-in">
             {/* Enhanced Badge with Sparkle */}
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-effect border border-primary/30 mb-8 animate-float backdrop-blur-xl">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-effect border border-primary/30 mb-6 md:mb-8 animate-float backdrop-blur-xl">
               <Zap className="w-4 h-4 text-primary animate-sparkle" />
               <span className="text-sm font-semibold text-primary tracking-wide">Your Tech Partner</span>
             </div>
 
             {/* Gradient Headline with Text Shadow */}
-            <h1 className="text-3xl md:text-5xl lg:text-7xl font-black mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-6 leading-tight">
               <span className="block text-gradient-primary animate-gradient-shift drop-shadow-[0_0_30px_rgba(32,186,230,0.3)]">
                 AI product & Automation
               </span>
@@ -381,20 +381,20 @@ const Index = () => {
             </h1>
 
             {/* Enhanced Description */}
-            <p className="text-lg md:text-2xl text-muted-foreground/90 mb-10 max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground/90 mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed font-medium px-4">
               We help founders <span className="text-primary font-semibold">Build, Validate, and Scale</span>{" "}
               Production-Grade
-              <br />
+              <br className="hidden sm:block" />
               AI Products and Automation, Faster
             </p>
 
             {/* Enhanced Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
               <Button
                 onClick={() => window.open(strategyCallUrl, "_blank")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 group relative overflow-hidden"
+                className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8 md:px-10 py-5 md:py-6 text-base md:text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 group relative overflow-hidden"
               >
-                <span className="relative z-10 flex items-center">
+                <span className="relative z-10 flex items-center justify-center">
                   Free Strategy Session
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -404,9 +404,9 @@ const Index = () => {
               <Button
                 variant="outline"
                 onClick={() => scrollToSection("case-studies")}
-                className="glass-effect border-primary/30 text-foreground px-8 py-6 text-lg font-semibold rounded-xl hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl group"
+                className="w-full sm:w-auto glass-effect border-primary/30 text-foreground px-8 py-5 md:py-6 text-base md:text-lg font-semibold rounded-xl hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl group"
               >
-                <span className="flex items-center">
+                <span className="flex items-center justify-center">
                   View Our Work
                   <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </span>
