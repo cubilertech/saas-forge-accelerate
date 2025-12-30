@@ -556,7 +556,7 @@ const Index = () => {
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold mb-3">AI Business Automation</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">
-                  We build custom AI workforces to handle your most repetitive operations. By deeply integrating Voice & Chat agents with your existing software, we eliminate manual busywork and unlock massive operational efficiency.
+                  We design and deploy custom AI agents that automate repetitive business operations end-to-end. Our agents integrate seamlessly with your existing systems and can operate across voice, chat, and internal workflows—reducing manual effort and improving operational efficiency at scale.
                 </p>
               </CardContent>
             </Card>
