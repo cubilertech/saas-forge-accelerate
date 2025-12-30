@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import testimonialAvatar from "@/assets/testimonial-avatar.png";
+import ahmadZaheerAvatar from "@/assets/ahmad-zaheer-avatar.png";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -126,7 +126,7 @@ const Index = () => {
         "Before, our business ran on a chaotic mix of spreadsheets and paper. It was slow, and costly errors were a constant problem. The custom platform Cubiler Technologies built for us completely transformed our operations. Our quoting is now fast and accurate, and I have a clear view of my entire business. They are a true partner I can trust.",
       name: "Ahmad Zaheer",
       company: "Project Manager at GC Glass inc.",
-      image: testimonialAvatar,
+      image: ahmadZaheerAvatar,
       videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       hasVideo: false,
     },
