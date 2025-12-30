@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import testimonialAvatar from "@/assets/testimonial-avatar.png";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -124,10 +125,10 @@ const Index = () => {
       quote:
         "Before, our business ran on a chaotic mix of spreadsheets and paper. It was slow, and costly errors were a constant problem. The custom platform Cubiler Technologies built for us completely transformed our operations. Our quoting is now fast and accurate, and I have a clear view of my entire business. They are a true partner I can trust.",
       name: "Ahmad Zaheer",
-      company: "Price UP",
-      image: "/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png",
+      company: "Project Manager at GC Glass inc.",
+      image: testimonialAvatar,
       videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      hasVideo: true,
+      hasVideo: false,
     },
   ];
 
@@ -754,48 +755,36 @@ const Index = () => {
                       transition: "opacity 0.3s ease-out",
                     }}
                   >
-                    <Card className="bg-gradient-card card-blur hover-glow border-0 shadow-2xl overflow-hidden">
+                    <Card className="bg-gradient-card card-blur hover-glow border-0 shadow-lg overflow-hidden">
                       <CardContent className="p-0">
-                        <div className="grid md:grid-cols-5 gap-0 items-center min-h-[400px]">
-                          {/* Left side - Image */}
+                        <div className="grid md:grid-cols-5 gap-0 items-center min-h-[280px]">
+                          {/* Left side - Avatar */}
                           <div className="md:col-span-2 relative h-full">
-                            <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center p-8 md:p-12">
+                            <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center p-6 md:p-8">
                               <img
                                 src={testimonial.image}
                                 alt={testimonial.name}
-                                className="w-52 h-52 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl"
+                                className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full shadow-lg border-4 border-background"
                               />
                             </div>
                           </div>
 
                           {/* Right side - Content */}
-                          <div className="md:col-span-3 p-8 md:p-12 lg:p-16 flex flex-col justify-center h-full">
+                          <div className="md:col-span-3 p-6 md:p-8 flex flex-col justify-center h-full">
                             {/* Quote Icon */}
-                            <div className="mb-6">
-                              <Quote className="h-12 w-12 text-primary opacity-30" />
+                            <div className="mb-4">
+                              <Quote className="h-8 w-8 text-primary opacity-30" />
                             </div>
 
                             {/* Testimonial Quote */}
-                            <blockquote className="text-l md:text-xl lg:text-xl font-light text-foreground mb-8 leading-relaxed">
+                            <blockquote className="text-sm md:text-base font-light text-foreground mb-5 leading-relaxed">
                               "{testimonial.quote}"
                             </blockquote>
 
                             {/* Author Info */}
-                            <div className="mb-6">
-                              <h4 className="text-2xl font-bold text-foreground mb-2">{testimonial.name}</h4>
-                              <p className="text-muted-foreground text-lg mb-4">{testimonial.company}</p>
-
-                              {/* Watch Testimonial Button */}
-                              {testimonial.hasVideo && testimonial.videoUrl && (
-                                <Button
-                                  onClick={() => handleVideoPlay(testimonial.videoUrl)}
-                                  variant="outline"
-                                  className="bg-transparent border-primary/30 text-primary hover:bg-primary/10 px-4 py-2 rounded-lg font-medium group"
-                                >
-                                  <Play className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
-                                  Watch Testimonial
-                                </Button>
-                              )}
+                            <div>
+                              <h4 className="text-lg font-bold text-foreground mb-1">{testimonial.name}</h4>
+                              <p className="text-muted-foreground text-sm">{testimonial.company}</p>
                             </div>
                           </div>
                         </div>
