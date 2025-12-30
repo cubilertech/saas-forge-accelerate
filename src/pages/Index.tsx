@@ -728,10 +728,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Trusted by <span className="text-primary">Visionary Founders</span>
+              Trusted by <span className="text-primary">Our Clients</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Hear from founders who transformed their ideas into successful,
+              Hear from clients who transformed their ideas into successful products.
             </p>
           </div>
 
