@@ -97,6 +97,14 @@ All colors MUST be HSL.
     animation-play-state: paused;
   }
 
+  .animate-scroll-vertical {
+    animation: scroll-vertical 35s linear infinite;
+  }
+
+  .pause-animation {
+    animation-play-state: paused;
+  }
+
   .animate-float-slow {
     animation: float-slow 8s ease-in-out infinite;
   }
@@ -261,6 +269,15 @@ All colors MUST be HSL.
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
   }
 }
 
