@@ -52,10 +52,10 @@ const VerticalPortfolioSlider = () => {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Gradient fade at top */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background via-background/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white/90 via-white/40 to-transparent z-10 pointer-events-none" />
       
       {/* Gradient fade at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white/90 via-white/40 to-transparent z-10 pointer-events-none" />
 
       {/* Scrolling container */}
       <div 
