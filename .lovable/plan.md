@@ -1,167 +1,144 @@
 
-
-# Building an Elegant Light Theme
+# Vertical Portfolio Slider for Hero Section
 
 ## Overview
-Transform the current dark, cyan-accented theme into a clean, elegant light theme while maintaining brand identity and visual harmony. The new theme will feature warm whites, soft grays, and refined accent colors for a professional, modern look.
+Add an elegant vertical continuous portfolio image slider on the left side of the hero section, transforming the current centered layout into a split-screen design that showcases your work while maintaining the main messaging.
 
 ---
 
-## Color Palette Transformation
+## Layout Transformation
 
-### Current Dark Theme (for reference)
-- Background: Dark blue-gray (200 20% 5%)
-- Foreground: Light (185 15% 95%)
-- Primary: Bright cyan (189 85% 45%)
-- Cards: Dark (200 25% 8%)
+### Current Layout
+- Full-width centered hero content
+- Floating geometric shapes in background
+- Single column text alignment
 
-### New Light Theme
-- **Background**: Warm off-white (0 0% 98%)
-- **Foreground**: Deep charcoal (220 15% 15%)
-- **Primary**: Refined teal (189 70% 38%) - slightly deeper for better contrast on light
-- **Cards**: Pure white with subtle shadows (0 0% 100%)
-- **Borders**: Soft gray (220 15% 90%)
-- **Muted text**: Medium gray (220 10% 45%)
+### New Layout
+- **Left side (40%)**: Vertical continuous portfolio slider
+- **Right side (60%)**: Main hero content (headline, description, CTAs)
+- Responsive: On mobile, slider hides or becomes a subtle top element
 
 ---
 
-## Implementation Steps
+## Visual Design
 
-### 1. Update CSS Variables in `src/index.css`
+### Vertical Slider Characteristics
+- Continuous upward scrolling animation (infinite loop)
+- Portfolio images displayed as cards with rounded corners
+- Subtle shadow and border for depth
+- Slight overlap between cards for visual interest
+- Gradient fade at top and bottom edges for seamless loop
+- Pause on hover for user interaction
 
-Replace the `:root` color variables with light theme values:
+### Image Styling
+- Rounded corners (12-16px radius)
+- Soft shadow with teal accent
+- Border with primary color tint
+- Hover effect: slight scale and enhanced glow
+- Project name overlay at bottom of each card
 
+---
+
+## Technical Implementation
+
+### 1. Create New Component: `VerticalPortfolioSlider.tsx`
+
+A dedicated component with:
+- CSS-based infinite scroll animation (translateY)
+- Duplicated items for seamless looping
+- Gradient masks at top/bottom edges
+- Hover pause functionality
+- Responsive visibility (hidden on mobile)
+
+### 2. Modify Hero Section Layout
+
+Transform the hero section in `src/pages/Index.tsx`:
+- Change from centered single-column to flexbox two-column
+- Left column: Portfolio slider (hidden below `lg` breakpoint)
+- Right column: Existing hero content (adjust text alignment)
+
+### 3. Add CSS Animation in `src/index.css`
+
+New keyframe animation:
 ```css
-:root {
-  --background: 0 0% 98%;
-  --foreground: 220 15% 15%;
-
-  --card: 0 0% 100%;
-  --card-foreground: 220 15% 15%;
-
-  --popover: 0 0% 100%;
-  --popover-foreground: 220 15% 15%;
-
-  --primary: 189 70% 38%;
-  --primary-foreground: 0 0% 100%;
-  --primary-glow: 189 70% 48%;
-
-  --secondary: 220 15% 96%;
-  --secondary-foreground: 220 15% 15%;
-
-  --muted: 220 15% 96%;
-  --muted-foreground: 220 10% 45%;
-
-  --accent: 189 50% 95%;
-  --accent-foreground: 189 70% 30%;
-
-  --destructive: 0 65% 50%;
-  --destructive-foreground: 0 0% 100%;
-
-  --border: 220 15% 90%;
-  --input: 220 15% 94%;
-  --ring: 189 70% 38%;
+@keyframes scroll-vertical {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
 }
 ```
 
-### 2. Update Body Background Gradient
+### 4. Portfolio Items to Display
 
-Change from dark gradient to elegant light gradient:
+Use existing portfolio data:
+- AfterHire (dashboard-afterHire.png)
+- PriceUp (cde0d446-bc0e-4104-a6a4-fdd973f8ef18.png)
+- Pipa (aa7e3655-ae93-4d12-9d84-a267b0cb2e02.png)
+- Additional showcase images from lovable-uploads
 
-```css
-body {
-  background: linear-gradient(135deg, 
-    hsl(0, 0%, 98%) 0%, 
-    hsl(220, 20%, 97%) 50%, 
-    hsl(0, 0%, 98%) 100%);
-  background-attachment: fixed;
-}
-```
+---
 
-### 3. Update Utility Classes
+## Hero Section Structure
 
-Modify light-theme-friendly versions of:
-
-- **`.text-gradient`**: Darker teal gradient for visibility on light backgrounds
-- **`.bg-gradient-card`**: White background with subtle gray border
-- **`.bg-gradient-hero`**: Soft teal radial gradients with lower opacity
-- **`.bg-mesh`**: Light mesh pattern with subtle teal accents
-- **`.glass-effect`**: White-based glass with light borders
-- **`.animated-border`**: Light background with teal gradient border
-- **`.hover-glow`**: Subtle teal shadow on hover
-
-### 4. Update Scrollbar Styles
-
-```css
-::-webkit-scrollbar-track {
-  background: hsl(220, 15%, 96%);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, hsl(189, 70%, 38%), hsl(189, 70%, 45%));
-}
-```
-
-### 5. Update Keyframe Animations
-
-Adjust pulse-glow animation for light theme visibility:
-
-```css
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px hsl(189, 70%, 38%, 0.2), 0 0 40px hsl(189, 70%, 38%, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 30px hsl(189, 70%, 38%, 0.3), 0 0 60px hsl(189, 70%, 38%, 0.15);
-  }
-}
-```
-
-### 6. Update Sidebar Variables
-
-Align sidebar colors with light theme:
-
-```css
---sidebar-background: 0 0% 100%;
---sidebar-foreground: 220 15% 15%;
---sidebar-primary: 189 70% 38%;
---sidebar-accent: 220 15% 96%;
---sidebar-border: 220 15% 90%;
+```text
++----------------------------------+
+|           HEADER                 |
++----------------------------------+
+|          |                       |
+|  [IMG]   |   Your Tech Partner   |
+|          |                       |
+|  [IMG]   | AI Product & Auto-    |
+|          | mation Agency         |
+|  [IMG]   |                       |
+|   ↑      | We help founders...   |
+|  scroll  |                       |
+|  [IMG]   | [CTA] [CTA]           |
+|          |                       |
++----------------------------------+
 ```
 
 ---
 
-## Visual Changes Summary
+## Responsive Behavior
 
-| Element | Dark Theme | Light Theme |
-|---------|------------|-------------|
-| Background | Deep blue-black | Warm off-white |
-| Text | Light gray | Deep charcoal |
-| Cards | Dark with glow | White with soft shadow |
-| Buttons | Bright cyan | Refined teal |
-| Borders | Faint dark lines | Soft gray lines |
-| Hover effects | Cyan glow | Subtle teal shadow |
-| Gradients | Dark with cyan hints | White with teal accents |
+| Breakpoint | Slider | Hero Content |
+|------------|--------|--------------|
+| Mobile (<768px) | Hidden | Full width, centered |
+| Tablet (768-1024px) | Hidden | Full width, centered |
+| Desktop (>1024px) | Visible (40%) | Right-aligned (60%) |
 
 ---
 
-## Technical Details
+## Files to Create/Modify
 
-### Files to Modify
-1. **`src/index.css`** - Main file containing all CSS variables, gradients, and utility classes
+1. **Create**: `src/components/VerticalPortfolioSlider.tsx`
+   - New component for the vertical slider
 
-### Key Considerations
-- All colors remain in HSL format as required by the existing system
-- The primary accent (teal) is preserved but refined for better light-mode contrast
-- Glass effects and gradients are adapted to look elegant on light backgrounds
-- Animations are adjusted to be visible but not overwhelming on light surfaces
+2. **Modify**: `src/pages/Index.tsx`
+   - Update hero section layout to two-column
+   - Import and integrate VerticalPortfolioSlider
+   - Adjust hero content positioning
+
+3. **Modify**: `src/index.css`
+   - Add vertical scroll animation keyframes
+   - Add slider-specific utility classes
+
+---
+
+## Animation Details
+
+- **Speed**: 30-40 seconds for full cycle (elegant, not rushed)
+- **Direction**: Upward scroll (bottom to top)
+- **Easing**: Linear for continuous feel
+- **Hover**: Pause animation
+- **Fade edges**: 80px gradient at top and bottom
 
 ---
 
 ## Result
-A clean, professional light theme that:
-- Feels modern and elegant
-- Maintains brand consistency with refined teal accents
-- Provides excellent readability and accessibility
-- Works seamlessly with all existing components
 
+A sophisticated hero section that:
+- Immediately showcases portfolio quality
+- Creates visual interest and depth
+- Maintains focus on primary messaging
+- Aligns perfectly with the elegant light theme
+- Provides smooth, non-distracting animation
