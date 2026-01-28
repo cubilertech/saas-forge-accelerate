@@ -98,7 +98,7 @@ All colors MUST be HSL.
   }
 
   .animate-scroll-vertical {
-    animation: scroll-vertical 35s linear infinite;
+    animation: scroll-vertical 40s linear infinite;
   }
 
   .pause-animation {

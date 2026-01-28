@@ -67,7 +67,7 @@ const VerticalPortfolioSlider = () => {
             key={`${item.id}-${index}`}
             className="relative flex-shrink-0 w-full group cursor-pointer"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-border/30 bg-card shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 hover:scale-[1.02] hover:border-primary/30">
+            <div className="relative overflow-hidden rounded-2xl border border-border/20 bg-card shadow-md hover:shadow-lg transition-all duration-500 hover:scale-[1.01]">
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={item.image}
@@ -78,7 +78,7 @@ const VerticalPortfolioSlider = () => {
               </div>
               
               {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-300" />
               
               {/* Content overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -86,12 +86,6 @@ const VerticalPortfolioSlider = () => {
                 <p className="text-white/70 text-sm">{item.tagline}</p>
               </div>
 
-              {/* Hover indicator */}
-              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-6 h-6 bg-primary/30 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
-                  <div className="w-2 h-2 bg-primary rounded-full" />
-                </div>
-              </div>
             </div>
           </div>
         ))}
