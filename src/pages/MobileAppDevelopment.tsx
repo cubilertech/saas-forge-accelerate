@@ -250,89 +250,73 @@ const MobileAppDevelopment = () => {
         </div>
       </header>
 
-      {/* Hero Section - Visual & Modern */}
-      <section className="relative min-h-screen flex items-center px-6 pt-32 pb-16 md:pt-24 overflow-hidden bg-gradient-hero bg-mesh">
-        {/* Floating Geometric Shapes - Desktop only */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
-          <div
-            className="absolute top-40 right-[10%] w-24 h-24 rounded-full bg-primary/5 animate-float-slow"
-            style={{ animationDelay: "1s" }}
-          ></div>
-          <div
-            className="absolute top-[60%] right-[20%] w-16 h-16 rounded-full bg-gradient-to-br from-primary/10 to-transparent animate-float-slow"
-            style={{ animationDelay: "3s" }}
-          ></div>
-          <div className="absolute top-32 right-[5%] w-64 h-64 bg-gradient-to-br from-primary/15 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
-        </div>
-
-        {/* Mobile floating shapes */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden lg:hidden">
-          <div className="absolute top-20 left-[10%] w-32 h-32 rounded-full border-2 border-primary/20 animate-float-slow"></div>
-          <div className="absolute top-32 right-[10%] w-64 h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
+      {/* Hero Section - Centered with animated background */}
+      <section className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-16 md:pt-24 overflow-hidden bg-gradient-hero bg-mesh">
+        {/* Animated background shapes */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Large orbiting rings */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-primary/10 animate-[spin_40s_linear_infinite]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-primary/5 animate-[spin_60s_linear_infinite_reverse]"></div>
+          
+          {/* Floating gradient blobs */}
+          <div className="absolute top-[15%] left-[15%] w-40 h-40 rounded-full bg-primary/8 blur-3xl animate-float-slow"></div>
+          <div className="absolute top-[60%] right-[10%] w-56 h-56 rounded-full bg-primary/6 blur-3xl animate-float-slow" style={{ animationDelay: "2s" }}></div>
+          <div className="absolute bottom-[15%] left-[30%] w-48 h-48 rounded-full bg-primary/5 blur-3xl animate-float-slow" style={{ animationDelay: "4s" }}></div>
+          
+          {/* Glowing orbs */}
+          <div className="absolute top-[25%] right-[20%] w-3 h-3 rounded-full bg-primary/40 animate-pulse-glow"></div>
+          <div className="absolute top-[70%] left-[20%] w-2 h-2 rounded-full bg-primary/30 animate-pulse-glow" style={{ animationDelay: "1.5s" }}></div>
+          <div className="absolute top-[40%] left-[8%] w-4 h-4 rounded-full bg-primary/20 animate-pulse-glow" style={{ animationDelay: "3s" }}></div>
+          
+          {/* Radial gradient center glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Content */}
-            <div className="space-y-6 text-center lg:text-left animate-fade-in">
-              <Badge variant="secondary" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-effect border border-primary/30 text-primary text-sm font-semibold backdrop-blur-xl">
-                <Smartphone className="h-4 w-4" />
-                Mobile App Development
-              </Badge>
-              
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] tracking-tight">
-                <span className="block text-gradient-primary animate-gradient-shift drop-shadow-[0_0_30px_rgba(32,186,230,0.3)]">AI-Native Apps,</span>
-                <span className="block mt-2">Built with Flutter</span>
-              </h1>
-              
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
-                High-performance iOS & Android apps with integrated AI — from on-device 
-                machine learning to generative AI features. <span className="text-primary font-semibold">One codebase, infinite possibilities.</span>
-              </p>
+        <div className="relative max-w-4xl mx-auto w-full text-center">
+          <div className="space-y-6 animate-fade-in">
+            <Badge variant="secondary" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-effect border border-primary/30 text-primary text-sm font-semibold backdrop-blur-xl">
+              <Smartphone className="h-4 w-4" />
+              Mobile App Development
+            </Badge>
+            
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] tracking-tight">
+              <span className="block text-gradient-primary animate-gradient-shift drop-shadow-[0_0_30px_rgba(32,186,230,0.3)]">AI-Native Apps,</span>
+              <span className="block mt-2">Built with Flutter</span>
+            </h1>
+            
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-2xl mx-auto font-medium">
+              High-performance iOS & Android apps with integrated AI — from on-device 
+              machine learning to generative AI features. <span className="text-primary font-semibold">One codebase, infinite possibilities.</span>
+            </p>
 
-              {/* Stats Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-                {stats.map((stat, i) => (
-                  <div key={i} className="text-center p-3 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 hover-glow">
-                    <div className="flex items-center justify-center text-primary mb-1">{stat.icon}</div>
-                    <div className="text-xl font-bold text-foreground">{stat.value}</div>
-                    <div className="text-xs text-muted-foreground">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-2">
-                <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 md:px-10 py-5 md:py-6 text-base md:text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 group relative overflow-hidden">
-                    <span className="relative z-10 flex items-center">
-                      Start Your App <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </Button>
-                </a>
-                <a href="#capabilities">
-                  <Button size="lg" variant="outline" className="glass-effect border-primary/30 text-foreground px-8 py-5 md:py-6 text-base md:text-lg font-semibold rounded-xl hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl group">
-                    <span className="flex items-center">
-                      Explore Capabilities
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-                    </span>
-                  </Button>
-                </a>
-              </div>
+            {/* Stats Row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 max-w-3xl mx-auto">
+              {stats.map((stat, i) => (
+                <div key={i} className="text-center p-3 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 hover-glow">
+                  <div className="flex items-center justify-center text-primary mb-1">{stat.icon}</div>
+                  <div className="text-xl font-bold text-foreground">{stat.value}</div>
+                  <div className="text-xs text-muted-foreground">{stat.label}</div>
+                </div>
+              ))}
             </div>
 
-            {/* Right - Hero Image */}
-            <div className="relative flex justify-center lg:justify-end animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl blur-2xl scale-110" />
-                <img 
-                  src={mobileHeroImg} 
-                  alt="AI-powered Flutter mobile app development" 
-                  className="relative rounded-2xl shadow-2xl shadow-primary/10 w-full max-w-md"
-                  width={1024}
-                  height={768}
-                />
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
+              <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 md:px-10 py-5 md:py-6 text-base md:text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 group relative overflow-hidden">
+                  <span className="relative z-10 flex items-center">
+                    Start Your App <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Button>
+              </a>
+              <a href="#capabilities">
+                <Button size="lg" variant="outline" className="glass-effect border-primary/30 text-foreground px-8 py-5 md:py-6 text-base md:text-lg font-semibold rounded-xl hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl group">
+                  <span className="flex items-center">
+                    Explore Capabilities
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </Button>
+              </a>
             </div>
           </div>
         </div>
