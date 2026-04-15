@@ -23,14 +23,17 @@ import {
   Settings,
   ChevronDown,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import mobileHeroImg from "@/assets/mobile-app-hero.jpg";
 import mobileShowcaseImg from "@/assets/mobile-app-showcase.jpg";
 
 const MobileAppDevelopment = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,6 +49,14 @@ const MobileAppDevelopment = () => {
     const sections = document.querySelectorAll("[data-animate]");
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const isVisible = (id: string) => visibleSections.has(id);
@@ -153,57 +164,136 @@ const MobileAppDevelopment = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 glass-effect">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold text-foreground tracking-tight">
-            SaaSForge<span className="text-primary">.</span>
-          </Link>
-          <div className="flex items-center gap-3">
-            <Link to="/">
-              <Button variant="ghost" size="sm" className="text-muted-foreground">
-                Home
-              </Button>
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* Animated background elements - matching home page */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-primary/5 to-transparent rounded-full blur-3xl animate-float"></div>
+        <div
+          className="absolute top-1/2 right-20 w-96 h-96 bg-gradient-to-l from-primary/3 to-transparent rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-t from-primary/3 to-transparent rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "4s" }}
+        ></div>
+      </div>
+
+      {/* Header - matching home page scroll-to-pill style */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "py-3" : "py-6"}`}>
+        <div
+          className={`max-w-6xl mx-auto px-6 transition-all duration-300 ${
+            isScrolled ? "bg-background/60 backdrop-blur-md border border-border/30 rounded-full py-2" : ""
+          }`}
+        >
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center space-x-3">
+              <img
+                src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png"
+                alt="Cubiler Technologies"
+                className="h-10 w-auto"
+              />
             </Link>
-            <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
-              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5">
-                Book a Call
-              </Button>
-            </a>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Home
+              </Link>
+              <a href="#capabilities" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Capabilities
+              </a>
+              <a href="#case-studies" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Case Studies
+              </a>
+              <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
+                <Button
+                  className={`bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-medium transition-all duration-300 ${
+                    isScrolled ? "w-10 h-10 p-0" : "px-6 py-2"
+                  }`}
+                >
+                  {isScrolled ? (
+                    <ArrowRight className="h-5 w-5 rotate-45" />
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      CONTACT <ArrowRight className="h-4 w-4 rotate-45" />
+                    </span>
+                  )}
+                </Button>
+              </a>
+            </nav>
+
+            {/* Mobile menu button */}
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 rounded-lg glass-effect">
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <nav className="md:hidden mt-4 pb-4 space-y-4">
+              <Link to="/" onClick={() => setIsMenuOpen(false)} className="block text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Home
+              </Link>
+              <a href="#capabilities" onClick={() => setIsMenuOpen(false)} className="block text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Capabilities
+              </a>
+              <a href="#case-studies" onClick={() => setIsMenuOpen(false)} className="block text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Case Studies
+              </a>
+              <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium">
+                  Book a Call
+                </Button>
+              </a>
+            </nav>
+          )}
         </div>
       </header>
 
       {/* Hero Section - Visual & Modern */}
-      <section className="pt-24 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
+      <section className="relative min-h-screen flex items-center px-6 pt-32 pb-16 md:pt-24 overflow-hidden bg-gradient-hero bg-mesh">
+        {/* Floating Geometric Shapes - Desktop only */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
+          <div
+            className="absolute top-40 right-[10%] w-24 h-24 rounded-full bg-primary/5 animate-float-slow"
+            style={{ animationDelay: "1s" }}
+          ></div>
+          <div
+            className="absolute top-[60%] right-[20%] w-16 h-16 rounded-full bg-gradient-to-br from-primary/10 to-transparent animate-float-slow"
+            style={{ animationDelay: "3s" }}
+          ></div>
+          <div className="absolute top-32 right-[5%] w-64 h-64 bg-gradient-to-br from-primary/15 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
+        </div>
+
+        {/* Mobile floating shapes */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden lg:hidden">
+          <div className="absolute top-20 left-[10%] w-32 h-32 rounded-full border-2 border-primary/20 animate-float-slow"></div>
+          <div className="absolute top-32 right-[10%] w-64 h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
+        </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
+        <div className="relative max-w-7xl mx-auto w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Content */}
-            <div className="space-y-6">
-              <Badge variant="secondary" className="text-primary border-primary/20 bg-accent px-4 py-1.5 text-sm font-medium">
-                <Smartphone className="h-4 w-4 mr-1.5" />
+            <div className="space-y-6 text-center lg:text-left animate-fade-in">
+              <Badge variant="secondary" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-effect border border-primary/30 text-primary text-sm font-semibold backdrop-blur-xl">
+                <Smartphone className="h-4 w-4" />
                 Mobile App Development
               </Badge>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] tracking-tight">
-                AI-Native Apps,{" "}
-                <span className="text-gradient-primary">Built with Flutter</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] tracking-tight">
+                <span className="block text-gradient-primary animate-gradient-shift drop-shadow-[0_0_30px_rgba(32,186,230,0.3)]">AI-Native Apps,</span>
+                <span className="block mt-2">Built with Flutter</span>
               </h1>
               
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
                 High-performance iOS & Android apps with integrated AI — from on-device 
-                machine learning to generative AI features. One codebase, infinite possibilities.
+                machine learning to generative AI features. <span className="text-primary font-semibold">One codebase, infinite possibilities.</span>
               </p>
 
               {/* Stats Row */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
                 {stats.map((stat, i) => (
-                  <div key={i} className="text-center p-3 rounded-xl bg-card border border-border/50">
+                  <div key={i} className="text-center p-3 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 hover-glow">
                     <div className="flex items-center justify-center text-primary mb-1">{stat.icon}</div>
                     <div className="text-xl font-bold text-foreground">{stat.value}</div>
                     <div className="text-xs text-muted-foreground">{stat.label}</div>
@@ -211,22 +301,28 @@ const MobileAppDevelopment = () => {
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-2">
                 <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 gap-2 shadow-lg shadow-primary/20">
-                    Start Your App <ArrowRight className="h-4 w-4" />
+                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 md:px-10 py-5 md:py-6 text-base md:text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 group relative overflow-hidden">
+                    <span className="relative z-10 flex items-center">
+                      Start Your App <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Button>
                 </a>
                 <a href="#capabilities">
-                  <Button size="lg" variant="outline" className="rounded-full px-8 border-border">
-                    Explore Capabilities
+                  <Button size="lg" variant="outline" className="glass-effect border-primary/30 text-foreground px-8 py-5 md:py-6 text-base md:text-lg font-semibold rounded-xl hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl group">
+                    <span className="flex items-center">
+                      Explore Capabilities
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
                   </Button>
                 </a>
               </div>
             </div>
 
             {/* Right - Hero Image */}
-            <div className="relative flex justify-center lg:justify-end">
+            <div className="relative flex justify-center lg:justify-end animate-fade-in" style={{ animationDelay: "0.3s" }}>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl blur-2xl scale-110" />
                 <img 
@@ -243,23 +339,23 @@ const MobileAppDevelopment = () => {
       </section>
 
       {/* Capabilities Section */}
-      <section id="capabilities" data-animate className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-14 transition-all duration-700 ${isVisible("capabilities") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+      <section id="capabilities" data-animate className={`px-6 py-20 relative transition-all duration-1000 ${isVisible("capabilities") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
             <Badge variant="secondary" className="text-primary border-primary/20 bg-accent px-3 py-1 text-xs font-medium mb-4">
               WHAT WE BUILD
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Full-Spectrum Mobile Capabilities
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+              Full-Spectrum Mobile <span className="text-primary">Capabilities</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From cross-platform Flutter development to on-device AI — everything you need to launch a world-class mobile product.
             </p>
           </div>
 
-          <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-700 delay-200 ${isVisible("capabilities") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilities.map((cap, i) => (
-              <Card key={i} className="group bg-card border-border/50 hover-glow overflow-hidden">
+              <Card key={i} className="group bg-gradient-card hover-glow overflow-hidden border border-border/10">
                 <CardContent className="p-6 space-y-4">
                   <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                     {cap.icon}
@@ -281,10 +377,10 @@ const MobileAppDevelopment = () => {
       </section>
 
       {/* App Showcase Visual Section */}
-      <section data-animate id="showcase" className="py-20 bg-accent/30 relative overflow-hidden">
+      <section data-animate id="showcase" className={`px-6 py-20 relative overflow-hidden transition-all duration-1000 ${isVisible("showcase") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-700 ${isVisible("showcase") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <img 
                 src={mobileShowcaseImg} 
@@ -299,12 +395,12 @@ const MobileAppDevelopment = () => {
               <Badge variant="secondary" className="text-primary border-primary/20 bg-accent px-3 py-1 text-xs font-medium">
                 USE CASES
               </Badge>
-              <h2 className="text-3xl font-bold text-foreground">
-                Apps for Every Industry
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+                Apps for Every <span className="text-primary">Industry</span>
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {useCases.map((uc, i) => (
-                  <div key={i} className="flex gap-3 p-3 rounded-xl bg-card border border-border/50 hover:border-primary/20 transition-colors">
+                  <div key={i} className="flex gap-3 p-3 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 hover:border-primary/20 hover-glow transition-all">
                     <span className="text-2xl">{uc.icon}</span>
                     <div>
                       <h4 className="text-sm font-semibold text-foreground">{uc.title}</h4>
@@ -319,27 +415,34 @@ const MobileAppDevelopment = () => {
       </section>
 
       {/* Process Timeline */}
-      <section data-animate id="process" className="py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-14 transition-all duration-700 ${isVisible("process") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+      <section data-animate id="process" className={`relative px-6 py-20 bg-grid-pattern transition-all duration-1000 ${isVisible("process") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className="absolute inset-0 bg-background/95"></div>
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(hsl(var(--border)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)`,
+            backgroundSize: "20px 20px",
+          }}></div>
+        </div>
+        <div className="relative max-w-5xl mx-auto">
+          <div className="text-center mb-14">
             <Badge variant="secondary" className="text-primary border-primary/20 bg-accent px-3 py-1 text-xs font-medium mb-4">
               THE PROCESS
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              From Idea to App Store
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+              From Idea to <span className="text-primary">App Store</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
               A proven 5-phase process that keeps you in the loop at every step.
             </p>
           </div>
 
-          <div className={`space-y-6 transition-all duration-700 delay-200 ${isVisible("process") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="space-y-6">
             {process.map((step, i) => (
               <div key={i} className="flex gap-6 items-start group">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 border border-border/50">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 border border-border/30">
                   {step.icon}
                 </div>
-                <div className="flex-1 pb-6 border-b border-border/50 last:border-0">
+                <div className="flex-1 pb-6 border-b border-border/30 last:border-0">
                   <div className="flex items-center gap-3 mb-1">
                     <span className="text-xs font-mono text-primary font-semibold">{step.step}</span>
                     <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
@@ -354,25 +457,25 @@ const MobileAppDevelopment = () => {
       </section>
 
       {/* Why Flutter + AI Section */}
-      <section data-animate id="why-flutter" className="py-20 bg-accent/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-14 transition-all duration-700 ${isVisible("why-flutter") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+      <section data-animate id="why-flutter" className={`px-6 py-20 transition-all duration-1000 ${isVisible("why-flutter") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
             <Badge variant="secondary" className="text-primary border-primary/20 bg-accent px-3 py-1 text-xs font-medium mb-4">
               WHY US
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Flutter + AI = Unfair Advantage
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+              Flutter + AI = <span className="text-primary">Unfair Advantage</span>
             </h2>
           </div>
 
-          <div className={`grid md:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-700 delay-200 ${isVisible("why-flutter") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: <Zap className="h-6 w-6" />, title: "2x Faster Delivery", desc: "One codebase for both platforms cuts development time in half." },
               { icon: <Cpu className="h-6 w-6" />, title: "Native Performance", desc: "Flutter compiles to ARM machine code — no bridge, no lag." },
               { icon: <Brain className="h-6 w-6" />, title: "AI-First Architecture", desc: "ML pipelines built into the app from day one, not bolted on." },
               { icon: <Users className="h-6 w-6" />, title: "Dedicated Team", desc: "Senior Flutter + AI engineers, not juniors learning on your project." },
             ].map((item, i) => (
-              <Card key={i} className="bg-card border-border/50 text-center hover-glow">
+              <Card key={i} className="bg-gradient-card text-center hover-glow border border-border/10">
                 <CardContent className="p-6 space-y-3">
                   <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-primary mx-auto">
                     {item.icon}
@@ -387,24 +490,24 @@ const MobileAppDevelopment = () => {
       </section>
 
       {/* Case Studies */}
-      <section data-animate id="case-studies" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-14 transition-all duration-700 ${isVisible("case-studies") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+      <section data-animate id="case-studies" className={`px-6 py-20 transition-all duration-1000 ${isVisible("case-studies") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
             <Badge variant="secondary" className="text-primary border-primary/20 bg-accent px-3 py-1 text-xs font-medium mb-4">
               REAL RESULTS
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Apps We've Shipped
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+              Apps We've <span className="text-primary">Shipped</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Real mobile apps built with Flutter and AI — delivering measurable impact for our clients.
             </p>
           </div>
 
-          <div className={`grid md:grid-cols-2 gap-8 transition-all duration-700 delay-200 ${isVisible("case-studies") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Pipa Case Study */}
-            <Card className="group bg-card border-border/50 hover-glow overflow-hidden">
-              <div className="aspect-[16/9] bg-gradient-to-br from-emerald-500/10 to-teal-500/10 flex items-center justify-center relative overflow-hidden">
+            <Card className="group bg-gradient-card hover-glow overflow-hidden border border-border/10">
+              <div className="aspect-[16/9] bg-gradient-to-br from-primary/10 via-background to-background flex items-center justify-center relative overflow-hidden">
                 <div className="text-center space-y-2 p-6">
                   <span className="text-5xl">🌾</span>
                   <h3 className="text-xl font-bold text-foreground">Pipa</h3>
@@ -443,8 +546,8 @@ const MobileAppDevelopment = () => {
             </Card>
 
             {/* AfterHire Case Study */}
-            <Card className="group bg-card border-border/50 hover-glow overflow-hidden">
-              <div className="aspect-[16/9] bg-gradient-to-br from-blue-500/10 to-indigo-500/10 flex items-center justify-center relative overflow-hidden">
+            <Card className="group bg-gradient-card hover-glow overflow-hidden border border-border/10">
+              <div className="aspect-[16/9] bg-gradient-to-br from-primary/10 via-background to-background flex items-center justify-center relative overflow-hidden">
                 <div className="text-center space-y-2 p-6">
                   <span className="text-5xl">👥</span>
                   <h3 className="text-xl font-bold text-foreground">AfterHire</h3>
@@ -486,16 +589,16 @@ const MobileAppDevelopment = () => {
       </section>
 
       {/* FAQ */}
-      <section data-animate id="faq" className="py-20 bg-accent/30">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-10 transition-all duration-700 ${isVisible("faq") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <h2 className="text-3xl font-bold text-foreground mb-3">Frequently Asked Questions</h2>
+      <section data-animate id="faq" className={`px-6 py-20 transition-all duration-1000 ${isVisible("faq") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-3">Frequently Asked <span className="text-primary">Questions</span></h2>
           </div>
 
-          <div className={`space-y-3 transition-all duration-700 delay-200 ${isVisible("faq") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="space-y-3">
             {faqs.map((faq, i) => (
               <Collapsible key={i}>
-                <CollapsibleTrigger className="w-full flex items-center justify-between p-4 rounded-xl bg-card border border-border/50 hover:border-primary/20 transition-colors text-left group">
+                <CollapsibleTrigger className="w-full flex items-center justify-between p-4 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 hover:border-primary/20 transition-all text-left group">
                   <span className="font-medium text-foreground text-sm pr-4">{faq.q}</span>
                   <ChevronDown className="h-4 w-4 text-muted-foreground flex-shrink-0 group-data-[state=open]:rotate-180 transition-transform" />
                 </CollapsibleTrigger>
@@ -509,8 +612,8 @@ const MobileAppDevelopment = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="px-6 py-20">
+        <div className="max-w-4xl mx-auto">
           <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-primary/80 p-12 text-center">
             <div className="absolute inset-0 bg-grid-pattern opacity-5" />
             <div className="relative space-y-6">
@@ -522,12 +625,12 @@ const MobileAppDevelopment = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-full px-8 gap-2 font-semibold">
+                  <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-xl px-8 gap-2 font-bold transition-all duration-300 hover:shadow-2xl hover:scale-105">
                     Book Strategy Call <ArrowRight className="h-4 w-4" />
                   </Button>
                 </a>
                 <Link to="/">
-                  <Button size="lg" variant="outline" className="rounded-full px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                  <Button size="lg" variant="outline" className="rounded-xl px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
                     View Portfolio
                   </Button>
                 </Link>
@@ -538,13 +641,17 @@ const MobileAppDevelopment = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-border/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link to="/" className="text-lg font-bold text-foreground">
-            SaaSForge<span className="text-primary">.</span>
+      <footer className="py-8 border-t border-border/30">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <Link to="/" className="flex items-center">
+            <img
+              src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png"
+              alt="Cubiler Technologies"
+              className="h-8 w-auto"
+            />
           </Link>
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SaaSForge. All rights reserved.
+            © {new Date().getFullYear()} Cubiler Technologies. All rights reserved.
           </p>
         </div>
       </footer>
