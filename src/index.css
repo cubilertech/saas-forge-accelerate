@@ -359,3 +359,10 @@ All colors MUST be HSL.
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
+
+/* SVG dash draw animation */
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

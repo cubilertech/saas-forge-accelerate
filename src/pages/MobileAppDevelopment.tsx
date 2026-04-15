@@ -262,13 +262,24 @@ const MobileAppDevelopment = () => {
         </div>
 
         <div className="relative max-w-5xl mx-auto w-full text-center space-y-8">
-          {/* Service Tags */}
-          <div className="flex flex-wrap justify-center gap-3 animate-fade-in">
+          {/* Service Tags with decorative curvy lines */}
+          <div className="relative flex flex-wrap justify-center gap-4 animate-fade-in pt-4">
+            {/* SVG curvy connectors around chips */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible hidden md:block" viewBox="0 0 600 80" preserveAspectRatio="xMidYMid meet">
+              {/* Curvy line from left swooping down to first chip */}
+              <path d="M 80 10 Q 100 50 140 40" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" opacity="0.35" className="animate-[dash_2s_ease-in-out_forwards]" strokeDasharray="100" strokeDashoffset="100" style={{ animation: "dash 1.5s ease-out 0.5s forwards" }} />
+              <path d="M 140 40 L 138 34 M 140 40 L 134 42" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" opacity="0.35" style={{ animation: "dash 0.5s ease-out 1.8s forwards" }} strokeDasharray="20" strokeDashoffset="20" />
+              
+              {/* Curvy line from right swooping down to last chip */}
+              <path d="M 520 10 Q 500 50 460 40" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" opacity="0.35" strokeDasharray="100" strokeDashoffset="100" style={{ animation: "dash 1.5s ease-out 0.7s forwards" }} />
+              <path d="M 460 40 L 462 34 M 460 40 L 466 42" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" opacity="0.35" style={{ animation: "dash 0.5s ease-out 2s forwards" }} strokeDasharray="20" strokeDashoffset="20" />
+            </svg>
+
             {["App Dev", "UI / UX", "Flutter", "AI-Native"].map((tag, i) => (
               <span
                 key={tag}
-                className="px-5 py-2 rounded-full border border-border/40 bg-card/50 backdrop-blur-sm text-sm font-medium text-foreground/70 hover:border-primary/40 hover:text-primary transition-all duration-300 cursor-default"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                className="relative px-6 py-2.5 rounded-full border border-border/40 bg-card/60 backdrop-blur-sm text-sm font-medium text-foreground/70 hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all duration-300 cursor-default animate-scale-in"
+                style={{ animationDelay: `${0.3 + i * 0.12}s`, animationFillMode: "both" }}
               >
                 {tag}
               </span>
@@ -276,22 +287,23 @@ const MobileAppDevelopment = () => {
           </div>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground font-medium animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg md:text-xl text-muted-foreground font-medium animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
             We help you
           </p>
 
           {/* Main Heading */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-tight animate-fade-in" style={{ animationDelay: "0.3s" }}>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-tight animate-fade-in" style={{ animationDelay: "0.7s", animationFillMode: "both" }}>
             Design. <span className="text-gradient-primary animate-gradient-shift">Develop.</span> Deploy.
           </h1>
 
-          {/* Description */}
-          <p className="text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            We're a modern app-building company that creates apps your customers love and that evolve with your business.
+          {/* Description — sharper copy */}
+          <p className="text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in" style={{ animationDelay: "0.8s", animationFillMode: "both" }}>
+            From idea to App Store in weeks — we build high-performance Flutter apps
+            with on-device AI that your customers love and that scale with your business.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: "0.5s" }}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: "0.9s", animationFillMode: "both" }}>
             <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 hover:scale-105">
                 Contact Us
