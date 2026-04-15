@@ -353,9 +353,9 @@ const MobileAppDevelopment = () => {
             </p>
           </div>
 
-          <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-700 delay-200 ${isVisible("capabilities") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilities.map((cap, i) => (
-              <Card key={i} className="group bg-card border-border/50 hover-glow overflow-hidden">
+              <Card key={i} className="group bg-gradient-card hover-glow overflow-hidden border border-border/10">
                 <CardContent className="p-6 space-y-4">
                   <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                     {cap.icon}
