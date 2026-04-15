@@ -9,6 +9,7 @@ import PriceUpCaseStudy from "./pages/PriceUpCaseStudy";
 import AfterHireCaseStudy from "./pages/AfterHireCaseStudy";
 import PipaCaseStudy from "./pages/PipaCaseStudy";
 import AICustomerServices from "./pages/AICustomerServices";
+import MobileAppDevelopment from "./pages/MobileAppDevelopment";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
