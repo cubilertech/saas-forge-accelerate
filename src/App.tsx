@@ -9,6 +9,7 @@ import PriceUpCaseStudy from "./pages/PriceUpCaseStudy";
 import AfterHireCaseStudy from "./pages/AfterHireCaseStudy";
 import PipaCaseStudy from "./pages/PipaCaseStudy";
 import AICustomerServices from "./pages/AICustomerServices";
+import MobileAppDevelopment from "./pages/MobileAppDevelopment";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/case-study/afterhire" element={<AfterHireCaseStudy />} />
           <Route path="/case-study/pipa" element={<PipaCaseStudy />} />
           <Route path="/services/ai-customer-services" element={<AICustomerServices />} />
+          <Route path="/services/mobile-app-development" element={<MobileAppDevelopment />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
