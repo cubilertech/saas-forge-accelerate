@@ -32,6 +32,8 @@ import mobileShowcaseImg from "@/assets/mobile-app-showcase.jpg";
 
 const MobileAppDevelopment = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,6 +49,14 @@ const MobileAppDevelopment = () => {
     const sections = document.querySelectorAll("[data-animate]");
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const isVisible = (id: string) => visibleSections.has(id);
