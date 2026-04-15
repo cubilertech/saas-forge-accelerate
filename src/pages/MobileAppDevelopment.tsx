@@ -27,7 +27,7 @@ import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import mobileShowcaseImg from "@/assets/mobile-app-showcase.jpg";
+import mobileShowcaseImg from "@/assets/mobile-use-case.jpeg";
 
 const MobileAppDevelopment = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
