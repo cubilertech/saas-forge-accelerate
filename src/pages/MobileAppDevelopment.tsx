@@ -386,8 +386,107 @@ const MobileAppDevelopment = () => {
         </div>
       </section>
 
+      {/* Case Studies */}
+      <section data-animate id="case-studies" className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`text-center mb-14 transition-all duration-700 ${isVisible("case-studies") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            <Badge variant="secondary" className="text-primary border-primary/20 bg-accent px-3 py-1 text-xs font-medium mb-4">
+              REAL RESULTS
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Apps We've Shipped
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Real mobile apps built with Flutter and AI — delivering measurable impact for our clients.
+            </p>
+          </div>
+
+          <div className={`grid md:grid-cols-2 gap-8 transition-all duration-700 delay-200 ${isVisible("case-studies") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            {/* Pipa Case Study */}
+            <Card className="group bg-card border-border/50 hover-glow overflow-hidden">
+              <div className="aspect-[16/9] bg-gradient-to-br from-emerald-500/10 to-teal-500/10 flex items-center justify-center relative overflow-hidden">
+                <div className="text-center space-y-2 p-6">
+                  <span className="text-5xl">🌾</span>
+                  <h3 className="text-xl font-bold text-foreground">Pipa</h3>
+                  <p className="text-sm text-muted-foreground">Farm Management Platform</p>
+                </div>
+              </div>
+              <CardContent className="p-6 space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  {["Flutter", "Node.js", "MongoDB", "AWS"].map((tech) => (
+                    <span key={tech} className="text-xs px-2.5 py-1 rounded-full bg-accent text-accent-foreground font-medium">{tech}</span>
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  A comprehensive farm operations app replacing paper-based workflows with digital task management, automated timesheets, and real-time team communication for agricultural teams.
+                </p>
+                <div className="grid grid-cols-3 gap-3 pt-2">
+                  <div className="text-center p-2 rounded-lg bg-accent/50">
+                    <div className="text-lg font-bold text-primary">40%</div>
+                    <div className="text-xs text-muted-foreground">Time Saved</div>
+                  </div>
+                  <div className="text-center p-2 rounded-lg bg-accent/50">
+                    <div className="text-lg font-bold text-primary">Zero</div>
+                    <div className="text-xs text-muted-foreground">Paper Forms</div>
+                  </div>
+                  <div className="text-center p-2 rounded-lg bg-accent/50">
+                    <div className="text-lg font-bold text-primary">Real-time</div>
+                    <div className="text-xs text-muted-foreground">Coordination</div>
+                  </div>
+                </div>
+                <Link to="/case-study/pipa">
+                  <Button variant="ghost" className="w-full mt-2 gap-2 text-primary hover:text-primary hover:bg-accent group-hover:bg-accent transition-colors">
+                    View Full Case Study <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* AfterHire Case Study */}
+            <Card className="group bg-card border-border/50 hover-glow overflow-hidden">
+              <div className="aspect-[16/9] bg-gradient-to-br from-blue-500/10 to-indigo-500/10 flex items-center justify-center relative overflow-hidden">
+                <div className="text-center space-y-2 p-6">
+                  <span className="text-5xl">👥</span>
+                  <h3 className="text-xl font-bold text-foreground">AfterHire</h3>
+                  <p className="text-sm text-muted-foreground">HR & Onboarding Platform</p>
+                </div>
+              </div>
+              <CardContent className="p-6 space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  {["Flutter", "Firebase", "AI/ML", "Cloud Functions"].map((tech) => (
+                    <span key={tech} className="text-xs px-2.5 py-1 rounded-full bg-accent text-accent-foreground font-medium">{tech}</span>
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  An intelligent HR platform streamlining employee onboarding, document management, and team coordination with AI-powered automation and real-time collaboration features.
+                </p>
+                <div className="grid grid-cols-3 gap-3 pt-2">
+                  <div className="text-center p-2 rounded-lg bg-accent/50">
+                    <div className="text-lg font-bold text-primary">3x</div>
+                    <div className="text-xs text-muted-foreground">Faster Onboarding</div>
+                  </div>
+                  <div className="text-center p-2 rounded-lg bg-accent/50">
+                    <div className="text-lg font-bold text-primary">85%</div>
+                    <div className="text-xs text-muted-foreground">Less Manual Work</div>
+                  </div>
+                  <div className="text-center p-2 rounded-lg bg-accent/50">
+                    <div className="text-lg font-bold text-primary">4.9★</div>
+                    <div className="text-xs text-muted-foreground">User Rating</div>
+                  </div>
+                </div>
+                <Link to="/case-study/afterhire">
+                  <Button variant="ghost" className="w-full mt-2 gap-2 text-primary hover:text-primary hover:bg-accent group-hover:bg-accent transition-colors">
+                    View Full Case Study <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
-      <section data-animate id="faq" className="py-20">
+      <section data-animate id="faq" className="py-20 bg-accent/30">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-10 transition-all duration-700 ${isVisible("faq") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <h2 className="text-3xl font-bold text-foreground mb-3">Frequently Asked Questions</h2>
