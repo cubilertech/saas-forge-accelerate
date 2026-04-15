@@ -29,9 +29,6 @@ import { Menu, X } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import mobileHeroImg from "@/assets/mobile-app-hero.jpg";
 import mobileShowcaseImg from "@/assets/mobile-app-showcase.jpg";
-import mockupEcommerce from "@/assets/mockup-ecommerce.png";
-import mockupDashboard from "@/assets/mockup-dashboard.png";
-import mockupFitness from "@/assets/mockup-fitness.png";
 
 const MobileAppDevelopment = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -253,102 +250,89 @@ const MobileAppDevelopment = () => {
         </div>
       </header>
 
-      {/* Hero Section - Inspired sleek layout */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-8 overflow-hidden bg-gradient-hero bg-mesh">
-        {/* Floating Geometric Shapes */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-20 left-[15%] w-72 h-72 bg-gradient-to-br from-primary/8 to-transparent rounded-full blur-3xl animate-float-slow"></div>
-          <div className="absolute bottom-32 right-[10%] w-96 h-96 bg-gradient-to-tl from-primary/5 to-transparent rounded-full blur-3xl animate-float-slow" style={{ animationDelay: "2s" }}></div>
+      {/* Hero Section - Visual & Modern */}
+      <section className="relative min-h-screen flex items-center px-6 pt-32 pb-16 md:pt-24 overflow-hidden bg-gradient-hero bg-mesh">
+        {/* Floating Geometric Shapes - Desktop only */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
+          <div
+            className="absolute top-40 right-[10%] w-24 h-24 rounded-full bg-primary/5 animate-float-slow"
+            style={{ animationDelay: "1s" }}
+          ></div>
+          <div
+            className="absolute top-[60%] right-[20%] w-16 h-16 rounded-full bg-gradient-to-br from-primary/10 to-transparent animate-float-slow"
+            style={{ animationDelay: "3s" }}
+          ></div>
+          <div className="absolute top-32 right-[5%] w-64 h-64 bg-gradient-to-br from-primary/15 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
         </div>
 
-        <div className="relative max-w-5xl mx-auto w-full text-center space-y-8">
-          {/* Service Tags with decorative curvy lines */}
-          <div className="relative flex flex-wrap justify-center gap-4 animate-fade-in pt-4">
-            {/* SVG curvy connectors around chips */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible hidden md:block" viewBox="0 0 600 80" preserveAspectRatio="xMidYMid meet">
-              {/* Curvy line from left swooping down to first chip */}
-              <path d="M 80 10 Q 100 50 140 40" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" opacity="0.35" className="animate-[dash_2s_ease-in-out_forwards]" strokeDasharray="100" strokeDashoffset="100" style={{ animation: "dash 1.5s ease-out 0.5s forwards" }} />
-              <path d="M 140 40 L 138 34 M 140 40 L 134 42" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" opacity="0.35" style={{ animation: "dash 0.5s ease-out 1.8s forwards" }} strokeDasharray="20" strokeDashoffset="20" />
+        {/* Mobile floating shapes */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden lg:hidden">
+          <div className="absolute top-20 left-[10%] w-32 h-32 rounded-full border-2 border-primary/20 animate-float-slow"></div>
+          <div className="absolute top-32 right-[10%] w-64 h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Content */}
+            <div className="space-y-6 text-center lg:text-left animate-fade-in">
+              <Badge variant="secondary" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-effect border border-primary/30 text-primary text-sm font-semibold backdrop-blur-xl">
+                <Smartphone className="h-4 w-4" />
+                Mobile App Development
+              </Badge>
               
-              {/* Curvy line from right swooping down to last chip */}
-              <path d="M 520 10 Q 500 50 460 40" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" opacity="0.35" strokeDasharray="100" strokeDashoffset="100" style={{ animation: "dash 1.5s ease-out 0.7s forwards" }} />
-              <path d="M 460 40 L 462 34 M 460 40 L 466 42" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" opacity="0.35" style={{ animation: "dash 0.5s ease-out 2s forwards" }} strokeDasharray="20" strokeDashoffset="20" />
-            </svg>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] tracking-tight">
+                <span className="block text-gradient-primary animate-gradient-shift drop-shadow-[0_0_30px_rgba(32,186,230,0.3)]">AI-Native Apps,</span>
+                <span className="block mt-2">Built with Flutter</span>
+              </h1>
+              
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+                High-performance iOS & Android apps with integrated AI — from on-device 
+                machine learning to generative AI features. <span className="text-primary font-semibold">One codebase, infinite possibilities.</span>
+              </p>
 
-            {["App Dev", "UI / UX", "Flutter", "AI-Native"].map((tag, i) => (
-              <span
-                key={tag}
-                className="relative px-6 py-2.5 rounded-full border border-border/40 bg-card/60 backdrop-blur-sm text-sm font-medium text-foreground/70 hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all duration-300 cursor-default animate-scale-in"
-                style={{ animationDelay: `${0.3 + i * 0.12}s`, animationFillMode: "both" }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+              {/* Stats Row */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+                {stats.map((stat, i) => (
+                  <div key={i} className="text-center p-3 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 hover-glow">
+                    <div className="flex items-center justify-center text-primary mb-1">{stat.icon}</div>
+                    <div className="text-xl font-bold text-foreground">{stat.value}</div>
+                    <div className="text-xs text-muted-foreground">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
 
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground font-medium animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
-            We help you
-          </p>
-
-          {/* Main Heading */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-tight animate-fade-in" style={{ animationDelay: "0.7s", animationFillMode: "both" }}>
-            Design. <span className="text-gradient-primary animate-gradient-shift">Develop.</span> Deploy.
-          </h1>
-
-          {/* Description — sharper copy */}
-          <p className="text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in" style={{ animationDelay: "0.8s", animationFillMode: "both" }}>
-            From idea to App Store in weeks — we build high-performance Flutter apps
-            with on-device AI that your customers love and that scale with your business.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: "0.9s", animationFillMode: "both" }}>
-            <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 hover:scale-105">
-                Contact Us
-              </Button>
-            </a>
-            <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-border/50 text-foreground px-10 py-6 text-lg font-semibold rounded-xl hover:bg-accent/50 transition-all duration-300">
-                Book Meeting
-              </Button>
-            </a>
-          </div>
-        </div>
-
-        {/* App Mockups Showcase */}
-        <div className="relative max-w-6xl mx-auto w-full mt-16 animate-fade-in" style={{ animationDelay: "0.7s" }}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-end">
-            {/* Left mockup - fitness */}
-            <div className="hidden md:flex justify-center transform hover:-translate-y-2 transition-transform duration-500">
-              <img
-                src={mockupFitness}
-                alt="Fitness tracking mobile app"
-                className="w-full max-w-[260px] drop-shadow-2xl"
-                width={512}
-                height={1024}
-              />
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-2">
+                <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 md:px-10 py-5 md:py-6 text-base md:text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 group relative overflow-hidden">
+                    <span className="relative z-10 flex items-center">
+                      Start Your App <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Button>
+                </a>
+                <a href="#capabilities">
+                  <Button size="lg" variant="outline" className="glass-effect border-primary/30 text-foreground px-8 py-5 md:py-6 text-base md:text-lg font-semibold rounded-xl hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl group">
+                    <span className="flex items-center">
+                      Explore Capabilities
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
+                  </Button>
+                </a>
+              </div>
             </div>
-            {/* Center mockup - ecommerce (larger) */}
-            <div className="flex justify-center transform hover:-translate-y-3 transition-transform duration-500">
-              <img
-                src={mockupEcommerce}
-                alt="E-commerce mobile app"
-                className="w-full max-w-[300px] drop-shadow-2xl scale-110"
-                width={512}
-                height={1024}
-              />
-            </div>
-            {/* Right mockup - dashboard */}
-            <div className="hidden md:flex justify-center transform hover:-translate-y-2 transition-transform duration-500">
-              <img
-                src={mockupDashboard}
-                alt="Team management dashboard app"
-                className="w-full max-w-[260px] drop-shadow-2xl"
-                width={512}
-                height={1024}
-              />
+
+            {/* Right - Hero Image */}
+            <div className="relative flex justify-center lg:justify-end animate-fade-in" style={{ animationDelay: "0.3s" }}>
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl blur-2xl scale-110" />
+                <img 
+                  src={mobileHeroImg} 
+                  alt="AI-powered Flutter mobile app development" 
+                  className="relative rounded-2xl shadow-2xl shadow-primary/10 w-full max-w-md"
+                  width={1024}
+                  height={768}
+                />
+              </div>
             </div>
           </div>
         </div>
