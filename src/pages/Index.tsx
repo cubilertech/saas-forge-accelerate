@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ahmadZaheerAvatar from "@/assets/ahmad-zaheer-avatar.png";
@@ -478,7 +479,8 @@ const Index = () => {
             </Card>
 
             {/* Service 2: AI-Native Mobile Apps */}
-            <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
+            <Link to="/services/mobile-app-development" className="block">
+            <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10 cursor-pointer">
               <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/20 via-background to-background">
                 <div className="absolute inset-0 flex items-center justify-center gap-4 p-6">
                   {/* iOS Device */}
@@ -521,6 +523,7 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
+            </Link>
 
             {/* Service 3: AI Business Automation */}
             <Card className="bg-gradient-card hover-glow group overflow-hidden border border-border/10">
