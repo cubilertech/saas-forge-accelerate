@@ -29,6 +29,10 @@ import { Menu, X } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import mobileHeroImg from "@/assets/mobile-app-hero.jpg";
 import mobileShowcaseImg from "@/assets/mobile-app-showcase.jpg";
+import showcaseMobileApp from "@/assets/showcase-mobile-app.jpg";
+import showcaseDashboard1 from "@/assets/showcase-dashboard-1.jpg";
+import showcaseDashboard2 from "@/assets/showcase-dashboard-2.jpg";
+import showcaseStatsWidget from "@/assets/showcase-stats-widget.jpg";
 
 const MobileAppDevelopment = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
