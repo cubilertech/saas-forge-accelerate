@@ -164,57 +164,136 @@ const MobileAppDevelopment = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 glass-effect">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold text-foreground tracking-tight">
-            SaaSForge<span className="text-primary">.</span>
-          </Link>
-          <div className="flex items-center gap-3">
-            <Link to="/">
-              <Button variant="ghost" size="sm" className="text-muted-foreground">
-                Home
-              </Button>
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* Animated background elements - matching home page */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-primary/5 to-transparent rounded-full blur-3xl animate-float"></div>
+        <div
+          className="absolute top-1/2 right-20 w-96 h-96 bg-gradient-to-l from-primary/3 to-transparent rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-t from-primary/3 to-transparent rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "4s" }}
+        ></div>
+      </div>
+
+      {/* Header - matching home page scroll-to-pill style */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "py-3" : "py-6"}`}>
+        <div
+          className={`max-w-6xl mx-auto px-6 transition-all duration-300 ${
+            isScrolled ? "bg-background/60 backdrop-blur-md border border-border/30 rounded-full py-2" : ""
+          }`}
+        >
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center space-x-3">
+              <img
+                src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png"
+                alt="Cubiler Technologies"
+                className="h-10 w-auto"
+              />
             </Link>
-            <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
-              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5">
-                Book a Call
-              </Button>
-            </a>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Home
+              </Link>
+              <a href="#capabilities" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Capabilities
+              </a>
+              <a href="#case-studies" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Case Studies
+              </a>
+              <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
+                <Button
+                  className={`bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-medium transition-all duration-300 ${
+                    isScrolled ? "w-10 h-10 p-0" : "px-6 py-2"
+                  }`}
+                >
+                  {isScrolled ? (
+                    <ArrowRight className="h-5 w-5 rotate-45" />
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      CONTACT <ArrowRight className="h-4 w-4 rotate-45" />
+                    </span>
+                  )}
+                </Button>
+              </a>
+            </nav>
+
+            {/* Mobile menu button */}
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 rounded-lg glass-effect">
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <nav className="md:hidden mt-4 pb-4 space-y-4">
+              <Link to="/" onClick={() => setIsMenuOpen(false)} className="block text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Home
+              </Link>
+              <a href="#capabilities" onClick={() => setIsMenuOpen(false)} className="block text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Capabilities
+              </a>
+              <a href="#case-studies" onClick={() => setIsMenuOpen(false)} className="block text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                Case Studies
+              </a>
+              <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium">
+                  Book a Call
+                </Button>
+              </a>
+            </nav>
+          )}
         </div>
       </header>
 
       {/* Hero Section - Visual & Modern */}
-      <section className="pt-24 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
+      <section className="relative min-h-screen flex items-center px-6 pt-32 pb-16 md:pt-24 overflow-hidden bg-gradient-hero bg-mesh">
+        {/* Floating Geometric Shapes - Desktop only */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
+          <div
+            className="absolute top-40 right-[10%] w-24 h-24 rounded-full bg-primary/5 animate-float-slow"
+            style={{ animationDelay: "1s" }}
+          ></div>
+          <div
+            className="absolute top-[60%] right-[20%] w-16 h-16 rounded-full bg-gradient-to-br from-primary/10 to-transparent animate-float-slow"
+            style={{ animationDelay: "3s" }}
+          ></div>
+          <div className="absolute top-32 right-[5%] w-64 h-64 bg-gradient-to-br from-primary/15 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
+        </div>
+
+        {/* Mobile floating shapes */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden lg:hidden">
+          <div className="absolute top-20 left-[10%] w-32 h-32 rounded-full border-2 border-primary/20 animate-float-slow"></div>
+          <div className="absolute top-32 right-[10%] w-64 h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
+        </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
+        <div className="relative max-w-7xl mx-auto w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Content */}
-            <div className="space-y-6">
-              <Badge variant="secondary" className="text-primary border-primary/20 bg-accent px-4 py-1.5 text-sm font-medium">
-                <Smartphone className="h-4 w-4 mr-1.5" />
+            <div className="space-y-6 text-center lg:text-left animate-fade-in">
+              <Badge variant="secondary" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-effect border border-primary/30 text-primary text-sm font-semibold backdrop-blur-xl">
+                <Smartphone className="h-4 w-4" />
                 Mobile App Development
               </Badge>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] tracking-tight">
-                AI-Native Apps,{" "}
-                <span className="text-gradient-primary">Built with Flutter</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] tracking-tight">
+                <span className="block text-gradient-primary animate-gradient-shift drop-shadow-[0_0_30px_rgba(32,186,230,0.3)]">AI-Native Apps,</span>
+                <span className="block mt-2">Built with Flutter</span>
               </h1>
               
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
                 High-performance iOS & Android apps with integrated AI — from on-device 
-                machine learning to generative AI features. One codebase, infinite possibilities.
+                machine learning to generative AI features. <span className="text-primary font-semibold">One codebase, infinite possibilities.</span>
               </p>
 
               {/* Stats Row */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
                 {stats.map((stat, i) => (
-                  <div key={i} className="text-center p-3 rounded-xl bg-card border border-border/50">
+                  <div key={i} className="text-center p-3 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 hover-glow">
                     <div className="flex items-center justify-center text-primary mb-1">{stat.icon}</div>
                     <div className="text-xl font-bold text-foreground">{stat.value}</div>
                     <div className="text-xs text-muted-foreground">{stat.label}</div>
@@ -222,22 +301,28 @@ const MobileAppDevelopment = () => {
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-2">
                 <a href={bookCallUrl} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 gap-2 shadow-lg shadow-primary/20">
-                    Start Your App <ArrowRight className="h-4 w-4" />
+                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 md:px-10 py-5 md:py-6 text-base md:text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 group relative overflow-hidden">
+                    <span className="relative z-10 flex items-center">
+                      Start Your App <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Button>
                 </a>
                 <a href="#capabilities">
-                  <Button size="lg" variant="outline" className="rounded-full px-8 border-border">
-                    Explore Capabilities
+                  <Button size="lg" variant="outline" className="glass-effect border-primary/30 text-foreground px-8 py-5 md:py-6 text-base md:text-lg font-semibold rounded-xl hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl group">
+                    <span className="flex items-center">
+                      Explore Capabilities
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
                   </Button>
                 </a>
               </div>
             </div>
 
             {/* Right - Hero Image */}
-            <div className="relative flex justify-center lg:justify-end">
+            <div className="relative flex justify-center lg:justify-end animate-fade-in" style={{ animationDelay: "0.3s" }}>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl blur-2xl scale-110" />
                 <img 
@@ -254,16 +339,16 @@ const MobileAppDevelopment = () => {
       </section>
 
       {/* Capabilities Section */}
-      <section id="capabilities" data-animate className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-14 transition-all duration-700 ${isVisible("capabilities") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+      <section id="capabilities" data-animate className={`px-6 py-20 relative transition-all duration-1000 ${isVisible("capabilities") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
             <Badge variant="secondary" className="text-primary border-primary/20 bg-accent px-3 py-1 text-xs font-medium mb-4">
               WHAT WE BUILD
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Full-Spectrum Mobile Capabilities
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+              Full-Spectrum Mobile <span className="text-primary">Capabilities</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From cross-platform Flutter development to on-device AI — everything you need to launch a world-class mobile product.
             </p>
           </div>
