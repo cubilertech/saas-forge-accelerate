@@ -364,14 +364,12 @@ const MobileAppDevelopment = () => {
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="flex items-center justify-center">
               <img 
                 src={mobileShowcaseImg} 
                 alt="Mobile app portfolio showcase" 
-                className="rounded-2xl shadow-xl"
+                className="w-full max-w-sm object-contain"
                 loading="lazy"
-                width={1200}
-                height={600}
               />
             </div>
             <div className="space-y-6">
