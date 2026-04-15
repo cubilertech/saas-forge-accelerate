@@ -377,10 +377,10 @@ const MobileAppDevelopment = () => {
       </section>
 
       {/* App Showcase Visual Section */}
-      <section data-animate id="showcase" className="py-20 bg-accent/30 relative overflow-hidden">
+      <section data-animate id="showcase" className={`px-6 py-20 relative overflow-hidden transition-all duration-1000 ${isVisible("showcase") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-700 ${isVisible("showcase") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <img 
                 src={mobileShowcaseImg} 
@@ -395,12 +395,12 @@ const MobileAppDevelopment = () => {
               <Badge variant="secondary" className="text-primary border-primary/20 bg-accent px-3 py-1 text-xs font-medium">
                 USE CASES
               </Badge>
-              <h2 className="text-3xl font-bold text-foreground">
-                Apps for Every Industry
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+                Apps for Every <span className="text-primary">Industry</span>
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {useCases.map((uc, i) => (
-                  <div key={i} className="flex gap-3 p-3 rounded-xl bg-card border border-border/50 hover:border-primary/20 transition-colors">
+                  <div key={i} className="flex gap-3 p-3 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 hover:border-primary/20 hover-glow transition-all">
                     <span className="text-2xl">{uc.icon}</span>
                     <div>
                       <h4 className="text-sm font-semibold text-foreground">{uc.title}</h4>
