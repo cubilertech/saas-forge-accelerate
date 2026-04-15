@@ -23,8 +23,9 @@ import {
   Settings,
   ChevronDown,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import mobileHeroImg from "@/assets/mobile-app-hero.jpg";
 import mobileShowcaseImg from "@/assets/mobile-app-showcase.jpg";
