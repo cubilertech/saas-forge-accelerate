@@ -343,25 +343,24 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center px-6 pt-32 pb-16 md:pt-24 overflow-hidden bg-gradient-hero bg-mesh">
-        {/* Floating Geometric Shapes - Desktop only */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
-          <div
-            className="absolute top-40 right-[10%] w-24 h-24 rounded-full bg-primary/5 animate-float-slow"
-            style={{ animationDelay: "1s" }}
-          ></div>
-          <div
-            className="absolute top-[60%] right-[20%] w-16 h-16 rounded-full bg-gradient-to-br from-primary/10 to-transparent animate-float-slow"
-            style={{ animationDelay: "3s" }}
-          ></div>
+        {/* Animated background shapes - matching mobile dev page */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Large orbiting rings */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-primary/10 animate-[spin_40s_linear_infinite]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-primary/5 animate-[spin_60s_linear_infinite_reverse]"></div>
 
-          {/* Gradient Orbs */}
-          <div className="absolute top-32 right-[5%] w-64 h-64 bg-gradient-to-br from-primary/15 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
-        </div>
+          {/* Floating gradient blobs */}
+          <div className="absolute top-[15%] left-[15%] w-40 h-40 rounded-full bg-primary/8 blur-3xl animate-float-slow"></div>
+          <div className="absolute top-[60%] right-[10%] w-56 h-56 rounded-full bg-primary/6 blur-3xl animate-float-slow" style={{ animationDelay: "2s" }}></div>
+          <div className="absolute bottom-[15%] left-[30%] w-48 h-48 rounded-full bg-primary/5 blur-3xl animate-float-slow" style={{ animationDelay: "4s" }}></div>
 
-        {/* Mobile floating shapes */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden lg:hidden">
-          <div className="absolute top-20 left-[10%] w-32 h-32 rounded-full border-2 border-primary/20 animate-float-slow"></div>
-          <div className="absolute top-32 right-[10%] w-64 h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
+          {/* Glowing orbs */}
+          <div className="absolute top-[25%] right-[20%] w-3 h-3 rounded-full bg-primary/40 animate-pulse-glow"></div>
+          <div className="absolute top-[70%] left-[20%] w-2 h-2 rounded-full bg-primary/30 animate-pulse-glow" style={{ animationDelay: "1.5s" }}></div>
+          <div className="absolute top-[40%] left-[8%] w-4 h-4 rounded-full bg-primary/20 animate-pulse-glow" style={{ animationDelay: "3s" }}></div>
+
+          {/* Radial gradient center glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl animate-pulse-glow"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto w-full">
