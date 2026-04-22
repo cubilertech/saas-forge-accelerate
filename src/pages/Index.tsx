@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import ProjectsMarquee from "@/components/ProjectsMarquee";
-import VerticalPortfolioSlider from "@/components/VerticalPortfolioSlider";
+
 
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
