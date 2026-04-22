@@ -850,41 +850,45 @@ const Index = () => {
         data-animate
         className={`px-6 py-20 transition-all duration-1000 ${isVisible("contact") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-card card-blur rounded-2xl p-10 lg:p-12 border border-border/10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Turn Your Vision into a <span className="text-primary">High-Growth SaaS Business?</span>
-            </h2>
-            <p className="hidden md:block text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Let's have a conversation. We offer a free, no-obligation 30-minute strategy session where we can dive
-              into your project, offer some initial technical insights, and see if we're the right partner to help you
-              succeed.
-            </p>
-            <Button
-              onClick={() => window.open(strategyCallUrl, "_blank")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group"
-            >
-              Free Strategy Session
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <p className="mt-2 md:mt-4 text-sm text-muted-foreground">
-              No high-pressure sales tactics. Just a genuine conversation about building great software.
-            </p>
+        <div className="max-w-4xl mx-auto">
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-primary/80 p-12 text-center">
+            <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+            <div className="relative space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground">
+                Ready to Turn Your Vision into a High-Growth SaaS Business?
+              </h2>
+              <p className="text-primary-foreground/80 max-w-lg mx-auto">
+                Book a free 30-minute strategy call and let's map out your project — from concept to launch.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a href={strategyCallUrl} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-xl px-8 gap-2 font-bold transition-all duration-300 hover:shadow-2xl hover:scale-105">
+                    Book Strategy Call <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </a>
+                <a href="#projects">
+                  <Button size="lg" variant="outline" className="rounded-xl px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                    View Portfolio
+                  </Button>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer className="px-6 py-12 border-t border-border/20">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-3 mb-3">
+      {/* Footer */}
+      <footer className="py-8 border-t border-border/30">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <Link to="/" className="flex items-center">
             <img
               src="/lovable-uploads/b2c5f819-1256-4a43-892f-c6b656d73bf5.png"
               alt="Cubiler Technologies"
               className="h-8 w-auto"
             />
-          </div>
-          <p className="text-muted-foreground text-sm">
-            © 2024 Cubiler Technologies. Ready to build something amazing together.
+          </Link>
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Cubiler Technologies. All rights reserved.
           </p>
         </div>
       </footer>
