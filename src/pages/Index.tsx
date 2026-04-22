@@ -383,13 +383,13 @@ const Index = () => {
               </h1>
 
               {/* Enhanced Description */}
-              <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-muted-foreground/90 mb-8 md:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+              <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-muted-foreground/90 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
                 We help founders <span className="text-primary font-semibold">Build, Validate, and Scale</span>{" "}
                 Production-Grade AI Products and Automation, Faster
               </p>
 
               {/* Enhanced Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   onClick={() => window.open(strategyCallUrl, "_blank")}
                   className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8 md:px-10 py-5 md:py-6 text-base md:text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 group relative overflow-hidden"
