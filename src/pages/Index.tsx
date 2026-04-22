@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import ProjectsMarquee from "@/components/ProjectsMarquee";
-import VerticalPortfolioSlider from "@/components/VerticalPortfolioSlider";
+
 
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -365,15 +365,9 @@ const Index = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto w-full">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-            
-            {/* Left: Vertical Portfolio Slider - Desktop Only */}
-            <div className="hidden lg:block w-[340px] xl:w-[400px] h-[calc(100vh-180px)] flex-shrink-0">
-              <VerticalPortfolioSlider />
-            </div>
-
-            {/* Right: Hero Content */}
-            <div className="flex-1 text-center lg:text-left animate-fade-in">
+          <div className="flex flex-col items-center gap-8">
+            {/* Hero Content - Centered */}
+            <div className="flex-1 text-center animate-fade-in max-w-4xl mx-auto">
               {/* Enhanced Badge with Sparkle */}
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-effect border border-primary/30 mb-6 md:mb-8 animate-float backdrop-blur-xl">
                 <Zap className="w-4 h-4 text-primary animate-sparkle" />
@@ -389,13 +383,13 @@ const Index = () => {
               </h1>
 
               {/* Enhanced Description */}
-              <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-muted-foreground/90 mb-8 md:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+              <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-muted-foreground/90 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
                 We help founders <span className="text-primary font-semibold">Build, Validate, and Scale</span>{" "}
                 Production-Grade AI Products and Automation, Faster
               </p>
 
               {/* Enhanced Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   onClick={() => window.open(strategyCallUrl, "_blank")}
                   className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8 md:px-10 py-5 md:py-6 text-base md:text-lg font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 group relative overflow-hidden"
