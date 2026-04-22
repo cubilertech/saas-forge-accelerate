@@ -365,15 +365,9 @@ const Index = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto w-full">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-            
-            {/* Left: Vertical Portfolio Slider - Desktop Only */}
-            <div className="hidden lg:block w-[340px] xl:w-[400px] h-[calc(100vh-180px)] flex-shrink-0">
-              <VerticalPortfolioSlider />
-            </div>
-
-            {/* Right: Hero Content */}
-            <div className="flex-1 text-center lg:text-left animate-fade-in">
+          <div className="flex flex-col items-center gap-8">
+            {/* Hero Content - Centered */}
+            <div className="flex-1 text-center animate-fade-in max-w-4xl mx-auto">
               {/* Enhanced Badge with Sparkle */}
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-effect border border-primary/30 mb-6 md:mb-8 animate-float backdrop-blur-xl">
                 <Zap className="w-4 h-4 text-primary animate-sparkle" />
